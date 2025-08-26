@@ -7,9 +7,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "audit:json": "npm audit --audit-level=moderate --json > reports/audit.postfix.json",
+    "build:prod": "next build",
+    "build:turbopack": "next build --turbopack"
   },
   "browserslist": "defaults, not ie <= 11",
+  "engines": {
+    "node": ">=24.1.0"
+  },
   "dependencies": {
     "@leafac/rehype-shiki": "^2.2.1",
     "@mdx-js/loader": "^3.1.0",
