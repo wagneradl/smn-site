@@ -113,9 +113,9 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="sm:bg-neutral-950">
+    <div className="mt-px sm:bg-neutral-950">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 divide-y divide-neutral-800/15 sm:divide-x md:[&>*]:-mt-px">{children}</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
     </div>
   )
@@ -132,7 +132,7 @@ function NavigationItem({
     <Link
       href={href}
       data-nav-link
-      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
     >
       {children}
       <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
@@ -152,20 +152,17 @@ function Navigation() {
         <NavigationItem href="/careers">Carreiras</NavigationItem>
       </NavigationRow>
       <NavigationRow>
+        <NavigationItem href="/blog">Blog</NavigationItem>
         <Link
-          href="/blog"
+          href={process.env.NEXT_PUBLIC_GCPRO_URL ?? 'https://gcpro.smn.example'}
+          target="_blank"
+          rel="noopener noreferrer"
+          prefetch={false}
           data-nav-link
-          className="
-            md:col-span-2
-            group relative isolate -mx-6 bg-neutral-950 px-6 py-10 sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:pl-16
-            transition-colors
-            hover:bg-[var(--color-accent-500)]/90
-            focus-visible:outline-none
-            focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]
-            focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950
-          "
+          className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+          aria-label="GCPro (abre em nova aba)"
         >
-          <span className="font-display text-5xl font-medium text-white">Blog</span>
+          <span className="font-display text-5xl font-medium text-white">GCPro</span>
           <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
         </Link>
       </NavigationRow>
