@@ -33,7 +33,11 @@ export function Button({
   }
 
   return (
-    <Link className={className} {...props}>
+    <Link
+      data-button
+      className={clsx(className, 'no-underline')}
+      {...props}
+    >
       {inner}
     </Link>
   )

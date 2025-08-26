@@ -13,7 +13,7 @@
   /* Links neutros; accent apenas no hover */
   a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
     text-decoration-thickness: from-font;
     text-underline-offset: 3px;
   }
@@ -36,5 +36,28 @@
     max-width: 100%;
     height: auto;
     display: block;
+  }
+
+  /* SMN: não aplicar estilos de link aos botões (ancoras button-like) */
+  a[data-button] {
+    text-decoration: none;
+    /* herda a cor definida pelo componente (ex.: text-white) */
+    color: inherit;
+  }
+
+  a[data-button]:hover {
+    text-decoration: none;
+    color: inherit; /* impede que a regra global de a:hover mude a cor do texto do botão */
+  }
+
+  /* SMN: links do menu principal não mudam cor no hover */
+  a[data-nav-link] {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a[data-nav-link]:hover {
+    text-decoration: none;
+    color: inherit; /* mantém a cor original do menu no hover */
   }
 }
