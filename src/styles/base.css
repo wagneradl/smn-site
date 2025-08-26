@@ -10,15 +10,16 @@
 
 /* Camada base: links e focus rings */
 @layer base {
-  /* Links neutros; accent apenas no hover */
-  a {
-    color: inherit;
+  /* Links padrão do site (NÃO-CTA) */
+  a:not([data-button]) {
+    color: var(--color-neutral-950);
     text-decoration: none;
+    text-underline-offset: 2px;
     text-decoration-thickness: from-font;
-    text-underline-offset: 3px;
   }
-  a:hover {
+  a:not([data-button]):hover {
     color: var(--color-accent-600);
+    text-decoration: none; /* sem underline no hover */
   }
   a:focus-visible {
     outline: 2px solid var(--color-accent-500);
@@ -38,16 +39,10 @@
     display: block;
   }
 
-  /* SMN: não aplicar estilos de link aos botões (ancoras button-like) */
-  a[data-button] {
-    text-decoration: none;
-    /* herda a cor definida pelo componente (ex.: text-white) */
-    color: inherit;
-  }
-
-  a[data-button]:hover {
-    text-decoration: none;
-    color: inherit; /* impede que a regra global de a:hover mude a cor do texto do botão */
+  /* Botões (CTA via Link ou <button>) NUNCA sublinham */
+  a[data-button],
+  [role='button'][data-button] {
+    text-decoration: none !important;
   }
 
   /* SMN: links do menu principal não mudam cor no hover */
@@ -60,4 +55,8 @@
     text-decoration: none;
     color: inherit; /* mantém a cor original do menu no hover */
   }
+
+  /* Utilitário para conteúdos que devem sublinhar */
+  .link-underline a { text-decoration: underline; }
+  .link-underline a:hover { text-decoration: underline; }
 }

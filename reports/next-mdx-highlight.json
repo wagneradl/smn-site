@@ -1,0 +1,13 @@
+{
+  "leafac_present": false,
+  "shikijs_present": true,
+  "createHighlighter": true,
+  "createCssVariablesTheme": true,
+  "css_variables_theme_named": true,
+  "rehype_order_detected": [
+    "next-mdx",
+    "@shikijs/rehype",
+    "rehype-unwrap-images",
+    "remark-rehype-wrap"
+  ]
+}

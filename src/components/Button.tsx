@@ -15,6 +15,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   className = clsx(
+    'no-underline',
     className,
     'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition',
     invert
@@ -26,18 +27,14 @@ export function Button({
 
   if (typeof props.href === 'undefined') {
     return (
-      <button className={className} {...props}>
+      <button data-button className={className} {...props}>
         {inner}
       </button>
     )
   }
 
   return (
-    <Link
-      data-button
-      className={clsx(className, 'no-underline')}
-      {...props}
-    >
+    <Link data-button className={className} {...props}>
       {inner}
     </Link>
   )

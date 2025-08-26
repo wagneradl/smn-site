@@ -1,0 +1,126 @@
+{
+  "timestamp": "2025-08-26T17:38:31.247Z",
+  "env": {
+    "node": "v24.1.0"
+  },
+  "pkg": {
+    "name": "smn-site",
+    "version": "1.0.0",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "typecheck": "tsc --noEmit",
+      "audit:json": "npm audit --audit-level=moderate --json > reports/audit.postfix.json",
+      "build:prod": "next build",
+      "build:turbopack": "next build --turbopack"
+    },
+    "engines": {
+      "node": ">=24.1.0"
+    },
+    "declared": {
+      "dependencies": {
+        "@mdx-js/loader": "^3.1.0",
+        "@mdx-js/react": "^3.1.0",
+        "@next/mdx": "^15",
+        "@shikijs/rehype": "3.11.0",
+        "@tailwindcss/postcss": "^4.1.11",
+        "@types/mdx": "^2.0.13",
+        "acorn": "^8.15.0",
+        "acorn-jsx": "^5.3.2",
+        "clsx": "^2.1.1",
+        "escape-string-regexp": "^5.0.0",
+        "framer-motion": "^12.23.11",
+        "next": "^15",
+        "react": "^19",
+        "react-dom": "^19",
+        "recma-import-images": "0.0.3",
+        "rehype-unwrap-images": "^1.0.0",
+        "remark-gfm": "^4.0.1",
+        "remark-rehype-wrap": "0.0.5",
+        "shiki": "3.11.0",
+        "tailwindcss": "^4.1.11",
+        "typescript": "^5.8.3",
+        "unified-conditional": "0.0.2"
+      },
+      "devDependencies": {
+        "@types/node": "^24.1.0",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9.32.0",
+        "eslint-config-next": "^15",
+        "fast-glob": "^3.3.3",
+        "prettier": "^3.6.2",
+        "prettier-plugin-tailwindcss": "^0.6.14",
+        "sharp": "0.34.3"
+      }
+    }
+  },
+  "mdx": {
+    "leafac_present": false,
+    "shikijs_present": true,
+    "createHighlighter": true,
+    "createCssVariablesTheme": true,
+    "css_variables_theme_named": true,
+    "rehype_order_detected": [
+      "next-mdx",
+      "@shikijs/rehype",
+      "rehype-unwrap-images",
+      "remark-rehype-wrap"
+    ]
+  },
+  "tw": {
+    "v4_detected": true,
+    "imports_top_ok": true,
+    "theme_block_present": true,
+    "base_links_block": true,
+    "base_hover_accent": true,
+    "data_button_guard": true
+  },
+  "css": {
+    "issues": [
+      {
+        "file": "src/styles/base.css",
+        "msg": "non-ascii-characters"
+      },
+      {
+        "file": "src/styles/tailwind.css",
+        "msg": "non-ascii-characters"
+      },
+      {
+        "file": "src/styles/typography.css",
+        "msg": "non-ascii-characters"
+      }
+    ]
+  },
+  "grid": {
+    "svg_guard_present": true
+  },
+  "audit": {
+    "auditReportVersion": 2,
+    "vulnerabilities": {},
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 221,
+        "dev": 313,
+        "optional": 76,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 568
+      }
+    }
+  },
+  "build": {
+    "missingOpeningBraceCount": 0,
+    "sample": []
+  }
+}
