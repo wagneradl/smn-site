@@ -11,13 +11,13 @@
 /* Camada base: links e focus rings */
 @layer base {
   /* Links padrão do site (NÃO-CTA) */
-  a:not([data-button]) {
+  a:not([data-button]):not([data-social]):not([data-nav-link]) {
     color: var(--color-neutral-950);
     text-decoration: none;
     text-underline-offset: 2px;
     text-decoration-thickness: from-font;
   }
-  a:not([data-button]):hover {
+  a:not([data-button]):not([data-social]):not([data-nav-link]):hover {
     color: var(--color-accent-600);
     text-decoration: none; /* sem underline no hover */
   }
