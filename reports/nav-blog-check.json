@@ -20,13 +20,21 @@
     },
     "accessibility": {
       "aria-label": "Ir para Blog",
+      "aria-current": "page when active",
       "tab-order": "natural (left to right, top to bottom)",
-      "focus-ring": "preserved from existing pattern"
+      "focus-ring": "focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
+      "reduced-motion": "motion-safe:transition-opacity applied"
     },
     "styling": {
       "hover": "bg-gradient-to-r from-accent-500 to-accent-400 (existing pattern)",
       "borders": "sm:even:border-l sm:even:border-neutral-800 (preserved)",
-      "data-nav-link": "applied (protected from global link styles)"
+      "data-nav-link": "applied (protected from global link styles)",
+      "focus": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] focus-visible:ring-offset-2"
+    },
+    "polish": {
+      "continuous-borders": "preserved with existing border strategy",
+      "no-vertical-divider": "blog spans 2 columns, no internal divider",
+      "responsive": "mobile stacked, desktop col-span-2"
     }
   }
 }

@@ -133,47 +133,53 @@ function NavigationItem({
   href,
   children,
   spanDesktop,
+  pathname,
 }: {
   href: string
   children: React.ReactNode
   spanDesktop?: number
+  pathname: string
 }) {
+  const isActive = pathname === href
+  
   return (
     <Link
       href={href}
       data-nav-link
       aria-label={`Ir para ${children}`}
+      aria-current={isActive ? 'page' : undefined}
       className={clsx(
         "group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] focus-visible:ring-offset-2",
         spanDesktop && "lg:col-span-2"
       )}
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 motion-safe:transition-opacity group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
     </Link>
   )
 }
 
-function Navigation() {
+function Navigation({ pathname }: { pathname: string }) {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
         {NAV_ITEMS.slice(0, 2).map((item) => (
-          <NavigationItem key={item.id} href={item.href} spanDesktop={item.spanDesktop}>
+          <NavigationItem key={item.id} href={item.href} spanDesktop={item.spanDesktop} pathname={pathname}>
             {item.label}
           </NavigationItem>
         ))}
       </NavigationRow>
       <NavigationRow>
         {NAV_ITEMS.slice(2, 4).map((item) => (
-          <NavigationItem key={item.id} href={item.href} spanDesktop={item.spanDesktop}>
+          <NavigationItem key={item.id} href={item.href} spanDesktop={item.spanDesktop} pathname={pathname}>
             {item.label}
           </NavigationItem>
         ))}
       </NavigationRow>
       {NAV_ITEMS.slice(4).map((item) => (
         <NavigationRow key={item.id}>
-          <NavigationItem href={item.href} spanDesktop={item.spanDesktop}>
+          <NavigationItem href={item.href} spanDesktop={item.spanDesktop} pathname={pathname}>
             {item.label}
           </NavigationItem>
         </NavigationRow>
@@ -263,7 +269,7 @@ function RootLayoutInner({ children, pathname }: { children: React.ReactNode; pa
                 }}
               />
             </div>
-            <Navigation />
+            <Navigation pathname={pathname} />
             <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
               <Container>
                 <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
