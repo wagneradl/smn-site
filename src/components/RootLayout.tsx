@@ -113,7 +113,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-px sm:bg-neutral-950">
+    <div className="mt-px sm:bg-neutral-950 overflow-x-clip">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
