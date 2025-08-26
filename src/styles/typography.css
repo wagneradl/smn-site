@@ -14,18 +14,6 @@
   --shiki-token-parameter: var(--color-neutral-800);
   --shiki-token-punctuation: var(--color-neutral-700);
   --shiki-token-link: var(--color-accent-600);
-}
-
-/* Se você tiver modo escuro, ajuste aqui */
-.dark {
-  --shiki-foreground: var(--color-neutral-100);
-  --shiki-token-comment: var(--color-neutral-400);
-  --shiki-token-string: var(--color-accent-400);
-  --shiki-token-keyword: var(--color-primary-400);
-  --shiki-token-function: var(--color-primary-300);
-  --shiki-token-parameter: var(--color-neutral-300);
-  --shiki-token-punctuation: var(--color-neutral-400);
-}
 
   :where(.typography > *) {
     margin-top: --spacing(6);
@@ -194,4 +182,15 @@
   :where(li > :last-child) {
     margin-bottom: 0 !important;
   }
+}
+
+/* Se você tiver modo escuro, ajuste aqui */
+.dark {
+  --shiki-foreground: var(--color-neutral-100);
+  --shiki-token-comment: var(--color-neutral-400);
+  --shiki-token-string: var(--color-accent-400);
+  --shiki-token-keyword: var(--color-primary-400);
+  --shiki-token-function: var(--color-primary-300);
+  --shiki-token-parameter: var(--color-neutral-300);
+  --shiki-token-punctuation: var(--color-neutral-400);
 }
