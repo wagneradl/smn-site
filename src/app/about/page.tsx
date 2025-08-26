@@ -29,27 +29,27 @@ function Culture() {
   return (
     <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
-        eyebrow="Our culture"
-        title="Balance your passion with your passion for life."
+        eyebrow="Nossa cultura"
+        title="Gente, ética e cooperação acima de tudo"
         invert
       >
         <p>
-          We are a group of like-minded people who share the same core values.
+          Investimos pesado em conhecimento, mas acreditamos que o companheirismo vale ainda mais.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
-          <GridListItem title="Loyalty" invert>
-            Our team has been with us since the beginning because none of them
-            are allowed to have LinkedIn profiles.
+          <GridListItem title="Inovação" invert>
+            Busca incessante por soluções criativas e tecnológicas.
           </GridListItem>
-          <GridListItem title="Trust" invert>
-            We don’t care when our team works just as long as they are working
-            every waking second.
+          <GridListItem title="Colaboração" invert>
+            Parcerias estratégicas e trabalho em equipe constante.
           </GridListItem>
-          <GridListItem title="Compassion" invert>
-            You never know what someone is going through at home and we make
-            sure to never find out.
+          <GridListItem title="Educação" invert>
+            Formação holística que alia técnica, ética e liderança.
+          </GridListItem>
+          <GridListItem title="Responsabilidade" invert>
+            Inclusão e impacto social positivo na tecnologia.
           </GridListItem>
         </GridList>
       </Container>
@@ -59,72 +59,22 @@ function Culture() {
 
 const team = [
   {
-    title: 'Leadership',
+    title: 'Liderança',
     people: [
       {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        image: { src: imageLeslieAlexander },
+        name: 'Ricardo Corrales',
+        role: 'Founder & CEO',
+        image: { src: imageLeslieAlexander }, // Substitua pela imagem real se disponível
       },
       {
-        name: 'Michael Foster',
-        role: 'Co-Founder / CTO',
-        image: { src: imageMichaelFoster },
+        name: 'Marcos Mandara',
+        role: 'CTO & Partner',
+        image: { src: imageMichaelFoster }, // Substitua pela imagem real se disponível
       },
       {
-        name: 'Dries Vincent',
-        role: 'Partner & Business Relations',
-        image: { src: imageDriesVincent },
-      },
-    ],
-  },
-  {
-    title: 'Team',
-    people: [
-      {
-        name: 'Chelsea Hagon',
-        role: 'Senior Developer',
-        image: { src: imageChelseaHagon },
-      },
-      {
-        name: 'Emma Dorsey',
-        role: 'Senior Designer',
-        image: { src: imageEmmaDorsey },
-      },
-      {
-        name: 'Leonard Krasner',
-        role: 'VP, User Experience',
-        image: { src: imageLeonardKrasner },
-      },
-      {
-        name: 'Blake Reid',
-        role: 'Junior Copywriter',
-        image: { src: imageBlakeReid },
-      },
-      {
-        name: 'Kathryn Murphy',
-        role: 'VP, Human Resources',
-        image: { src: imageKathrynMurphy },
-      },
-      {
-        name: 'Whitney Francis',
-        role: 'Content Specialist',
-        image: { src: imageWhitneyFrancis },
-      },
-      {
-        name: 'Jeffrey Webb',
-        role: 'Account Coordinator',
-        image: { src: imageJeffreyWebb },
-      },
-      {
-        name: 'Benjamin Russel',
-        role: 'Senior Developer',
-        image: { src: imageBenjaminRussel },
-      },
-      {
-        name: 'Angela Fisher',
-        role: 'Front-end Developer',
-        image: { src: imageAngelaFisher },
+        name: 'Lilian Gomes',
+        role: 'Head de BI',
+        image: { src: imageDriesVincent }, // Substitua pela imagem real se disponível
       },
     ],
   },
@@ -182,7 +132,7 @@ function Team() {
 export const metadata: Metadata = {
   title: 'Sobre Nós – SMN Tecnologia',
   description:
-    'Desde 2008, a SMN desenvolve software sob medida com squads de alta performance e turnover baixíssimo.',
+    'Colocamos clientes e talentos no centro, cultivando cooperação e excelência técnica.',
 }
 
 export default async function About() {
@@ -192,27 +142,22 @@ export default async function About() {
     <RootLayout>
       <PageIntro eyebrow="Sobre nós" title="Nossa força é a colaboração">
         <p>
-          Acreditamos que nossa força está na abordagem colaborativa, que coloca
-          nossos clientes no centro de tudo o que fazemos.
+          Colocamos clientes e talentos no centro, cultivando cooperação e excelência técnica.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            A SMN foi fundada em 2008 com o objetivo de entregar software de qualidade
-            excepcional. Desde o início, nos comprometemos com squads de alta performance,
-            turnover baixíssimo e relacionamentos duradouros com nossos clientes.
+            Fundada por Ricardo Corrales em 2008, a SMN surgiu da Sul Minas Net e evoluiu para uma fábrica de software referência em squads de alta performance.
           </p>
           <p>
-            Na SMN, somos mais que colegas — somos uma equipe unida por valores sólidos.
-            Priorizamos qualidade de vida, crescimento profissional e inovação tecnológica.
-            Nosso ambiente colaborativo permite que cada pessoa contribua com seu melhor.
+            Nosso Programa de Formação prepara jovens talentos em tecnologia desde o primeiro estágio, reforçando cultura, ética e conhecimento compartilhado.
           </p>
         </div>
       </PageIntro>
       <Container className="mt-16">
         <StatList>
-          <StatListItem value="35" label="Underpaid employees" />
-          <StatListItem value="52" label="Placated clients" />
-          <StatListItem value="$25M" label="Invoices billed" />
+          <StatListItem value="200+" label="Profissionais formados" />
+          <StatListItem value="3 ×" label="Prêmio GPTW" />
+          <StatListItem value="17 anos" label="Experiência TI (2008 → 2025)" />
         </StatList>
       </Container>
 
@@ -222,8 +167,8 @@ export default async function About() {
 
       <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
-        title="From the blog"
-        intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting Brand Sprints to UX Design."
+        title="Do nosso blog"
+        intro="Insights sobre software sob medida, cultura de squads e inovação contínua."
         pages={blogArticles}
       />
 

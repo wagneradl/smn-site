@@ -10,14 +10,14 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-dark.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-dark.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-dark.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-dark.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-dark.svg'
-import logoPhobia from '@/images/clients/phobia/logo-dark.svg'
-import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
+import logoMagalu from '@/images/clients/magalu/logo-dark.svg'
+import logoMomentum from '@/images/clients/momentum/logo-dark.svg'
+import logoAutovox from '@/images/clients/autovox/logo-dark.svg'
+import logoTeixeiraFortes from '@/images/clients/teixeira-fortes/logo-dark.svg'
+import logoCea from '@/images/clients/cea/logo-dark.svg'
+import logoLeveAsset from '@/images/clients/leve-asset/logo-dark.svg'
+import logoCasaDoConstrutor from '@/images/clients/casa-do-construtor/logo-dark.svg'
+import logoLiceuFrancano from '@/images/clients/liceu-francano/logo-dark.svg'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -31,7 +31,7 @@ function CaseStudies({
     <Container className="mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Case studies
+          Cases de sucesso
         </h2>
       </FadeIn>
       <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
@@ -74,9 +74,9 @@ function CaseStudies({
                   <div className="mt-8 flex">
                     <Button
                       href={caseStudy.href}
-                      aria-label={`Read case study: ${caseStudy.client}`}
+                      aria-label={`Ver case completo: ${caseStudy.client}`}
                     >
-                      Read case study
+                      Ver case completo
                     </Button>
                   </div>
                   {caseStudy.testimonial && (
@@ -98,14 +98,14 @@ function CaseStudies({
 }
 
 const clients = [
-  ['Phobia', logoPhobia],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  ['Magalu', logoMagalu],
+  ['Momentum', logoMomentum],
+  ['Autovox', logoAutovox],
+  ['Teixeira Fortes', logoTeixeiraFortes],
+  ['CEA', logoCea],
+  ['Leve Asset', logoLeveAsset],
+  ['Casa do Construtor', logoCasaDoConstrutor],
+  ['Liceu Francano', logoLiceuFrancano],
 ]
 
 function Clients() {
@@ -113,7 +113,7 @@ function Clients() {
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          You’re in good company
+          Grandes marcas confiam na SMN
         </h2>
       </FadeIn>
       <FadeInStagger className="mt-10" faster>
@@ -163,7 +163,7 @@ export default async function Work() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Mail Smirk', logo: logoMailSmirk }}
+        client={{ name: 'Magalu', logo: logoMagalu }}
       >
         Procuramos a <em>SMN</em> pela sua reputação em projetos complexos. Eles
         entregaram uma solução excepcional em tempo recorde.

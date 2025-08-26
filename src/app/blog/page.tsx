@@ -15,7 +15,7 @@ import { loadArticles } from '@/lib/mdx'
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Stay up-to-date with the latest industry news as our marketing teams finds new ways to re-purpose old CSS tricks articles.',
+    'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
 }
 
 export default async function Blog() {
@@ -23,10 +23,9 @@ export default async function Blog() {
 
   return (
     <RootLayout>
-      <PageIntro eyebrow="Blog" title="The latest articles and news">
+      <PageIntro eyebrow="Blog" title="Últimos artigos e novidades">
         <p>
-          Stay up-to-date with the latest industry news as our marketing teams
-          finds new ways to re-purpose old CSS tricks articles.
+          Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.
         </p>
       </PageIntro>
 
@@ -70,10 +69,10 @@ export default async function Blog() {
                       </p>
                       <Button
                         href={article.href}
-                        aria-label={`Read more: ${article.title}`}
+                        aria-label={`Leia mais: ${article.title}`}
                         className="mt-8"
                       >
-                        Read more
+                        Leia mais
                       </Button>
                     </div>
                   </div>

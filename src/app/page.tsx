@@ -9,28 +9,27 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
+import logoMagalu from '@/images/clients/magalu/logo-dark.svg'
+import logoMomentum from '@/images/clients/momentum/logo-light.svg'
+import logoAutovox from '@/images/clients/autovox/logo-light.svg'
+import logoTeixeiraFortes from '@/images/clients/teixeira-fortes/logo-light.svg'
+import logoCea from '@/images/clients/cea/logo-light.svg'
+import logoLeveAsset from '@/images/clients/leve-asset/logo-light.svg'
+import logoCasaDoConstrutor from '@/images/clients/casa-do-construtor/logo-light.svg'
+import logoLiceuFrancano from '@/images/clients/liceu-francano/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 
 const clients = [
-  ['Phobia', logoPhobiaLight],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  ['Magalu', logoMagalu],
+  ['Momentum', logoMomentum],
+  ['Autovox', logoAutovox],
+  ['Teixeira Fortes', logoTeixeiraFortes],
+  ['CEA', logoCea],
+  ['Leve Asset', logoLeveAsset],
+  ['Casa do Construtor', logoCasaDoConstrutor],
+  ['Liceu Francano', logoLiceuFrancano],
 ]
 
 function Clients() {
@@ -39,7 +38,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            Empresas que confiam na SMN
+            Confiança em missão crítica.
           </h2>
           <div className="h-px flex-auto bg-primary-600" />
         </FadeIn>
@@ -74,7 +73,7 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Alguns exemplos de como a SMN gera valor real a grandes marcas.
+          Exemplos de como transformamos desafios complexos em resultado tangível para grandes marcas.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -111,6 +110,12 @@ function CaseStudies({
                 <p className="mt-4 text-base text-neutral-600">
                   {caseStudy.description}
                 </p>
+                {/* Exemplos reais para exibição inicial */}
+                {/*
+                Ano: 2024 | Case study | Squad Ágil E-commerce Magalu | Aumento de R$ 200 mil/mês ao evoluir o e-commerce do Magazine Luiza com equipe dedicada e CI/CD automatizado.
+                Ano: 2023 | Case study | ERP Momentum sob medida | Construção completa do ERP da Momentum, projeto iniciado antes mesmo da fundação da SMN e ativo há 20 anos.
+                Ano: 2025 | Case study | Logística inteligente Moura | Sistema que otimiza rotas e reduz 18 % do tempo de entrega para Baterias Moura em João Pessoa. (impacto estimado)
+                */}
               </article>
             </FadeIn>
           ))}
@@ -129,7 +134,7 @@ function Services() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Da concepção ao deploy: sistemas personalizados, BI, GCPro e alocação de times completos.
+          Da descoberta ao deploy: sistemas tailor-made, BI, GCPro e equipes dedicadas que aceleram o go-to-market.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -145,16 +150,16 @@ function Services() {
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
             <ListItem title="Software Sob Medida">
-              Desenvolvimento de sistemas 100% personalizados, focados em qualidade e performance.
+              Arquitetura moderna, performance e escalabilidade para necessidades exclusivas.
             </ListItem>
             <ListItem title="Alocação de Times">
-              Squads dedicados com baixíssimo turnover para acelerar projetos críticos.
+              Squads dedicados, cultura forte e rotatividade mínima para projetos críticos.
             </ListItem>
             <ListItem title="Business Intelligence">
-              Soluções de BI que transformam dados em decisões estratégicas.
+              Dashboards e data-marts que transformam dados brutos em decisões estratégicas.
             </ListItem>
             <ListItem title="GCPro ERP">
-              ERP modular da SMN, pronto para customizações específicas de cada negócio.
+              ERP modular próprio da SMN, pronto para customizações específicas de cada negócio.
             </ListItem>
           </List>
         </div>
@@ -164,9 +169,9 @@ function Services() {
 }
 
 export const metadata: Metadata = {
-  title: 'SMN Tecnologia – Software Sob Medida & Squads',
+  title: 'SMN Tecnologia – Fábrica de Software para Missões Críticas',
   description:
-    'Desde 2008, a SMN entrega sistemas personalizados, squads com turnover baixíssimo e o ERP GCPro.',
+    'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.',
 }
 
 export default async function Home() {
@@ -177,11 +182,10 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Software sob medida e squads de alta performance.
+            Fábrica de software para missões críticas.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Desde 2008, desenvolvemos sistemas personalizados e fornecemos squads 
-            com turnover baixíssimo. Criadores do ERP GCPro, usado por centenas de empresas.
+            Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.
           </p>
         </FadeIn>
       </Container>
@@ -192,10 +196,9 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Magazine Luiza', logo: logoPhobiaDark }}
+        client={{ name: 'Magalu', logo: logoMagalu }}
       >
-        A SMN desenvolveu nosso sistema de gestão de campanhas que processa milhões 
-        de transações diariamente. Entrega no prazo, qualidade excepcional e suporte contínuo.
+        A SMN construiu nosso sistema de campanhas, que processa milhões de transações diárias com zero downtime. Entregam no prazo e mantêm suporte exemplar.
       </Testimonial>
 
       <Services />

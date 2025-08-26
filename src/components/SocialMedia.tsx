@@ -79,7 +79,7 @@ export function SocialMedia({
             aria-label={socialMediaProfile.title}
             className={clsx(
               'transition',
-              invert ? 'hover:text-neutral-200' : 'hover:text-neutral-700',
+              'hover:text-accent-500',
             )}
           >
             <socialMediaProfile.icon className="h-6 w-6 fill-current" />

@@ -1,3 +1,5 @@
+'use client'
+
 import { useId } from 'react'
 import { type Metadata } from 'next'
 import Link from 'next/link'
@@ -101,8 +103,10 @@ function ContactDetails() {
         Nossos escritórios
       </h2>
       <p className="mt-6 text-base text-neutral-600">
-        Prefere conversar pessoalmente? Temos escritórios estrategicamente
-        localizados para atender nossos clientes em todo o Brasil.
+        Base principal em João Pessoa e times remotos em todo o Brasil.
+      </p>
+      <p className="mt-2 text-base text-neutral-600">
+        Rua Professor José Coelho, 501 – Tambauzinho • João Pessoa – PB
       </p>
 
       <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" />
@@ -133,7 +137,7 @@ function ContactDetails() {
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-neutral-950">
-          Follow us
+          Redes sociais
         </h2>
         <SocialMedia className="mt-6" />
       </Border>
@@ -141,10 +145,7 @@ function ContactDetails() {
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Fale Conosco – SMN Tecnologia',
-  description: 'Entre em contato conosco para discutir seu projeto de software sob medida ou contratação de squads.',
-}
+// Metadata moved to layout or separate metadata file
 
 export default function Contact() {
   return (

@@ -27,13 +27,13 @@ export default function SMNDemoPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex space-x-8 py-4">
             <a href="#colors" className="text-primary-600 hover:text-primary-800 font-semibold">
-              Colors
+              Cores
             </a>
             <a href="#typography" className="text-primary-600 hover:text-primary-800 font-semibold">
-              Typography
+              Tipografia
             </a>
             <a href="#components" className="text-primary-600 hover:text-primary-800 font-semibold">
-              Components
+              Componentes
             </a>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function SMNDemoPage() {
         {/* Comparação Antes/Depois */}
         <section className="px-6 py-12 border-t">
           <h2 className="text-3xl font-display font-bold text-primary-900 mb-8 text-center">
-            Comparação: Antes vs Depois
+            Comparativo: Antes e Depois
           </h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -101,7 +101,7 @@ export default function SMNDemoPage() {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-800">Template Original</h3>
               <div className="bg-neutral-950 text-white p-6 rounded-lg">
-                <h4 className="text-lg font-bold mb-2">Neutral Colors</h4>
+                <h4 className="text-lg font-bold mb-2">Cores Neutras</h4>
                 <p className="text-neutral-300">
                   Template usando cores neutras padrão do Tailwind
                 </p>
@@ -115,7 +115,7 @@ export default function SMNDemoPage() {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-primary-800">Com SMN Design System</h3>
               <div className="bg-gradient-to-br from-primary-600 to-accent-500 text-white p-6 rounded-lg">
-                <h4 className="text-lg font-bold mb-2 font-display">SMN Branding</h4>
+                <h4 className="text-lg font-bold mb-2 font-display">Identidade SMN</h4>
                 <p className="opacity-90 font-body">
                   Template customizado com a identidade visual SMN
                 </p>
@@ -131,7 +131,7 @@ export default function SMNDemoPage() {
         <section className="px-6 py-12 bg-gray-50 border-t">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-display font-bold text-primary-900 mb-8 text-center">
-              Como Usar os Tokens SMN
+              Como usar os tokens SMN
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -165,7 +165,7 @@ export default function SMNDemoPage() {
             Sistema de design integrado com Tailwind Studio Pro
           </p>
           <div className="flex justify-center gap-4">
-            <span className="px-3 py-1 bg-primary-700 rounded-full text-sm">39 Variables</span>
+            <span className="px-3 py-1 bg-primary-700 rounded-full text-sm">39 Variáveis</span>
             <span className="px-3 py-1 bg-accent-600 rounded-full text-sm">Tailwind v4</span>
             <span className="px-3 py-1 bg-primary-700 rounded-full text-sm">TypeScript</span>
           </div>

@@ -7,7 +7,7 @@ import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
   {
-    title: 'Projetos',
+    title: 'Cases',
     links: [
       { title: 'Magazine Luiza', href: '/work/magazine-luiza' },
       { title: 'Momentum', href: '/work/momentum' },
@@ -25,9 +25,9 @@ const navigation = [
   {
     title: 'Empresa',
     links: [
-      { title: 'Sobre', href: '/about' },
-      { title: 'Serviços', href: '/process' },
-      { title: 'Blog', href: '/blog' },
+      { title: 'Sobre nós', href: '/about' },
+      { title: 'Soluções', href: '/process' },
+      { title: 'Carreiras', href: '/careers' },
       { title: 'Fale Conosco', href: '/contact' },
     ],
   },
@@ -51,7 +51,7 @@ function Navigation() {
                 <li key={linkIndex} className="mt-4">
                   <Link
                     href={link.href}
-                    className="transition hover:text-primary-600"
+                    className="transition hover:text-accent-500"
                   >
                     {link.title}
                   </Link>
@@ -90,16 +90,16 @@ function NewsletterForm() {
       <div className="relative mt-6">
         <input
           type="email"
-          placeholder="Email address"
+          placeholder="Seu email"
           autoComplete="email"
-          aria-label="Email address"
+          aria-label="Seu email"
           className="block w-full rounded-2xl border border-gray-300 bg-transparent py-4 pr-20 pl-6 text-base/6 text-primary-800 ring-4 ring-transparent transition placeholder:text-gray-500 focus:border-primary-600 focus:ring-primary-600/5 focus:outline-hidden"
         />
         <div className="absolute inset-y-1 right-1 flex justify-end">
           <button
             type="submit"
-            aria-label="Submit"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-primary-600 text-white transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600/30 active:bg-primary-800"
+            aria-label="Enviar"
+            className="flex aspect-square h-full items-center justify-center rounded-xl bg-primary-600 text-white transition hover:bg-accent-500 focus:ring-2 focus:ring-accent-500/30 active:bg-accent-600"
           >
             <ArrowIcon className="w-4" />
           </button>

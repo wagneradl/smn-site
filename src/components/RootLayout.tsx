@@ -81,7 +81,7 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" variant="accent" invert={invert}>
+          <Button href="/contact" invert={invert}>
             Fale Conosco
           </Button>
           <button
@@ -143,18 +143,18 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">Projetos</NavigationItem>
-        <NavigationItem href="/about">Sobre</NavigationItem>
+        <NavigationItem href="/about">Sobre nós</NavigationItem>
+        <NavigationItem href="/process">Soluções</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/process">Serviços</NavigationItem>
-        <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem href="/work">Cases</NavigationItem>
+        <NavigationItem href="/careers">Carreiras</NavigationItem>
       </NavigationRow>
     </nav>
   )
 }
 
-function RootLayoutInner({ children }: { children: React.ReactNode }) {
+function RootLayoutInner({ children, pathname }: { children: React.ReactNode; pathname: string }) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let [isTransitioning, setIsTransitioning] = useState(false)
@@ -179,7 +179,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     return () => {
       window.removeEventListener('click', onClick)
     }
-  }, [])
+  }, [pathname])
 
   return (
     <MotionConfig
@@ -192,7 +192,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           className="absolute top-2 right-0 left-0 z-40 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
-          inert={expanded ? '' : undefined}
+          inert={expanded ? true : undefined}
         >
           <Header
             panelId={panelId}
@@ -241,7 +241,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
+                      Nossos escritórios
                     </h2>
                     <Offices
                       invert
@@ -250,7 +250,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">
                     <h2 className="font-display text-base font-semibold text-white">
-                      Follow us
+                      Redes sociais
                     </h2>
                     <SocialMedia className="mt-6" invert />
                   </div>
@@ -291,7 +291,9 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
+      <RootLayoutInner pathname={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )
 }
+
+

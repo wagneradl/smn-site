@@ -101,6 +101,7 @@ export function GridPattern({
             key={block[2]}
             x={block[0]}
             y={block[1]}
+            className="fill-neutral-950/5 drop-shadow-[0_0_12px_rgba(64,223,128,0.6)]"
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 1, times: [0, 0, 1] }}
             onAnimationComplete={() => {

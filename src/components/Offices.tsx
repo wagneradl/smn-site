@@ -32,17 +32,31 @@ export function Offices({
   return (
     <ul role="list" {...props}>
       <li>
-        <Office name="Copenhagen" invert={invert}>
-          1 Carlsberg Gate
+        <Office name="João Pessoa – PB" invert={invert}>
+          Rua Professor José Coelho, 501
           <br />
-          1260, København, Denmark
+          Tambauzinho, João Pessoa – PB
         </Office>
       </li>
       <li>
-        <Office name="Billund" invert={invert}>
-          24 Lego Allé
+        <Office name="Ingá – PB" invert={invert}>
+          Sítio Hotel Cruzeiro, s/n
           <br />
-          7190, Billund, Denmark
+          Zona Rural, BR-230 – Ingá – PB
+        </Office>
+      </li>
+      <li>
+        <Office name="Franca – SP" invert={invert}>
+          R. dos Pracinhas, 1720
+          <br />
+          Núcleo Agricola Alpha, Franca – SP
+        </Office>
+      </li>
+      <li>
+        <Office name="Passos – MG" invert={invert}>
+          R. Noruega, 274
+          <br />
+          Novo Mundo, Passos – MG
         </Office>
       </li>
     </ul>
