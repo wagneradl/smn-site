@@ -1,0 +1,18 @@
+{
+  "file": "src/components/RootLayout.tsx",
+  "usesBorder": false,
+  "gridClasses": "grid grid-cols-1 sm:grid-cols-2",
+  "itemComponent": "NavigationItem",
+  "structure": {
+    "type": "NavigationRow + NavigationItem",
+    "currentItems": [
+      { "id": "about", "label": "Sobre nós", "href": "/about" },
+      { "id": "process", "label": "Soluções", "href": "/process" },
+      { "id": "work", "label": "Cases", "href": "/work" },
+      { "id": "careers", "label": "Carreiras", "href": "/careers" }
+    ],
+    "layout": "2x2 grid with NavigationRow wrapper",
+    "hoverEffect": "bg-gradient-to-r from-accent-500 to-accent-400",
+    "borderStrategy": "sm:even:border-l sm:even:border-neutral-800"
+  }
+}

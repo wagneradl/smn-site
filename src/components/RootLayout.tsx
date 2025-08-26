@@ -115,24 +115,38 @@ function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
     <div className="even:mt-px sm:bg-neutral-950">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:auto-rows-[minmax(12rem,1fr)]">{children}</div>
       </Container>
     </div>
   )
 }
 
+const NAV_ITEMS: Array<{ id: string; label: string; href: string; spanDesktop?: number }> = [
+  { id: 'about', label: 'Sobre nós', href: '/about' },
+  { id: 'process', label: 'Soluções', href: '/process' },
+  { id: 'work', label: 'Cases', href: '/work' },
+  { id: 'careers', label: 'Carreiras', href: '/careers' },
+  { id: 'blog', label: 'Blog', href: '/blog', spanDesktop: 2 },
+]
+
 function NavigationItem({
   href,
   children,
+  spanDesktop,
 }: {
   href: string
   children: React.ReactNode
+  spanDesktop?: number
 }) {
   return (
     <Link
       href={href}
       data-nav-link
-      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+      aria-label={`Ir para ${children}`}
+      className={clsx(
+        "group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16",
+        spanDesktop && "lg:col-span-2"
+      )}
     >
       {children}
       <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
@@ -144,13 +158,26 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/about">Sobre nós</NavigationItem>
-        <NavigationItem href="/process">Soluções</NavigationItem>
+        {NAV_ITEMS.slice(0, 2).map((item) => (
+          <NavigationItem key={item.id} href={item.href} spanDesktop={item.spanDesktop}>
+            {item.label}
+          </NavigationItem>
+        ))}
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/work">Cases</NavigationItem>
-        <NavigationItem href="/careers">Carreiras</NavigationItem>
+        {NAV_ITEMS.slice(2, 4).map((item) => (
+          <NavigationItem key={item.id} href={item.href} spanDesktop={item.spanDesktop}>
+            {item.label}
+          </NavigationItem>
+        ))}
       </NavigationRow>
+      {NAV_ITEMS.slice(4).map((item) => (
+        <NavigationRow key={item.id}>
+          <NavigationItem href={item.href} spanDesktop={item.spanDesktop}>
+            {item.label}
+          </NavigationItem>
+        </NavigationRow>
+      ))}
     </nav>
   )
 }
