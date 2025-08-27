@@ -109,6 +109,44 @@ const clients = [
 ]
 
 function Clients() {
+  /** Buckets corrigidos por cliente (com base no manifest) */
+  const BUCKET: Record<string, 'wide' | 'standard' | 'emblem'> = {
+    Magalu: 'wide',
+    Momentum: 'wide',
+    Autovox: 'wide',
+    'Leve Asset': 'wide',
+    'Casa do Construtor': 'wide',
+    'Teixeira Fortes': 'standard',
+    'Liceu Francano': 'standard',
+    CEA: 'emblem',
+  }
+
+  /** Ajustes ópticos de escala/posição (valores sutis) */
+  const LOOK: Record<string, { s?: number; dy?: string }> = {
+    Magalu: { s: 0.96 },
+    Momentum: { s: 0.98 },
+    Autovox: { s: 0.98 },
+    'Leve Asset': { s: 1.03 },
+    'Casa do Construtor': { s: 1.03 },
+    'Teixeira Fortes': { s: 1.06 },     // serif delicada precisa 1–2% a mais
+    'Liceu Francano': { s: 1.02 },
+    CEA: { s: 1.22, dy: '-1px' },       // emblema quase quadrado: ampliar e subir 1px
+  }
+
+  function brandClassFor(client: string) {
+    const bucket = BUCKET[client] ?? 'standard'
+    return [
+      'brand',
+      bucket === 'wide' && 'brand--wide',
+      bucket === 'emblem' && 'brand--emblem',
+    ].filter(Boolean).join(' ')
+  }
+
+  function styleFor(client: string): React.CSSProperties {
+    const k = LOOK[client] ?? {}
+    return { ['--s' as any]: k.s ?? 1, ['--dy' as any]: k.dy ?? '0px' }
+  }
+
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <FadeIn>
@@ -118,17 +156,19 @@ function Clients() {
       </FadeIn>
       <FadeInStagger className="mt-10" faster>
         <Border as={FadeIn} />
-        <ul
-          role="list"
-          className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
+        <ul 
+          role="list" 
+          className="brands-grid"
+          data-debug-logos="off" // Toggle para "on" para inspeção visual
         >
           {clients.map(([client, logo]) => (
-            <li key={client} className="group">
-              <FadeIn className="overflow-hidden">
-                <Border className="pt-12 group-nth-[-n+2]:-mt-px sm:group-nth-3:-mt-px lg:group-nth-4:-mt-px">
-                  <Image src={logo} alt={client} unoptimized />
-                </Border>
-              </FadeIn>
+            <li
+              key={client}
+              data-logo-item
+              className={brandClassFor(client)}
+              style={styleFor(client)}
+            >
+              <Image src={logo} alt={client} unoptimized />
             </li>
           ))}
         </ul>

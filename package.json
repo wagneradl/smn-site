@@ -30,6 +30,7 @@
     "escape-string-regexp": "^5.0.0",
     "framer-motion": "^12.23.11",
     "next": "^15",
+    "puppeteer": "^24.17.0",
     "react": "^19",
     "react-dom": "^19",
     "recma-import-images": "0.0.3",

@@ -33,22 +33,66 @@ const clients = [
 ]
 
 function Clients() {
+  /** Buckets corrigidos por cliente (com base no manifest) */
+  const BUCKET: Record<string, 'wide' | 'standard' | 'emblem'> = {
+    Magalu: 'wide',
+    Momentum: 'wide',
+    Autovox: 'wide',
+    'Leve Asset': 'wide',
+    'Casa do Construtor': 'wide',
+    'Teixeira Fortes': 'standard',
+    'Liceu Francano': 'standard',
+    CEA: 'emblem',
+  }
+
+  /** Ajustes ópticos de escala/posição (valores sutis) */
+  const LOOK: Record<string, { s?: number; dy?: string }> = {
+    Magalu: { s: 0.96 },
+    Momentum: { s: 0.98 },
+    Autovox: { s: 0.98 },
+    'Leve Asset': { s: 1.03 },
+    'Casa do Construtor': { s: 1.03 },
+    'Teixeira Fortes': { s: 1.06 },     // serif delicada precisa 1–2% a mais
+    'Liceu Francano': { s: 1.02 },
+    CEA: { s: 1.22, dy: '-1px' },       // emblema quase quadrado: ampliar e subir 1px
+  }
+
+  function brandClassFor(client: string) {
+    const bucket = BUCKET[client] ?? 'standard'
+    return [
+      'brand',
+      bucket === 'wide' && 'brand--wide',
+      bucket === 'emblem' && 'brand--emblem',
+    ].filter(Boolean).join(' ')
+  }
+
+  function styleFor(client: string): React.CSSProperties {
+    const k = LOOK[client] ?? {}
+    return { ['--s' as any]: k.s ?? 1, ['--dy' as any]: k.dy ?? '0px' }
+  }
+
   return (
     <div className="mt-24 rounded-4xl bg-gradient-to-br from-primary-800 to-primary-900 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
-        <FadeIn className="flex items-center gap-x-8">
+        <FadeIn className="brands-header flex items-center gap-6">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
             Confiança em missão crítica.
           </h2>
-          <div className="h-px flex-auto bg-primary-600" />
+          <div className="brands-divider flex-1" />
         </FadeIn>
         <FadeInStagger faster>
-          <ul
-            role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
+          <ul 
+            role="list" 
+            className="brands-grid"
+            data-debug-logos="off" // Toggle para "on" para inspeção visual
           >
             {clients.map(([client, logo]) => (
-              <li key={client}>
+              <li
+                key={client}
+                data-logo-item
+                className={brandClassFor(client)}
+                style={styleFor(client)}
+              >
                 <FadeIn>
                   <Image src={logo} alt={client} unoptimized />
                 </FadeIn>

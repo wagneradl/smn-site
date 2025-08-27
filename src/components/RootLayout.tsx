@@ -124,18 +124,27 @@ function NavigationRow({ children }: { children: React.ReactNode }) {
 function NavigationItem({
   href,
   children,
+  hoverVariant = 'green',
+  ...props
 }: {
   href: string
   children: React.ReactNode
-}) {
+  hoverVariant?: 'green' | 'white'
+} & React.ComponentPropsWithoutRef<typeof Link>) {
+  const hoverClasses = {
+    green: 'bg-gradient-to-r from-accent-500 to-accent-400',
+    white: 'bg-white'
+  }
+
   return (
     <Link
       href={href}
       data-nav-link
       className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+      {...props}
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className={`absolute inset-y-0 -z-10 w-screen ${hoverClasses[hoverVariant]} opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100`} />
     </Link>
   )
 }
@@ -153,18 +162,19 @@ function Navigation() {
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/blog">Blog</NavigationItem>
-        <Link
+        <NavigationItem
           href={process.env.NEXT_PUBLIC_GCPRO_URL ?? 'https://gcpro.smn.example'}
+          hoverVariant="white"
           target="_blank"
           rel="noopener noreferrer"
           prefetch={false}
-          data-nav-link
-          className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+          data-nav-link="gcpro"
           aria-label="GCPro (abre em nova aba)"
         >
-          <span className="font-display text-5xl font-medium text-white">GCPro</span>
-          <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
-        </Link>
+          <span className="gcpro-premium">
+            <span className="gcpro-neon gcpro-neon--tight font-display text-5xl">GCPro</span>
+          </span>
+        </NavigationItem>
       </NavigationRow>
     </nav>
   )
