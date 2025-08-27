@@ -47,7 +47,7 @@ function Clients() {
 
   /** Ajustes ópticos de escala/posição (valores sutis) */
   const tweaks: Record<string, React.CSSProperties> = {
-    'Magalu':              { ['--s' as any]: '0.96' },                  // dx via CSS
+    'Magalu':              { ['--s' as any]: '0.96' },
     'Momentum':            { ['--s' as any]: '1'    },
     'Autovox':             { ['--s' as any]: '1'    },
     'Teixeira Fortes':     { ['--s' as any]: '1.06' },
@@ -66,9 +66,8 @@ function Clients() {
     ].filter(Boolean).join(' ')
   }
 
-  function getSlug(client: string): string {
-    return client.toLowerCase().replaceAll(' ', '-')
-  }
+  const slug = (name: string) =>
+    name.toLowerCase().replaceAll('&', 'and').replace(/\s+/g, '-');
 
   return (
     <div className="mt-24 rounded-4xl bg-gradient-to-br from-primary-800 to-primary-900 py-20 sm:mt-32 sm:py-32 lg:mt-56">
@@ -91,7 +90,7 @@ function Clients() {
                 data-logo-item
                 className={brandClassFor(client)}
                 style={tweaks[client] ?? {}}
-                data-brand={getSlug(client)}
+                data-brand={slug(client)}
               >
                 <FadeIn>
                   <Image src={logo} alt={client} unoptimized />

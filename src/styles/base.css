@@ -224,18 +224,14 @@
     --s: 1;
     --dx: 0px;
     --dy: 0px;
-    transform: scale(var(--s));
+    inline-size: max-content;
   }
 
   /* Logo em si (SVG) — regra padrão */
-  .brand > svg,
-  .brand > img {
-    display: block;                      /* remove baseline gap */
-    max-width: 100%;
-    max-height: 100%;
-    height: var(--logo-h, 2.25rem);      /* 36px base */
+  .brand :is(img, svg) {
+    display: block;                       /* remove baseline gap */
+    height: var(--logo-h, 2.25rem);       /* 36px base */
     width: auto;
-    color: #fff;     /* deixa todas monocromáticas brancas no dark bg */
     transform: translate(var(--dx), var(--dy)) scale(var(--s));
     transform-origin: 50% 60%;
   }
@@ -296,17 +292,16 @@
 
 
 
-  /* Em telas maiores podemos subir sutilmente a altura alvo */
   @media (min-width: 1024px) {
-    .brands-grid { --logo-h: 2.5rem; } /* 40px */
+    .brand :is(img, svg) { height: 2.5rem; } /* 40px desktop */
   }
 
-  /* Correções ópticas por marca (responsivo) */
-  .brands-grid [data-brand="magalu"] { --dx: -2px; }        /* mobile */
+  /* ✅ offsets por marca SEM depender do ancestral */
+  .brand[data-brand="magalu"] { --dx: -2px; }
   @media (min-width: 1024px) {
-    .brands-grid [data-brand="magalu"] { --dx: -3px; }      /* desktop */
+    .brand[data-brand="magalu"] { --dx: -3px; }
   }
-  .brands-grid [data-brand="cea"] { --dy: -2px; }           /* ligeiro lift */
+  .brand[data-brand="cea"] { --dy: -2px; }
 
   /* Debug opcional: linhas de baseline/centro para inspeção */
   .brands-grid[data-debug-logos="on"] {

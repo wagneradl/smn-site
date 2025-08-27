@@ -123,7 +123,7 @@ function Clients() {
 
   /** Ajustes ópticos de escala/posição (valores sutis) */
   const tweaks: Record<string, React.CSSProperties> = {
-    'Magalu':              { ['--s' as any]: '0.96' },                  // dx via CSS
+    'Magalu':              { ['--s' as any]: '0.96' },
     'Momentum':            { ['--s' as any]: '1'    },
     'Autovox':             { ['--s' as any]: '1'    },
     'Teixeira Fortes':     { ['--s' as any]: '1.06' },
@@ -142,9 +142,8 @@ function Clients() {
     ].filter(Boolean).join(' ')
   }
 
-  function getSlug(client: string): string {
-    return client.toLowerCase().replaceAll(' ', '-')
-  }
+  const slug = (name: string) =>
+    name.toLowerCase().replaceAll('&', 'and').replace(/\s+/g, '-');
 
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
@@ -166,7 +165,7 @@ function Clients() {
               data-logo-item
               className={brandClassFor(client)}
               style={tweaks[client] ?? {}}
-              data-brand={getSlug(client)}
+              data-brand={slug(client)}
             >
               <Image src={logo} alt={client} unoptimized />
             </li>
