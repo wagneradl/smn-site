@@ -122,15 +122,15 @@ function Clients() {
   }
 
   /** Ajustes ópticos de escala/posição (valores sutis) */
-  const LOOK: Record<string, { s?: number; dy?: string }> = {
-    Magalu: { s: 0.96 },
-    Momentum: { s: 0.98 },
-    Autovox: { s: 0.98 },
-    'Leve Asset': { s: 1.03 },
-    'Casa do Construtor': { s: 1.03 },
-    'Teixeira Fortes': { s: 1.06 },     // serif delicada precisa 1–2% a mais
-    'Liceu Francano': { s: 1.02 },
-    CEA: { s: 1.22, dy: '-1px' },       // emblema quase quadrado: ampliar e subir 1px
+  const tweaks: Record<string, React.CSSProperties> = {
+    'Magalu':              { ['--s' as any]: '0.96' },                  // dx via CSS
+    'Momentum':            { ['--s' as any]: '1'    },
+    'Autovox':             { ['--s' as any]: '1'    },
+    'Teixeira Fortes':     { ['--s' as any]: '1.06' },
+    'CEA':                 { ['--s' as any]: '1.22', ['--dy' as any]: '-2px' },
+    'Leve Asset':          { ['--s' as any]: '0.98' },
+    'Casa do Construtor':  { ['--s' as any]: '1.00' },
+    'Liceu Francano':      { ['--s' as any]: '1.02' },
   }
 
   function brandClassFor(client: string) {
@@ -142,9 +142,8 @@ function Clients() {
     ].filter(Boolean).join(' ')
   }
 
-  function styleFor(client: string): React.CSSProperties {
-    const k = LOOK[client] ?? {}
-    return { ['--s' as any]: k.s ?? 1, ['--dy' as any]: k.dy ?? '0px' }
+  function getSlug(client: string): string {
+    return client.toLowerCase().replaceAll(' ', '-')
   }
 
   return (
@@ -166,7 +165,8 @@ function Clients() {
               key={client}
               data-logo-item
               className={brandClassFor(client)}
-              style={styleFor(client)}
+              style={tweaks[client] ?? {}}
+              data-brand={getSlug(client)}
             >
               <Image src={logo} alt={client} unoptimized />
             </li>
