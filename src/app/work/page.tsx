@@ -11,6 +11,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
 import { ClientsGrid } from '@/components/ClientsGrid'
+import { CLIENTS_CONFIG } from '@/lib/clients'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -128,7 +129,7 @@ export default async function Work() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Magalu', logo: logoMagalu }}
+        client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
       >
         Procuramos a <em>SMN</em> pela sua reputação em projetos complexos. Eles
         entregaram uma solução excepcional em tempo recorde.
