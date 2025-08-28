@@ -9,66 +9,13 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoMagalu from '@/images/clients/magalu/logo-dark.svg'
-import logoMomentum from '@/images/clients/momentum/logo-light.svg'
-import logoAutovox from '@/images/clients/autovox/logo-light.svg'
-import logoTeixeiraFortes from '@/images/clients/teixeira-fortes/logo-light.svg'
-import logoCea from '@/images/clients/cea/logo-light.svg'
-import logoLeveAsset from '@/images/clients/leve-asset/logo-light.svg'
-import logoCasaDoConstrutor from '@/images/clients/casa-do-construtor/logo-light.svg'
-import logoLiceuFrancano from '@/images/clients/liceu-francano/logo-light.svg'
+import { ClientsGrid } from '@/components/ClientsGrid'
+import { CLIENTS_CONFIG } from '@/lib/clients'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 
-const clients = [
-  ['Magalu', logoMagalu],
-  ['Momentum', logoMomentum],
-  ['Autovox', logoAutovox],
-  ['Teixeira Fortes', logoTeixeiraFortes],
-  ['CEA', logoCea],
-  ['Leve Asset', logoLeveAsset],
-  ['Casa do Construtor', logoCasaDoConstrutor],
-  ['Liceu Francano', logoLiceuFrancano],
-]
-
 function Clients() {
-  /** Buckets corrigidos por cliente (com base no manifest) */
-  const BUCKET: Record<string, 'wide' | 'standard' | 'emblem'> = {
-    Magalu: 'wide',
-    Momentum: 'wide',
-    Autovox: 'wide',
-    'Leve Asset': 'wide',
-    'Casa do Construtor': 'wide',
-    'Teixeira Fortes': 'standard',
-    'Liceu Francano': 'standard',
-    CEA: 'emblem',
-  }
-
-  /** Ajustes ópticos de escala/posição (valores sutis) */
-  const tweaks: Record<string, React.CSSProperties> = {
-    'Magalu':              { ['--s' as any]: '0.96' },
-    'Momentum':            { ['--s' as any]: '1'    },
-    'Autovox':             { ['--s' as any]: '1'    },
-    'Teixeira Fortes':     { ['--s' as any]: '1.06' },
-    'CEA':                 { ['--s' as any]: '1.22', ['--dy' as any]: '-2px' },
-    'Leve Asset':          { ['--s' as any]: '0.98' },
-    'Casa do Construtor':  { ['--s' as any]: '1.00' },
-    'Liceu Francano':      { ['--s' as any]: '1.02' },
-  }
-
-  function brandClassFor(client: string) {
-    const bucket = BUCKET[client] ?? 'standard'
-    return [
-      'brand',
-      bucket === 'wide' && 'brand--wide',
-      bucket === 'emblem' && 'brand--emblem',
-    ].filter(Boolean).join(' ')
-  }
-
-  const slug = (name: string) =>
-    name.toLowerCase().replaceAll('&', 'and').replace(/\s+/g, '-');
-
   return (
     <div className="mt-24 rounded-4xl bg-gradient-to-br from-primary-800 to-primary-900 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
@@ -78,27 +25,7 @@ function Clients() {
           </h2>
           <div className="brands-divider flex-1" />
         </FadeIn>
-        <FadeInStagger faster>
-          <ul 
-            role="list" 
-            className="brands-grid"
-            data-debug-logos="off" // Toggle para "on" para inspeção visual
-          >
-            {clients.map(([client, logo]) => (
-              <li
-                key={client}
-                data-logo-item
-                className={brandClassFor(client)}
-                style={tweaks[client] ?? {}}
-                data-brand={slug(client)}
-              >
-                <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
-                </FadeIn>
-              </li>
-            ))}
-          </ul>
-        </FadeInStagger>
+        <ClientsGrid theme="light" />
       </Container>
     </div>
   )
@@ -239,7 +166,7 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Magalu', logo: logoMagalu }}
+        client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
       >
         A SMN construiu nosso sistema de campanhas, que processa milhões de transações diárias com zero downtime. Entregam no prazo e mantêm suporte exemplar.
       </Testimonial>

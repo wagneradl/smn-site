@@ -10,14 +10,7 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
-import logoMagalu from '@/images/clients/magalu/logo-dark.svg'
-import logoMomentum from '@/images/clients/momentum/logo-dark.svg'
-import logoAutovox from '@/images/clients/autovox/logo-dark.svg'
-import logoTeixeiraFortes from '@/images/clients/teixeira-fortes/logo-dark.svg'
-import logoCea from '@/images/clients/cea/logo-dark.svg'
-import logoLeveAsset from '@/images/clients/leve-asset/logo-dark.svg'
-import logoCasaDoConstrutor from '@/images/clients/casa-do-construtor/logo-dark.svg'
-import logoLiceuFrancano from '@/images/clients/liceu-francano/logo-dark.svg'
+import { ClientsGrid } from '@/components/ClientsGrid'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -97,81 +90,14 @@ function CaseStudies({
   )
 }
 
-const clients = [
-  ['Magalu', logoMagalu],
-  ['Momentum', logoMomentum],
-  ['Autovox', logoAutovox],
-  ['Teixeira Fortes', logoTeixeiraFortes],
-  ['CEA', logoCea],
-  ['Leve Asset', logoLeveAsset],
-  ['Casa do Construtor', logoCasaDoConstrutor],
-  ['Liceu Francano', logoLiceuFrancano],
-]
-
 function Clients() {
-  /** Buckets corrigidos por cliente (com base no manifest) */
-  const BUCKET: Record<string, 'wide' | 'standard' | 'emblem'> = {
-    Magalu: 'wide',
-    Momentum: 'wide',
-    Autovox: 'wide',
-    'Leve Asset': 'wide',
-    'Casa do Construtor': 'wide',
-    'Teixeira Fortes': 'standard',
-    'Liceu Francano': 'standard',
-    CEA: 'emblem',
-  }
-
-  /** Ajustes ópticos de escala/posição (valores sutis) */
-  const tweaks: Record<string, React.CSSProperties> = {
-    'Magalu':              { ['--s' as any]: '0.96' },
-    'Momentum':            { ['--s' as any]: '1'    },
-    'Autovox':             { ['--s' as any]: '1'    },
-    'Teixeira Fortes':     { ['--s' as any]: '1.06' },
-    'CEA':                 { ['--s' as any]: '1.22', ['--dy' as any]: '-2px' },
-    'Leve Asset':          { ['--s' as any]: '0.98' },
-    'Casa do Construtor':  { ['--s' as any]: '1.00' },
-    'Liceu Francano':      { ['--s' as any]: '1.02' },
-  }
-
-  function brandClassFor(client: string) {
-    const bucket = BUCKET[client] ?? 'standard'
-    return [
-      'brand',
-      bucket === 'wide' && 'brand--wide',
-      bucket === 'emblem' && 'brand--emblem',
-    ].filter(Boolean).join(' ')
-  }
-
-  const slug = (name: string) =>
-    name.toLowerCase().replaceAll('&', 'and').replace(/\s+/g, '-');
-
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn>
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Grandes marcas confiam na SMN
-        </h2>
-      </FadeIn>
-      <FadeInStagger className="mt-10" faster>
-        <Border as={FadeIn} />
-        <ul 
-          role="list" 
-          className="brands-grid"
-          data-debug-logos="off" // Toggle para "on" para inspeção visual
-        >
-          {clients.map(([client, logo]) => (
-            <li
-              key={client}
-              data-logo-item
-              className={brandClassFor(client)}
-              style={tweaks[client] ?? {}}
-              data-brand={slug(client)}
-            >
-              <Image src={logo} alt={client} unoptimized />
-            </li>
-          ))}
-        </ul>
-      </FadeInStagger>
+      <ClientsGrid 
+        theme="dark"
+        title="Grandes marcas confiam na SMN"
+        showBorder={true}
+      />
     </Container>
   )
 }
