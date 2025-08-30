@@ -1,4 +1,4 @@
-# DIAGNÓSTICO — smn-site (30/08/2025, 20:44:20)
+# DIAGNÓSTICO — smn-site (30/08/2025, 20:48:44)
 
 ## Ambiente
 - **Node:** v24.1.0
@@ -32,4 +32,5 @@
 - [HIGH] Verificar navegação - deve ter 6 itens
 - [HIGH] Configurar @shikijs/rehype para syntax highlighting
 - [HIGH] Configurar createCssVariablesTheme com name: "css-variables"
+- [HIGH] Garantir ordem remark→rehype no pipeline MDX
 - [MEDIUM] Configurar GCPro como link externo

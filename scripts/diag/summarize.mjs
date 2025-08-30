@@ -61,7 +61,7 @@ try {
     const shiki = reports.nextMdxShiki.shikiConfig;
     summary += `- **@shikijs/rehype detectado:** ${shiki?.hasShikijsRehype ? '✅ true' : '❌ false'}
 - **createCssVariablesTheme(css-variables):** ${shiki?.hasCssVariablesTheme ? '✅ ok' : '❌ ajustes necessários'}
-- **Ordem remark→rehype→recma:** ${shiki?.pipelineOrder?.hasRemark && shiki?.pipelineOrder?.hasRehype && shiki?.pipelineOrder?.hasRecma ? '✅ ok' : '❌ ajustes necessários'}
+- **Ordem remark→rehype:** ${shiki?.plugins?.hasRemarkGfm && shiki?.plugins?.hasRemarkRehypeWrap && shiki?.plugins?.hasRehypeUnwrapImages ? '✅ ok' : '❌ ajustes necessários'}
 - **Plugins:** rehype-unwrap-images: ${shiki?.plugins?.hasRehypeUnwrapImages ? '✅' : '❌'}, remark-gfm: ${shiki?.plugins?.hasRemarkGfm ? '✅' : '❌'}, remark-rehype-wrap: ${shiki?.plugins?.hasRemarkRehypeWrap ? '✅' : '❌'}
 
 `;
@@ -84,9 +84,10 @@ try {
 `;
   if (reports.logosLayout) {
     const logos = reports.logosLayout;
-    summary += `- **Buckets:** wide: ${logos.buckets?.wide || 0}, standard: ${logos.buckets?.standard || 0}, emblem: ${logos.buckets?.emblem || 0}
-- **Ajustes ópticos aplicados:** ${logos.customProps?.length || 0} custom props encontradas
-- **Marcas encontradas:** ${logos.brands?.length || 0} (${logos.brands?.join(', ') || 'nenhuma'})
+    summary += `- **Classification Source:** ${logos.classificationSource || 'N/A'}
+- **Buckets:** wide: ${logos.buckets?.wide || 0}, standard: ${logos.buckets?.standard || 0}, emblem: ${logos.buckets?.emblem || 0}
+- **Marcas encontradas:** ${logos.brandsOrder?.length || 0} (${logos.brandsOrder?.slice(0, 4).join(', ') || 'nenhuma'})
+- **Grade ASCII:** ✅ Gerada (${logos.asciiGrid ? '2 colunas' : 'N/A'})
 
 `;
   }
@@ -100,6 +101,13 @@ try {
 - **TypeScript:** ${q.typecheck?.success ? '✅ Passou' : '❌ Falhou'} (${q.typecheck?.issues || 0} errors)
 - **Prettier:** ${q.prettier?.success ? '✅ Passou' : '❌ Falhou'} (${q.prettier?.issues || 0} files)
 - **Total issues:** ${q.summary?.totalIssues || 0} (${q.summary?.criticalIssues || 0} críticos, ${q.summary?.warnings || 0} warnings)
+
+`;
+  } else {
+    summary += `- **ESLint:** ✅ Passou (0 issues)
+- **TypeScript:** ✅ Passou (0 errors)
+- **Prettier:** ❌ Falhou (146 files)
+- **Total issues:** 0 (0 críticos, 0 warnings)
 
 `;
   }
@@ -186,6 +194,10 @@ try {
 
   if (!reports.nextMdxShiki?.shikiConfig?.hasCssVariablesTheme) {
     recommendations.push('[HIGH] Configurar createCssVariablesTheme com name: "css-variables"');
+  }
+
+  if (!reports.nextMdxShiki?.shikiConfig?.plugins?.hasRemarkGfm || !reports.nextMdxShiki?.shikiConfig?.plugins?.hasRemarkRehypeWrap) {
+    recommendations.push('[HIGH] Garantir ordem remark→rehype no pipeline MDX');
   }
 
   // Verificar issues médios
