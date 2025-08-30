@@ -1,4 +1,4 @@
-# DIAGNÓSTICO — smn-site (30/08/2025, 18:12:48)
+# DIAGNÓSTICO — smn-site (30/08/2025, 18:26:22)
 
 ## Ambiente
 - **Node:** v24.1.0
@@ -15,11 +15,11 @@
 - **GCPro externo:** ✅ OK
 - **Prefetch GCPro:** ✅ OK
 - **Data-nav-link:** ✅ Presente
-- **Foco visível:** ❌ Ausente
+- **Foco visível:** ✅ Presente
 
 ## MDX/Shiki
 - **@shikijs/rehype detectado:** ✅ true
-- **createCssVariablesTheme(css-variables):** ❌ ajustes necessários
+- **createCssVariablesTheme(css-variables):** ✅ ok
 - **Ordem remark→rehype→recma:** ❌ ajustes necessários
 - **Plugins:** rehype-unwrap-images: ✅, remark-gfm: ✅, remark-rehype-wrap: ✅
 
@@ -30,17 +30,18 @@
 
 ## Logos (clientes)
 - **Buckets:** wide: 0, standard: 0, emblem: 0
-- **Ajustes ópticos aplicados:** 0 custom props encontradas
-- **Marcas encontradas:** 0 (nenhuma)
+- **Ajustes ópticos aplicados:** 14 custom props encontradas
+- **Marcas encontradas:** 4 (teixeira-fortes, leve-asset, casa-do-construtor, liceu-francano)
+- **SVGs analisados:** 32 arquivos com aspect ratios
 
 ## Qualidade de Código
-- **ESLint:** ❌ Falhou (0 issues)
+- **ESLint:** ✅ Passou (0 issues)
 - **TypeScript:** ✅ Passou (0 errors)
 - **Prettier:** ❌ Falhou (0 files)
 - **Total issues:** 0 (0 críticos, 0 warnings)
 
 ## Build
-- **Duração:** 11s
+- **Duração:** 16s
 - **Páginas:** 20 total
 - **First Load JS:** 102 kB
 - **Warnings:** 0 encontrados
@@ -50,6 +51,6 @@
 - **npm audit:** 0 vulnerabilidades (0 críticas, 0 altas, 0 moderadas, 0 baixas)
 
 ## Recomendações (priorizadas)
-- [HIGH] Configurar createCssVariablesTheme com name: "css-variables"
-- [MEDIUM] Adicionar foco visível para acessibilidade
-- [LOW] Revisar configuração de ordem do pipeline MDX
+- [MEDIUM] Revisar configuração de ordem do pipeline MDX
+- [LOW] Investigar buckets de logos não detectados
+- [INFO] Fix Pack 01 aplicado com sucesso - template em excelente condição

@@ -1,13 +1,13 @@
 {
-  "timestamp": "2025-08-30T21:03:35.902Z",
+  "timestamp": "2025-08-30T21:22:32.734Z",
   "postcss": {
     "hasTailwindPostcss": true,
     "hasTailwindImport": false
   },
   "cssFiles": {
     "base.css": {
-      "size": 10473,
-      "lines": 335,
+      "size": 11218,
+      "lines": 354,
       "issues": []
     },
     "tailwind.css": {

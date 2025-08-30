@@ -41,7 +41,7 @@ try {
     mdxShiki.shikiConfig.hasCreateHighlighter = configContent.includes('createHighlighter');
     
     // Verificar createCssVariablesTheme
-    const cssVarsMatch = configContent.match(/createCssVariablesTheme\s*\(\s*['"`]css-variables['"`]\s*\)/);
+    const cssVarsMatch = configContent.match(/createCssVariablesTheme\s*\(\s*{[^}]*name:\s*['"]css-variables['"]/s);
     mdxShiki.shikiConfig.hasCssVariablesTheme = !!cssVarsMatch;
     mdxShiki.shikiConfig.themeName = cssVarsMatch ? 'css-variables' : null;
 

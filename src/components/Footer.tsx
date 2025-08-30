@@ -90,9 +90,9 @@ function NewsletterForm() {
       <div className="relative mt-6">
         <input
           type="email"
-          placeholder="Seu email"
+          placeholder="[seu email]"
           autoComplete="email"
-          aria-label="Seu email"
+          aria-label="[seu email]"
           className="block w-full rounded-2xl border border-gray-300 bg-transparent py-4 pr-20 pl-6 text-base/6 text-primary-800 ring-4 ring-transparent transition placeholder:text-gray-500 focus:border-primary-600 focus:ring-primary-600/5 focus:outline-hidden"
         />
         <div className="absolute inset-y-1 right-1 flex justify-end">
@@ -124,7 +124,7 @@ export function Footer() {
             <Logo className="h-8" fillOnHover />
           </Link>
           <p className="text-sm text-neutral-700">
-            © SMN Tecnologia Ltda. {new Date().getFullYear()}
+            SMN Tecnologia Ltda. 2025
           </p>
         </div>
       </FadeIn>

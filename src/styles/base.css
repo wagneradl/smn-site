@@ -71,6 +71,15 @@
     color: inherit; /* mantém a cor original do menu no hover */
   }
 
+  /* Foco visível apenas para navegação por teclado no menu */
+  a[data-nav-link]:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 3px;
+    border-radius: 0.75rem; /* respeita cantos arredondados do tile se existirem */
+  }
+
+  /* Não interferir em CTAs (já protegidos por [data-button]) */
+
   /* Utilitário para conteúdos que devem sublinhar */
   .link-underline a { text-decoration: underline; }
   .link-underline a:hover { text-decoration: underline; }
@@ -224,14 +233,18 @@
     --s: 1;
     --dx: 0px;
     --dy: 0px;
-    inline-size: max-content;
+    transform: scale(var(--s));
   }
 
   /* Logo em si (SVG) — regra padrão */
-  .brand :is(img, svg) {
-    display: block;                       /* remove baseline gap */
-    height: var(--logo-h, 2.25rem);       /* 36px base */
+  .brand > svg,
+  .brand > img {
+    display: block;                      /* remove baseline gap */
+    max-width: 100%;
+    max-height: 100%;
+    height: var(--logo-h, 2.25rem);      /* 36px base */
     width: auto;
+    color: #fff;     /* deixa todas monocromáticas brancas no dark bg */
     transform: translate(var(--dx), var(--dy)) scale(var(--s));
     transform-origin: 50% 60%;
   }
@@ -292,16 +305,17 @@
 
 
 
+  /* Em telas maiores podemos subir sutilmente a altura alvo */
   @media (min-width: 1024px) {
-    .brand :is(img, svg) { height: 2.5rem; } /* 40px desktop */
+    .brands-grid { --logo-h: 2.5rem; } /* 40px */
   }
 
-  /* ✅ offsets por marca SEM depender do ancestral */
-  .brand[data-brand="magalu"] { --dx: -2px; }
+  /* Correções ópticas por marca (responsivo) */
+  .brands-grid [data-brand="magalu"] { --dx: -2px; }        /* mobile */
   @media (min-width: 1024px) {
-    .brand[data-brand="magalu"] { --dx: -3px; }
+    .brands-grid [data-brand="magalu"] { --dx: -3px; }      /* desktop */
   }
-  .brand[data-brand="cea"] { --dy: -2px; }
+  .brands-grid [data-brand="cea"] { --dy: -2px; }           /* ligeiro lift */
 
   /* Debug opcional: linhas de baseline/centro para inspeção */
   .brands-grid[data-debug-logos="on"] {
@@ -326,4 +340,14 @@
     bottom: 0;
     border-top: var(--_dbg); /* linha da divisória inferior */
   }
+
+  /* Tweaks por marca (valores conservadores; ajuste fino depois se quiser) */
+  .brand[data-brand="magalu"] { --dx: -2px; }
+  @media (min-width: 1024px) {
+    .brand[data-brand="magalu"] { --dx: -3px; }
+  }
+  .brand[data-brand="cea"] { --dy: -2px; --s: 1.22; }
+  .brand[data-brand="teixeira-fortes"] { --s: 1.06; }
+  .brand[data-brand="leve-asset"] { --s: 0.98; }
+  .brand[data-brand="liceu-francano"] { --s: 1.02; }
 }

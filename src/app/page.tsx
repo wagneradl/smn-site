@@ -168,7 +168,7 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
       >
-        A SMN construiu nosso sistema de campanhas, que processa milhões de transações diárias com zero downtime. Entregam no prazo e mantêm suporte exemplar.
+        A SMN é responsável por nossos sistemas de trocas, devoluções e cancelamentos, além do módulo de montagens. Front-end e back office entregues com solidez e suporte constante.
       </Testimonial>
 
       <Services />

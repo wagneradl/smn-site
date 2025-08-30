@@ -125,11 +125,11 @@ export function getClientStyle(clientName: string): React.CSSProperties {
   }
   
   if (config.offsetX !== undefined) {
-    style['--dx' as any] = `${config.offsetX}px`
+    (style as any)['--dx'] = `${config.offsetX}px`
   }
   
   if (config.offsetY !== undefined) {
-    style['--dy' as any] = `${config.offsetY}px`
+    (style as any)['--dy'] = `${config.offsetY}px`
   }
   
   return style

@@ -26,10 +26,36 @@ try {
       hasBrandSection: pageContent.includes('brand') || pageContent.includes('client')
     };
 
-    // Extrair itens de marca
-    const brandMatches = pageContent.match(/data-brand="([^"]+)"/g);
+    // Extrair itens de marca - tentar diferentes padrões
+    let brandMatches = pageContent.match(/<li[^>]*class="[^"]*\bbrand\b[^"]*"[^>]*data-brand="([^"]+)"/g);
+    if (!brandMatches) {
+      // Fallback: procurar por data-brand em qualquer elemento
+      brandMatches = pageContent.match(/data-brand="([^"]+)"/g);
+    }
     if (brandMatches) {
-      logosLayout.brands = brandMatches.map(match => match.match(/data-brand="([^"]+)"/)[1]);
+      logosLayout.brands = brandMatches.map(match => {
+        const dataBrandMatch = match.match(/data-brand="([^"]+)"/);
+        return dataBrandMatch ? dataBrandMatch[1] : null;
+      }).filter(Boolean);
+    }
+
+    // Se não encontrou no JSX, tentar extrair do arquivo de configuração
+    if (logosLayout.brands.length === 0) {
+      try {
+        const clientsPath = join(process.cwd(), 'src', 'lib', 'clients.ts');
+        const clientsContent = readFileSync(clientsPath, 'utf8');
+        
+        // Extrair nomes dos clientes do CLIENTS_CONFIG
+        const clientNameMatches = clientsContent.match(/['"`]([A-Za-z\s]+)['"`]:\s*{/g);
+        if (clientNameMatches) {
+          logosLayout.brands = clientNameMatches.map(match => {
+            const nameMatch = match.match(/['"`]([A-Za-z\s]+)['"`]/);
+            return nameMatch ? nameMatch[1].toLowerCase().replace(/\s+/g, '-') : null;
+          }).filter(Boolean);
+        }
+      } catch (e) {
+        // Ignorar erros
+      }
     }
 
     // Verificar buckets
@@ -43,10 +69,23 @@ try {
       });
     }
 
-    // Verificar custom props
-    const customPropsMatches = pageContent.match(/--[a-z]+:\s*[^;]+/g);
-    if (customPropsMatches) {
-      logosLayout.customProps = customPropsMatches.map(prop => prop.trim());
+    // Verificar custom props no CSS
+    try {
+      const stylesDir = join(process.cwd(), 'src', 'styles');
+      const cssFiles = readdirSync(stylesDir).filter(file => file.endsWith('.css'));
+      
+      cssFiles.forEach(file => {
+        const filePath = join(stylesDir, file);
+        const cssContent = readFileSync(filePath, 'utf8');
+        
+        // Procurar por --dx, --dy, --s em CSS
+        const customPropsMatches = cssContent.match(/--[a-z]+:\s*[^;]+/g);
+        if (customPropsMatches) {
+          logosLayout.customProps.push(...customPropsMatches.map(prop => `${file}: ${prop.trim()}`));
+        }
+      });
+    } catch (e) {
+      // Ignorar erros de CSS
     }
 
   } catch (e) {

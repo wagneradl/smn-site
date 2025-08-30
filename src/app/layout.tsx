@@ -5,7 +5,7 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - SMN Tecnologia',
-    default: 'SMN Tecnologia - Software sob medida e squads de alta performance',
+    default: 'SMN Tecnologia - Fábrica de software para missão crítica',
   },
 }
 

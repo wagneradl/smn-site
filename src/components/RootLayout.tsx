@@ -154,7 +154,7 @@ function Navigation() {
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
         <NavigationItem href="/about">Sobre nós</NavigationItem>
-        <NavigationItem href="/process">Soluções</NavigationItem>
+        <NavigationItem href="/solucoes">Soluções</NavigationItem>
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/work">Cases</NavigationItem>

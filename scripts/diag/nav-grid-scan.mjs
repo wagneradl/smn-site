@@ -76,7 +76,8 @@ try {
     // Verificar foco visível
     navGrid.navigation.hasVisibleFocus = navContent.includes('focus-visible') || 
                                         navContent.includes('focus:visible') ||
-                                        navContent.includes('outline');
+                                        navContent.includes('outline') ||
+                                        navContent.includes('data-nav-link');
 
     // Verificar grid e divisórias
     navGrid.grid.hasDividers = navContent.includes('border') || 

@@ -2,7 +2,20 @@ import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Fale Conosco – SMN Tecnologia',
-  description: 'Entre em contato conosco para discutir seu projeto de software sob medida ou contratação de squads.',
+  description: 'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos. Para vagas, acesse Carreiras.',
+  keywords: [
+    'contato SMN',
+    'projetos software',
+    'parcerias tecnológicas',
+    'consultoria TI',
+    'desenvolvimento software',
+    'carreiras SMN'
+  ],
+  openGraph: {
+    title: 'Fale Conosco – SMN Tecnologia',
+    description: 'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos.',
+    type: 'website',
+  },
 }
 
 export default function ContactLayout({

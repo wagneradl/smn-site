@@ -61,20 +61,10 @@ export default async function config() {
     extension: /\.mdx$/,
     options: {
       recmaPlugins: [recmaImportImages],
-      rehypePlugins: [
-        [rehypeShiki, { highlighter }],
-        rehypeUnwrapImages,
-        [
-          remarkRehypeWrap,
-          {
-            node: { type: 'mdxJsxFlowElement', name: 'Typography' },
-            start: ':root > :not(mdxJsxFlowElement)',
-            end: ':root > mdxJsxFlowElement',
-          },
-        ],
-      ],
+      // Ordem garantida: remark → rehype
       remarkPlugins: [
         remarkGfm,
+        remarkRehypeWrap,
         [
           unifiedConditional,
           [
@@ -86,6 +76,10 @@ export default async function config() {
             [[remarkMDXLayout, '@/app/work/wrapper', 'caseStudy']],
           ],
         ],
+      ],
+      rehypePlugins: [
+        [rehypeShiki, { highlighter }],
+        rehypeUnwrapImages,
       ],
     },
   })
