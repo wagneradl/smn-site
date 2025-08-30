@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-08-30T21:03:42.645Z",
+  "duration": 10583,
+  "pages": {
+    "static": 0,
+    "dynamic": 0,
+    "total": 0
+  },
+  "metrics": {
+    "firstLoadJS": null,
+    "totalJS": null
+  },
+  "warnings": [],
+  "errors": [],
+  "hasMissingOpeningBrace": false,
+  "success": true,
+  "output": "\n> smn-site@1.0.0 build\n> next build\n\n   ▲ Next.js 15.5.0\n\n   Creating an optimized production build ...\n ✓ Compiled successfully in 3.0s\n   Skipping linting\n   Checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/20) ...\n   Generating static pages (5/20) \r\n   Generating static pages (10/20) \r\n   Generating static pages (15/20) \r\n ✓ Generating static pages (20/20)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                                 Size  First Load JS\n┌ ○ /                                                      371 B         167 kB\n├ ○ /_not-found                                            132 B         102 kB\n├ ○ /about                                                 371 B         167 kB\n├ ƒ /api/contact                                           132 B         102 kB\n├ ○ /blog                                                  384 B         167 kB\n├ ○ /blog/3-lessons-we-learned-going-back-to-the-office    384 B         167 kB\n├ ○ /blog/a-short-guide-to-component-naming                384 B         167 kB\n├ ○ /blog/future-of-web-development                        384 B         167 kB\n├ ○ /careers                                               850 B         157 kB\n├ ○ /contact                                              2.4 kB         153 kB\n├ ○ /process                                             2.63 kB         159 kB\n├ ○ /smn-demo                                              132 B         102 kB\n├ ○ /solucoes                                            2.33 kB         159 kB\n├ ○ /work                                                  384 B         167 kB\n├ ○ /work/family-fund                                      384 B         167 kB\n├ ○ /work/phobia                                           384 B         167 kB\n└ ○ /work/unseal                                           384 B         167 kB\n+ First Load JS shared by all                             102 kB\n  ├ chunks/255-bf39b77fc7569079.js                       45.7 kB\n  ├ chunks/4bd1b696-c023c6e3521b1417.js                  54.2 kB\n  └ other shared chunks (total)                          1.92 kB\n\n\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand\n\n"
+}

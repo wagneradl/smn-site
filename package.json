@@ -11,7 +11,16 @@
     "typecheck": "tsc --noEmit",
     "audit:json": "npm audit --audit-level=moderate --json > reports/audit.postfix.json",
     "build:prod": "next build",
-    "build:turbopack": "next build --turbopack"
+    "build:turbopack": "next build --turbopack",
+    "diag:env": "node scripts/diag/env-probe.mjs",
+    "diag:audit": "node scripts/diag/deps-audit.mjs",
+    "diag:mdx": "node scripts/diag/next-mdx-shiki-probe.mjs",
+    "diag:tw": "node scripts/diag/tailwind-v4-sanity.mjs",
+    "diag:nav": "node scripts/diag/nav-grid-scan.mjs",
+    "diag:logos": "node scripts/diag/logos-layout-scan.mjs",
+    "diag:quality": "node scripts/diag/eslint-prettier-typecheck.mjs",
+    "diag:build": "node scripts/diag/build-probe.mjs",
+    "diag:all": "npm run diag:env && npm run diag:audit && npm run diag:mdx && npm run diag:tw && npm run diag:nav && npm run diag:logos && npm run diag:quality && npm run diag:build"
   },
   "browserslist": "defaults, not ie <= 11",
   "engines": {
@@ -40,7 +49,8 @@
     "shiki": "3.11.0",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
-    "unified-conditional": "0.0.2"
+    "unified-conditional": "0.0.2",
+    "zod": "^4.1.5"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

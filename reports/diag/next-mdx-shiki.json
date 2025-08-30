@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-08-30T21:03:35.772Z",
+  "nextConfig": {
+    "exists": true,
+    "size": 2723
+  },
+  "shikiConfig": {
+    "hasShikijsRehype": true,
+    "hasCreateHighlighter": true,
+    "hasCssVariablesTheme": false,
+    "themeName": null,
+    "pipelineOrder": {
+      "hasRemark": false,
+      "hasRehype": false,
+      "hasRecma": false,
+      "order": []
+    },
+    "plugins": {
+      "hasRehypeUnwrapImages": true,
+      "hasRemarkGfm": true,
+      "hasRemarkRehypeWrap": true
+    }
+  }
+}
