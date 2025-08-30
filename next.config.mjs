@@ -1,24 +1,18 @@
+import createMDX from '@next/mdx'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
+import remarkGfm from 'remark-gfm'
+import remarkRehypeWrap from 'remark-rehype-wrap'
 import rehypeShiki from '@shikijs/rehype'
-import nextMDX from '@next/mdx'
+import { createHighlighter } from 'shiki'
+import { createCssVariablesTheme } from 'shiki/core'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
 import * as path from 'path'
 import { recmaImportImages } from 'recma-import-images'
-import remarkGfm from 'remark-gfm'
-import { remarkRehypeWrap } from 'remark-rehype-wrap'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
-import { createHighlighter } from 'shiki'
-import { createCssVariablesTheme } from 'shiki/core'
 import { unifiedConditional } from 'unified-conditional'
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-}
 
 function remarkMDXLayout(source, metaName) {
   let parser = Parser.extend(jsx())
@@ -45,44 +39,31 @@ function remarkMDXLayout(source, metaName) {
   }
 }
 
-export default async function config() {
-  const cssVarsTheme = createCssVariablesTheme({
-    name: 'css-variables',        // mantém o mesmo nome
-    variablePrefix: '--shiki-',   // default
-    variableDefaults: {},         // mapearemos no CSS
-    fontStyle: true
-  })
-  const highlighter = await createHighlighter({
-    themes: [cssVarsTheme],
-    langs: ['javascript','typescript','tsx','jsx','bash','json','md']
-  })
+const cssVarsTheme = createCssVariablesTheme({
+  name: 'css-variables',
+  variablePrefix: '--shiki-',
+  fontStyle: true,
+})
 
-  let withMDX = nextMDX({
-    extension: /\.mdx$/,
-    options: {
-      recmaPlugins: [recmaImportImages],
-      // Ordem garantida: remark → rehype
-      remarkPlugins: [
-        remarkGfm,
-        remarkRehypeWrap,
-        [
-          unifiedConditional,
-          [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/blog'))}`),
-            [[remarkMDXLayout, '@/app/blog/wrapper', 'article']],
-          ],
-          [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/work'))}`),
-            [[remarkMDXLayout, '@/app/work/wrapper', 'caseStudy']],
-          ],
-        ],
-      ],
-      rehypePlugins: [
-        [rehypeShiki, { highlighter }],
-        rehypeUnwrapImages,
-      ],
-    },
-  })
+const highlighter = await createHighlighter({
+  themes: [cssVarsTheme],
+  langs: ['javascript','typescript','tsx','jsx','bash','json','md'],
+})
 
-  return withMDX(nextConfig)
+// Plugin MDX com ordem explícita (remark → rehype)
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm, remarkRehypeWrap],
+    rehypePlugins: [[rehypeShiki, { highlighter }], rehypeUnwrapImages],
+  },
+})
+
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 }
+
+export default withMDX(nextConfig)

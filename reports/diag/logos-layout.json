@@ -1,262 +1,32 @@
 {
-  "timestamp": "2025-08-30T21:26:15.018Z",
-  "pageContent": {
-    "exists": true,
-    "size": 7097,
-    "hasBrandSection": true
-  },
-  "brands": [
+  "timestamp": "2025-08-30T23:07:08.896Z",
+  "classificationSource": "computed",
+  "brandsOrder": [
     "teixeira-fortes",
     "leve-asset",
     "casa-do-construtor",
     "liceu-francano"
   ],
-  "buckets": {
-    "wide": 0,
-    "emblem": 0,
-    "standard": 0
+  "computed": {
+    "teixeira-fortes": "standard",
+    "leve-asset": "wide",
+    "casa-do-construtor": "wide",
+    "liceu-francano": "standard"
   },
-  "customProps": [
-    "base.css: --s: 1",
-    "base.css: --dx: 0px",
-    "base.css: --dy: 0px",
-    "base.css: --s: 1.10",
-    "base.css: --s:0.92\" no .brand para encolher levemente aquela marca desproporcional */\n  .brand > svg,\n  .brand > img {\n    transform: scale(var(--s, 1))",
-    "base.css: --dx: -2px",
-    "base.css: --dx: -3px",
-    "base.css: --dy: -2px",
-    "base.css: --dx: -2px",
-    "base.css: --dx: -3px",
-    "base.css: --dy: -2px",
-    "base.css: --s: 1.22",
-    "base.css: --s: 1.06",
-    "base.css: --s: 0.98",
-    "base.css: --s: 1.02"
-  ],
+  "buckets": {
+    "wide": 2,
+    "standard": 2,
+    "emblem": 0
+  },
   "aspectRatios": {
-    "autovox/logo-dark.svg": {
-      "width": 179.3691,
-      "height": 36,
-      "aspectRatio": "4.982",
-      "isWide": true,
-      "isTall": false
-    },
-    "autovox/logo-light.svg": {
-      "width": 179.3691,
-      "height": 36,
-      "aspectRatio": "4.982",
-      "isWide": true,
-      "isTall": false
-    },
-    "autovox/logomark-dark.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "autovox/logomark-light.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "casa-do-construtor/logo-dark.svg": {
-      "width": 125.5628,
-      "height": 36,
-      "aspectRatio": "3.488",
-      "isWide": true,
-      "isTall": false
-    },
-    "casa-do-construtor/logo-light.svg": {
-      "width": 125.5628,
-      "height": 36,
-      "aspectRatio": "3.488",
-      "isWide": true,
-      "isTall": false
-    },
-    "casa-do-construtor/logomark-dark.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "casa-do-construtor/logomark-light.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "cea/logo-dark.svg": {
-      "width": 49.5277,
-      "height": 36,
-      "aspectRatio": "1.376",
-      "isWide": false,
-      "isTall": false
-    },
-    "cea/logo-light.svg": {
-      "width": 49.5277,
-      "height": 36,
-      "aspectRatio": "1.376",
-      "isWide": false,
-      "isTall": false
-    },
-    "cea/logomark-dark.svg": {
-      "width": 49.5277,
-      "height": 36,
-      "aspectRatio": "1.376",
-      "isWide": false,
-      "isTall": false
-    },
-    "cea/logomark-light.svg": {
-      "width": 49.5277,
-      "height": 36,
-      "aspectRatio": "1.376",
-      "isWide": false,
-      "isTall": false
-    },
-    "leve-asset/logo-dark.svg": {
-      "width": 116.3992,
-      "height": 36,
-      "aspectRatio": "3.233",
-      "isWide": true,
-      "isTall": false
-    },
-    "leve-asset/logo-light.svg": {
-      "width": 116.3992,
-      "height": 36,
-      "aspectRatio": "3.233",
-      "isWide": true,
-      "isTall": false
-    },
-    "leve-asset/logomark-dark.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "leve-asset/logomark-light.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "liceu-francano/logo-dark.svg": {
-      "width": 75.954,
-      "height": 36,
-      "aspectRatio": "2.110",
-      "isWide": true,
-      "isTall": false
-    },
-    "liceu-francano/logo-light.svg": {
-      "width": 75.954,
-      "height": 36,
-      "aspectRatio": "2.110",
-      "isWide": true,
-      "isTall": false
-    },
-    "liceu-francano/logomark-dark.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "liceu-francano/logomark-light.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "magalu/logo-dark.svg": {
-      "width": 120,
-      "height": 36,
-      "aspectRatio": "3.333",
-      "isWide": true,
-      "isTall": false
-    },
-    "magalu/logo-light.svg": {
-      "width": 120,
-      "height": 36,
-      "aspectRatio": "3.333",
-      "isWide": true,
-      "isTall": false
-    },
-    "magalu/logomark-dark.svg": {
-      "width": 120,
-      "height": 36,
-      "aspectRatio": "3.333",
-      "isWide": true,
-      "isTall": false
-    },
-    "magalu/logomark-light.svg": {
-      "width": 120,
-      "height": 36,
-      "aspectRatio": "3.333",
-      "isWide": true,
-      "isTall": false
-    },
-    "momentum/logo-dark.svg": {
-      "width": 184,
-      "height": 36,
-      "aspectRatio": "5.111",
-      "isWide": true,
-      "isTall": false
-    },
-    "momentum/logo-light.svg": {
-      "width": 184,
-      "height": 36,
-      "aspectRatio": "5.111",
-      "isWide": true,
-      "isTall": false
-    },
-    "momentum/logomark-dark.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "momentum/logomark-light.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "teixeira-fortes/logo-dark.svg": {
-      "width": 104.3617,
-      "height": 36,
-      "aspectRatio": "2.899",
-      "isWide": true,
-      "isTall": false
-    },
-    "teixeira-fortes/logo-light.svg": {
-      "width": 104.6721,
-      "height": 36,
-      "aspectRatio": "2.908",
-      "isWide": true,
-      "isTall": false
-    },
-    "teixeira-fortes/logomark-dark.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    },
-    "teixeira-fortes/logomark-light.svg": {
-      "width": 36,
-      "height": 36,
-      "aspectRatio": "1.000",
-      "isWide": false,
-      "isTall": false
-    }
-  }
+    "magalu": 5.11,
+    "momentum": 5.11,
+    "autovox": 4.98,
+    "teixeira-fortes": 2.91,
+    "cea": 1.38,
+    "leve-asset": 3.23,
+    "casa-do-construtor": 3.49,
+    "liceu-francano": 2.11
+  },
+  "asciiGrid": "┌────────────────────────┬────────────────────────┐\n│ teixeira-fortes (S)    │ leve-asset (W)         │\n├────────────────────────┼────────────────────────┤\n│ casa-do-construtor (W) │ liceu-francano (S)     │\n└────────────────────────┴────────────────────────┘"
 }

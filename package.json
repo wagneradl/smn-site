@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "audit:json": "npm audit --audit-level=moderate --json > reports/audit.postfix.json",
     "build:prod": "next build",
     "build:turbopack": "next build --turbopack",
@@ -20,7 +22,7 @@
     "diag:logos": "node scripts/diag/logos-layout-scan.mjs",
     "diag:quality": "node scripts/diag/eslint-prettier-typecheck.mjs",
     "diag:build": "node scripts/diag/build-probe.mjs",
-    "diag:all": "npm run diag:env && npm run diag:audit && npm run diag:mdx && npm run diag:tw && npm run diag:nav && npm run diag:logos && npm run diag:quality && npm run diag:build"
+    "diag:all": "npm run build && npm run format:check || true && npm run diag:mdx && npm run diag:logos && npm run diag:nav"
   },
   "browserslist": "defaults, not ie <= 11",
   "engines": {

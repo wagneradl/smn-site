@@ -1,160 +1,175 @@
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
-import { join } from 'path';
+// ESM
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs'
+import { join } from 'path'
+
+/**
+ * Buckets por aspect ratio (equilíbrio óptico)
+ * - wide:    ≥ 3.0
+ * - emblem:  ≤ 1.5  (selos/quase quadrados, ex.: C&A)
+ * - standard: intermediário
+ */
+const bucketFromAspect = (ar) => {
+  if (!Number.isFinite(ar) || ar <= 0) return 'standard'
+  if (ar >= 3.0) return 'wide'
+  if (ar <= 1.5) return 'emblem'
+  return 'standard'
+}
+
+const pad = (s, n) => (s.length >= n ? s.slice(0, n) : s + ' '.repeat(n - s.length))
+
+const drawAsciiGrid = (slugs, computed, cols = 2) => {
+  // 2 colunas por padrão, linhas conforme necessário
+  const tag = (slug) => {
+    const b = computed[slug] || '?'
+    const letter = b === 'wide' ? 'W' : b === 'emblem' ? 'E' : b === 'standard' ? 'S' : '?'
+    return `${slug} (${letter})`
+  }
+
+  const cellW = Math.max(
+    14,
+    ...slugs.map((s) => tag(s).length + 2) // +2 de folga visual
+  )
+  const lineH = '─'.repeat(cellW)
+  const top = `┌${lineH}┬${lineH}┐`
+  const mid = `├${lineH}┼${lineH}┤`
+  const bot = `└${lineH}┴${lineH}┘`
+
+  const rows = []
+  for (let i = 0; i < slugs.length; i += cols) {
+    const left = slugs[i] ? pad(` ${tag(slugs[i])} `, cellW) : ' '.repeat(cellW)
+    const right = slugs[i + 1] ? pad(` ${tag(slugs[i + 1])} `, cellW) : ' '.repeat(cellW)
+    rows.push(`│${left}│${right}│`)
+  }
+
+  if (rows.length === 0) return ''
+  return [top, rows.map((r, i) => (i < rows.length - 1 ? `${r}\n${mid}` : r)).join('\n'), bot].join(
+    '\n'
+  )
+}
 
 try {
-  const logosLayout = {
+  const report = {
     timestamp: new Date().toISOString(),
-    pageContent: null,
-    brands: [],
-    buckets: {
-      wide: 0,
-      emblem: 0,
-      standard: 0
-    },
-    customProps: [],
-    aspectRatios: {}
-  };
+    classificationSource: 'computed',
+    brandsOrder: [],
+    computed: {}, // slug -> bucket
+    buckets: { wide: 0, standard: 0, emblem: 0 },
+    aspectRatios: {}, // slug -> aspect
+    asciiGrid: '',
+  }
 
-  // Ler página principal
+  // 1) Manifest existente (se houver)
+  let manifest = null
   try {
-    const pagePath = join(process.cwd(), 'src', 'app', 'page.tsx');
-    const pageContent = readFileSync(pagePath, 'utf8');
-    
-    logosLayout.pageContent = {
-      exists: true,
-      size: pageContent.length,
-      hasBrandSection: pageContent.includes('brand') || pageContent.includes('client')
-    };
+    const manifestPath = join(process.cwd(), 'reports', 'clients-logos.manifest.json')
+    manifest = JSON.parse(readFileSync(manifestPath, 'utf8'))
+  } catch {
+    manifest = null
+  }
 
-    // Extrair itens de marca - tentar diferentes padrões
-    let brandMatches = pageContent.match(/<li[^>]*class="[^"]*\bbrand\b[^"]*"[^>]*data-brand="([^"]+)"/g);
-    if (!brandMatches) {
-      // Fallback: procurar por data-brand em qualquer elemento
-      brandMatches = pageContent.match(/data-brand="([^"]+)"/g);
-    }
-    if (brandMatches) {
-      logosLayout.brands = brandMatches.map(match => {
-        const dataBrandMatch = match.match(/data-brand="([^"]+)"/);
-        return dataBrandMatch ? dataBrandMatch[1] : null;
-      }).filter(Boolean);
-    }
+  // 2) Extração de brands na ordem da página (preferencial)
+  let pageContent = ''
+  try {
+    pageContent = readFileSync(join(process.cwd(), 'src', 'app', 'page.tsx'), 'utf8')
+  } catch {}
 
-    // Se não encontrou no JSX, tentar extrair do arquivo de configuração
-    if (logosLayout.brands.length === 0) {
-      try {
-        const clientsPath = join(process.cwd(), 'src', 'lib', 'clients.ts');
-        const clientsContent = readFileSync(clientsPath, 'utf8');
-        
-        // Extrair nomes dos clientes do CLIENTS_CONFIG
-        const clientNameMatches = clientsContent.match(/['"`]([A-Za-z\s]+)['"`]:\s*{/g);
-        if (clientNameMatches) {
-          logosLayout.brands = clientNameMatches.map(match => {
-            const nameMatch = match.match(/['"`]([A-Za-z\s]+)['"`]/);
-            return nameMatch ? nameMatch[1].toLowerCase().replace(/\s+/g, '-') : null;
-          }).filter(Boolean);
+  let orderedSlugs = []
+  if (pageContent) {
+    const re = /data-brand="([^"]+)"/g
+    let m
+    while ((m = re.exec(pageContent))) orderedSlugs.push(m[1])
+  }
+
+  // 3) Fallback: tenta clients.ts
+  if (orderedSlugs.length === 0) {
+    try {
+      const clientsTs = readFileSync(join(process.cwd(), 'src', 'lib', 'clients.ts'), 'utf8')
+      const re = /['"`]([A-Za-z\s&]+)['"`]\s*:\s*{/g
+      let m
+      while ((m = re.exec(clientsTs))) {
+        const slug = m[1].toLowerCase().replaceAll('&', 'and').replace(/\s+/g, '-')
+        orderedSlugs.push(slug)
+      }
+    } catch {}
+  }
+
+  // 4) Se ainda não houver ordem, derive pelo diretório de imagens
+  if (orderedSlugs.length === 0) {
+    try {
+      const base = join(process.cwd(), 'src', 'images', 'clients')
+      if (existsSync(base)) {
+        orderedSlugs = readdirSync(base, { withFileTypes: true })
+          .filter((d) => d.isDirectory())
+          .map((d) => d.name)
+          .sort()
+      }
+    } catch {}
+  }
+
+  report.brandsOrder = orderedSlugs
+
+  // 5) Calcular aspect por slug (manifest preferencial), senão lendo SVGs
+  const slugAspect = {}
+  if (manifest?.byClient) {
+    for (const [slug, files] of Object.entries(manifest.byClient)) {
+      const first = files?.[0]
+      const aspect = Number(first?.aspect || first?.aspectRatio || 0)
+      if (aspect > 0) slugAspect[slug] = aspect
+    }
+  }
+
+  // Complementa com scan das pastas, se necessário
+  const base = join(process.cwd(), 'src', 'images', 'clients')
+  if (existsSync(base)) {
+    const dirs = readdirSync(base, { withFileTypes: true }).filter((d) => d.isDirectory())
+    for (const d of dirs) {
+      const slug = d.name
+      if (!slugAspect[slug]) {
+        const files = readdirSync(join(base, slug)).filter((f) => f.endsWith('.svg'))
+        const first = files[0]
+        if (first) {
+          try {
+            const svg = readFileSync(join(base, slug, first), 'utf8')
+            const vb = svg.match(/viewBox="([^"]+)"/)
+            if (vb) {
+              const [, viewBox] = vb
+              const [, , w, h] = viewBox.split(/\s+/).map(Number)
+              const ar = w / h
+              if (Number.isFinite(ar) && ar > 0) slugAspect[slug] = ar
+            }
+          } catch {}
         }
-      } catch (e) {
-        // Ignorar erros
       }
     }
-
-    // Verificar buckets
-    const bucketMatches = pageContent.match(/brand--([^"'\s]+)/g);
-    if (bucketMatches) {
-      bucketMatches.forEach(match => {
-        const bucket = match.replace('brand--', '');
-        if (bucket === 'wide') logosLayout.buckets.wide++;
-        else if (bucket === 'emblem') logosLayout.buckets.emblem++;
-        else if (bucket === 'standard') logosLayout.buckets.standard++;
-      });
-    }
-
-    // Verificar custom props no CSS
-    try {
-      const stylesDir = join(process.cwd(), 'src', 'styles');
-      const cssFiles = readdirSync(stylesDir).filter(file => file.endsWith('.css'));
-      
-      cssFiles.forEach(file => {
-        const filePath = join(stylesDir, file);
-        const cssContent = readFileSync(filePath, 'utf8');
-        
-        // Procurar por --dx, --dy, --s em CSS
-        const customPropsMatches = cssContent.match(/--[a-z]+:\s*[^;]+/g);
-        if (customPropsMatches) {
-          logosLayout.customProps.push(...customPropsMatches.map(prop => `${file}: ${prop.trim()}`));
-        }
-      });
-    } catch (e) {
-      // Ignorar erros de CSS
-    }
-
-  } catch (e) {
-    logosLayout.pageContent = { error: e.message };
   }
 
-  // Analisar SVGs dos clientes
-  try {
-    const clientsDir = join(process.cwd(), 'src', 'images', 'clients');
-    if (existsSync(clientsDir)) {
-      const clientFolders = readdirSync(clientsDir, { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name);
+  report.aspectRatios = slugAspect
 
-      clientFolders.forEach(client => {
-        const clientPath = join(clientsDir, client);
-        const svgFiles = readdirSync(clientPath).filter(file => file.endsWith('.svg'));
-        
-        svgFiles.forEach(svgFile => {
-          try {
-            const svgPath = join(clientPath, svgFile);
-            const svgContent = readFileSync(svgPath, 'utf8');
-            
-            // Extrair viewBox
-            const viewBoxMatch = svgContent.match(/viewBox="([^"]+)"/);
-            if (viewBoxMatch) {
-              const [, viewBox] = viewBoxMatch;
-              const [x, y, width, height] = viewBox.split(' ').map(Number);
-              const aspectRatio = width / height;
-              
-              const key = `${client}/${svgFile}`;
-              logosLayout.aspectRatios[key] = {
-                width,
-                height,
-                aspectRatio: aspectRatio.toFixed(3),
-                isWide: aspectRatio > 2,
-                isTall: aspectRatio < 0.5
-              };
-            }
-
-            // Verificar custom props no SVG
-            const svgCustomProps = svgContent.match(/--[a-z]+:\s*[^;]+/g);
-            if (svgCustomProps) {
-              logosLayout.customProps.push(...svgCustomProps.map(prop => `${client}/${svgFile}: ${prop.trim()}`));
-            }
-
-          } catch (e) {
-            // Ignorar erros de SVG individual
-          }
-        });
-      });
-    }
-  } catch (e) {
-    logosLayout.svgAnalysis = { error: e.message };
+  // 6) Buckets computados
+  for (const slug of orderedSlugs) {
+    const ar = slugAspect[slug]
+    const b = bucketFromAspect(ar)
+    report.computed[slug] = b
+    report.buckets[b]++
   }
 
-  // Salvar relatório
-  const reportPath = join(process.cwd(), 'reports', 'diag', 'logos-layout.json');
-  writeFileSync(reportPath, JSON.stringify(logosLayout, null, 2));
-  console.log('✅ Logos layout scan completed');
+  // 7) Grade ASCII (2 colunas)
+  report.asciiGrid = drawAsciiGrid(orderedSlugs, report.computed, 2)
+
+  // 8) Salvar
+  const outJson = join(process.cwd(), 'reports', 'diag', 'logos-layout.json')
+  writeFileSync(outJson, JSON.stringify(report, null, 2))
+
+  const outTxt = join(process.cwd(), 'reports', 'diag', 'logos-grid.txt')
+  writeFileSync(outTxt, report.asciiGrid + '\n')
+
+  console.log('✅ Logos layout scan completed (computed buckets + ASCII grid)')
 } catch (error) {
-  const errorReport = {
+  const out = {
     timestamp: new Date().toISOString(),
-    error: {
-      message: error.message,
-      stack: error.stack
-    }
-  };
-  const reportPath = join(process.cwd(), 'reports', 'diag', 'logos-layout.json');
-  writeFileSync(reportPath, JSON.stringify(errorReport, null, 2));
-  console.error('❌ Logos layout scan failed:', error.message);
+    error: { message: error.message, stack: error.stack },
+  }
+  const outJson = join(process.cwd(), 'reports', 'diag', 'logos-layout.json')
+  writeFileSync(outJson, JSON.stringify(out, null, 2))
+  console.error('❌ Logos layout scan failed:', error.message)
 }
