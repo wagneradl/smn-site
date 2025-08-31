@@ -1,0 +1,44 @@
+{
+  "client": [
+    {
+      "file": "src/components/FadeIn.tsx",
+      "hasFramer": true,
+      "hasBrowserApis": false
+    },
+    {
+      "file": "src/components/GrayscaleTransitionImage.tsx",
+      "hasFramer": true,
+      "hasBrowserApis": false
+    },
+    {
+      "file": "src/components/GridPattern.tsx",
+      "hasFramer": true,
+      "hasBrowserApis": true
+    },
+    {
+      "file": "src/components/Logo.tsx",
+      "hasFramer": false,
+      "hasBrowserApis": false
+    },
+    {
+      "file": "src/components/RootLayout.tsx",
+      "hasFramer": true,
+      "hasBrowserApis": true
+    },
+    {
+      "file": "src/components/SkipLink.tsx",
+      "hasFramer": false,
+      "hasBrowserApis": false
+    },
+    {
+      "file": "src/components/StylizedImage.tsx",
+      "hasFramer": false,
+      "hasBrowserApis": false
+    },
+    {
+      "file": "src/app/contact/page.tsx",
+      "hasFramer": false,
+      "hasBrowserApis": false
+    }
+  ]
+}
