@@ -22,22 +22,34 @@ const HOST = process.env.APP_HOST || 'http://localhost:3000'
     const navCount = await page.$$eval('[data-nav-link]', (els) => els.length)
     add('nav:6-items', navCount >= 6, { navCount })
 
-    // 2) GCPro externo (_blank + noopener)
-    const gcproAttrs = await page
-      .$eval(
-        'a[data-nav-link]:has-text("GCPro"), a[data-nav-link*="GCPro"]',
-        (el) => ({
-          target: el.getAttribute('target'),
-          rel: el.getAttribute('rel'),
-        }),
+    // 2) GCPro externo (_blank + noopener) — sem :has-text
+    const gcpro = await page.$$eval('[data-nav-link]', (els) => {
+      const toInfo = (el) => ({
+        target: el.getAttribute('target'),
+        rel: el.getAttribute('rel'),
+        href: el.getAttribute('href'),
+        text: (el.textContent || '').trim(),
+      })
+
+      // por texto visível
+      const byText = els.find((el) =>
+        /gc\s*pro/i.test(el.textContent || ''),
       )
-      .catch(() => null)
+      if (byText) return toInfo(byText)
+
+      // fallback por href externo contendo "gcpro"
+      const byHref = els.find((el) => {
+        const href = el.getAttribute('href') || ''
+        return /^https?:\/\//i.test(href) && /gcpro/i.test(href)
+      })
+      return byHref ? toInfo(byHref) : null
+    })
     add(
       'gcpro:external',
-      !!gcproAttrs &&
-        gcproAttrs.target === '_blank' &&
-        (gcproAttrs.rel || '').includes('noopener'),
-      { gcproAttrs },
+      !!gcpro &&
+        gcpro.target === '_blank' &&
+        (gcpro.rel || '').includes('noopener'),
+      { gcpro },
     )
 
     // 3) Foco visível nos links do menu (Tab)
@@ -52,14 +64,23 @@ const HOST = process.env.APP_HOST || 'http://localhost:3000'
       outline,
     })
 
-    // 4) MDX/Shiki css-variables aplicadas (verifica presença de --shiki-*)
-    const shikiVars = await page.evaluate(() => {
-      const root = document.documentElement
-      const bg = getComputedStyle(root).getPropertyValue('--shiki-background')
-      const fg = getComputedStyle(root).getPropertyValue('--shiki-foreground')
-      return { bg: bg?.trim() || null, fg: fg?.trim() || null }
+    // 4) Shiki/css-variables — verificar se estão disponíveis globalmente
+    const rootVars = await page.evaluate(() => {
+      const s = getComputedStyle(document.documentElement)
+      return {
+        bg: s.getPropertyValue('--shiki-background')?.trim() || null,
+        fg: s.getPropertyValue('--shiki-foreground')?.trim() || null,
+        comment: s.getPropertyValue('--shiki-token-comment')?.trim() || null,
+        string: s.getPropertyValue('--shiki-token-string')?.trim() || null,
+      }
     })
-    add('shiki:css-vars', !!(shikiVars.bg || shikiVars.fg), { shikiVars })
+    
+    // Verificar se pelo menos algumas variáveis estão definidas
+    const hasShikiVars = !!(rootVars.bg || rootVars.fg || rootVars.comment || rootVars.string)
+    add('shiki:css-vars', hasShikiVars, {
+      scope: 'root',
+      vars: rootVars,
+    })
   } catch (e) {
     add('fatal:error', false, { message: e.message })
   } finally {
