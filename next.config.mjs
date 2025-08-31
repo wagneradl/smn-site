@@ -1,7 +1,7 @@
 import createMDX from '@next/mdx'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import remarkGfm from 'remark-gfm'
-import remarkRehypeWrap from 'remark-rehype-wrap'
+import { remarkRehypeWrap } from 'remark-rehype-wrap'
 import rehypeShiki from '@shikijs/rehype'
 import { createHighlighter } from 'shiki'
 import { createCssVariablesTheme } from 'shiki/core'
@@ -47,7 +47,7 @@ const cssVarsTheme = createCssVariablesTheme({
 
 const highlighter = await createHighlighter({
   themes: [cssVarsTheme],
-  langs: ['javascript','typescript','tsx','jsx','bash','json','md'],
+  langs: ['javascript', 'typescript', 'tsx', 'jsx', 'bash', 'json', 'md'],
 })
 
 // Plugin MDX com ordem explícita (remark → rehype)

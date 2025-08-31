@@ -94,7 +94,7 @@ function CaseStudies({
 function Clients() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <ClientsGrid 
+      <ClientsGrid
         theme="dark"
         title="Grandes marcas confiam na SMN"
         showBorder={true}
@@ -119,9 +119,10 @@ export default async function Work() {
         title="Soluções comprovadas para desafios reais."
       >
         <p>
-          Há mais de 15 anos desenvolvemos sistemas sob medida que transformam negócios.
-          Nosso portfólio inclui projetos para grandes varejistas, indústrias e startups,
-          sempre focando em performance, escalabilidade e resultados mensuráveis.
+          Há mais de 15 anos desenvolvemos sistemas sob medida que transformam
+          negócios. Nosso portfólio inclui projetos para grandes varejistas,
+          indústrias e startups, sempre focando em performance, escalabilidade e
+          resultados mensuráveis.
         </p>
       </PageIntro>
 

@@ -113,7 +113,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-px sm:bg-neutral-950 overflow-x-clip">
+    <div className="mt-px overflow-x-clip sm:bg-neutral-950">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -133,7 +133,7 @@ function NavigationItem({
 } & React.ComponentPropsWithoutRef<typeof Link>) {
   const hoverClasses = {
     green: 'bg-gradient-to-r from-accent-500 to-accent-400',
-    white: 'bg-white'
+    white: 'bg-white',
   }
 
   return (
@@ -144,7 +144,9 @@ function NavigationItem({
       {...props}
     >
       {children}
-      <span className={`absolute inset-y-0 -z-10 w-screen ${hoverClasses[hoverVariant]} opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100`} />
+      <span
+        className={`absolute inset-y-0 -z-10 w-screen ${hoverClasses[hoverVariant]} opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100`}
+      />
     </Link>
   )
 }
@@ -163,7 +165,9 @@ function Navigation() {
       <NavigationRow>
         <NavigationItem href="/blog">Blog</NavigationItem>
         <NavigationItem
-          href={process.env.NEXT_PUBLIC_GCPRO_URL ?? 'https://gcpro.smn.example'}
+          href={
+            process.env.NEXT_PUBLIC_GCPRO_URL ?? 'https://gcpro.smn.example'
+          }
           hoverVariant="white"
           target="_blank"
           rel="noopener noreferrer"
@@ -172,7 +176,9 @@ function Navigation() {
           aria-label="GCPro (abre em nova aba)"
         >
           <span className="gcpro-premium">
-            <span className="gcpro-neon gcpro-neon--tight font-display text-5xl">GCPro</span>
+            <span className="gcpro-neon gcpro-neon--tight font-display text-5xl">
+              GCPro
+            </span>
           </span>
         </NavigationItem>
       </NavigationRow>
@@ -180,7 +186,13 @@ function Navigation() {
   )
 }
 
-function RootLayoutInner({ children, pathname }: { children: React.ReactNode; pathname: string }) {
+function RootLayoutInner({
+  children,
+  pathname,
+}: {
+  children: React.ReactNode
+  pathname: string
+}) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let [isTransitioning, setIsTransitioning] = useState(false)
@@ -321,5 +333,3 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
     </RootLayoutContext.Provider>
   )
 }
-
-

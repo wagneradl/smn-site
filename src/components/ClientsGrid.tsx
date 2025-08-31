@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 import { Border } from '@/components/Border'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { 
-  getClientList, 
-  getBrandClass, 
-  getClientStyle, 
-  getClientSlug 
+import {
+  getClientList,
+  getBrandClass,
+  getClientStyle,
+  getClientSlug,
 } from '@/lib/clients'
 
 interface ClientsGridProps {
@@ -37,14 +37,14 @@ export function ClientsGrid({
           </h2>
         </FadeIn>
       )}
-      
-      <FadeInStagger className={title ? "mt-10" : ""} faster>
+
+      <FadeInStagger className={title ? 'mt-10' : ''} faster>
         {showBorder && <Border as={FadeIn} />}
-        
-        <ul 
-          role="list" 
+
+        <ul
+          role="list"
           className="brands-grid"
-          data-debug-logos={debugMode ? "on" : "off"}
+          data-debug-logos={debugMode ? 'on' : 'off'}
         >
           {clients.map(([client, logo]) => (
             <li

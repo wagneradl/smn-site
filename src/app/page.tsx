@@ -43,7 +43,8 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Exemplos de como transformamos desafios complexos em resultado tangível para grandes marcas.
+          Exemplos de como transformamos desafios complexos em resultado
+          tangível para grandes marcas.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -104,7 +105,8 @@ function Services() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Da descoberta ao deploy: sistemas tailor-made, BI, GCPro e equipes dedicadas que aceleram o go-to-market.
+          Da descoberta ao deploy: sistemas tailor-made, BI, GCPro e equipes
+          dedicadas que aceleram o go-to-market.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -120,16 +122,20 @@ function Services() {
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
             <ListItem title="Software Sob Medida">
-              Arquitetura moderna, performance e escalabilidade para necessidades exclusivas.
+              Arquitetura moderna, performance e escalabilidade para
+              necessidades exclusivas.
             </ListItem>
             <ListItem title="Alocação de Times">
-              Squads dedicados, cultura forte e rotatividade mínima para projetos críticos.
+              Squads dedicados, cultura forte e rotatividade mínima para
+              projetos críticos.
             </ListItem>
             <ListItem title="Business Intelligence">
-              Dashboards e data-marts que transformam dados brutos em decisões estratégicas.
+              Dashboards e data-marts que transformam dados brutos em decisões
+              estratégicas.
             </ListItem>
             <ListItem title="GCPro ERP">
-              ERP modular próprio da SMN, pronto para customizações específicas de cada negócio.
+              ERP modular próprio da SMN, pronto para customizações específicas
+              de cada negócio.
             </ListItem>
           </List>
         </div>
@@ -151,11 +157,13 @@ export default async function Home() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
             Fábrica de software para missões críticas.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.
+            Desde 2003, entregamos arquiteturas e sistemas que sustentam
+            operações estratégicas no Brasil — com prazos firmes, ética e
+            transparência.
           </p>
         </FadeIn>
       </Container>
@@ -168,7 +176,9 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
       >
-        A SMN é responsável por nossos sistemas de trocas, devoluções e cancelamentos, além do módulo de montagens. Front-end e back office entregues com solidez e suporte constante.
+        A SMN é responsável por nossos sistemas de trocas, devoluções e
+        cancelamentos, além do módulo de montagens. Front-end e back office
+        entregues com solidez e suporte constante.
       </Testimonial>
 
       <Services />

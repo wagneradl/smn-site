@@ -2,32 +2,35 @@ import { z } from 'zod'
 
 // Schema de validação para o formulário de contato
 export const contactFormSchema = z.object({
-  name: z.string()
+  name: z
+    .string()
     .min(2, 'Nome deve ter pelo menos 2 caracteres')
     .max(100, 'Nome deve ter no máximo 100 caracteres')
     .regex(/^[a-zA-ZÀ-ÿ\s]+$/, 'Nome deve conter apenas letras'),
-  
-  email: z.string()
-    .email('E-mail inválido')
-    .max(255, 'E-mail muito longo'),
-  
-  company: z.string()
+
+  email: z.string().email('E-mail inválido').max(255, 'E-mail muito longo'),
+
+  company: z
+    .string()
     .min(2, 'Empresa deve ter pelo menos 2 caracteres')
     .max(100, 'Empresa deve ter no máximo 100 caracteres'),
-  
-  phone: z.string()
+
+  phone: z
+    .string()
     .optional()
     .refine((val) => !val || /^[\d\s\(\)\-\+]+$/.test(val), {
-      message: 'Telefone deve conter apenas números, espaços, parênteses, hífens e +'
+      message:
+        'Telefone deve conter apenas números, espaços, parênteses, hífens e +',
     }),
-  
+
   subject: z.enum(['Projeto', 'Parceria', 'Dúvida técnica', 'Outro']),
-  
-  message: z.string()
+
+  message: z
+    .string()
     .min(10, 'Mensagem deve ter pelo menos 10 caracteres')
     .max(2000, 'Mensagem deve ter no máximo 2000 caracteres'),
-  
-  deadline: z.enum(['immediate', 'quarter', 'no-urgency']).optional()
+
+  deadline: z.enum(['immediate', 'quarter', 'no-urgency']).optional(),
 })
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
@@ -41,12 +44,16 @@ export function sanitizeContactData(data: ContactFormData): ContactFormData {
     phone: data.phone?.trim().replace(/\s+/g, ' ') || undefined,
     subject: data.subject,
     message: data.message.trim().replace(/\s+/g, ' '),
-    deadline: data.deadline
+    deadline: data.deadline,
   }
 }
 
 // Função para validar dados
-export function validateContactForm(data: unknown): { success: true; data: ContactFormData } | { success: false; errors: Record<string, string> } {
+export function validateContactForm(
+  data: unknown,
+):
+  | { success: true; data: ContactFormData }
+  | { success: false; errors: Record<string, string> } {
   try {
     const validatedData = contactFormSchema.parse(data)
     const sanitizedData = sanitizeContactData(validatedData)
@@ -60,6 +67,9 @@ export function validateContactForm(data: unknown): { success: true; data: Conta
       })
       return { success: false, errors }
     }
-    return { success: false, errors: { general: 'Erro de validação desconhecido' } }
+    return {
+      success: false,
+      errors: { general: 'Erro de validação desconhecido' },
+    }
   }
 }

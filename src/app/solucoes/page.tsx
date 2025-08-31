@@ -23,11 +23,12 @@ export const metadata: Metadata = {
     'GCPro ERP',
     'desenvolvimento de software',
     'consultoria em TI',
-    'sistemas empresariais'
+    'sistemas empresariais',
   ],
   openGraph: {
     title: 'Soluções sob medida para operações estratégicas - SMN Tecnologia',
-    description: 'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
+    description:
+      'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
     type: 'website',
   },
 }
@@ -35,12 +36,10 @@ export const metadata: Metadata = {
 function ProcessSection() {
   return (
     <>
-      <SectionIntro
-        title="Nosso Processo"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
+      <SectionIntro title="Nosso Processo" className="mt-24 sm:mt-32 lg:mt-40">
         <p>
-          Processo enxuto e transparente — da descoberta ao deploy — sempre com foco em valor de negócio e confiabilidade.
+          Processo enxuto e transparente — da descoberta ao deploy — sempre com
+          foco em valor de negócio e confiabilidade.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -59,10 +58,12 @@ function ProcessSection() {
               Workshops colaborativos que alinham desafios, objetivos e roadmap.
             </ListItem>
             <ListItem title="Construção">
-              Arquiteturas modulares, testes automatizados e integrações seguras que garantem escalabilidade.
+              Arquiteturas modulares, testes automatizados e integrações seguras
+              que garantem escalabilidade.
             </ListItem>
             <ListItem title="Entrega Contínua">
-              Deploy estável, monitoramento ativo e transferência de conhecimento para o seu time.
+              Deploy estável, monitoramento ativo e transferência de
+              conhecimento para o seu time.
             </ListItem>
           </List>
         </div>
@@ -74,27 +75,29 @@ function ProcessSection() {
 function SolutionsSection() {
   return (
     <>
-      <SectionIntro
-        title="Nossas Soluções"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
+      <SectionIntro title="Nossas Soluções" className="mt-24 sm:mt-32 lg:mt-40">
         <p>
-          Tecnologias e metodologias que transformam desafios complexos em vantagens competitivas sustentáveis.
+          Tecnologias e metodologias que transformam desafios complexos em
+          vantagens competitivas sustentáveis.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
           <GridListItem title="Software sob medida">
-            Sistemas tailor-made com performance, escalabilidade e aderência total ao seu negócio.
+            Sistemas tailor-made com performance, escalabilidade e aderência
+            total ao seu negócio.
           </GridListItem>
           <GridListItem title="Alocação de squads">
-            Times dedicados, turnover baixíssimo e cultura forte para missões críticas.
+            Times dedicados, turnover baixíssimo e cultura forte para missões
+            críticas.
           </GridListItem>
           <GridListItem title="Business Intelligence">
-            Dashboards e data-marts que transformam dados brutos em decisões estratégicas.
+            Dashboards e data-marts que transformam dados brutos em decisões
+            estratégicas.
           </GridListItem>
           <GridListItem title="GCPro ERP">
-            Nosso ERP modular, pronto para customizações específicas e evolução constante.
+            Nosso ERP modular, pronto para customizações específicas e evolução
+            constante.
           </GridListItem>
         </GridList>
       </Container>
@@ -110,7 +113,8 @@ function DiferenciaisSection() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Valores que guiam nossa entrega e garantem resultados consistentes em projetos de alta complexidade.
+          Valores que guiam nossa entrega e garantem resultados consistentes em
+          projetos de alta complexidade.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -122,7 +126,8 @@ function DiferenciaisSection() {
             Compromisso total com prazos, escopo e comunicação aberta.
           </GridListItem>
           <GridListItem title="Inovação">
-            Tecnologias modernas e soluções criativas aplicadas a cenários complexos.
+            Tecnologias modernas e soluções criativas aplicadas a cenários
+            complexos.
           </GridListItem>
           <GridListItem title="Formação Contínua">
             Base sólida de talentos formados e preparados internamente.
@@ -157,11 +162,12 @@ export default function SolucoesPage() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
             Soluções sob medida para operações estratégicas.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.
+            Da concepção ao suporte contínuo: software, squads e ERP modular
+            para empresas que não podem parar.
           </p>
         </FadeIn>
       </Container>

@@ -89,10 +89,12 @@ export const CLIENTS_CONFIG: Record<string, ClientConfig> = {
   },
 }
 
-export function getClientList(theme: 'dark' | 'light' = 'light'): Array<[string, any]> {
-  return Object.values(CLIENTS_CONFIG).map(client => [
+export function getClientList(
+  theme: 'dark' | 'light' = 'light',
+): Array<[string, any]> {
+  return Object.values(CLIENTS_CONFIG).map((client) => [
     client.name,
-    theme === 'dark' ? client.logoDark : client.logoLight
+    theme === 'dark' ? client.logoDark : client.logoLight,
   ])
 }
 
@@ -107,30 +109,30 @@ export function getClientSlug(clientName: string): string {
 export function getBrandClass(clientName: string): string {
   const config = getClientConfig(clientName)
   if (!config) return 'brand'
-  
+
   const classes = ['brand']
-  
+
   if (config.bucket === 'wide') classes.push('brand--wide')
   if (config.bucket === 'emblem') classes.push('brand--emblem')
-  
+
   return classes.join(' ')
 }
 
 export function getClientStyle(clientName: string): React.CSSProperties {
   const config = getClientConfig(clientName)
   if (!config) return {}
-  
+
   const style: React.CSSProperties = {
     ['--s' as any]: config.scale.toString(),
   }
-  
+
   if (config.offsetX !== undefined) {
-    (style as any)['--dx'] = `${config.offsetX}px`
+    ;(style as any)['--dx'] = `${config.offsetX}px`
   }
-  
+
   if (config.offsetY !== undefined) {
-    (style as any)['--dy'] = `${config.offsetY}px`
+    ;(style as any)['--dy'] = `${config.offsetY}px`
   }
-  
+
   return style
 }

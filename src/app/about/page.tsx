@@ -34,25 +34,31 @@ function Culture() {
         invert
       >
         <p>
-          Valores que sustentam todas as nossas relações e guiam nossa busca por excelência técnica e humana.
+          Valores que sustentam todas as nossas relações e guiam nossa busca por
+          excelência técnica e humana.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
           <GridListItem title="Ética e transparência" invert>
-            Sustentam todas as nossas relações com clientes, parceiros e colaboradores.
+            Sustentam todas as nossas relações com clientes, parceiros e
+            colaboradores.
           </GridListItem>
           <GridListItem title="Colaboração" invert>
-            Times unidos em torno de desafios complexos, compartilhando conhecimento e responsabilidades.
+            Times unidos em torno de desafios complexos, compartilhando
+            conhecimento e responsabilidades.
           </GridListItem>
           <GridListItem title="Inovação" invert>
-            Busca constante por arquiteturas modernas e soluções criativas para problemas reais.
+            Busca constante por arquiteturas modernas e soluções criativas para
+            problemas reais.
           </GridListItem>
           <GridListItem title="Educação" invert>
-            Desde o início, investimos em formação de talentos e desenvolvimento de liderança.
+            Desde o início, investimos em formação de talentos e desenvolvimento
+            de liderança.
           </GridListItem>
           <GridListItem title="Responsabilidade" invert>
-            Impacto social e inclusão através da tecnologia, contribuindo para o desenvolvimento regional.
+            Impacto social e inclusão através da tecnologia, contribuindo para o
+            desenvolvimento regional.
           </GridListItem>
         </GridList>
       </Container>
@@ -193,16 +199,30 @@ export default async function About() {
 
   return (
     <RootLayout>
-      <PageIntro eyebrow="Sobre nós" title="Nossa história é feita de tecnologia e pessoas">
+      <PageIntro
+        eyebrow="Sobre nós"
+        title="Nossa história é feita de tecnologia e pessoas"
+      >
         <p>
-          Desde 2003, construímos software que sustenta operações críticas no Brasil. O que começou com a visão de Ricardo Corrales hoje é uma empresa sólida, com equipes distribuídas e clientes em setores estratégicos.
+          Desde 2003, construímos software que sustenta operações críticas no
+          Brasil. O que começou com a visão de Ricardo Corrales hoje é uma
+          empresa sólida, com equipes distribuídas e clientes em setores
+          estratégicos.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            A SMN nasceu em 2003, fruto da experiência de mais de 40 anos de Ricardo Corrales em tecnologia e do encontro com parceiros que acreditaram no mesmo propósito: formar times de excelência e entregar software que faz diferença real nos negócios.
+            A SMN nasceu em 2003, fruto da experiência de mais de 40 anos de
+            Ricardo Corrales em tecnologia e do encontro com parceiros que
+            acreditaram no mesmo propósito: formar times de excelência e
+            entregar software que faz diferença real nos negócios.
           </p>
           <p>
-            De um início marcado por projetos robustos de ERP para empresas como a Momentum, evoluímos para uma fábrica de software referência em soluções sob medida, Business Intelligence e o ERP modular GCPro. Hoje, mantemos presença em João Pessoa, Ingá, Franca e Passos, com squads especializados em missão crítica e um programa contínuo de formação de talentos.
+            De um início marcado por projetos robustos de ERP para empresas como
+            a Momentum, evoluímos para uma fábrica de software referência em
+            soluções sob medida, Business Intelligence e o ERP modular GCPro.
+            Hoje, mantemos presença em João Pessoa, Ingá, Franca e Passos, com
+            squads especializados em missão crítica e um programa contínuo de
+            formação de talentos.
           </p>
         </div>
       </PageIntro>

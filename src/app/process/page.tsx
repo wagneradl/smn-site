@@ -70,9 +70,7 @@ function Build() {
   return (
     <Section title="Construção" image={{ src: imageLaptop, shape: 1 }}>
       <div className="space-y-6 text-base text-neutral-600">
-        <p>
-          Arquitetura modular, testes automatizados e integrações seguras.
-        </p>
+        <p>Arquitetura modular, testes automatizados e integrações seguras.</p>
       </div>
     </Section>
   )
@@ -83,7 +81,8 @@ function Deliver() {
     <Section title="Entrega" image={{ src: imageMeeting, shape: 2 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          Deploy contínuo, monitoramento e transferência de conhecimento ao time do cliente.
+          Deploy contínuo, monitoramento e transferência de conhecimento ao time
+          do cliente.
         </p>
       </div>
     </Section>
@@ -104,9 +103,7 @@ function Values() {
         eyebrow="Nossos valores"
         title="Qualidade que gera confiança"
       >
-        <p>
-          Compromisso com ética, excelência técnica e impacto positivo.
-        </p>
+        <p>Compromisso com ética, excelência técnica e impacto positivo.</p>
       </SectionIntro>
 
       <Container className="mt-24">
@@ -140,7 +137,8 @@ export default function Process() {
     <RootLayout>
       <PageIntro eyebrow="Nossos serviços" title="Como trabalhamos">
         <p>
-          Processo enxuto: descoberta, construção e entrega contínua com foco em valor de negócio.
+          Processo enxuto: descoberta, construção e entrega contínua com foco em
+          valor de negócio.
         </p>
       </PageIntro>
 

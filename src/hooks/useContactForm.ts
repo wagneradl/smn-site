@@ -18,14 +18,16 @@ const initialFormData: ContactFormData = {
   phone: '',
   subject: 'Projeto',
   message: '',
-  deadline: undefined
+  deadline: undefined,
 }
 
 export function useContactForm(): UseContactFormReturn {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
 
   const resetForm = useCallback(() => {
     setFormData(initialFormData)
@@ -33,73 +35,79 @@ export function useContactForm(): UseContactFormReturn {
     setSubmitStatus('idle')
   }, [])
 
-  const updateField = useCallback((field: keyof ContactFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
-    
-    // Limpar erro do campo quando o usuário começa a digitar
-    if (errors[field]) {
-      setErrors(prev => {
-        const newErrors = { ...prev }
-        delete newErrors[field]
-        return newErrors
-      })
-    }
-  }, [errors])
+  const updateField = useCallback(
+    (field: keyof ContactFormData, value: string) => {
+      setFormData((prev) => ({ ...prev, [field]: value }))
+
+      // Limpar erro do campo quando o usuário começa a digitar
+      if (errors[field]) {
+        setErrors((prev) => {
+          const newErrors = { ...prev }
+          delete newErrors[field]
+          return newErrors
+        })
+      }
+    },
+    [errors],
+  )
 
   const validateForm = useCallback(() => {
     const validation = validateContactForm(formData)
-    
+
     if (!validation.success) {
       setErrors(validation.errors)
       return false
     }
-    
+
     setErrors({})
     return true
   }, [formData])
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    const validation = validateForm()
-    if (!validation) {
-      return
-    }
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault()
 
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
-
-      const result = await response.json()
-
-      if (response.ok && result.success) {
-        setSubmitStatus('success')
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setSubmitStatus('idle')
-          resetForm()
-        }, 3000)
-      } else {
-        setSubmitStatus('error')
-        if (result.details) {
-          setErrors(result.details)
-        }
+      const validation = validateForm()
+      if (!validation) {
+        return
       }
-    } catch (error) {
-      console.error('Erro ao enviar formulário:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }, [formData, validateForm, resetForm])
+
+      setIsSubmitting(true)
+      setSubmitStatus('idle')
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+
+        const result = await response.json()
+
+        if (response.ok && result.success) {
+          setSubmitStatus('success')
+          // Reset form after 3 seconds
+          setTimeout(() => {
+            setSubmitStatus('idle')
+            resetForm()
+          }, 3000)
+        } else {
+          setSubmitStatus('error')
+          if (result.details) {
+            setErrors(result.details)
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao enviar formulário:', error)
+        setSubmitStatus('error')
+      } finally {
+        setIsSubmitting(false)
+      }
+    },
+    [formData, validateForm, resetForm],
+  )
 
   return {
     formData,
@@ -108,6 +116,6 @@ export function useContactForm(): UseContactFormReturn {
     submitStatus,
     updateField,
     handleSubmit,
-    resetForm
+    resetForm,
   }
 }

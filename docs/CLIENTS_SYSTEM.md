@@ -37,6 +37,7 @@ interface ClientConfig {
 ## Ajustes Ópticos
 
 Via variáveis CSS customizadas:
+
 - `--s`: Escala geral (ex: 1.04)
 - `--dx`: Offset horizontal (ex: -2px)
 - `--dy`: Offset vertical (ex: -2px)
@@ -44,12 +45,14 @@ Via variáveis CSS customizadas:
 ## Como Adicionar Novos Clientes
 
 1. **Adicionar imports** no topo de `src/lib/clients.ts`:
+
 ```typescript
 import logoNovoClienteDark from '@/images/clients/novo-cliente/logo-dark.svg'
 import logoNovoClienteLight from '@/images/clients/novo-cliente/logo-light.svg'
 ```
 
 2. **Adicionar configuração** no `CLIENTS_CONFIG`:
+
 ```typescript
 'Novo Cliente': {
   name: 'Novo Cliente',
@@ -69,14 +72,17 @@ import logoNovoClienteLight from '@/images/clients/novo-cliente/logo-light.svg'
 ## Problemas Comuns e Soluções
 
 ### Logo com Espaço Vazio
+
 **Problema**: ViewBox do SVG maior que o conteúdo real
 **Solução**: Ajustar viewBox para corresponder ao conteúdo (ex: 184x36 → 120x36)
 
 ### Logo Muito Pequeno/Grande
+
 **Problema**: Desequilíbrio visual entre logos
 **Solução**: Ajustar `scale` na configuração (ex: 0.96 → 1.04)
 
 ### Logo Desalinhado
+
 **Problema**: Posicionamento incorreto
 **Solução**: Usar `offsetX` e `offsetY` para ajustes finos
 
@@ -92,11 +98,13 @@ import logoNovoClienteLight from '@/images/clients/novo-cliente/logo-light.svg'
 ## Debug
 
 Para ativar modo debug:
+
 ```typescript
 <ClientsGrid debugMode={true} />
 ```
 
 Isso mostra:
+
 - Linhas de baseline
 - Bordas dos containers
 - Grid de referência
@@ -113,6 +121,7 @@ Isso mostra:
 ## Histórico de Problemas Resolvidos
 
 ### Commit 3e41b76 - Refatoração Completa
+
 - Eliminou duplicação entre page.tsx e work/page.tsx
 - Corrigiu viewBox do logo Magalu (184x36 → 120x36)
 - Ajustou escala do logo Magalu (0.96 → 1.04)
@@ -143,5 +152,3 @@ src/
         │   └── logo-light.svg
         └── ... (outros clientes)
 ```
-
-

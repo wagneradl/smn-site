@@ -15,7 +15,7 @@
   --color-primary-700: #2e304f;
   --color-primary-800: #26314c;
   --color-primary-900: #1f2537;
-  
+
   /* Cores de Destaque SMN */
   --color-accent-50: #f0fdf4;
   --color-accent-100: #dcfce7;
@@ -27,14 +27,26 @@
   --color-accent-700: #16a34a;
   --color-accent-800: #15803d;
   --color-accent-900: #14532d;
-  
+
   /* === SMN INTELLIGENT TOKENS === */
   /* Tokens que se propagam automaticamente */
   --smn-brand-primary: var(--color-primary-600);
   --smn-brand-accent: var(--color-accent-500);
-  --smn-brand-gradient: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-accent-500) 100%);
-  --smn-nav-gradient: linear-gradient(to-br, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
-  --smn-hover-gradient: linear-gradient(to-r, var(--color-primary-700) 0%, var(--color-accent-500) 100%);
+  --smn-brand-gradient: linear-gradient(
+    135deg,
+    var(--color-primary-700) 0%,
+    var(--color-accent-500) 100%
+  );
+  --smn-nav-gradient: linear-gradient(
+    to-br,
+    var(--color-primary-800) 0%,
+    var(--color-primary-900) 100%
+  );
+  --smn-hover-gradient: linear-gradient(
+    to-r,
+    var(--color-primary-700) 0%,
+    var(--color-accent-500) 100%
+  );
 
   /* === SMN TYPOGRAPHY === */
 
@@ -89,14 +101,15 @@
 
   --radius-4xl: 2.5rem;
 
-  --font-sans: Mona Sans, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans:
+    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --font-display: Mona Sans, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display:
+    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   --font-display--font-variation-settings: 'wdth' 125;
 
   --font-display-length: 2;
-
 }

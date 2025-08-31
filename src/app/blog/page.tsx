@@ -25,7 +25,8 @@ export default async function Blog() {
     <RootLayout>
       <PageIntro eyebrow="Blog" title="Últimos artigos e novidades">
         <p>
-          Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.
+          Leia análises técnicas, bastidores de projetos e tendências que pautam
+          o futuro do desenvolvimento.
         </p>
       </PageIntro>
 

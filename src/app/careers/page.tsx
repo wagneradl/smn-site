@@ -17,7 +17,8 @@ import { RootLayout } from '@/components/RootLayout'
 
 export const metadata: Metadata = {
   title: 'Carreiras na SMN',
-  description: 'Faça parte de uma fábrica de software que atua em missões críticas para clientes estratégicos no Brasil.',
+  description:
+    'Faça parte de uma fábrica de software que atua em missões críticas para clientes estratégicos no Brasil.',
 }
 
 const testimonials = [
@@ -38,7 +39,8 @@ const testimonials = [
     image: { src: imageEmmaDorsey },
   },
   {
-    quote: 'O ambiente de aprendizado contínuo me fez evoluir tanto técnica quanto pessoalmente.',
+    quote:
+      'O ambiente de aprendizado contínuo me fez evoluir tanto técnica quanto pessoalmente.',
     author: {
       name: 'Colaboradora',
       role: 'Tech Lead',
@@ -58,24 +60,25 @@ const benefits = [
   },
   {
     title: 'Formação e Crescimento',
-    description: 'Programa interno que acelera sua evolução técnica e profissional.',
+    description:
+      'Programa interno que acelera sua evolução técnica e profissional.',
   },
   {
     title: 'Reconhecimento',
-    description: 'Premiada GPTW por três anos seguidos, no topo das melhores empresas para se trabalhar.',
+    description:
+      'Premiada GPTW por três anos seguidos, no topo das melhores empresas para se trabalhar.',
   },
 ]
 
 function CultureSection() {
   return (
     <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
-      <SectionIntro
-        eyebrow="Nossa cultura"
-        title="Nossa Essência"
-        invert
-      >
+      <SectionIntro eyebrow="Nossa cultura" title="Nossa Essência" invert>
         <p>
-          Desde 2003, a SMN constrói soluções estratégicas que sustentam operações de grande porte. Nossa cultura valoriza ética, prazo e transparência. Aqui, você cresce em um ambiente que combina desafios técnicos reais e desenvolvimento humano.
+          Desde 2003, a SMN constrói soluções estratégicas que sustentam
+          operações de grande porte. Nossa cultura valoriza ética, prazo e
+          transparência. Aqui, você cresce em um ambiente que combina desafios
+          técnicos reais e desenvolvimento humano.
         </p>
       </SectionIntro>
     </div>
@@ -90,7 +93,8 @@ function Benefits() {
         title="Cultura que valoriza pessoas e resultados"
       >
         <p>
-          Nossa essência combina desafios técnicos reais com desenvolvimento humano.
+          Nossa essência combina desafios técnicos reais com desenvolvimento
+          humano.
         </p>
       </SectionIntro>
       <GridList className="mt-16">
@@ -121,14 +125,20 @@ function Testimonials() {
                   <div className="sm:col-span-8 lg:col-span-9">
                     <blockquote className="text-xl/7 text-neutral-600 sm:text-2xl/8">
                       <p className="relative">
-                        <span className="absolute -left-4 -top-2 text-4xl text-neutral-300">"</span>
+                        <span className="absolute -top-2 -left-4 text-4xl text-neutral-300">
+                          "
+                        </span>
                         {testimonial.quote}
                         <span className="text-4xl text-neutral-300">"</span>
                       </p>
                     </blockquote>
                     <figcaption className="mt-6 text-base text-neutral-950">
-                      <span className="font-semibold">{testimonial.author.name}</span>
-                      <span className="text-neutral-600">, {testimonial.author.role}</span>
+                      <span className="font-semibold">
+                        {testimonial.author.name}
+                      </span>
+                      <span className="text-neutral-600">
+                        , {testimonial.author.role}
+                      </span>
                     </figcaption>
                   </div>
                   <div className="sm:col-span-4 lg:col-span-3">
@@ -170,28 +180,39 @@ function JobOpenings() {
                 </p>
                 <div className="mt-6 space-y-6 text-base text-neutral-600">
                   <p>
-                    Confira as posições disponíveis e inscreva-se. Integração com lista de vagas será implementada aqui.
+                    Confira as posições disponíveis e inscreva-se. Integração
+                    com lista de vagas será implementada aqui.
                   </p>
                 </div>
                 <div className="mt-8 flex">
-                  <Button href="/contact">
-                    Envie seu CV
-                  </Button>
+                  <Button href="/contact">Envie seu CV</Button>
                 </div>
               </div>
               <div className="col-span-full lg:col-span-1">
                 <div className="space-y-6">
                   <div className="border-l-4 border-accent-500 pl-4">
-                    <h4 className="font-semibold text-neutral-950">Desenvolvedor Full Stack</h4>
-                    <p className="text-sm text-neutral-600">São Paulo, SP - Remoto</p>
+                    <h4 className="font-semibold text-neutral-950">
+                      Desenvolvedor Full Stack
+                    </h4>
+                    <p className="text-sm text-neutral-600">
+                      São Paulo, SP - Remoto
+                    </p>
                   </div>
                   <div className="border-l-4 border-accent-500 pl-4">
-                    <h4 className="font-semibold text-neutral-950">Analista de Sistemas</h4>
-                    <p className="text-sm text-neutral-600">São Paulo, SP - Híbrido</p>
+                    <h4 className="font-semibold text-neutral-950">
+                      Analista de Sistemas
+                    </h4>
+                    <p className="text-sm text-neutral-600">
+                      São Paulo, SP - Híbrido
+                    </p>
                   </div>
                   <div className="border-l-4 border-accent-500 pl-4">
-                    <h4 className="font-semibold text-neutral-950">Tech Lead</h4>
-                    <p className="text-sm text-neutral-600">São Paulo, SP - Presencial</p>
+                    <h4 className="font-semibold text-neutral-950">
+                      Tech Lead
+                    </h4>
+                    <p className="text-sm text-neutral-600">
+                      São Paulo, SP - Presencial
+                    </p>
                   </div>
                 </div>
               </div>
@@ -208,12 +229,11 @@ export default function CareersPage() {
     <RootLayout>
       <PageIntro eyebrow="Carreiras" title="Carreiras na SMN">
         <p>
-          Faça parte de uma fábrica de software que atua em missões críticas para clientes estratégicos no Brasil.
+          Faça parte de uma fábrica de software que atua em missões críticas
+          para clientes estratégicos no Brasil.
         </p>
         <div className="mt-10 max-w-2xl">
-          <Button href="#vagas">
-            Ver Vagas Abertas
-          </Button>
+          <Button href="#vagas">Ver Vagas Abertas</Button>
         </div>
       </PageIntro>
 

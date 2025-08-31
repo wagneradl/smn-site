@@ -13,9 +13,7 @@
     "tailwind.css": {
       "size": 2952,
       "lines": 103,
-      "issues": [
-        "missing-guards"
-      ]
+      "issues": ["missing-guards"]
     },
     "typography.css": {
       "size": 4602,
@@ -28,8 +26,6 @@
     "unbalancedBraces": [],
     "layerOrder": [],
     "missingTokens": [],
-    "missingGuards": [
-      "tailwind.css"
-    ]
+    "missingGuards": ["tailwind.css"]
   }
 }

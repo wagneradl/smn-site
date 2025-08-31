@@ -1,22 +1,30 @@
 {
-  "timestamp": "2025-08-30T23:07:08.896Z",
+  "timestamp": "2025-08-31T02:03:27.676Z",
   "classificationSource": "computed",
   "brandsOrder": [
-    "teixeira-fortes",
-    "leve-asset",
+    "autovox",
     "casa-do-construtor",
-    "liceu-francano"
+    "cea",
+    "leve-asset",
+    "liceu-francano",
+    "magalu",
+    "momentum",
+    "teixeira-fortes"
   ],
   "computed": {
-    "teixeira-fortes": "standard",
-    "leve-asset": "wide",
+    "autovox": "wide",
     "casa-do-construtor": "wide",
-    "liceu-francano": "standard"
+    "cea": "emblem",
+    "leve-asset": "wide",
+    "liceu-francano": "standard",
+    "magalu": "wide",
+    "momentum": "wide",
+    "teixeira-fortes": "standard"
   },
   "buckets": {
-    "wide": 2,
+    "wide": 5,
     "standard": 2,
-    "emblem": 0
+    "emblem": 1
   },
   "aspectRatios": {
     "magalu": 5.11,
@@ -28,5 +36,5 @@
     "casa-do-construtor": 3.49,
     "liceu-francano": 2.11
   },
-  "asciiGrid": "┌────────────────────────┬────────────────────────┐\n│ teixeira-fortes (S)    │ leve-asset (W)         │\n├────────────────────────┼────────────────────────┤\n│ casa-do-construtor (W) │ liceu-francano (S)     │\n└────────────────────────┴────────────────────────┘"
+  "asciiGrid": "┌────────────────────────┬────────────────────────┐\n│ autovox (W)            │ casa-do-construtor (W) │\n├────────────────────────┼────────────────────────┤\n│ cea (E)                │ leve-asset (W)         │\n├────────────────────────┼────────────────────────┤\n│ liceu-francano (S)     │ magalu (W)             │\n├────────────────────────┼────────────────────────┤\n│ momentum (W)           │ teixeira-fortes (S)    │\n└────────────────────────┴────────────────────────┘"
 }

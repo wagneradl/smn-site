@@ -123,9 +123,7 @@ export function Footer() {
           <Link href="/" aria-label="Home">
             <Logo className="h-8" fillOnHover />
           </Link>
-          <p className="text-sm text-neutral-700">
-            SMN Tecnologia Ltda. 2025
-          </p>
+          <p className="text-sm text-neutral-700">SMN Tecnologia Ltda. 2025</p>
         </div>
       </FadeIn>
     </Container>

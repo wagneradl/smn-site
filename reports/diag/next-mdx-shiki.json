@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-08-30T23:07:08.755Z",
+  "timestamp": "2025-08-31T02:03:27.546Z",
   "nextConfig": {
     "exists": true,
-    "size": 1912
+    "size": 1922
   },
   "shikiConfig": {
     "hasShikijsRehype": true,
@@ -10,10 +10,13 @@
     "hasCssVariablesTheme": true,
     "themeName": "css-variables",
     "pipelineOrder": {
-      "hasRemark": false,
-      "hasRehype": false,
+      "hasRemark": true,
+      "hasRehype": true,
       "hasRecma": false,
-      "order": []
+      "order": [
+        "remark",
+        "rehype"
+      ]
     },
     "plugins": {
       "hasRehypeUnwrapImages": true,

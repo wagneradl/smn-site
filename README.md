@@ -59,6 +59,7 @@ src/
 ## Deploy
 
 O site está pronto para deploy em:
+
 - Vercel (recomendado)
 - Netlify
 - AWS Amplify

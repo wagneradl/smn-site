@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import { writeFileSync } from 'fs';
-import { join } from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { writeFileSync } from 'fs'
+import { join } from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const projectRoot = join(__dirname, '../../');
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const projectRoot = join(__dirname, '../../')
 
 // Valores implementados após as mudanças
 const BUCKET = {
@@ -39,29 +39,33 @@ const snapshot = {
   buckets: BUCKET,
   opticalAdjustments: LOOK,
   summary: {
-    wide: Object.values(BUCKET).filter(b => b === 'wide').length,
-    standard: Object.values(BUCKET).filter(b => b === 'standard').length,
-    emblem: Object.values(BUCKET).filter(b => b === 'emblem').length,
-    total: Object.keys(BUCKET).length
+    wide: Object.values(BUCKET).filter((b) => b === 'wide').length,
+    standard: Object.values(BUCKET).filter((b) => b === 'standard').length,
+    emblem: Object.values(BUCKET).filter((b) => b === 'emblem').length,
+    total: Object.keys(BUCKET).length,
   },
   analysis: {
     scaleRange: {
-      min: Math.min(...Object.values(LOOK).map(l => l.s || 1)),
-      max: Math.max(...Object.values(LOOK).map(l => l.s || 1)),
-      average: Object.values(LOOK).reduce((sum, l) => sum + (l.s || 1), 0) / Object.keys(LOOK).length
+      min: Math.min(...Object.values(LOOK).map((l) => l.s || 1)),
+      max: Math.max(...Object.values(LOOK).map((l) => l.s || 1)),
+      average:
+        Object.values(LOOK).reduce((sum, l) => sum + (l.s || 1), 0) /
+        Object.keys(LOOK).length,
     },
-    verticalAdjustments: Object.values(LOOK).filter(l => l.dy).length
-  }
-};
+    verticalAdjustments: Object.values(LOOK).filter((l) => l.dy).length,
+  },
+}
 
 // Salvar snapshot
-const snapshotPath = join(projectRoot, 'reports/clients-logos.after.json');
-writeFileSync(snapshotPath, JSON.stringify(snapshot, null, 2));
+const snapshotPath = join(projectRoot, 'reports/clients-logos.after.json')
+writeFileSync(snapshotPath, JSON.stringify(snapshot, null, 2))
 
-console.log(`✅ Snapshot salvo: ${snapshotPath}`);
-console.log(`📊 Resumo:`);
-console.log(`  Wide: ${snapshot.summary.wide}`);
-console.log(`  Standard: ${snapshot.summary.standard}`);
-console.log(`  Emblem: ${snapshot.summary.emblem}`);
-console.log(`  Escala: ${snapshot.analysis.scaleRange.min.toFixed(2)} - ${snapshot.analysis.scaleRange.max.toFixed(2)} (média: ${snapshot.analysis.scaleRange.average.toFixed(2)})`);
-console.log(`  Ajustes verticais: ${snapshot.analysis.verticalAdjustments}`);
+console.log(`✅ Snapshot salvo: ${snapshotPath}`)
+console.log(`📊 Resumo:`)
+console.log(`  Wide: ${snapshot.summary.wide}`)
+console.log(`  Standard: ${snapshot.summary.standard}`)
+console.log(`  Emblem: ${snapshot.summary.emblem}`)
+console.log(
+  `  Escala: ${snapshot.analysis.scaleRange.min.toFixed(2)} - ${snapshot.analysis.scaleRange.max.toFixed(2)} (média: ${snapshot.analysis.scaleRange.average.toFixed(2)})`,
+)
+console.log(`  Ajustes verticais: ${snapshot.analysis.verticalAdjustments}`)
