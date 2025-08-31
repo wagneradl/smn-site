@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
 
     // Em produção, aqui você enviaria o email
     // Por exemplo, usando Resend, SendGrid, etc.
-    console.log('Dados do formulário validados:', data)
+    console.warn('Dados do formulário validados:', data)
 
     // Simular processamento
     await new Promise((resolve) => setTimeout(resolve, 1000))

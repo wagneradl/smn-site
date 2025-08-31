@@ -69,11 +69,17 @@ try {
 
   // 2) Estratégia robusta: usar manifest como fonte de verdade
   let slugs = [...slugsUI]
-  
+
   // Se não encontrou na UI, usar manifest existente
-  const manifestPath = join(process.cwd(), 'reports', 'clients-logos.manifest.json')
-  const manifest = existsSync(manifestPath) ? JSON.parse(read(manifestPath)) : null
-  
+  const manifestPath = join(
+    process.cwd(),
+    'reports',
+    'clients-logos.manifest.json',
+  )
+  const manifest = existsSync(manifestPath)
+    ? JSON.parse(read(manifestPath))
+    : null
+
   if (manifest?.byClient && Object.keys(manifest.byClient).length > 0) {
     // Usar slugs do manifest (mais confiável)
     slugs = Object.keys(manifest.byClient).sort()
@@ -82,10 +88,17 @@ try {
     const clients = read(join(process.cwd(), 'src', 'lib', 'clients.ts'))
     const clientMatches = clients.match(/['"`]([A-Za-z\s&]+)['"`]\s*:\s*{/g)
     if (clientMatches) {
-      slugs = clientMatches.map(match => {
-        const nameMatch = match.match(/['"`]([A-Za-z\s&]+)['"`]/)
-        return nameMatch ? nameMatch[1].toLowerCase().replaceAll('&','and').replace(/\s+/g,'-') : null
-      }).filter(Boolean)
+      slugs = clientMatches
+        .map((match) => {
+          const nameMatch = match.match(/['"`]([A-Za-z\s&]+)['"`]/)
+          return nameMatch
+            ? nameMatch[1]
+                .toLowerCase()
+                .replaceAll('&', 'and')
+                .replace(/\s+/g, '-')
+            : null
+        })
+        .filter(Boolean)
     }
   }
   if (slugs.length === 0) {

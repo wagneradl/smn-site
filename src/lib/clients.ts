@@ -108,19 +108,27 @@ export function getClientSlug(clientName: string): string {
 
 export function getBrandClass(clientName: string): string {
   const config = getClientConfig(clientName)
-  if (!config) return 'brand'
+  if (!config) {
+    return 'brand'
+  }
 
   const classes = ['brand']
 
-  if (config.bucket === 'wide') classes.push('brand--wide')
-  if (config.bucket === 'emblem') classes.push('brand--emblem')
+  if (config.bucket === 'wide') {
+    classes.push('brand--wide')
+  }
+  if (config.bucket === 'emblem') {
+    classes.push('brand--emblem')
+  }
 
   return classes.join(' ')
 }
 
 export function getClientStyle(clientName: string): React.CSSProperties {
   const config = getClientConfig(clientName)
-  if (!config) return {}
+  if (!config) {
+    return {}
+  }
 
   const style: React.CSSProperties = {
     ['--s' as any]: config.scale.toString(),

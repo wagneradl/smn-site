@@ -126,10 +126,10 @@ function Testimonials() {
                     <blockquote className="text-xl/7 text-neutral-600 sm:text-2xl/8">
                       <p className="relative">
                         <span className="absolute -top-2 -left-4 text-4xl text-neutral-300">
-                          "
+                          &ldquo;
                         </span>
                         {testimonial.quote}
-                        <span className="text-4xl text-neutral-300">"</span>
+                        <span className="text-4xl text-neutral-300">&rdquo;</span>
                       </p>
                     </blockquote>
                     <figcaption className="mt-6 text-base text-neutral-950">

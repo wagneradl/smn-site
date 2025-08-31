@@ -415,3 +415,29 @@ a[data-nav-link='gcpro'].navtile:hover {
     --s: 1.02;
   }
 }
+
+@layer base {
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .skip-link:focus-visible {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 50;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: var(--color-neutral-950);
+    color: var(--color-on-primary);
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+}

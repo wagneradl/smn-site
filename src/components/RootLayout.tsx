@@ -131,6 +131,9 @@ function NavigationItem({
   children: React.ReactNode
   hoverVariant?: 'green' | 'white'
 } & React.ComponentPropsWithoutRef<typeof Link>) {
+  const pathname = usePathname()
+  const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href)
+
   const hoverClasses = {
     green: 'bg-gradient-to-r from-accent-500 to-accent-400',
     white: 'bg-white',
@@ -139,6 +142,7 @@ function NavigationItem({
   return (
     <Link
       href={href}
+      aria-current={isActive ? 'page' : undefined}
       data-nav-link
       className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
       {...props}
@@ -314,7 +318,9 @@ function RootLayoutInner({
             interactive
           />
 
-          <main className="w-full flex-auto">{children}</main>
+          <main id="main" className="w-full flex-auto">
+            {children}
+          </main>
 
           <Footer />
         </motion.div>

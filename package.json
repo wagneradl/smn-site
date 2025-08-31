@@ -22,7 +22,9 @@
     "diag:logos": "node scripts/diag/logos-layout-scan.mjs",
     "diag:quality": "node scripts/diag/eslint-prettier-typecheck.mjs",
     "diag:build": "node scripts/diag/build-probe.mjs",
-    "diag:all": "npm run build && npm run format:check || true && npm run diag:mdx && npm run diag:logos && npm run diag:nav"
+    "diag:all": "npm run build && npm run format:check || true && npm run diag:mdx && npm run diag:logos && npm run diag:nav",
+    "qa:smoke": "node scripts/qa/smoke-ux.mjs",
+    "qa:all": "npm run build && npm run qa:smoke"
   },
   "browserslist": "defaults, not ie <= 11",
   "engines": {

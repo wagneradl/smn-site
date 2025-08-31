@@ -1,0 +1,13 @@
+# build outputs
+.next/
+out/
+dist/
+coverage/
+# caches & system
+node_modules/
+*.log
+# reports/artifacts
+reports/**
+
+# misc
+package-lock.json
