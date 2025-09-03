@@ -13,5 +13,8 @@ for (const f of files) {
     })
   }
 }
-writeFileSync('reports/diag/rsc-boundaries.json', JSON.stringify({ client }, null, 2))
+writeFileSync(
+  'reports/diag/rsc-boundaries.json',
+  JSON.stringify({ client }, null, 2),
+)
 console.log('✅ RSC boundaries scan complete')

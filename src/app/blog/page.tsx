@@ -16,6 +16,16 @@ export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+  openGraph: {
+    title: 'Blog - SMN Tecnologia',
+    description: 'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - SMN Tecnologia',
+    description: 'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+  },
 }
 
 export default async function Blog() {
@@ -52,6 +62,7 @@ export default async function Blog() {
                         <dd className="mt-6 flex gap-x-4">
                           <div className="flex-none overflow-hidden rounded-xl bg-neutral-100">
                             <Image
+                              sizes="100vw"
                               alt=""
                               {...article.author.image}
                               className="h-12 w-12 object-cover grayscale"

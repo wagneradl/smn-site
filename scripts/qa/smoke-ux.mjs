@@ -32,9 +32,7 @@ const HOST = process.env.APP_HOST || 'http://localhost:3000'
       })
 
       // por texto visível
-      const byText = els.find((el) =>
-        /gc\s*pro/i.test(el.textContent || ''),
-      )
+      const byText = els.find((el) => /gc\s*pro/i.test(el.textContent || ''))
       if (byText) return toInfo(byText)
 
       // fallback por href externo contendo "gcpro"
@@ -74,9 +72,14 @@ const HOST = process.env.APP_HOST || 'http://localhost:3000'
         string: s.getPropertyValue('--shiki-token-string')?.trim() || null,
       }
     })
-    
+
     // Verificar se pelo menos algumas variáveis estão definidas
-    const hasShikiVars = !!(rootVars.bg || rootVars.fg || rootVars.comment || rootVars.string)
+    const hasShikiVars = !!(
+      rootVars.bg ||
+      rootVars.fg ||
+      rootVars.comment ||
+      rootVars.string
+    )
     add('shiki:css-vars', hasShikiVars, {
       scope: 'root',
       vars: rootVars,

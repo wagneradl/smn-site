@@ -55,7 +55,7 @@ export function ClientsGrid({
               data-brand={getClientSlug(client)}
             >
               <FadeIn>
-                <Image src={logo} alt={client} unoptimized />
+                <Image sizes="100vw" src={logo} alt={client} unoptimized />
               </FadeIn>
             </li>
           ))}

@@ -36,6 +36,7 @@ function CaseStudies({
                 <div className="col-span-full sm:flex sm:items-center sm:justify-between sm:gap-x-8 lg:col-span-1 lg:block">
                   <div className="sm:flex sm:items-center sm:gap-x-6 lg:block">
                     <Image
+                      sizes="100vw"
                       src={caseStudy.logo}
                       alt=""
                       className="h-16 w-16 flex-none"
@@ -104,9 +105,18 @@ function Clients() {
 }
 
 export const metadata: Metadata = {
-  title: 'Nossos Projetos – SMN Tecnologia',
-  description:
-    'Conheça nossos projetos: sistemas para Magazine Luiza, Momentum, Baterias Moura e muito mais.',
+  title: 'Cases de Sucesso',
+  description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+  openGraph: {
+    title: 'Cases de Sucesso - SMN Tecnologia',
+    description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cases de Sucesso - SMN Tecnologia',
+    description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+  },
 }
 
 export default async function Work() {

@@ -1,0 +1,40 @@
+{
+  "routes": [
+    "/",
+    "/work",
+    "/contact",
+    "/blog"
+  ],
+  "scores": {
+    "home": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "work": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "contact": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "blog": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  "assertions": {
+    "performance": 0.9,
+    "accessibility": 0.9,
+    "best-practices": 0.9,
+    "seo": 0.95
+  }
+}

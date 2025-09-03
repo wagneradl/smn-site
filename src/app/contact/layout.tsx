@@ -1,22 +1,17 @@
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fale Conosco – SMN Tecnologia',
-  description:
-    'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos. Para vagas, acesse Carreiras.',
-  keywords: [
-    'contato SMN',
-    'projetos software',
-    'parcerias tecnológicas',
-    'consultoria TI',
-    'desenvolvimento software',
-    'carreiras SMN',
-  ],
+  title: 'Fale Conosco',
+  description: 'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos. Para vagas, acesse Carreiras.',
   openGraph: {
-    title: 'Fale Conosco – SMN Tecnologia',
-    description:
-      'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos.',
-    type: 'website',
+    title: 'Fale Conosco - SMN Tecnologia',
+    description: 'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fale Conosco - SMN Tecnologia',
+    description: 'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos.',
   },
 }
 

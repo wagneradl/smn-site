@@ -107,6 +107,7 @@ function Team() {
                       <FadeIn>
                         <div className="group relative overflow-hidden rounded-3xl bg-neutral-100">
                           <Image
+                            sizes="100vw"
                             alt=""
                             {...person.image}
                             className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
@@ -189,9 +190,19 @@ function Locations() {
 }
 
 export const metadata: Metadata = {
-  title: 'Sobre Nós – SMN Tecnologia',
+  title: 'Sobre Nós',
   description:
     'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+  openGraph: {
+    title: 'Sobre Nós - SMN Tecnologia',
+    description: 'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre Nós - SMN Tecnologia',
+    description: 'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+  },
 }
 
 export default async function About() {

@@ -14,6 +14,7 @@ import { CLIENTS_CONFIG } from '@/lib/clients'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
+import { JsonLd } from '@/lib/seo'
 
 function Clients() {
   return (
@@ -56,6 +57,7 @@ function CaseStudies({
                   <Link href={caseStudy.href}>
                     <span className="absolute inset-0 rounded-3xl" />
                     <Image
+                      sizes="100vw"
                       src={caseStudy.logo}
                       alt={caseStudy.client}
                       className="h-16 w-16"
@@ -145,9 +147,18 @@ function Services() {
 }
 
 export const metadata: Metadata = {
-  title: 'SMN Tecnologia – Fábrica de Software para Missões Críticas',
-  description:
-    'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.',
+  title: 'Fábrica de Software para Missão Crítica',
+  description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.',
+  openGraph: {
+    title: 'Fábrica de Software para Missão Crítica - SMN Tecnologia',
+    description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fábrica de Software para Missão Crítica - SMN Tecnologia',
+    description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
+  },
 }
 
 export default async function Home() {
@@ -157,8 +168,8 @@ export default async function Home() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
-            Fábrica de software para missões críticas.
+          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+            Fábrica de software para missão crítica.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
             Desde 2003, entregamos arquiteturas e sistemas que sustentam
@@ -184,6 +195,43 @@ export default async function Home() {
       <Services />
 
       <ContactSection />
+
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'SMN Tecnologia',
+          url: 'https://smn.example',
+          logo: 'https://smn.example/logo.png',
+          description: 'Fábrica de software para missão crítica desde 2003',
+          foundingDate: '2003',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'João Pessoa',
+            addressRegion: 'PB',
+            addressCountry: 'BR',
+          },
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'customer service',
+            email: 'contato@smn.com.br',
+          },
+        }}
+      />
+
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'SMN Tecnologia',
+          url: 'https://smn.example',
+          description: 'Fábrica de software para missão crítica',
+          publisher: {
+            '@type': 'Organization',
+            name: 'SMN Tecnologia',
+          },
+        }}
+      />
     </RootLayout>
   )
 }

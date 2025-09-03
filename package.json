@@ -22,11 +22,14 @@
     "diag:logos": "node scripts/diag/logos-layout-scan.mjs",
     "diag:quality": "node scripts/diag/eslint-prettier-typecheck.mjs",
     "diag:build": "node scripts/diag/build-probe.mjs",
+    "diag:seo": "node scripts/diag/seo-scan.mjs",
     "diag:all": "npm run build && npm run format:check || true && npm run diag:mdx && npm run diag:logos && npm run diag:nav",
     "qa:smoke": "node scripts/qa/smoke-ux.mjs",
     "qa:all": "npm run build && npm run qa:smoke",
     "analyze": "ANALYZE=true next build",
-    "perf:budget": "npm run build && node scripts/perf/assert-budgets.mjs",
+    "perf:budget": "npm run build && npm run diag:build && node scripts/perf/assert-budgets.mjs",
+    "perf:lighthouse": "node scripts/perf/lighthouse.mjs",
+    "fix:image-sizes": "node scripts/fix/image-sizes-codemod.mjs",
     "diag:image": "node scripts/diag/next-image-audit.mjs",
     "diag:rsc": "node scripts/diag/rsc-boundaries.mjs"
   },
@@ -61,6 +64,7 @@
     "zod": "^4.1.5"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
     "@next/bundle-analyzer": "^15.5.2",
     "@types/node": "^24.1.0",
     "@types/react": "^19",
@@ -68,8 +72,10 @@
     "eslint": "^9.32.0",
     "eslint-config-next": "^15",
     "fast-glob": "^3.3.3",
+    "lighthouse": "^12.8.2",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "serve": "^14.2.4",
     "sharp": "0.34.3"
   }
 }

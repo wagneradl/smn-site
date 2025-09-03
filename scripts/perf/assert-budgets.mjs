@@ -2,8 +2,9 @@ import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
 const budgets = {
-  firstLoadJS_kb: 170,        // teto global
-  routeMaxKB: {               // tetos por rota crítica (ajuste se necessário)
+  firstLoadJS_kb: 170, // teto global
+  routeMaxKB: {
+    // tetos por rota crítica (ajuste se necessário)
     '/': 180,
     '/work': 180,
     '/contact': 170,
@@ -15,7 +16,7 @@ const txt = readFileSync(buildReportPath, 'utf8')
 const data = JSON.parse(txt)
 const lines = (data.output || '').split('\n')
 
-const kb = s => Number(String(s).replace(/[^\d.]/g, ''))
+const kb = (s) => Number(String(s).replace(/[^\d.]/g, ''))
 
 let firstLoad = null
 const routes = {}
@@ -25,7 +26,9 @@ for (const line of lines) {
     if (m) firstLoad = kb(m[1])
   }
   // linhas tipo: "┌ ○ /contact    2.4 kB         153 kB"
-  const r = line.match(/^\s*[├┌└]\s[○ƒ]\s+([/\w\-\_]+)\s+[\d\.]+\s*kB\s+(\d+)\s*kB/)
+  const r = line.match(
+    /^\s*[├┌└]\s[○ƒ]\s+([/\w\-\_]+)\s+[\d\.]+\s*kB\s+(\d+)\s*kB/,
+  )
   if (r) routes[r[1]] = kb(r[2])
 }
 
@@ -39,8 +42,17 @@ for (const [route, size] of Object.entries(routes)) {
   if (max && size > max) failures.push(`${route} ${size}kB > ${max}kB`)
 }
 
-const result = { ok: failures.length === 0, firstLoad, routes, failures, budgets }
-writeFileSync(join(process.cwd(), 'reports', 'perf', 'budgets.json'), JSON.stringify(result, null, 2))
+const result = {
+  ok: failures.length === 0,
+  firstLoad,
+  routes,
+  failures,
+  budgets,
+}
+writeFileSync(
+  join(process.cwd(), 'reports', 'perf', 'budgets.json'),
+  JSON.stringify(result, null, 2),
+)
 if (failures.length) {
   console.error('❌ Perf budgets failed:\n' + failures.join('\n'))
   process.exit(1)

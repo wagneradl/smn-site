@@ -129,7 +129,9 @@ function Testimonials() {
                           &ldquo;
                         </span>
                         {testimonial.quote}
-                        <span className="text-4xl text-neutral-300">&rdquo;</span>
+                        <span className="text-4xl text-neutral-300">
+                          &rdquo;
+                        </span>
                       </p>
                     </blockquote>
                     <figcaption className="mt-6 text-base text-neutral-950">

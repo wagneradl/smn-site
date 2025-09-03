@@ -13,23 +13,18 @@ import imageLaptop from '@/images/laptop.jpg'
 import imageMeeting from '@/images/meeting.jpg'
 
 export const metadata: Metadata = {
-  title: 'Soluções sob medida para operações estratégicas - SMN Tecnologia',
+  title: 'Soluções sob medida para operações estratégicas',
   description:
     'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
-  keywords: [
-    'software sob medida',
-    'squads dedicados',
-    'business intelligence',
-    'GCPro ERP',
-    'desenvolvimento de software',
-    'consultoria em TI',
-    'sistemas empresariais',
-  ],
   openGraph: {
     title: 'Soluções sob medida para operações estratégicas - SMN Tecnologia',
-    description:
-      'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
-    type: 'website',
+    description: 'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Soluções sob medida para operações estratégicas - SMN Tecnologia',
+    description: 'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
   },
 }
 
