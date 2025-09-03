@@ -36,7 +36,7 @@ function CaseStudies({
                 <div className="col-span-full sm:flex sm:items-center sm:justify-between sm:gap-x-8 lg:col-span-1 lg:block">
                   <div className="sm:flex sm:items-center sm:gap-x-6 lg:block">
                     <Image
-                      sizes="100vw"
+                      sizes="(min-width: 1024px) 33vw, 100vw"
                       src={caseStudy.logo}
                       alt=""
                       className="h-16 w-16 flex-none"

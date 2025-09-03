@@ -43,7 +43,7 @@ function ProcessSection() {
             <FadeIn className="w-135 flex-none lg:w-180">
               <StylizedImage
                 src={imageMeeting}
-                sizes="(min-width: 1024px) 41rem, 31rem"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="justify-center lg:justify-end"
               />
             </FadeIn>

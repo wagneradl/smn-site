@@ -3,6 +3,7 @@
 import { useId } from 'react'
 import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
+import { BLUR_DATA_URL } from '@/lib/blur'
 
 const shapes = [
   {
@@ -27,8 +28,16 @@ type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }
 export function StylizedImage({
   shape = 0,
   className,
+  priority = false,
+  sizes = '(min-width: 1024px) 50vw, 100vw',
+  placeholder = 'empty',
   ...props
-}: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2 }) {
+}: ImagePropsWithOptionalAlt & { 
+  shape?: 0 | 1 | 2
+  priority?: boolean
+  sizes?: string
+  placeholder?: 'empty' | 'blur'
+}) {
   let id = useId()
   let { width, height, path } = shapes[shape]
 
@@ -44,8 +53,11 @@ export function StylizedImage({
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
             <foreignObject width={width} height={height}>
               <Image
-                sizes="100vw"
+                sizes={sizes}
                 alt=""
+                priority={priority}
+                placeholder={placeholder}
+                blurDataURL={placeholder === 'blur' ? BLUR_DATA_URL : undefined}
                 className="w-full bg-neutral-100 object-cover"
                 style={{ aspectRatio: `${width} / ${height}` }}
                 {...props}
