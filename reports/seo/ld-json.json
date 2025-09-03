@@ -1,18 +1,21 @@
 [
   {
     "route": "/",
-    "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/"
+    "blocks": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"SMN Tecnologia\",\"url\":\"https://smn.example\",\"logo\":\"https://smn.example/logo.png\",\"description\":\"Fábrica de software para missão crítica desde 2003\",\"foundingDate\":\"2003\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"João Pessoa\",\"addressRegion\":\"PB\",\"addressCountry\":\"BR\"},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"contato@smn.com.br\"}}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"SMN Tecnologia\",\"url\":\"https://smn.example\",\"description\":\"Fábrica de software para missão crítica\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"SMN Tecnologia\"}}"
+    ]
   },
   {
     "route": "/work",
-    "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/work"
+    "blocks": []
   },
   {
     "route": "/blog",
-    "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/blog"
+    "blocks": []
   },
   {
     "route": "/contact",
-    "error": "net::ERR_CONNECTION_REFUSED at http://localhost:3000/contact"
+    "blocks": []
   }
 ]

@@ -1,0 +1,12 @@
+{
+  "route": "/",
+  "lcp": {
+    "startTime": 164,
+    "size": 84822,
+    "element": {
+      "tag": "H1",
+      "id": null,
+      "class": "font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl"
+    }
+  }
+}
