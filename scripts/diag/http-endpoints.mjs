@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
 
-await withServer({ port: 3123, build: true }, async ({ baseUrl }) => {
+await withServer(async ({ baseUrl }) => {
   const routes = ['/robots.txt', '/sitemap.xml'];
   const results = [];
   for (const r of routes) {

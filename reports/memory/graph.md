@@ -1,81 +1,47 @@
-# SMN Memory Graph Summary
+# Memory Graph — 9/3/2025, 11:38:25 PM
 
-**Version:** 1.0.0
-**Generated:** 2025-09-03T16:03:35.586Z
+**Invariantes:** ✅ 26 • ❌ 0
 
-## Nodes Overview
+## Checklist
+- [x] **MDX** — remark→rehype
+- [x] **MDX** — tema css-variables
+- [x] **MDX** — @shikijs/rehype presente
+- [x] **NAV** — 6 itens no desktop
+- [x] **NAV** — GCPro externo seguro
+- [x] **NAV** — prefetch desativado (GCPro)
+- [x] **A11Y** — foco visível
+- [x] **LOGOS** — buckets presentes
+- [x] **LOGOS** — mínimo 1 por bucket
+- [x] **IMG** — todos next/image com sizes
+- [x] **SEO** — meta em /
+- [x] **SEO** — meta em /work
+- [x] **SEO** — meta em /blog
+- [x] **SEO** — meta em /contact
+- [x] **SEO** — JSON-LD Organization na home
+- [x] **SEO** — JSON-LD WebSite na home
+- [x] **SEO** — /robots.txt 200
+- [x] **SEO** — /sitemap.xml 200
+- [x] **PERF** — budgets ok
+- [x] **PERF** — First Load JS ≤ 170kB
+- [x] **PERF** — LCP registrado
+- [x] **SEC** — header Strict-Transport-Security
+- [x] **SEC** — header X-Content-Type-Options
+- [x] **SEC** — header Referrer-Policy
+- [x] **SEC** — header X-Frame-Options
+- [x] **SEC** — header Permissions-Policy
 
-### DESIGN SYSTEM
-**Summary:** Tailwind v4 + tokens SMN + guards de links
 
-**Invariants:**
-- [ ] Tailwind v4 detectado e @tailwindcss/postcss ativo
-- [ ] Links padrão sem underline; hover apenas cor accent; [data-button] blindado
-- [ ] Focus-visible presente nos links de navegação
+## Nós
+- **mdx-shiki**: `{"id":"mdx-shiki","order":["remark","rehype"],"hasTheme":true,"hasRehype":true}`
+- **nav**: `{"id":"nav","hasSixItems":true,"items":["Sobre nós","About","Soluções","Solucoes","Cases","Work","Carreiras","Careers","Blog","GCPro"],"gcproExternal":true,"gcproPrefetch":true,"hasDataNavLink":true,"hasVisibleFocus":true,"sourceFile":"src/components/RootLayout.tsx"}`
+- **logos**: `{"id":"logos","buckets":{"wide":5,"standard":2,"emblem":1},"brandsOrder":["autovox","casa-do-construtor","cea","leve-asset","liceu-francano","magalu","momentum","teixeira-fortes"]}`
+- **images**: `{"id":"images","offenders":0}`
+- **seo-meta**: `{"id":"seo-meta","total":4}`
+- **seo-ld**: `{"id":"seo-ld","total":4}`
+- **http-endpoints**: `{"id":"http-endpoints","total":2}`
+- **perf**: `{"id":"perf","ok":true,"firstLoad":102}`
+- **lcp**: `{"id":"lcp","present":true,"startTime":644}`
 
-### MDX SHIKI
-**Summary:** Shiki com tema css-variables via @shikijs/rehype
 
-**Invariants:**
-- [ ] createCssVariablesTheme({ name: 'css-variables' }) configurado
-- [ ] Ordem MDX: remark → rehype
-- [ ] rehype-unwrap-images, remark-gfm, remark-rehype-wrap ativos
-
-### NAVIGATION
-**Summary:** Grade 2×3 (6 itens): Sobre nós, Soluções, Cases, Carreiras, Blog (interno), GCPro (externo)
-
-**Invariants:**
-- [ ] Existem 6 itens no desktop (nav-grid.hasSixItems == true)
-- [ ] GCPro abre em nova aba (target=_blank) com rel='noopener noreferrer' e prefetch={false}
-- [ ] Linhas divisórias contínuas e hover verde cobrindo cada tile (divide-x/y nas rows; span consistente)
-
-### LOGOS
-**Summary:** Buckets (wide≥3, standard, emblem≤1.5) + microajustes óticos (--dx,--dy,--s)
-
-**Invariants:**
-- [ ] Há data-brand no wrapper .brand de cada item
-- [ ] Manifest/layout com buckets e aspect ratios gerado
-- [ ] Custom props detectadas (—dx/—dy/—s) quando aplicáveis
-
-### IMAGES
-**Summary:** next/image sizes padronizados + LCP otimizado
-
-**Invariants:**
-- [ ] Relatório next-image-audit: missingSizes == 0
-- [ ] Hero com priority e sizes corretos
-- [ ] Blur placeholder disponível para hero
-
-### SEO
-**Summary:** Metadata por rota + OG/Twitter + robots + sitemap + JSON-LD na home
-
-**Invariants:**
-- [ ] meta-scan.json com title/description/og/tw nas rotas core
-- [ ] ld-json.json com Organization + WebSite na /
-- [ ] robots.txt e sitemap.xml retornam 200
-
-### PERF
-**Summary:** Perf budgets + bundle analyzer opt-in + LCP capturado
-
-**Invariants:**
-- [ ] First Load JS ≤ 170 kB
-- [ ] LCP report válido (elemento e tempo presentes)
-
-### SECURITY
-**Summary:** Headers low-risk (HSTS, X-CTO, Referrer-Policy, X-Frame-Options, Permissions-Policy)
-
-**Invariants:**
-- [ ] Todos os headers configurados no next.config.mjs
-
-### RSC
-**Summary:** Limites RSC client/server respeitados
-
-**Invariants:**
-- [ ] Relatório rsc-boundaries lista apenas componentes esperados com 'use client'
-
-### QA
-**Summary:** Harness de servidor efêmero + qa:seo + qa:smoke
-
-**Invariants:**
-- [ ] qa:seo executa sem falhas
-- [ ] qa:smoke passa (nav 6 itens, GCPro externo, focus-visible, Shiki vars)
-
+## Evidências
+- Gerado a partir de relatórios em `reports/**` e `next.config.mjs`.

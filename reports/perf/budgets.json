@@ -2,9 +2,14 @@
   "ok": true,
   "firstLoad": 102,
   "routes": {
-    "/contact": 153,
+    "/blog/3-lessons-we-learned-going-back-to-the-office": 149,
+    "/blog/a-short-guide-to-component-naming": 149,
+    "/blog/future-of-web-development": 149,
     "/process": 159,
-    "/solucoes": 159
+    "/solucoes": 159,
+    "/work/family-fund": 150,
+    "/work/phobia": 150,
+    "/work/unseal": 150
   },
   "failures": [],
   "budgets": {

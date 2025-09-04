@@ -1,29 +1,26 @@
-import { spawn } from 'child_process';
-import http from 'http';
+// scripts/utils/with-server.mjs
+import { spawn } from "child_process";
 
-function waitForReady(url, timeoutMs = 30000) {
-  const start = Date.now();
-  return new Promise((resolve, reject) => {
-    const tick = () => {
-      http.get(url, (res) => res.statusCode ? resolve(true) : setTimeout(tick, 500))
-          .on('error', () => Date.now() - start > timeoutMs ? reject(new Error('server timeout')) : setTimeout(tick, 500));
-    };
-    tick();
+export async function withServer(fn, { port = 3000 } = {}) {
+  const child = spawn("npm", ["run", "start", "--", "-p", String(port)], {
+    stdio: "inherit",
+    env: { ...process.env, NODE_ENV: "production" },
   });
-}
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export async function withServer({ port = 3123, build = true }, fn) {
-  if (build) {
-    await new Promise((res, rej) => {
-      const b = spawn('npm', ['run', 'build'], { stdio: 'inherit', shell: true });
-      b.on('close', (code) => code === 0 ? res() : rej(new Error('build failed')));
-    });
+  // aguarda servidor subir (simples e robusto)
+  let ok = false;
+  for (let i = 0; i < 40; i++) {
+    try {
+      const res = await fetch(`http://localhost:${port}/`, { method: "HEAD" });
+      if (res.ok || res.status === 405) { ok = true; break; }
+    } catch {}
+    await wait(500);
   }
-  const server = spawn('npx', ['next', 'start', '-p', String(port)], { stdio: 'inherit', shell: true });
   try {
-    await waitForReady(`http://localhost:${port}/`);
+    if (!ok) throw new Error("Servidor não respondeu em tempo hábil.");
     return await fn({ baseUrl: `http://localhost:${port}` });
   } finally {
-    server.kill('SIGTERM');
+    child.kill("SIGTERM");
   }
 }

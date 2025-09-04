@@ -15,7 +15,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run build
-      - run: npm run diag:mdx
-      - run: npm run diag:logos
-      - run: npm run diag:nav
-      # smoke opcional (exige app rodando) — pode habilitar depois com vercel preview, por ex.
+      - run: npm run diag:all
+      - run: npm run qa:seo
+      - run: npm run mem:graph
+      - run: npm run mem:assert

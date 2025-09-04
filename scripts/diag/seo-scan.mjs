@@ -7,7 +7,7 @@ import puppeteer from 'puppeteer';
 
 const routes = ['/', '/work', '/blog', '/contact'];
 
-await withServer({ port: 3123, build: true }, async ({ baseUrl }) => {
+await withServer(async ({ baseUrl }) => {
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
 

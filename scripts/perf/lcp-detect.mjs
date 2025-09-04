@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import puppeteer from 'puppeteer';
 
-await withServer({ port: 3123, build: true }, async ({ baseUrl }) => {
+await withServer(async ({ baseUrl }) => {
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
   await page.evaluateOnNewDocument(() => {
