@@ -185,7 +185,7 @@ Este template de site é um produto comercial licenciado sob a [Tailwind Plus li
 - **Integração de sistemas** legados e modernos
 - **Consultoria técnica** e arquitetura de software
 
-Desde 2008, entregamos soluções robustas e escaláveis para clientes em diversos setores da economia.
+Desde 2003, entregamos soluções robustas e escaláveis para clientes em diversos setores da economia.
 
 ---
 
