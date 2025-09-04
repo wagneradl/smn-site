@@ -1,0 +1,19 @@
+name: Guard file sizes
+on: pull_request
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          MAX=1048576
+          git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}... \
+            | while read f; do
+                [ -f "$f" ] || continue
+                S=$(wc -c < "$f")
+                if [ $S -gt $MAX ] && [[ "$f" != src/images/* ]]; then
+                  echo "::error file=$f::File too large ($S bytes)"; exit 1
+                fi
+              done

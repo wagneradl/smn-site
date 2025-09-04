@@ -33,3 +33,29 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Mac/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Relatórios e artefatos locais
+reports/**
+!.gitkeep
+
+# Cache temporário
+tmp/
+.tmp/
+.cache/
+
+# Logs de build
+*.log
+build-*.log
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
