@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "firstLoad": 102,
+  "routes": {
+    "/blog/3-lessons-we-learned-going-back-to-the-office": 149,
+    "/blog/a-short-guide-to-component-naming": 149,
+    "/blog/future-of-web-development": 149,
+    "/process": 159,
+    "/solucoes": 159,
+    "/work/family-fund": 150,
+    "/work/phobia": 150,
+    "/work/unseal": 150
+  },
+  "failures": [],
+  "budgets": {
+    "firstLoadJS_kb": 170,
+    "routeMaxKB": {
+      "/": 180,
+      "/work": 180,
+      "/contact": 170
+    }
+  }
+}

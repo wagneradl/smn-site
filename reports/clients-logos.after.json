@@ -1,0 +1,55 @@
+{
+  "generated": "2025-08-27T23:17:21.641Z",
+  "description": "Valores efetivos após ajuste ótico fino",
+  "buckets": {
+    "Magalu": "wide",
+    "Momentum": "wide",
+    "Autovox": "wide",
+    "Leve Asset": "wide",
+    "Casa do Construtor": "wide",
+    "Teixeira Fortes": "standard",
+    "Liceu Francano": "standard",
+    "CEA": "emblem"
+  },
+  "opticalAdjustments": {
+    "Magalu": {
+      "s": 0.96
+    },
+    "Momentum": {
+      "s": 0.98
+    },
+    "Autovox": {
+      "s": 0.98
+    },
+    "Leve Asset": {
+      "s": 1.03
+    },
+    "Casa do Construtor": {
+      "s": 1.03
+    },
+    "Teixeira Fortes": {
+      "s": 1.06
+    },
+    "Liceu Francano": {
+      "s": 1.02
+    },
+    "CEA": {
+      "s": 1.22,
+      "dy": "-1px"
+    }
+  },
+  "summary": {
+    "wide": 5,
+    "standard": 2,
+    "emblem": 1,
+    "total": 8
+  },
+  "analysis": {
+    "scaleRange": {
+      "min": 0.96,
+      "max": 1.22,
+      "average": 1.0350000000000001
+    },
+    "verticalAdjustments": 1
+  }
+}

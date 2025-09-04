@@ -1,0 +1,313 @@
+{
+  "generated": "2025-08-27T22:29:53.781Z",
+  "total": 16,
+  "clients": 8,
+  "logos": [
+    {
+      "name": "logo-dark",
+      "client": "magalu",
+      "path": "src/images/clients/magalu/logo-dark.svg",
+      "width": 184,
+      "height": 36,
+      "aspect": 5.11,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "magalu",
+      "path": "src/images/clients/magalu/logo-light.svg",
+      "width": 184,
+      "height": 36,
+      "aspect": 5.11,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "momentum",
+      "path": "src/images/clients/momentum/logo-light.svg",
+      "width": 184,
+      "height": 36,
+      "aspect": 5.11,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "momentum",
+      "path": "src/images/clients/momentum/logo-dark.svg",
+      "width": 184,
+      "height": 36,
+      "aspect": 5.11,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "autovox",
+      "path": "src/images/clients/autovox/logo-light.svg",
+      "width": 179.3691,
+      "height": 36,
+      "aspect": 4.98,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "autovox",
+      "path": "src/images/clients/autovox/logo-dark.svg",
+      "width": 179.3691,
+      "height": 36,
+      "aspect": 4.98,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "teixeira-fortes",
+      "path": "src/images/clients/teixeira-fortes/logo-light.svg",
+      "width": 104.6721,
+      "height": 36,
+      "aspect": 2.91,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "teixeira-fortes",
+      "path": "src/images/clients/teixeira-fortes/logo-dark.svg",
+      "width": 104.3617,
+      "height": 36,
+      "aspect": 2.9,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "cea",
+      "path": "src/images/clients/cea/logo-light.svg",
+      "width": 49.5277,
+      "height": 36,
+      "aspect": 1.38,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "cea",
+      "path": "src/images/clients/cea/logo-dark.svg",
+      "width": 49.5277,
+      "height": 36,
+      "aspect": 1.38,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "leve-asset",
+      "path": "src/images/clients/leve-asset/logo-light.svg",
+      "width": 116.3992,
+      "height": 36,
+      "aspect": 3.23,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "leve-asset",
+      "path": "src/images/clients/leve-asset/logo-dark.svg",
+      "width": 116.3992,
+      "height": 36,
+      "aspect": 3.23,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "casa-do-construtor",
+      "path": "src/images/clients/casa-do-construtor/logo-light.svg",
+      "width": 125.5628,
+      "height": 36,
+      "aspect": 3.49,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "casa-do-construtor",
+      "path": "src/images/clients/casa-do-construtor/logo-dark.svg",
+      "width": 125.5628,
+      "height": 36,
+      "aspect": 3.49,
+      "inline": false
+    },
+    {
+      "name": "logo-light",
+      "client": "liceu-francano",
+      "path": "src/images/clients/liceu-francano/logo-light.svg",
+      "width": 75.954,
+      "height": 36,
+      "aspect": 2.11,
+      "inline": false
+    },
+    {
+      "name": "logo-dark",
+      "client": "liceu-francano",
+      "path": "src/images/clients/liceu-francano/logo-dark.svg",
+      "width": 75.954,
+      "height": 36,
+      "aspect": 2.11,
+      "inline": false
+    }
+  ],
+  "byClient": {
+    "magalu": [
+      {
+        "name": "logo-dark",
+        "client": "magalu",
+        "path": "src/images/clients/magalu/logo-dark.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      },
+      {
+        "name": "logo-light",
+        "client": "magalu",
+        "path": "src/images/clients/magalu/logo-light.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      }
+    ],
+    "momentum": [
+      {
+        "name": "logo-light",
+        "client": "momentum",
+        "path": "src/images/clients/momentum/logo-light.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "momentum",
+        "path": "src/images/clients/momentum/logo-dark.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      }
+    ],
+    "autovox": [
+      {
+        "name": "logo-light",
+        "client": "autovox",
+        "path": "src/images/clients/autovox/logo-light.svg",
+        "width": 179.3691,
+        "height": 36,
+        "aspect": 4.98,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "autovox",
+        "path": "src/images/clients/autovox/logo-dark.svg",
+        "width": 179.3691,
+        "height": 36,
+        "aspect": 4.98,
+        "inline": false
+      }
+    ],
+    "teixeira-fortes": [
+      {
+        "name": "logo-light",
+        "client": "teixeira-fortes",
+        "path": "src/images/clients/teixeira-fortes/logo-light.svg",
+        "width": 104.6721,
+        "height": 36,
+        "aspect": 2.91,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "teixeira-fortes",
+        "path": "src/images/clients/teixeira-fortes/logo-dark.svg",
+        "width": 104.3617,
+        "height": 36,
+        "aspect": 2.9,
+        "inline": false
+      }
+    ],
+    "cea": [
+      {
+        "name": "logo-light",
+        "client": "cea",
+        "path": "src/images/clients/cea/logo-light.svg",
+        "width": 49.5277,
+        "height": 36,
+        "aspect": 1.38,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "cea",
+        "path": "src/images/clients/cea/logo-dark.svg",
+        "width": 49.5277,
+        "height": 36,
+        "aspect": 1.38,
+        "inline": false
+      }
+    ],
+    "leve-asset": [
+      {
+        "name": "logo-light",
+        "client": "leve-asset",
+        "path": "src/images/clients/leve-asset/logo-light.svg",
+        "width": 116.3992,
+        "height": 36,
+        "aspect": 3.23,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "leve-asset",
+        "path": "src/images/clients/leve-asset/logo-dark.svg",
+        "width": 116.3992,
+        "height": 36,
+        "aspect": 3.23,
+        "inline": false
+      }
+    ],
+    "casa-do-construtor": [
+      {
+        "name": "logo-light",
+        "client": "casa-do-construtor",
+        "path": "src/images/clients/casa-do-construtor/logo-light.svg",
+        "width": 125.5628,
+        "height": 36,
+        "aspect": 3.49,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "casa-do-construtor",
+        "path": "src/images/clients/casa-do-construtor/logo-dark.svg",
+        "width": 125.5628,
+        "height": 36,
+        "aspect": 3.49,
+        "inline": false
+      }
+    ],
+    "liceu-francano": [
+      {
+        "name": "logo-light",
+        "client": "liceu-francano",
+        "path": "src/images/clients/liceu-francano/logo-light.svg",
+        "width": 75.954,
+        "height": 36,
+        "aspect": 2.11,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "liceu-francano",
+        "path": "src/images/clients/liceu-francano/logo-dark.svg",
+        "width": 75.954,
+        "height": 36,
+        "aspect": 2.11,
+        "inline": false
+      }
+    ]
+  }
+}

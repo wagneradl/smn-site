@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SMN Memory Graph",
+  "type": "object",
+  "properties": {
+    "version": { "type": "string" },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id","type","summary","evidence","invariants"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "summary": { "type": "string" },
+          "detail": { "type": "object" },
+          "evidence": { "type": "array", "items": { "type": "string" } },
+          "selectors": { "type": "array", "items": { "type": "string" } },
+          "invariants": { "type": "array", "items": { "type": "string" } },
+          "validate": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  },
+  "required": ["version","nodes"]
+}

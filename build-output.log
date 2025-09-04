@@ -1,0 +1,43 @@
+
+> smn-site@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.0
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 1110ms
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/18) ...
+   Generating static pages (4/18) 
+   Generating static pages (8/18) 
+   Generating static pages (13/18) 
+ ✓ Generating static pages (18/18)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                 Size  First Load JS
+┌ ○ /                                                      592 B         167 kB
+├ ○ /_not-found                                            128 B         102 kB
+├ ○ /about                                                 343 B         166 kB
+├ ○ /blog                                                  359 B         166 kB
+├ ○ /blog/3-lessons-we-learned-going-back-to-the-office    359 B         166 kB
+├ ○ /blog/a-short-guide-to-component-naming                359 B         166 kB
+├ ○ /blog/future-of-web-development                        359 B         166 kB
+├ ○ /careers                                               850 B         157 kB
+├ ○ /contact                                             2.38 kB         153 kB
+├ ○ /process                                             2.63 kB         159 kB
+├ ○ /smn-demo                                              128 B         102 kB
+├ ○ /work                                                  359 B         166 kB
+├ ○ /work/family-fund                                      359 B         166 kB
+├ ○ /work/phobia                                           359 B         166 kB
+└ ○ /work/unseal                                           359 B         166 kB
++ First Load JS shared by all                             102 kB
+  ├ chunks/255-bf39b77fc7569079.js                       45.7 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js                  54.2 kB
+  └ other shared chunks (total)                          1.92 kB
+
+
+○  (Static)  prerendered as static content
+

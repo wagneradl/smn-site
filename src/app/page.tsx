@@ -9,54 +9,24 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
+import { ClientsGrid } from '@/components/ClientsGrid'
+import { CLIENTS_CONFIG } from '@/lib/clients'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
-
-const clients = [
-  ['Phobia', logoPhobiaLight],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
-]
+import { JsonLd } from '@/lib/seo'
 
 function Clients() {
   return (
     <div className="mt-24 rounded-4xl bg-gradient-to-br from-primary-800 to-primary-900 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
-        <FadeIn className="flex items-center gap-x-8">
+        <FadeIn className="brands-header flex items-center gap-6">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            Empresas que confiam na SMN
+            Confiança em missão crítica.
           </h2>
-          <div className="h-px flex-auto bg-primary-600" />
+          <div className="brands-divider flex-1" />
         </FadeIn>
-        <FadeInStagger faster>
-          <ul
-            role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
-          >
-            {clients.map(([client, logo]) => (
-              <li key={client}>
-                <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
-                </FadeIn>
-              </li>
-            ))}
-          </ul>
-        </FadeInStagger>
+        <ClientsGrid theme="light" />
       </Container>
     </div>
   )
@@ -74,7 +44,8 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Alguns exemplos de como a SMN gera valor real a grandes marcas.
+          Exemplos de como transformamos desafios complexos em resultado
+          tangível para grandes marcas.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -86,6 +57,7 @@ function CaseStudies({
                   <Link href={caseStudy.href}>
                     <span className="absolute inset-0 rounded-3xl" />
                     <Image
+                      sizes="(min-width: 1024px) 33vw, 100vw"
                       src={caseStudy.logo}
                       alt={caseStudy.client}
                       className="h-16 w-16"
@@ -111,6 +83,12 @@ function CaseStudies({
                 <p className="mt-4 text-base text-neutral-600">
                   {caseStudy.description}
                 </p>
+                {/* Exemplos reais para exibição inicial */}
+                {/*
+                Ano: 2024 | Case study | Squad Ágil E-commerce Magalu | Aumento de R$ 200 mil/mês ao evoluir o e-commerce do Magazine Luiza com equipe dedicada e CI/CD automatizado.
+                Ano: 2023 | Case study | ERP Momentum sob medida | Construção completa do ERP da Momentum, projeto iniciado antes mesmo da fundação da SMN e ativo há 20 anos.
+                Ano: 2025 | Case study | Logística inteligente Moura | Sistema que otimiza rotas e reduz 18 % do tempo de entrega para Baterias Moura em João Pessoa. (impacto estimado)
+                */}
               </article>
             </FadeIn>
           ))}
@@ -129,32 +107,39 @@ function Services() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Da concepção ao deploy: sistemas personalizados, BI, GCPro e alocação de times completos.
+          Da descoberta ao deploy: sistemas tailor-made, BI, GCPro e equipes
+          dedicadas que aceleram o go-to-market.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-135 flex-none lg:w-180">
-              <StylizedImage
-                src={imageLaptop}
-                sizes="(min-width: 1024px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
-              />
+                              <StylizedImage
+                  src={imageLaptop}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  priority
+                  placeholder="blur"
+                  className="justify-center lg:justify-end"
+                />
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
             <ListItem title="Software Sob Medida">
-              Desenvolvimento de sistemas 100% personalizados, focados em qualidade e performance.
+              Arquitetura moderna, performance e escalabilidade para
+              necessidades exclusivas.
             </ListItem>
             <ListItem title="Alocação de Times">
-              Squads dedicados com baixíssimo turnover para acelerar projetos críticos.
+              Squads dedicados, cultura forte e rotatividade mínima para
+              projetos críticos.
             </ListItem>
             <ListItem title="Business Intelligence">
-              Soluções de BI que transformam dados em decisões estratégicas.
+              Dashboards e data-marts que transformam dados brutos em decisões
+              estratégicas.
             </ListItem>
             <ListItem title="GCPro ERP">
-              ERP modular da SMN, pronto para customizações específicas de cada negócio.
+              ERP modular próprio da SMN, pronto para customizações específicas
+              de cada negócio.
             </ListItem>
           </List>
         </div>
@@ -164,9 +149,18 @@ function Services() {
 }
 
 export const metadata: Metadata = {
-  title: 'SMN Tecnologia – Software Sob Medida & Squads',
-  description:
-    'Desde 2008, a SMN entrega sistemas personalizados, squads com turnover baixíssimo e o ERP GCPro.',
+  title: 'Fábrica de Software para Missão Crítica',
+  description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.',
+  openGraph: {
+    title: 'Fábrica de Software para Missão Crítica - SMN Tecnologia',
+    description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fábrica de Software para Missão Crítica - SMN Tecnologia',
+    description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
+  },
 }
 
 export default async function Home() {
@@ -177,11 +171,12 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Software sob medida e squads de alta performance.
+            Fábrica de software para missão crítica.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Desde 2008, desenvolvemos sistemas personalizados e fornecemos squads 
-            com turnover baixíssimo. Criadores do ERP GCPro, usado por centenas de empresas.
+            Desde 2003, entregamos arquiteturas e sistemas que sustentam
+            operações estratégicas no Brasil — com prazos firmes, ética e
+            transparência.
           </p>
         </FadeIn>
       </Container>
@@ -192,15 +187,53 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Magazine Luiza', logo: logoPhobiaDark }}
+        client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
       >
-        A SMN desenvolveu nosso sistema de gestão de campanhas que processa milhões 
-        de transações diariamente. Entrega no prazo, qualidade excepcional e suporte contínuo.
+        A SMN é responsável por nossos sistemas de trocas, devoluções e
+        cancelamentos, além do módulo de montagens. Front-end e back office
+        entregues com solidez e suporte constante.
       </Testimonial>
 
       <Services />
 
       <ContactSection />
+
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'SMN Tecnologia',
+          url: 'https://smn.example',
+          logo: 'https://smn.example/logo.png',
+          description: 'Fábrica de software para missão crítica desde 2003',
+          foundingDate: '2003',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'João Pessoa',
+            addressRegion: 'PB',
+            addressCountry: 'BR',
+          },
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'customer service',
+            email: 'contato@smn.com.br',
+          },
+        }}
+      />
+
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'SMN Tecnologia',
+          url: 'https://smn.example',
+          description: 'Fábrica de software para missão crítica',
+          publisher: {
+            '@type': 'Organization',
+            name: 'SMN Tecnologia',
+          },
+        }}
+      />
     </RootLayout>
   )
 }

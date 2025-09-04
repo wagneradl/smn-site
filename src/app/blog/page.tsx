@@ -15,7 +15,17 @@ import { loadArticles } from '@/lib/mdx'
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Stay up-to-date with the latest industry news as our marketing teams finds new ways to re-purpose old CSS tricks articles.',
+    'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+  openGraph: {
+    title: 'Blog - SMN Tecnologia',
+    description: 'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - SMN Tecnologia',
+    description: 'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+  },
 }
 
 export default async function Blog() {
@@ -23,10 +33,10 @@ export default async function Blog() {
 
   return (
     <RootLayout>
-      <PageIntro eyebrow="Blog" title="The latest articles and news">
+      <PageIntro eyebrow="Blog" title="Últimos artigos e novidades">
         <p>
-          Stay up-to-date with the latest industry news as our marketing teams
-          finds new ways to re-purpose old CSS tricks articles.
+          Leia análises técnicas, bastidores de projetos e tendências que pautam
+          o futuro do desenvolvimento.
         </p>
       </PageIntro>
 
@@ -52,6 +62,7 @@ export default async function Blog() {
                         <dd className="mt-6 flex gap-x-4">
                           <div className="flex-none overflow-hidden rounded-xl bg-neutral-100">
                             <Image
+                              sizes="(min-width: 1024px) 33vw, 100vw"
                               alt=""
                               {...article.author.image}
                               className="h-12 w-12 object-cover grayscale"
@@ -70,10 +81,10 @@ export default async function Blog() {
                       </p>
                       <Button
                         href={article.href}
-                        aria-label={`Read more: ${article.title}`}
+                        aria-label={`Leia mais: ${article.title}`}
                         className="mt-8"
                       >
-                        Read more
+                        Leia mais
                       </Button>
                     </div>
                   </div>

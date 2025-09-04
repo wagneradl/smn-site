@@ -1,23 +1,19 @@
-import rehypeShiki from '@leafac/rehype-shiki'
-import nextMDX from '@next/mdx'
+import createMDX from '@next/mdx'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
+import remarkGfm from 'remark-gfm'
+import { remarkRehypeWrap } from 'remark-rehype-wrap'
+import rehypeShiki from '@shikijs/rehype'
+import { createHighlighter } from 'shiki'
+import { createCssVariablesTheme } from 'shiki/core'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
 import * as path from 'path'
 import { recmaImportImages } from 'recma-import-images'
-import remarkGfm from 'remark-gfm'
-import { remarkRehypeWrap } from 'remark-rehype-wrap'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
-import shiki from 'shiki'
 import { unifiedConditional } from 'unified-conditional'
+import bundleAnalyzer from '@next/bundle-analyzer'
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-}
 
 function remarkMDXLayout(source, metaName) {
   let parser = Parser.extend(jsx())
@@ -44,43 +40,75 @@ function remarkMDXLayout(source, metaName) {
   }
 }
 
-export default async function config() {
-  let highlighter = await shiki.getHighlighter({
-    theme: 'css-variables',
-  })
+const cssVarsTheme = createCssVariablesTheme({
+  name: 'css-variables',
+  variablePrefix: '--shiki-',
+  fontStyle: true,
+})
 
-  let withMDX = nextMDX({
-    extension: /\.mdx$/,
-    options: {
-      recmaPlugins: [recmaImportImages],
-      rehypePlugins: [
-        [rehypeShiki, { highlighter }],
-        rehypeUnwrapImages,
-        [
-          remarkRehypeWrap,
-          {
-            node: { type: 'mdxJsxFlowElement', name: 'Typography' },
-            start: ':root > :not(mdxJsxFlowElement)',
-            end: ':root > mdxJsxFlowElement',
-          },
-        ],
-      ],
-      remarkPlugins: [
-        remarkGfm,
-        [
-          unifiedConditional,
-          [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/blog'))}`),
-            [[remarkMDXLayout, '@/app/blog/wrapper', 'article']],
-          ],
-          [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/work'))}`),
-            [[remarkMDXLayout, '@/app/work/wrapper', 'caseStudy']],
-          ],
-        ],
+const highlighter = await createHighlighter({
+  themes: [cssVarsTheme],
+  langs: ['javascript', 'typescript', 'tsx', 'jsx', 'bash', 'json', 'md'],
+})
+
+// Plugin MDX com ordem explícita (remark → rehype)
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm, remarkRehypeWrap],
+    rehypePlugins: [[rehypeShiki, { highlighter }], rehypeUnwrapImages],
+  },
+})
+
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  productionBrowserSourceMaps: process.env.ENABLE_SOURCEMAPS === 'true',
+}
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+export async function headers() {
+  return [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'Strict-Transport-Security',
+          value: 'max-age=31536000; includeSubDomains; preload',
+        },
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        { key: 'X-Frame-Options', value: 'DENY' },
+        {
+          key: 'Permissions-Policy',
+          value: 'camera=(), microphone=(), geolocation=()',
+        },
       ],
     },
-  })
-
-  return withMDX(nextConfig)
+    {
+      source: '/_next/static/(.*)',
+      headers: [
+        { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+      ],
+    },
+    {
+      source: '/fonts/(.*)',
+      headers: [
+        { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+      ],
+    },
+    {
+      source: '/images/(.*)',
+      headers: [
+        { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+      ],
+    },
+  ]
 }
+
+export default withBundleAnalyzer(withMDX(nextConfig))

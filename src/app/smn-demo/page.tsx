@@ -3,75 +3,105 @@
  * Demonstração visual da integração SMN com Tailwind Studio Pro
  */
 
-import React from 'react';
-import { SMNColorPalette, SMNTypography, SMNComponents } from '../../components/smn-examples';
+import React from 'react'
+import {
+  SMNColorPalette,
+  SMNTypography,
+  SMNComponents,
+} from '../../components/smn-examples'
 
 export default function SMNDemoPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header SMN */}
-      <header className="bg-gradient-to-r from-primary-600 to-accent-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="font-display text-6xl font-bold mb-4">
+      <header className="bg-gradient-to-r from-primary-600 to-accent-500 py-16 text-white">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <h1 className="mb-4 font-display text-6xl font-bold">
             SMN Design System
           </h1>
-          <p className="font-body text-xl opacity-90 max-w-2xl mx-auto">
-            Integração completa dos tokens SMN com Tailwind Studio Pro. 
+          <p className="font-body mx-auto max-w-2xl text-xl opacity-90">
+            Integração completa dos tokens SMN com Tailwind Studio Pro.
             Demonstração das cores, tipografia e componentes da marca SMN.
           </p>
         </div>
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-6">
+      <nav className="border-b bg-white shadow-sm">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="flex space-x-8 py-4">
-            <a href="#colors" className="text-primary-600 hover:text-primary-800 font-semibold">
-              Colors
+            <a
+              href="#colors"
+              className="font-semibold text-primary-600 hover:text-primary-800"
+            >
+              Cores
             </a>
-            <a href="#typography" className="text-primary-600 hover:text-primary-800 font-semibold">
-              Typography
+            <a
+              href="#typography"
+              className="font-semibold text-primary-600 hover:text-primary-800"
+            >
+              Tipografia
             </a>
-            <a href="#components" className="text-primary-600 hover:text-primary-800 font-semibold">
-              Components
+            <a
+              href="#components"
+              className="font-semibold text-primary-600 hover:text-primary-800"
+            >
+              Componentes
             </a>
           </div>
         </div>
       </nav>
 
       {/* Content */}
-      <main className="max-w-7xl mx-auto">
+      <main className="mx-auto max-w-7xl">
         {/* Status da Integração */}
         <section className="px-6 py-12">
-          <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          <div className="mb-12 rounded-xl bg-white p-8 shadow-lg">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-500">
+                <svg
+                  className="h-6 w-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div>
                 <h2 className="font-display text-2xl font-bold text-primary-800">
                   Integração SMN Ativa
                 </h2>
-                <p className="text-gray-600 font-body">
-                  39 variáveis de design SMN integradas com sucesso ao Tailwind CSS v4
+                <p className="font-body text-gray-600">
+                  39 variáveis de design SMN integradas com sucesso ao Tailwind
+                  CSS v4
                 </p>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center p-4 bg-primary-50 rounded-lg">
-                <div className="text-2xl font-bold text-primary-600 mb-2">39</div>
-                <div className="text-sm text-primary-800 font-semibold">Variáveis CSS</div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              <div className="rounded-lg bg-primary-50 p-4 text-center">
+                <div className="mb-2 text-2xl font-bold text-primary-600">
+                  39
+                </div>
+                <div className="text-sm font-semibold text-primary-800">
+                  Variáveis CSS
+                </div>
               </div>
-              <div className="text-center p-4 bg-accent-50 rounded-lg">
-                <div className="text-2xl font-bold text-accent-600 mb-2">8</div>
-                <div className="text-sm text-accent-800 font-semibold">Paletas de Cores</div>
+              <div className="rounded-lg bg-accent-50 p-4 text-center">
+                <div className="mb-2 text-2xl font-bold text-accent-600">8</div>
+                <div className="text-sm font-semibold text-accent-800">
+                  Paletas de Cores
+                </div>
               </div>
-              <div className="text-center p-4 bg-gray-50 rounded-lg">
-                <div className="text-2xl font-bold text-gray-600 mb-2">5</div>
-                <div className="text-sm text-gray-800 font-semibold">Famílias Tipográficas</div>
+              <div className="rounded-lg bg-gray-50 p-4 text-center">
+                <div className="mb-2 text-2xl font-bold text-gray-600">5</div>
+                <div className="text-sm font-semibold text-gray-800">
+                  Famílias Tipográficas
+                </div>
               </div>
             </div>
           </div>
@@ -91,21 +121,23 @@ export default function SMNDemoPage() {
         </section>
 
         {/* Comparação Antes/Depois */}
-        <section className="px-6 py-12 border-t">
-          <h2 className="text-3xl font-display font-bold text-primary-900 mb-8 text-center">
-            Comparação: Antes vs Depois
+        <section className="border-t px-6 py-12">
+          <h2 className="mb-8 text-center font-display text-3xl font-bold text-primary-900">
+            Comparativo: Antes e Depois
           </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Antes */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-800">Template Original</h3>
-              <div className="bg-neutral-950 text-white p-6 rounded-lg">
-                <h4 className="text-lg font-bold mb-2">Neutral Colors</h4>
+              <h3 className="text-xl font-semibold text-gray-800">
+                Template Original
+              </h3>
+              <div className="rounded-lg bg-neutral-950 p-6 text-white">
+                <h4 className="mb-2 text-lg font-bold">Cores Neutras</h4>
                 <p className="text-neutral-300">
                   Template usando cores neutras padrão do Tailwind
                 </p>
-                <button className="mt-4 px-4 py-2 bg-neutral-700 text-white rounded hover:bg-neutral-600">
+                <button className="mt-4 rounded bg-neutral-700 px-4 py-2 text-white hover:bg-neutral-600">
                   Botão Original
                 </button>
               </div>
@@ -113,13 +145,17 @@ export default function SMNDemoPage() {
 
             {/* Depois */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-primary-800">Com SMN Design System</h3>
-              <div className="bg-gradient-to-br from-primary-600 to-accent-500 text-white p-6 rounded-lg">
-                <h4 className="text-lg font-bold mb-2 font-display">SMN Branding</h4>
-                <p className="opacity-90 font-body">
+              <h3 className="text-xl font-semibold text-primary-800">
+                Com SMN Design System
+              </h3>
+              <div className="rounded-lg bg-gradient-to-br from-primary-600 to-accent-500 p-6 text-white">
+                <h4 className="mb-2 font-display text-lg font-bold">
+                  Identidade SMN
+                </h4>
+                <p className="font-body opacity-90">
                   Template customizado com a identidade visual SMN
                 </p>
-                <button className="mt-4 px-4 py-2 bg-white text-primary-600 rounded hover:bg-gray-100 font-semibold">
+                <button className="mt-4 rounded bg-white px-4 py-2 font-semibold text-primary-600 hover:bg-gray-100">
                   Botão SMN
                 </button>
               </div>
@@ -128,28 +164,49 @@ export default function SMNDemoPage() {
         </section>
 
         {/* Instruções de Uso */}
-        <section className="px-6 py-12 bg-gray-50 border-t">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-display font-bold text-primary-900 mb-8 text-center">
-              Como Usar os Tokens SMN
+        <section className="border-t bg-gray-50 px-6 py-12">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-8 text-center font-display text-3xl font-bold text-primary-900">
+              Como usar os tokens SMN
             </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-lg font-semibold text-primary-800 mb-4">Cores</h3>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="rounded-xl bg-white p-6 shadow-sm">
+                <h3 className="mb-4 text-lg font-semibold text-primary-800">
+                  Cores
+                </h3>
                 <div className="space-y-2 font-mono text-sm">
-                  <div><span className="text-gray-500">bg-primary-600</span> - Cor primária</div>
-                  <div><span className="text-gray-500">bg-accent-500</span> - Cor de destaque</div>
-                  <div><span className="text-gray-500">text-primary-800</span> - Texto primário</div>
+                  <div>
+                    <span className="text-gray-500">bg-primary-600</span> - Cor
+                    primária
+                  </div>
+                  <div>
+                    <span className="text-gray-500">bg-accent-500</span> - Cor
+                    de destaque
+                  </div>
+                  <div>
+                    <span className="text-gray-500">text-primary-800</span> -
+                    Texto primário
+                  </div>
                 </div>
               </div>
-              
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-lg font-semibold text-primary-800 mb-4">Tipografia</h3>
+
+              <div className="rounded-xl bg-white p-6 shadow-sm">
+                <h3 className="mb-4 text-lg font-semibold text-primary-800">
+                  Tipografia
+                </h3>
                 <div className="space-y-2 font-mono text-sm">
-                  <div><span className="text-gray-500">font-display</span> - Títulos</div>
-                  <div><span className="text-gray-500">font-body</span> - Texto corpo</div>
-                  <div><span className="text-gray-500">font-code</span> - Código</div>
+                  <div>
+                    <span className="text-gray-500">font-display</span> -
+                    Títulos
+                  </div>
+                  <div>
+                    <span className="text-gray-500">font-body</span> - Texto
+                    corpo
+                  </div>
+                  <div>
+                    <span className="text-gray-500">font-code</span> - Código
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,19 +215,27 @@ export default function SMNDemoPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary-900 text-white py-12 mt-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h3 className="font-display text-2xl font-bold mb-4">SMN Design System</h3>
-          <p className="font-body opacity-80 mb-6">
+      <footer className="mt-16 bg-primary-900 py-12 text-white">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <h3 className="mb-4 font-display text-2xl font-bold">
+            SMN Design System
+          </h3>
+          <p className="font-body mb-6 opacity-80">
             Sistema de design integrado com Tailwind Studio Pro
           </p>
           <div className="flex justify-center gap-4">
-            <span className="px-3 py-1 bg-primary-700 rounded-full text-sm">39 Variables</span>
-            <span className="px-3 py-1 bg-accent-600 rounded-full text-sm">Tailwind v4</span>
-            <span className="px-3 py-1 bg-primary-700 rounded-full text-sm">TypeScript</span>
+            <span className="rounded-full bg-primary-700 px-3 py-1 text-sm">
+              39 Variáveis
+            </span>
+            <span className="rounded-full bg-accent-600 px-3 py-1 text-sm">
+              Tailwind v4
+            </span>
+            <span className="rounded-full bg-primary-700 px-3 py-1 text-sm">
+              TypeScript
+            </span>
           </div>
         </div>
       </footer>
     </div>
-  );
+  )
 }

@@ -10,14 +10,8 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-dark.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-dark.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-dark.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-dark.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-dark.svg'
-import logoPhobia from '@/images/clients/phobia/logo-dark.svg'
-import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
+import { ClientsGrid } from '@/components/ClientsGrid'
+import { CLIENTS_CONFIG } from '@/lib/clients'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -31,7 +25,7 @@ function CaseStudies({
     <Container className="mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Case studies
+          Cases de sucesso
         </h2>
       </FadeIn>
       <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
@@ -42,6 +36,7 @@ function CaseStudies({
                 <div className="col-span-full sm:flex sm:items-center sm:justify-between sm:gap-x-8 lg:col-span-1 lg:block">
                   <div className="sm:flex sm:items-center sm:gap-x-6 lg:block">
                     <Image
+                      sizes="(min-width: 1024px) 33vw, 100vw"
                       src={caseStudy.logo}
                       alt=""
                       className="h-16 w-16 flex-none"
@@ -74,9 +69,9 @@ function CaseStudies({
                   <div className="mt-8 flex">
                     <Button
                       href={caseStudy.href}
-                      aria-label={`Read case study: ${caseStudy.client}`}
+                      aria-label={`Ver case completo: ${caseStudy.client}`}
                     >
-                      Read case study
+                      Ver case completo
                     </Button>
                   </div>
                   {caseStudy.testimonial && (
@@ -97,50 +92,31 @@ function CaseStudies({
   )
 }
 
-const clients = [
-  ['Phobia', logoPhobia],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
-]
-
 function Clients() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn>
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          You’re in good company
-        </h2>
-      </FadeIn>
-      <FadeInStagger className="mt-10" faster>
-        <Border as={FadeIn} />
-        <ul
-          role="list"
-          className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
-        >
-          {clients.map(([client, logo]) => (
-            <li key={client} className="group">
-              <FadeIn className="overflow-hidden">
-                <Border className="pt-12 group-nth-[-n+2]:-mt-px sm:group-nth-3:-mt-px lg:group-nth-4:-mt-px">
-                  <Image src={logo} alt={client} unoptimized />
-                </Border>
-              </FadeIn>
-            </li>
-          ))}
-        </ul>
-      </FadeInStagger>
+      <ClientsGrid
+        theme="dark"
+        title="Grandes marcas confiam na SMN"
+        showBorder={true}
+      />
     </Container>
   )
 }
 
 export const metadata: Metadata = {
-  title: 'Nossos Projetos – SMN Tecnologia',
-  description:
-    'Conheça nossos projetos: sistemas para Magazine Luiza, Momentum, Baterias Moura e muito mais.',
+  title: 'Cases de Sucesso',
+  description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+  openGraph: {
+    title: 'Cases de Sucesso - SMN Tecnologia',
+    description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cases de Sucesso - SMN Tecnologia',
+    description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+  },
 }
 
 export default async function Work() {
@@ -153,9 +129,10 @@ export default async function Work() {
         title="Soluções comprovadas para desafios reais."
       >
         <p>
-          Há mais de 15 anos desenvolvemos sistemas sob medida que transformam negócios.
-          Nosso portfólio inclui projetos para grandes varejistas, indústrias e startups,
-          sempre focando em performance, escalabilidade e resultados mensuráveis.
+          Há mais de 15 anos desenvolvemos sistemas sob medida que transformam
+          negócios. Nosso portfólio inclui projetos para grandes varejistas,
+          indústrias e startups, sempre focando em performance, escalabilidade e
+          resultados mensuráveis.
         </p>
       </PageIntro>
 
@@ -163,7 +140,7 @@ export default async function Work() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Mail Smirk', logo: logoMailSmirk }}
+        client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
       >
         Procuramos a <em>SMN</em> pela sua reputação em projetos complexos. Eles
         entregaram uma solução excepcional em tempo recorde.

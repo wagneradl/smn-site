@@ -90,7 +90,7 @@ export function GridPattern({
   }, [yOffset, interactive])
 
   return (
-    <svg ref={ref} aria-hidden="true" {...props}>
+    <svg ref={ref} aria-hidden="true" data-gridpattern {...props}>
       <rect width="100%" height="100%" fill={`url(#${id})`} strokeWidth="0" />
       <svg x="50%" y={yOffset} strokeWidth="0" className="overflow-visible">
         {staticBlocks.map((block) => (
@@ -101,6 +101,7 @@ export function GridPattern({
             key={block[2]}
             x={block[0]}
             y={block[1]}
+            className="fill-neutral-950/5 drop-shadow-[0_0_12px_rgba(64,223,128,0.6)]"
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 1, times: [0, 0, 1] }}
             onAnimationComplete={() => {

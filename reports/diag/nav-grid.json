@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-09-04T02:49:37.888Z",
+  "navigation": {
+    "hasSixItems": true,
+    "items": [
+      "Sobre nós",
+      "About",
+      "Soluções",
+      "Solucoes",
+      "Cases",
+      "Work",
+      "Carreiras",
+      "Careers",
+      "Blog",
+      "GCPro"
+    ],
+    "gcproExternal": true,
+    "gcproPrefetch": true,
+    "hasDataNavLink": true,
+    "hasVisibleFocus": true,
+    "sourceFile": "src/components/RootLayout.tsx"
+  },
+  "grid": {
+    "hasDividers": true,
+    "hasManualBorders": false,
+    "usesContainers": true
+  }
+}

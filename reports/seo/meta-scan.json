@@ -1,0 +1,30 @@
+[
+  {
+    "route": "/",
+    "title": "Fábrica de Software para Missão Crítica",
+    "description": "Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.",
+    "ogImage": "https://smn.example/og/og-default.jpg",
+    "twitterImage": "https://smn.example/og/og-default.jpg"
+  },
+  {
+    "route": "/work",
+    "title": "Cases de Sucesso | SMN",
+    "description": "Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.",
+    "ogImage": "https://smn.example/og/og-default.jpg",
+    "twitterImage": "https://smn.example/og/og-default.jpg"
+  },
+  {
+    "route": "/blog",
+    "title": "Blog | SMN",
+    "description": "Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.",
+    "ogImage": "https://smn.example/og/og-default.jpg",
+    "twitterImage": "https://smn.example/og/og-default.jpg"
+  },
+  {
+    "route": "/contact",
+    "title": "Fale Conosco | SMN",
+    "description": "Projetos e parcerias. Conte-nos sobre seu contexto e objetivos. Para vagas, acesse Carreiras.",
+    "ogImage": "https://smn.example/og/og-default.jpg",
+    "twitterImage": "https://smn.example/og/og-default.jpg"
+  }
+]

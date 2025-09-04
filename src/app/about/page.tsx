@@ -29,27 +29,36 @@ function Culture() {
   return (
     <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
-        eyebrow="Our culture"
-        title="Balance your passion with your passion for life."
+        eyebrow="Nossa cultura"
+        title="Gente, ética e cooperação acima de tudo"
         invert
       >
         <p>
-          We are a group of like-minded people who share the same core values.
+          Valores que sustentam todas as nossas relações e guiam nossa busca por
+          excelência técnica e humana.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
-          <GridListItem title="Loyalty" invert>
-            Our team has been with us since the beginning because none of them
-            are allowed to have LinkedIn profiles.
+          <GridListItem title="Ética e transparência" invert>
+            Sustentam todas as nossas relações com clientes, parceiros e
+            colaboradores.
           </GridListItem>
-          <GridListItem title="Trust" invert>
-            We don’t care when our team works just as long as they are working
-            every waking second.
+          <GridListItem title="Colaboração" invert>
+            Times unidos em torno de desafios complexos, compartilhando
+            conhecimento e responsabilidades.
           </GridListItem>
-          <GridListItem title="Compassion" invert>
-            You never know what someone is going through at home and we make
-            sure to never find out.
+          <GridListItem title="Inovação" invert>
+            Busca constante por arquiteturas modernas e soluções criativas para
+            problemas reais.
+          </GridListItem>
+          <GridListItem title="Educação" invert>
+            Desde o início, investimos em formação de talentos e desenvolvimento
+            de liderança.
+          </GridListItem>
+          <GridListItem title="Responsabilidade" invert>
+            Impacto social e inclusão através da tecnologia, contribuindo para o
+            desenvolvimento regional.
           </GridListItem>
         </GridList>
       </Container>
@@ -59,72 +68,17 @@ function Culture() {
 
 const team = [
   {
-    title: 'Leadership',
+    title: 'Liderança',
     people: [
       {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        image: { src: imageLeslieAlexander },
+        name: 'Ricardo Corrales',
+        role: 'Fundador — 40+ anos em tecnologia',
+        image: { src: imageLeslieAlexander }, // Substitua pela imagem real se disponível
       },
       {
-        name: 'Michael Foster',
-        role: 'Co-Founder / CTO',
-        image: { src: imageMichaelFoster },
-      },
-      {
-        name: 'Dries Vincent',
-        role: 'Partner & Business Relations',
-        image: { src: imageDriesVincent },
-      },
-    ],
-  },
-  {
-    title: 'Team',
-    people: [
-      {
-        name: 'Chelsea Hagon',
-        role: 'Senior Developer',
-        image: { src: imageChelseaHagon },
-      },
-      {
-        name: 'Emma Dorsey',
-        role: 'Senior Designer',
-        image: { src: imageEmmaDorsey },
-      },
-      {
-        name: 'Leonard Krasner',
-        role: 'VP, User Experience',
-        image: { src: imageLeonardKrasner },
-      },
-      {
-        name: 'Blake Reid',
-        role: 'Junior Copywriter',
-        image: { src: imageBlakeReid },
-      },
-      {
-        name: 'Kathryn Murphy',
-        role: 'VP, Human Resources',
-        image: { src: imageKathrynMurphy },
-      },
-      {
-        name: 'Whitney Francis',
-        role: 'Content Specialist',
-        image: { src: imageWhitneyFrancis },
-      },
-      {
-        name: 'Jeffrey Webb',
-        role: 'Account Coordinator',
-        image: { src: imageJeffreyWebb },
-      },
-      {
-        name: 'Benjamin Russel',
-        role: 'Senior Developer',
-        image: { src: imageBenjaminRussel },
-      },
-      {
-        name: 'Angela Fisher',
-        role: 'Front-end Developer',
-        image: { src: imageAngelaFisher },
+        name: 'Marcus Mandara',
+        role: 'Sócio — Análise de requisitos e entrega',
+        image: { src: imageMichaelFoster }, // Substitua pela imagem real se disponível
       },
     ],
   },
@@ -153,6 +107,7 @@ function Team() {
                       <FadeIn>
                         <div className="group relative overflow-hidden rounded-3xl bg-neutral-100">
                           <Image
+                            sizes="100vw"
                             alt=""
                             {...person.image}
                             className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
@@ -179,10 +134,75 @@ function Team() {
   )
 }
 
+function Locations() {
+  return (
+    <Container className="mt-24 sm:mt-32 lg:mt-40">
+      <FadeInStagger>
+        <Border as={FadeIn} />
+        <div className="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8">
+          <FadeIn>
+            <h2 className="font-display text-2xl font-semibold text-neutral-950">
+              Onde estamos
+            </h2>
+          </FadeIn>
+          <div className="lg:col-span-3">
+            <ul
+              role="list"
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:gap-8"
+            >
+              {[
+                {
+                  name: 'Sede — João Pessoa (PB)',
+                  address: 'Rua Professor José Coelho, 501 — Tambauzinho',
+                },
+                {
+                  name: 'Ingá (PB)',
+                  address: 'Sítio Hotel Cruzeiro, s/n — Zona Rural, BR-230',
+                },
+                {
+                  name: 'Franca (SP)',
+                  address: 'R. dos Pracinhas, 1720 — Núcleo Agrícola Alpha',
+                },
+                {
+                  name: 'Passos (MG)',
+                  address: 'R. Noruega, 274 — Novo Mundo',
+                },
+              ].map((location) => (
+                <li key={location.name}>
+                  <FadeIn>
+                    <div className="rounded-3xl bg-neutral-100 p-6">
+                      <h3 className="font-display text-base font-semibold text-neutral-950">
+                        {location.name}
+                      </h3>
+                      <p className="mt-2 text-sm text-neutral-600">
+                        {location.address}
+                      </p>
+                    </div>
+                  </FadeIn>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </FadeInStagger>
+    </Container>
+  )
+}
+
 export const metadata: Metadata = {
-  title: 'Sobre Nós – SMN Tecnologia',
+  title: 'Sobre Nós',
   description:
-    'Desde 2008, a SMN desenvolve software sob medida com squads de alta performance e turnover baixíssimo.',
+    'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+  openGraph: {
+    title: 'Sobre Nós - SMN Tecnologia',
+    description: 'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+    images: ['/og/og-default.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre Nós - SMN Tecnologia',
+    description: 'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+  },
 }
 
 export default async function About() {
@@ -190,29 +210,40 @@ export default async function About() {
 
   return (
     <RootLayout>
-      <PageIntro eyebrow="Sobre nós" title="Nossa força é a colaboração">
+      <PageIntro
+        eyebrow="Sobre nós"
+        title="Nossa história é feita de tecnologia e pessoas"
+      >
         <p>
-          Acreditamos que nossa força está na abordagem colaborativa, que coloca
-          nossos clientes no centro de tudo o que fazemos.
+          Desde 2003, construímos software que sustenta operações críticas no
+          Brasil. O que começou com a visão de Ricardo Corrales hoje é uma
+          empresa sólida, com equipes distribuídas e clientes em setores
+          estratégicos.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            A SMN foi fundada em 2008 com o objetivo de entregar software de qualidade
-            excepcional. Desde o início, nos comprometemos com squads de alta performance,
-            turnover baixíssimo e relacionamentos duradouros com nossos clientes.
+            A SMN nasceu em 2003, fruto da experiência de mais de 40 anos de
+            Ricardo Corrales em tecnologia e do encontro com parceiros que
+            acreditaram no mesmo propósito: formar times de excelência e
+            entregar software que faz diferença real nos negócios.
           </p>
           <p>
-            Na SMN, somos mais que colegas — somos uma equipe unida por valores sólidos.
-            Priorizamos qualidade de vida, crescimento profissional e inovação tecnológica.
-            Nosso ambiente colaborativo permite que cada pessoa contribua com seu melhor.
+            De um início marcado por projetos robustos de ERP para empresas como
+            a Momentum, evoluímos para uma fábrica de software referência em
+            soluções sob medida, Business Intelligence e o ERP modular GCPro.
+            Hoje, mantemos presença em João Pessoa, Ingá, Franca e Passos, com
+            squads especializados em missão crítica e um programa contínuo de
+            formação de talentos.
           </p>
         </div>
       </PageIntro>
       <Container className="mt-16">
         <StatList>
-          <StatListItem value="35" label="Underpaid employees" />
-          <StatListItem value="52" label="Placated clients" />
-          <StatListItem value="$25M" label="Invoices billed" />
+          <StatListItem value="2003" label="Fundação da SMN" />
+          <StatListItem value="20+" label="Anos de experiência em TI" />
+          <StatListItem value="200+" label="Profissionais formados" />
+          <StatListItem value="3×" label="Premiada como Great Place to Work" />
+          <StatListItem value="GCPro" label="ERP em evolução contínua" />
         </StatList>
       </Container>
 
@@ -220,10 +251,12 @@ export default async function About() {
 
       <Team />
 
+      <Locations />
+
       <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
-        title="From the blog"
-        intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting Brand Sprints to UX Design."
+        title="Do nosso blog"
+        intro="Insights sobre software sob medida, cultura de squads e inovação contínua."
         pages={blogArticles}
       />
 

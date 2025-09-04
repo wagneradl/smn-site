@@ -1,0 +1,54 @@
+{
+  "hits": [
+    {
+      "file": "src/app/page.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/components/Blockquote.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/components/ClientsGrid.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/components/GrayscaleTransitionImage.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/components/StylizedImage.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/components/Testimonial.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/app/about/page.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/app/blog/page.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/app/careers/page.tsx",
+      "total": 1,
+      "missingSizes": 0
+    },
+    {
+      "file": "src/app/work/page.tsx",
+      "total": 1,
+      "missingSizes": 0
+    }
+  ]
+}

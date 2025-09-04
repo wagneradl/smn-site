@@ -3,16 +3,17 @@
   font-size: var(--text-xl);
   line-height: var(--text-xl--line-height);
 
-  --shiki-color-text: var(--color-white);
-  --shiki-color-background: var(--color-neutral-950);
-  --shiki-token-constant: var(--color-neutral-300);
-  --shiki-token-string: var(--color-neutral-400);
+  /* Code highlight via Shiki CSS variables */
+  --shiki-background: transparent;
+  --shiki-foreground: var(--color-neutral-950);
+
   --shiki-token-comment: var(--color-neutral-500);
-  --shiki-token-keyword: var(--color-neutral-400);
-  --shiki-token-parameter: var(--color-neutral-400);
-  --shiki-token-function: var(--color-neutral-300);
-  --shiki-token-string-expression: var(--color-neutral-300);
-  --shiki-token-punctuation: var(--color-neutral-400);
+  --shiki-token-string: var(--color-accent-600);
+  --shiki-token-keyword: var(--color-primary-600);
+  --shiki-token-function: var(--color-primary-700);
+  --shiki-token-parameter: var(--color-neutral-800);
+  --shiki-token-punctuation: var(--color-neutral-700);
+  --shiki-token-link: var(--color-accent-600);
 
   :where(.typography > *) {
     margin-top: --spacing(6);
@@ -140,7 +141,7 @@
 
   /* Inline text */
   :where(a) {
-    text-decoration: underline;
+    text-decoration: none;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.15em;
     text-decoration-skip-ink: none;
@@ -180,5 +181,31 @@
   :where(.typography:last-child > :last-child),
   :where(li > :last-child) {
     margin-bottom: 0 !important;
+  }
+}
+
+/* Se você tiver modo escuro, ajuste aqui */
+.dark {
+  --shiki-foreground: var(--color-neutral-100);
+  --shiki-token-comment: var(--color-neutral-400);
+  --shiki-token-string: var(--color-accent-400);
+  --shiki-token-keyword: var(--color-primary-400);
+  --shiki-token-function: var(--color-primary-300);
+  --shiki-token-parameter: var(--color-neutral-300);
+  --shiki-token-punctuation: var(--color-neutral-400);
+}
+
+/* Fallback global para Shiki CSS variables */
+@layer base {
+  :root {
+    --shiki-background: transparent;
+    --shiki-foreground: var(--color-neutral-950);
+    --shiki-token-comment: var(--color-neutral-500);
+    --shiki-token-string: var(--color-accent-600);
+    --shiki-token-keyword: var(--color-primary-600);
+    --shiki-token-function: var(--color-primary-700);
+    --shiki-token-parameter: var(--color-neutral-800);
+    --shiki-token-punctuation: var(--color-neutral-700);
+    --shiki-token-link: var(--color-accent-600);
   }
 }

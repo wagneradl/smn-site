@@ -1,0 +1,186 @@
+{
+  "generated": "2025-08-27T23:11:58.470Z",
+  "summary": {
+    "total": 16,
+    "wide": 10,
+    "standard": 6,
+    "tall": 0
+  },
+  "classification": {
+    "wide": [
+      {
+        "client": "magalu",
+        "name": "logo-dark",
+        "aspect": 5.11,
+        "dimensions": "184x36"
+      },
+      {
+        "client": "magalu",
+        "name": "logo-light",
+        "aspect": 5.11,
+        "dimensions": "184x36"
+      },
+      {
+        "client": "momentum",
+        "name": "logo-light",
+        "aspect": 5.11,
+        "dimensions": "184x36"
+      },
+      {
+        "client": "momentum",
+        "name": "logo-dark",
+        "aspect": 5.11,
+        "dimensions": "184x36"
+      },
+      {
+        "client": "autovox",
+        "name": "logo-light",
+        "aspect": 4.98,
+        "dimensions": "179.3691x36"
+      },
+      {
+        "client": "autovox",
+        "name": "logo-dark",
+        "aspect": 4.98,
+        "dimensions": "179.3691x36"
+      },
+      {
+        "client": "leve-asset",
+        "name": "logo-light",
+        "aspect": 3.23,
+        "dimensions": "116.3992x36"
+      },
+      {
+        "client": "leve-asset",
+        "name": "logo-dark",
+        "aspect": 3.23,
+        "dimensions": "116.3992x36"
+      },
+      {
+        "client": "casa-do-construtor",
+        "name": "logo-light",
+        "aspect": 3.49,
+        "dimensions": "125.5628x36"
+      },
+      {
+        "client": "casa-do-construtor",
+        "name": "logo-dark",
+        "aspect": 3.49,
+        "dimensions": "125.5628x36"
+      }
+    ],
+    "standard": [
+      {
+        "client": "teixeira-fortes",
+        "name": "logo-light",
+        "aspect": 2.91,
+        "dimensions": "104.6721x36"
+      },
+      {
+        "client": "teixeira-fortes",
+        "name": "logo-dark",
+        "aspect": 2.9,
+        "dimensions": "104.3617x36"
+      },
+      {
+        "client": "cea",
+        "name": "logo-light",
+        "aspect": 1.38,
+        "dimensions": "49.5277x36"
+      },
+      {
+        "client": "cea",
+        "name": "logo-dark",
+        "aspect": 1.38,
+        "dimensions": "49.5277x36"
+      },
+      {
+        "client": "liceu-francano",
+        "name": "logo-light",
+        "aspect": 2.11,
+        "dimensions": "75.954x36"
+      },
+      {
+        "client": "liceu-francano",
+        "name": "logo-dark",
+        "aspect": 2.11,
+        "dimensions": "75.954x36"
+      }
+    ],
+    "tall": []
+  },
+  "hotSpots": {
+    "extremeWide": [
+      {
+        "name": "logo-dark",
+        "client": "magalu",
+        "path": "src/images/clients/magalu/logo-dark.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      },
+      {
+        "name": "logo-light",
+        "client": "magalu",
+        "path": "src/images/clients/magalu/logo-light.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      },
+      {
+        "name": "logo-light",
+        "client": "momentum",
+        "path": "src/images/clients/momentum/logo-light.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "momentum",
+        "path": "src/images/clients/momentum/logo-dark.svg",
+        "width": 184,
+        "height": 36,
+        "aspect": 5.11,
+        "inline": false
+      },
+      {
+        "name": "logo-light",
+        "client": "autovox",
+        "path": "src/images/clients/autovox/logo-light.svg",
+        "width": 179.3691,
+        "height": 36,
+        "aspect": 4.98,
+        "inline": false
+      },
+      {
+        "name": "logo-dark",
+        "client": "autovox",
+        "path": "src/images/clients/autovox/logo-dark.svg",
+        "width": 179.3691,
+        "height": 36,
+        "aspect": 4.98,
+        "inline": false
+      }
+    ],
+    "extremeTall": [],
+    "inconsistentHeights": []
+  },
+  "recommendations": [
+    {
+      "type": "extreme_wide",
+      "message": "Logos muito largos podem causar desalinhamento",
+      "logos": [
+        "magalu",
+        "magalu",
+        "momentum",
+        "momentum",
+        "autovox",
+        "autovox"
+      ]
+    }
+  ]
+}

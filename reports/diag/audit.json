@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-08-30T21:22:31.587Z",
+  "npmAudit": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "summary": {
+      "total": 0,
+      "critical": 0,
+      "high": 0,
+      "moderate": 0,
+      "low": 0
+    }
+  },
+  "packageLock": {
+    "totalDeps": 0,
+    "lockedVersions": []
+  },
+  "peerDeps": {
+    "count": 0,
+    "packages": []
+  }
+}

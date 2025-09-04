@@ -1,0 +1,16 @@
+{
+  "issues": [
+    {
+      "file": "src/styles/base.css",
+      "msg": "non-ascii-characters"
+    },
+    {
+      "file": "src/styles/tailwind.css",
+      "msg": "non-ascii-characters"
+    },
+    {
+      "file": "src/styles/typography.css",
+      "msg": "non-ascii-characters"
+    }
+  ]
+}

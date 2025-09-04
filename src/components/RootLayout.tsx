@@ -81,7 +81,7 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" variant="accent" invert={invert}>
+          <Button href="/contact" invert={invert}>
             Fale Conosco
           </Button>
           <button
@@ -113,7 +113,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="even:mt-px sm:bg-neutral-950">
+    <div className="mt-px overflow-x-clip sm:bg-neutral-950">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -124,17 +124,33 @@ function NavigationRow({ children }: { children: React.ReactNode }) {
 function NavigationItem({
   href,
   children,
+  hoverVariant = 'green',
+  ...props
 }: {
   href: string
   children: React.ReactNode
-}) {
+  hoverVariant?: 'green' | 'white'
+} & React.ComponentPropsWithoutRef<typeof Link>) {
+  const pathname = usePathname()
+  const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href)
+
+  const hoverClasses = {
+    green: 'bg-gradient-to-r from-accent-500 to-accent-400',
+    white: 'bg-white',
+  }
+
   return (
     <Link
       href={href}
+      aria-current={isActive ? 'page' : undefined}
+      data-nav-link
       className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+      {...props}
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-gradient-to-r from-accent-500 to-accent-400 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span
+        className={`absolute inset-y-0 -z-10 w-screen ${hoverClasses[hoverVariant]} opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100`}
+      />
     </Link>
   )
 }
@@ -143,18 +159,44 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">Projetos</NavigationItem>
-        <NavigationItem href="/about">Sobre</NavigationItem>
+        <NavigationItem href="/about">Sobre nós</NavigationItem>
+        <NavigationItem href="/solucoes">Soluções</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/process">Serviços</NavigationItem>
+        <NavigationItem href="/work">Cases</NavigationItem>
+        <NavigationItem href="/careers">Carreiras</NavigationItem>
+      </NavigationRow>
+      <NavigationRow>
         <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem
+          href={
+            process.env.NEXT_PUBLIC_GCPRO_URL ?? 'https://gcpro.smn.example'
+          }
+          hoverVariant="white"
+          target="_blank"
+          rel="noopener noreferrer"
+          prefetch={false}
+          data-nav-link="gcpro"
+          aria-label="GCPro (abre em nova aba)"
+        >
+          <span className="gcpro-premium">
+            <span className="gcpro-neon gcpro-neon--tight font-display text-5xl">
+              GCPro
+            </span>
+          </span>
+        </NavigationItem>
       </NavigationRow>
     </nav>
   )
 }
 
-function RootLayoutInner({ children }: { children: React.ReactNode }) {
+function RootLayoutInner({
+  children,
+  pathname,
+}: {
+  children: React.ReactNode
+  pathname: string
+}) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let [isTransitioning, setIsTransitioning] = useState(false)
@@ -179,7 +221,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     return () => {
       window.removeEventListener('click', onClick)
     }
-  }, [])
+  }, [pathname])
 
   return (
     <MotionConfig
@@ -192,7 +234,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           className="absolute top-2 right-0 left-0 z-40 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
-          inert={expanded ? '' : undefined}
+          inert={expanded ? true : undefined}
         >
           <Header
             panelId={panelId}
@@ -241,7 +283,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
+                      Nossos escritórios
                     </h2>
                     <Offices
                       invert
@@ -250,7 +292,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">
                     <h2 className="font-display text-base font-semibold text-white">
-                      Follow us
+                      Redes sociais
                     </h2>
                     <SocialMedia className="mt-6" invert />
                   </div>
@@ -276,7 +318,9 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             interactive
           />
 
-          <main className="w-full flex-auto">{children}</main>
+          <main id="main" className="w-full flex-auto">
+            {children}
+          </main>
 
           <Footer />
         </motion.div>
@@ -291,7 +335,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
+      <RootLayoutInner pathname={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )
 }

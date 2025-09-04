@@ -77,10 +77,8 @@ export function SocialMedia({
           <Link
             href={socialMediaProfile.href}
             aria-label={socialMediaProfile.title}
-            className={clsx(
-              'transition',
-              invert ? 'hover:text-neutral-200' : 'hover:text-neutral-700',
-            )}
+            data-social
+            className={clsx('transition', 'hover:text-accent-500')}
           >
             <socialMediaProfile.icon className="h-6 w-6 fill-current" />
           </Link>
