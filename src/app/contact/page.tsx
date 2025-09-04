@@ -1,7 +1,6 @@
 'use client'
 
 import { useId } from 'react'
-import { type Metadata } from 'next'
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
@@ -12,11 +11,13 @@ import { Offices } from '@/components/Offices'
 import { PageIntro } from '@/components/PageIntro'
 import { SocialMedia } from '@/components/SocialMedia'
 import { RootLayout } from '@/components/RootLayout'
+import { contactContent } from '@/content/contact'
 
 function TextInput({
   label,
+  required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
+}: React.ComponentPropsWithoutRef<'input'> & { label: string; required?: boolean }) {
   let id = useId()
 
   return (
@@ -26,6 +27,7 @@ function TextInput({
         id={id}
         {...props}
         placeholder=" "
+        required={required}
         className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
       />
       <label
@@ -33,6 +35,73 @@ function TextInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
+      </label>
+    </div>
+  )
+}
+
+function SelectInput({
+  label,
+  required = false,
+  options,
+  ...props
+}: React.ComponentPropsWithoutRef<'select'> & { 
+  label: string; 
+  required?: boolean;
+  options: string[];
+}) {
+  let id = useId()
+
+  return (
+    <div className="group relative z-0 transition-all focus-within:z-10">
+      <select
+        id={id}
+        {...props}
+        required={required}
+        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
+      >
+        <option value="">Selecione...</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      <label
+        htmlFor={id}
+        className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
+      >
+        {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
+      </label>
+    </div>
+  )
+}
+
+function TextAreaInput({
+  label,
+  required = false,
+  ...props
+}: React.ComponentPropsWithoutRef<'textarea'> & { label: string; required?: boolean }) {
+  let id = useId()
+
+  return (
+    <div className="group relative z-0 transition-all focus-within:z-10">
+      <textarea
+        id={id}
+        {...props}
+        placeholder=" "
+        required={required}
+        rows={4}
+        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden resize-none"
+      />
+      <label
+        htmlFor={id}
+        className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
+      >
+        {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
       </label>
     </div>
   )
@@ -62,51 +131,100 @@ function ContactForm() {
           Solicitações de projeto
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput label="Nome" name="name" autoComplete="name" />
+          <TextInput 
+            label={contactContent.form.fields.name.label} 
+            name="name" 
+            autoComplete="name" 
+            required={contactContent.form.fields.name.required}
+          />
           <TextInput
-            label="Email"
+            label={contactContent.form.fields.email.label}
             type="email"
             name="email"
             autoComplete="email"
+            required={contactContent.form.fields.email.required}
           />
           <TextInput
-            label="Empresa"
+            label={contactContent.form.fields.company.label}
             name="company"
             autoComplete="organization"
+            required={contactContent.form.fields.company.required}
           />
           <TextInput
-            label="Telefone"
+            label={contactContent.form.fields.phone.label}
             type="tel"
             name="phone"
             autoComplete="tel"
+            required={contactContent.form.fields.phone.required}
           />
-          <TextInput label="Mensagem" name="message" />
+          <SelectInput
+            label={contactContent.form.fields.subject.label}
+            name="subject"
+            options={contactContent.form.fields.subject.options}
+            required={contactContent.form.fields.subject.required}
+          />
+          <TextAreaInput 
+            label={contactContent.form.fields.message.label} 
+            name="message"
+            required={contactContent.form.fields.message.required}
+          />
           <div className="border border-neutral-300 px-6 py-8 first:rounded-t-2xl last:rounded-b-2xl">
             <fieldset>
               <legend className="text-base/6 text-neutral-500">
-                Orçamento
+                {contactContent.form.fields.deadline.label}
               </legend>
-              <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <RadioInput label="R$ 50K – R$ 100K" name="budget" value="25" />
-                <RadioInput
-                  label="R$ 100K – R$ 200K"
-                  name="budget"
-                  value="50"
-                />
-                <RadioInput
-                  label="R$ 200K – R$ 300K"
-                  name="budget"
-                  value="100"
-                />
-                <RadioInput label="Mais de R$ 300K" name="budget" value="150" />
+              <div className="mt-6 grid grid-cols-1 gap-4">
+                {contactContent.form.fields.deadline.options.map((option) => (
+                  <RadioInput 
+                    key={option} 
+                    label={option} 
+                    name="deadline" 
+                    value={option} 
+                  />
+                ))}
               </div>
             </fieldset>
           </div>
         </div>
         <Button type="submit" className="mt-10">
-          Vamos trabalhar juntos
+          {contactContent.form.cta}
         </Button>
+        <p className="mt-4 text-sm text-neutral-600">
+          {contactContent.form.lgpd}
+        </p>
       </form>
+    </FadeIn>
+  )
+}
+
+function ContactChannels() {
+  return (
+    <FadeIn>
+      <h2 className="font-display text-base font-semibold text-neutral-950">
+        Canais de contato
+      </h2>
+      <div className="mt-6 grid grid-cols-1 gap-4">
+        {contactContent.channels.map((channel) => (
+          <div key={channel.email} className="rounded-lg border border-neutral-200 p-4">
+            <h3 className="font-semibold text-neutral-950">{channel.title}</h3>
+            {channel.textHtml && (
+              <p 
+                className="mt-2 text-sm text-neutral-600"
+                dangerouslySetInnerHTML={{ __html: channel.textHtml }}
+              />
+            )}
+            <a
+              href={`mailto:${channel.email}`}
+              className="mt-2 inline-block text-sm text-neutral-600 hover:text-neutral-950"
+            >
+              {channel.email}
+            </a>
+          </div>
+        ))}
+      </div>
+      <p className="mt-4 text-sm text-neutral-600">
+        {contactContent.channelsNote}
+      </p>
     </FadeIn>
   )
 }
@@ -115,40 +233,16 @@ function ContactDetails() {
   return (
     <FadeIn>
       <h2 className="font-display text-base font-semibold text-neutral-950">
-        Nossos escritórios
+        {contactContent.offices.title}
       </h2>
-      <p className="mt-6 text-base text-neutral-600">
-        Base principal em João Pessoa e times remotos em todo o Brasil.
-      </p>
-      <p className="mt-2 text-base text-neutral-600">
-        Rua Professor José Coelho, 501 – Tambauzinho • João Pessoa – PB
-      </p>
-
-      <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" />
-
-      <Border className="mt-16 pt-16">
-        <h2 className="font-display text-base font-semibold text-neutral-950">
-          Envie um email
-        </h2>
-        <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-          {[
-            ['Carreiras', 'carreiras@smn.com.br'],
-            ['Imprensa', 'imprensa@smn.com.br'],
-          ].map(([label, email]) => (
-            <div key={email}>
-              <dt className="font-semibold text-neutral-950">{label}</dt>
-              <dd>
-                <Link
-                  href={`mailto:${email}`}
-                  className="text-neutral-600 hover:text-neutral-950"
-                >
-                  {email}
-                </Link>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </Border>
+      <div className="mt-6 space-y-4">
+        {contactContent.offices.items.map((office) => (
+          <div key={office.name}>
+            <h3 className="font-semibold text-neutral-950">{office.name}</h3>
+            <p className="text-sm text-neutral-600">{office.address}</p>
+          </div>
+        ))}
+      </div>
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-neutral-950">
@@ -160,19 +254,24 @@ function ContactDetails() {
   )
 }
 
-// Metadata moved to layout or separate metadata file
-
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Fale conosco" title="Vamos trabalhar juntos">
-        <p>Estamos ansiosos para ouvir sobre seu projeto.</p>
+      <PageIntro eyebrow="Fale conosco" title={contactContent.hero.title}>
+        <p>{contactContent.hero.subtitle}</p>
+        <div 
+          className="mt-4 text-sm text-neutral-600"
+          dangerouslySetInnerHTML={{ __html: contactContent.hero.noteHtml }}
+        />
       </PageIntro>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
           <ContactForm />
-          <ContactDetails />
+          <div className="space-y-16">
+            <ContactChannels />
+            <ContactDetails />
+          </div>
         </div>
       </Container>
     </RootLayout>
