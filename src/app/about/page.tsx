@@ -10,6 +10,7 @@ import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
+import { StylizedImage } from '@/components/StylizedImage'
 import imageAngelaFisher from '@/images/team/angela-fisher.jpg'
 import imageBenjaminRussel from '@/images/team/benjamin-russel.jpg'
 import imageBlakeReid from '@/images/team/blake-reid.jpg'
@@ -22,12 +23,13 @@ import imageLeonardKrasner from '@/images/team/leonard-krasner.jpg'
 import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
 import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
+import imageMeeting from '@/images/meeting.jpg'
 import { loadArticles } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 
 function Culture() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="mt-24 rounded-4xl bg-primary-800 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
         eyebrow="Nossa cultura"
         title="Gente, ética e cooperação acima de tudo"
@@ -79,6 +81,11 @@ const team = [
         name: 'Marcus Mandara',
         role: 'Sócio — Análise de requisitos e entrega',
         image: { src: imageMichaelFoster }, // Substitua pela imagem real se disponível
+      },
+      {
+        name: 'Rafael Pessoni',
+        role: 'CTO — Chief Technology Officer',
+        image: { src: imageBenjaminRussel }, // Placeholder - substitua pela imagem real quando disponível
       },
     ],
   },
@@ -153,7 +160,7 @@ function Locations() {
               {[
                 {
                   name: 'Sede — João Pessoa (PB)',
-                  address: 'Rua Professor José Coelho, 501 — Tambauzinho',
+                  address: 'Rua Dep. Geraldo Mariz, 291A — Tambauzinho',
                 },
                 {
                   name: 'Ingá (PB)',
@@ -210,33 +217,48 @@ export default async function About() {
 
   return (
     <RootLayout>
-      <PageIntro
-        eyebrow="Sobre nós"
-        title="Nossa história é feita de tecnologia e pessoas"
-      >
-        <p>
-          Desde 2003, construímos software que sustenta operações críticas no
-          Brasil. O que começou com a visão de Ricardo Corrales hoje é uma
-          empresa sólida, com equipes distribuídas e clientes em setores
-          estratégicos.
-        </p>
-        <div className="mt-10 max-w-2xl space-y-6 text-base">
-          <p>
-            A SMN nasceu em 2003, fruto da experiência de mais de 40 anos de
-            Ricardo Corrales em tecnologia e do encontro com parceiros que
-            acreditaram no mesmo propósito: formar times de excelência e
-            entregar software que faz diferença real nos negócios.
-          </p>
-          <p>
-            De um início marcado por projetos robustos de ERP para empresas como
-            a Momentum, evoluímos para uma fábrica de software referência em
-            soluções sob medida, Business Intelligence e o ERP modular GCPro.
-            Hoje, mantemos presença em João Pessoa, Ingá, Franca e Passos, com
-            squads especializados em missão crítica e um programa contínuo de
-            formação de talentos.
-          </p>
+      <Container className="mt-24 sm:mt-32 md:mt-56">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+          <FadeIn className="max-w-3xl">
+            <div className="space-y-6">
+              <div>
+                <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
+                  Nossa história é feita de tecnologia e pessoas
+                </h1>
+                <p className="mt-6 text-xl text-neutral-600">
+                  Desde 2003, construímos software que sustenta operações críticas no
+                  Brasil. O que começou com a visão de Ricardo Corrales hoje é uma
+                  empresa sólida, com equipes distribuídas e clientes em setores
+                  estratégicos.
+                </p>
+              </div>
+              <div className="space-y-6 text-base text-neutral-600">
+                <p>
+                  A SMN nasceu em 2003, fruto da experiência de mais de 40 anos de
+                  Ricardo Corrales em tecnologia e do encontro com parceiros que
+                  acreditaram no mesmo propósito: formar times de excelência e
+                  entregar software que faz diferença real nos negócios.
+                </p>
+                <p>
+                  De um início marcado por projetos robustos de ERP para empresas como
+                  a Momentum, evoluímos para uma fábrica de software referência em
+                  soluções sob medida, Business Intelligence e o ERP modular GCPro.
+                  Hoje, mantemos presença em João Pessoa, Ingá, Franca e Passos, com
+                  squads especializados em missão crítica e um programa contínuo de
+                  formação de talentos.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+          <FadeIn className="flex justify-center lg:justify-end">
+            <StylizedImage
+              src={imageMeeting}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="w-full max-w-xl"
+            />
+          </FadeIn>
         </div>
-      </PageIntro>
+      </Container>
       <Container className="mt-16">
         <StatList>
           <StatListItem value="2003" label="Fundação da SMN" />

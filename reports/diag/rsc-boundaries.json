@@ -1,6 +1,11 @@
 {
   "client": [
     {
+      "file": "src/components/CareersForm.tsx",
+      "hasFramer": false,
+      "hasBrowserApis": false
+    },
+    {
       "file": "src/components/FadeIn.tsx",
       "hasFramer": true,
       "hasBrowserApis": false

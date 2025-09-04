@@ -10,6 +10,7 @@ import { GridList, GridListItem } from '@/components/GridList'
 import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
+import { CareersForm } from '@/components/CareersForm'
 import imageAngelaFisher from '@/images/team/angela-fisher.jpg'
 import imageBenjaminRussel from '@/images/team/benjamin-russel.jpg'
 import imageEmmaDorsey from '@/images/team/emma-dorsey.jpg'
@@ -72,7 +73,7 @@ const benefits = [
 
 function CultureSection() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="mt-24 rounded-4xl bg-primary-800 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro eyebrow="Nossa cultura" title="Nossa Essência" invert>
         <p>
           Desde 2003, a SMN constrói soluções estratégicas que sustentam
@@ -167,59 +168,66 @@ function Testimonials() {
 function JobOpenings() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40" id="vagas">
-      <FadeIn>
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Junte-se a nós
-        </h2>
-      </FadeIn>
-      <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
+      <div className="grid grid-cols-1 gap-x-16 gap-y-16 lg:grid-cols-2 lg:items-start">
         <FadeIn>
-          <article>
-            <Border className="grid grid-cols-3 gap-x-8 gap-y-8 pt-16">
-              <div className="col-span-full lg:col-span-2 lg:max-w-2xl">
-                <p className="font-display text-4xl font-medium text-neutral-950">
-                  Vagas em Aberto
+          <div className="space-y-16">
+            {/* Seção Principal */}
+            <div>
+              <h2 className="font-display text-3xl font-medium text-neutral-950 sm:text-4xl">
+                Junte-se a nós
+              </h2>
+              <div className="mt-6 space-y-6 text-lg text-neutral-600">
+                <p>
+                  Estamos sempre em busca de profissionais talentosos e apaixonados
+                  por tecnologia que queiram crescer junto conosco.
                 </p>
-                <div className="mt-6 space-y-6 text-base text-neutral-600">
-                  <p>
-                    Confira as posições disponíveis e inscreva-se. Integração
-                    com lista de vagas será implementada aqui.
+              </div>
+            </div>
+
+            {/* Seção de Escritórios */}
+            <div className="border-t border-neutral-200 pt-16">
+              <h3 className="font-display text-base font-semibold text-neutral-950">
+                Nossos escritórios
+              </h3>
+              <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <div>
+                  <h4 className="font-semibold text-neutral-950">Sede — João Pessoa (PB)</h4>
+                  <p className="mt-2 text-sm text-neutral-600">
+                    Rua Dep. Geraldo Mariz, 291A<br />
+                    Tambauzinho, João Pessoa – PB
                   </p>
                 </div>
-                <div className="mt-8 flex">
-                  <Button href="/contact">Envie seu CV</Button>
+                <div>
+                  <h4 className="font-semibold text-neutral-950">Ingá (PB)</h4>
+                  <p className="mt-2 text-sm text-neutral-600">
+                    Sítio Hotel Cruzeiro, s/n<br />
+                    Zona Rural, BR-230 – Ingá – PB
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-neutral-950">Franca (SP)</h4>
+                  <p className="mt-2 text-sm text-neutral-600">
+                    R. dos Pracinhas, 1720<br />
+                    Núcleo Agrícola Alpha, Franca – SP
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-neutral-950">Passos (MG)</h4>
+                  <p className="mt-2 text-sm text-neutral-600">
+                    R. Noruega, 274<br />
+                    Novo Mundo, Passos – MG
+                  </p>
                 </div>
               </div>
-              <div className="col-span-full lg:col-span-1">
-                <div className="space-y-6">
-                  <div className="border-l-4 border-accent-500 pl-4">
-                    <h4 className="font-semibold text-neutral-950">
-                      Desenvolvedor Full Stack
-                    </h4>
-                    <p className="text-sm text-neutral-600">
-                      São Paulo, SP - Remoto
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-accent-500 pl-4">
-                    <h4 className="font-semibold text-neutral-950">
-                      Analista de Sistemas
-                    </h4>
-                    <p className="text-sm text-neutral-600">
-                      São Paulo, SP - Híbrido
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-accent-500 pl-4">
-                    <h4 className="font-semibold text-neutral-950">
-                      Tech Lead
-                    </h4>
-                    <p className="text-sm text-neutral-600">
-                      São Paulo, SP - Presencial
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Border>
-          </article>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Formulário */}
+        <FadeIn>
+          <div className="rounded-4xl bg-gradient-to-br from-primary-800 to-primary-900 p-8 sm:p-12">
+            <CareersForm />
+          </div>
         </FadeIn>
       </div>
     </Container>
@@ -234,9 +242,6 @@ export default function CareersPage() {
           Faça parte de uma fábrica de software que atua em missões críticas
           para clientes estratégicos no Brasil.
         </p>
-        <div className="mt-10 max-w-2xl">
-          <Button href="#vagas">Ver Vagas Abertas</Button>
-        </div>
       </PageIntro>
 
       <Container className="mt-16">
@@ -248,14 +253,9 @@ export default function CareersPage() {
       </Container>
 
       <CultureSection />
-
       <Benefits />
-
       <Testimonials />
-
       <JobOpenings />
-
-      <ContactSection />
     </RootLayout>
   )
 }

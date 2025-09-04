@@ -1,14 +1,13 @@
 export const contactContent = {
   hero: {
-    title: "Fale Conosco",
+    title: "Vamos Conversar",
     subtitle: "Projetos e parcerias. Conte-nos sobre seu contexto e objetivos.",
     noteHtml: 'Para vagas, acesse <a href="/careers" data-nav-link>Carreiras</a> ou escreva para <a href="mailto:carreiras@smn.com.br">carreiras@smn.com.br</a>.'
   },
   channels: [
     {
       title: "Projetos & Parcerias",
-      textHtml: 'Use o formulário desta página.',
-      email: "projetos@smn.com.br"
+      textHtml: 'Use o formulário desta página.'
     },
     { title: "Imprensa", email: "imprensa@smn.com.br" },
     { title: "Carreiras", email: "carreiras@smn.com.br" }
@@ -44,7 +43,7 @@ export const contactContent = {
   offices: {
     title: "Nossos escritórios",
     items: [
-      { name: "Sede — João Pessoa (PB)", address: "Rua Professor José Coelho, 501 — Tambauzinho" },
+      { name: "Sede — João Pessoa (PB)", address: "Rua Dep. Geraldo Mariz, 291A — Tambauzinho" },
       { name: "Ingá (PB)", address: "Sítio Hotel Cruzeiro, s/n — Zona Rural, BR-230" },
       { name: "Franca (SP)", address: "R. dos Pracinhas, 1720 — Núcleo Agrícola Alpha" },
       { name: "Passos (MG)", address: "R. Noruega, 274 — Novo Mundo" }

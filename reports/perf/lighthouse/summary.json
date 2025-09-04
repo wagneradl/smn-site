@@ -7,7 +7,7 @@
   ],
   "scores": {
     "home": {
-      "performance": 1,
+      "performance": 0.99,
       "accessibility": 1,
       "best-practices": 1,
       "seo": 1
@@ -20,7 +20,7 @@
     },
     "contact": {
       "performance": 1,
-      "accessibility": 1,
+      "accessibility": 0.96,
       "best-practices": 1,
       "seo": 1
     },

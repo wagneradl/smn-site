@@ -213,12 +213,14 @@ function ContactChannels() {
                 dangerouslySetInnerHTML={{ __html: channel.textHtml }}
               />
             )}
-            <a
-              href={`mailto:${channel.email}`}
-              className="mt-2 inline-block text-sm text-neutral-600 hover:text-neutral-950"
-            >
-              {channel.email}
-            </a>
+            {channel.email && (
+              <a
+                href={`mailto:${channel.email}`}
+                className="mt-2 inline-block text-sm text-neutral-600 hover:text-neutral-950"
+              >
+                {channel.email}
+              </a>
+            )}
           </div>
         ))}
       </div>
@@ -257,7 +259,7 @@ function ContactDetails() {
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Fale conosco" title={contactContent.hero.title}>
+      <PageIntro title="Vamos Conversar">
         <p>{contactContent.hero.subtitle}</p>
         <div 
           className="mt-4 text-sm text-neutral-600"

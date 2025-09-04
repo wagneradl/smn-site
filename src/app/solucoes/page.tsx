@@ -11,6 +11,7 @@ import { StylizedImage } from '@/components/StylizedImage'
 import { RootLayout } from '@/components/RootLayout'
 import imageLaptop from '@/images/laptop.jpg'
 import imageMeeting from '@/images/meeting.jpg'
+import imageWhiteboard from '@/images/whiteboard.jpg'
 
 export const metadata: Metadata = {
   title: 'Soluções sob medida para operações estratégicas',
@@ -77,7 +78,7 @@ function SolutionsSection() {
         </p>
       </SectionIntro>
       <Container className="mt-16">
-        <GridList>
+        <GridList className="lg:grid-cols-2">
           <GridListItem title="Software sob medida">
             Sistemas tailor-made com performance, escalabilidade e aderência
             total ao seu negócio.
@@ -113,7 +114,7 @@ function DiferenciaisSection() {
         </p>
       </SectionIntro>
       <Container className="mt-16">
-        <GridList>
+        <GridList className="lg:grid-cols-2">
           <GridListItem title="Qualidade">
             Código limpo, arquitetura sólida e entregas auditáveis.
           </GridListItem>
@@ -128,6 +129,53 @@ function DiferenciaisSection() {
             Base sólida de talentos formados e preparados internamente.
           </GridListItem>
         </GridList>
+      </Container>
+    </>
+  )
+}
+
+function TeamSection() {
+  return (
+    <>
+      <SectionIntro title="Nossa Equipe" className="mt-24 sm:mt-32 lg:mt-40">
+        <p>
+          Profissionais experientes e apaixonados por tecnologia, formados internamente
+          e comprometidos com a excelência em cada projeto.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+          <FadeIn>
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-display text-2xl font-semibold text-neutral-950">
+                  Especialistas em missão crítica
+                </h3>
+                <p className="mt-4 text-lg text-neutral-600">
+                  Nossa equipe combina anos de experiência em projetos de alta complexidade
+                  com formação contínua e metodologias ágeis comprovadas.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="text-center">
+                  <div className="font-display text-3xl font-semibold text-neutral-950">20+</div>
+                  <div className="mt-2 text-sm text-neutral-600">Anos de experiência</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-display text-3xl font-semibold text-neutral-950">50+</div>
+                  <div className="mt-2 text-sm text-neutral-600">Projetos entregues</div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+          <FadeIn className="flex justify-center lg:justify-end">
+            <StylizedImage
+              src={imageWhiteboard}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="w-full max-w-xl"
+            />
+          </FadeIn>
+        </div>
       </Container>
     </>
   )
@@ -156,20 +204,30 @@ export default function SolucoesPage() {
   return (
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
-            Soluções sob medida para operações estratégicas.
-          </h1>
-          <p className="mt-6 text-xl text-neutral-600">
-            Da concepção ao suporte contínuo: software, squads e ERP modular
-            para empresas que não podem parar.
-          </p>
-        </FadeIn>
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+          <FadeIn className="max-w-3xl">
+            <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
+              Soluções sob medida para operações estratégicas.
+            </h1>
+            <p className="mt-6 text-xl text-neutral-600">
+              Da concepção ao suporte contínuo: software, squads e ERP modular
+              para empresas que não podem parar.
+            </p>
+          </FadeIn>
+          <FadeIn className="flex justify-center lg:justify-end">
+            <StylizedImage
+              src={imageLaptop}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="w-full max-w-xl"
+            />
+          </FadeIn>
+        </div>
       </Container>
 
       <ProcessSection />
       <SolutionsSection />
       <DiferenciaisSection />
+      <TeamSection />
       <CTASection />
     </RootLayout>
   )

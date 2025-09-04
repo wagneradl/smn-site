@@ -1,31 +1,51 @@
 {
-  "timestamp": "2025-08-30T21:22:32.734Z",
+  "timestamp": "2025-09-04T04:47:54.934Z",
   "postcss": {
     "hasTailwindPostcss": true,
     "hasTailwindImport": false
   },
   "cssFiles": {
     "base.css": {
-      "size": 11218,
-      "lines": 354,
-      "issues": []
+      "size": 11663,
+      "lines": 444,
+      "issues": [
+        "layer-order"
+      ]
     },
     "tailwind.css": {
-      "size": 2952,
-      "lines": 103,
-      "issues": ["missing-guards"]
+      "size": 3003,
+      "lines": 116,
+      "issues": [
+        "missing-guards"
+      ]
     },
     "typography.css": {
-      "size": 4602,
-      "lines": 197,
+      "size": 5139,
+      "lines": 212,
       "issues": []
     }
   },
   "issues": {
     "nonAscii": [],
     "unbalancedBraces": [],
-    "layerOrder": [],
+    "layerOrder": [
+      {
+        "file": "base.css",
+        "expected": [
+          "base",
+          "components",
+          "utilities"
+        ],
+        "actual": [
+          "base",
+          "utilities",
+          "base"
+        ]
+      }
+    ],
     "missingTokens": [],
-    "missingGuards": ["tailwind.css"]
+    "missingGuards": [
+      "tailwind.css"
+    ]
   }
 }

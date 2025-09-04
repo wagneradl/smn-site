@@ -50,7 +50,7 @@ export const HOME_CONFIG = {
   },
 
   contact_teaser: {
-    title: 'Conte-nos sobre seu projeto',
+    title: 'Pronto para escalar?',
     cta: 'Fale Conosco',
     offices: 'Nossos escritórios',
   },

@@ -1,7 +1,7 @@
 {
   "route": "/",
   "lcp": {
-    "startTime": 144,
+    "startTime": 116,
     "size": 84822,
     "element": {
       "tag": "H1",
