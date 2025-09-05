@@ -10,7 +10,10 @@ function TextInput({
   label,
   required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string; required?: boolean }) {
+}: React.ComponentPropsWithoutRef<'input'> & {
+  label: string
+  required?: boolean
+}) {
   let id = useId()
 
   return (
@@ -28,7 +31,7 @@ function TextInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -38,7 +41,10 @@ function EmailInput({
   label,
   required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string; required?: boolean }) {
+}: React.ComponentPropsWithoutRef<'input'> & {
+  label: string
+  required?: boolean
+}) {
   let id = useId()
 
   return (
@@ -56,7 +62,7 @@ function EmailInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -66,7 +72,10 @@ function TelInput({
   label,
   required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string; required?: boolean }) {
+}: React.ComponentPropsWithoutRef<'input'> & {
+  label: string
+  required?: boolean
+}) {
   let id = useId()
 
   return (
@@ -84,7 +93,7 @@ function TelInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -95,10 +104,10 @@ function SelectInput({
   required = false,
   options,
   ...props
-}: React.ComponentPropsWithoutRef<'select'> & { 
-  label: string; 
-  required?: boolean;
-  options: string[];
+}: React.ComponentPropsWithoutRef<'select'> & {
+  label: string
+  required?: boolean
+  options: string[]
 }) {
   let id = useId()
 
@@ -122,7 +131,7 @@ function SelectInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -134,11 +143,11 @@ function FileInput({
   accept,
   maxSize,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { 
-  label: string; 
-  required?: boolean;
-  accept?: string;
-  maxSize?: number;
+}: React.ComponentPropsWithoutRef<'input'> & {
+  label: string
+  required?: boolean
+  accept?: string
+  maxSize?: number
 }) {
   let id = useId()
 
@@ -150,16 +159,16 @@ function FileInput({
         {...props}
         accept={accept}
         required={required}
-        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-neutral-100 file:text-neutral-700 hover:file:bg-neutral-200"
+        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl file:mr-4 file:rounded-full file:border-0 file:bg-neutral-100 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-neutral-700 hover:file:bg-neutral-200 focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
       />
       <label
         htmlFor={id}
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
         {maxSize && (
-          <span className="block text-xs text-neutral-400 mt-1">
+          <span className="mt-1 block text-xs text-neutral-400">
             Máximo: {(maxSize / (1024 * 1024)).toFixed(0)}MB
           </span>
         )}
@@ -172,7 +181,10 @@ function TextAreaInput({
   label,
   required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'textarea'> & { label: string; required?: boolean }) {
+}: React.ComponentPropsWithoutRef<'textarea'> & {
+  label: string
+  required?: boolean
+}) {
   let id = useId()
 
   return (
@@ -183,14 +195,14 @@ function TextAreaInput({
         placeholder=" "
         required={required}
         rows={4}
-        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden resize-none"
+        className="peer block w-full resize-none border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
       />
       <label
         htmlFor={id}
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -198,7 +210,9 @@ function TextAreaInput({
 
 export function CareersForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -208,7 +222,7 @@ export function CareersForm() {
     setErrorMessage('')
 
     const formData = new FormData(e.currentTarget)
-    
+
     try {
       const response = await fetch('/api/careers', {
         method: 'POST',
@@ -222,11 +236,15 @@ export function CareersForm() {
         e.currentTarget.reset()
       } else {
         setSubmitStatus('error')
-        setErrorMessage(result.error || 'Erro ao enviar o currículo. Tente novamente.')
+        setErrorMessage(
+          result.error || 'Erro ao enviar o currículo. Tente novamente.',
+        )
       }
     } catch (error) {
       setSubmitStatus('error')
-      setErrorMessage('Erro de conexão. Verifique sua internet e tente novamente.')
+      setErrorMessage(
+        'Erro de conexão. Verifique sua internet e tente novamente.',
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -237,12 +255,12 @@ export function CareersForm() {
       <h2 className="font-display text-base font-semibold text-white">
         Candidate-se
       </h2>
-      
+
       <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/90 backdrop-blur-sm">
-        <TextInput 
-          label="Nome Completo" 
-          name="nome" 
-          autoComplete="name" 
+        <TextInput
+          label="Nome Completo"
+          name="nome"
+          autoComplete="name"
           required={true}
         />
         <EmailInput
@@ -261,10 +279,10 @@ export function CareersForm() {
           label="Área de Interesse"
           name="area"
           options={[
-            "Desenvolvimento de Software",
-            "BI",
-            "Infraestrutura", 
-            "Estágio"
+            'Desenvolvimento de Software',
+            'BI',
+            'Infraestrutura',
+            'Estágio',
           ]}
           required={true}
         />
@@ -275,8 +293,8 @@ export function CareersForm() {
           maxSize={5 * 1024 * 1024} // 5MB
           required={true}
         />
-        <TextAreaInput 
-          label="Mensagem ou Complemento (Opcional)" 
+        <TextAreaInput
+          label="Mensagem ou Complemento (Opcional)"
           name="mensagem"
           required={false}
         />
@@ -288,18 +306,18 @@ export function CareersForm() {
 
       {submitStatus === 'success' && (
         <p className="mt-4 text-sm text-green-300">
-          Currículo enviado com sucesso! Entraremos em contato caso surjam oportunidades alinhadas ao seu perfil.
+          Currículo enviado com sucesso! Entraremos em contato caso surjam
+          oportunidades alinhadas ao seu perfil.
         </p>
       )}
 
       {submitStatus === 'error' && (
-        <p className="mt-4 text-sm text-red-300">
-          {errorMessage}
-        </p>
+        <p className="mt-4 text-sm text-red-300">{errorMessage}</p>
       )}
 
       <p className="mt-4 text-sm text-white/80">
-        Seus dados estão seguros conosco. Entraremos em contato caso surjam oportunidades alinhadas ao seu perfil.
+        Seus dados estão seguros conosco. Entraremos em contato caso surjam
+        oportunidades alinhadas ao seu perfil.
       </p>
     </form>
   )

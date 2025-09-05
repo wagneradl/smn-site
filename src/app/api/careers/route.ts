@@ -7,7 +7,7 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB em bytes
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
-    
+
     // Log para debug - remover em produção ou ajustar para um caminho seguro
     const logEnabled = false
     const logMessage = (message: string) => {
@@ -30,18 +30,20 @@ export async function POST(request: NextRequest) {
       logMessage('Erro: Campos obrigatórios ausentes')
       return NextResponse.json(
         { error: 'Todos os campos obrigatórios devem ser preenchidos' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
     // Validar arquivo
-    logMessage(`Verificando arquivo: ${curriculo.name} (${curriculo.size} bytes)`)
+    logMessage(
+      `Verificando arquivo: ${curriculo.name} (${curriculo.size} bytes)`,
+    )
 
     if (curriculo.size > MAX_FILE_SIZE) {
       logMessage('Erro: Arquivo excede tamanho máximo')
       return NextResponse.json(
         { error: 'O arquivo deve ter no máximo 5MB' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
@@ -49,7 +51,7 @@ export async function POST(request: NextRequest) {
       logMessage(`Erro: Arquivo não é PDF - tipo: ${curriculo.type}`)
       return NextResponse.json(
         { error: 'O arquivo deve estar no formato PDF' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
@@ -70,9 +72,9 @@ export async function POST(request: NextRequest) {
     // Headers para o e-mail
     const boundary = `boundary_${Date.now()}`
     const headers = {
-      'From': email,
-      'To': TO_EMAIL,
-      'Subject': subject,
+      From: email,
+      To: TO_EMAIL,
+      Subject: subject,
       'MIME-Version': '1.0',
       'Content-Type': `multipart/mixed; boundary="${boundary}"`,
     }
@@ -94,14 +96,14 @@ export async function POST(request: NextRequest) {
     // Enviar e-mail usando Resend ou outro serviço
     // Por enquanto, vamos simular o envio
     logMessage(`Tentando enviar e-mail para ${TO_EMAIL}`)
-    
+
     // TODO: Implementar envio real de e-mail
     // Por exemplo, usando Resend, SendGrid, ou outro serviço
     // const mailResult = await sendEmail(headers, body)
-    
+
     // Simulando sucesso
     const mailResult = true
-    
+
     logMessage(`Resultado do envio: ${mailResult ? 'sucesso' : 'falha'}`)
 
     if (mailResult) {
@@ -109,16 +111,14 @@ export async function POST(request: NextRequest) {
     } else {
       return NextResponse.json(
         { error: 'Erro ao enviar o currículo. Por favor, tente novamente.' },
-        { status: 500 }
+        { status: 500 },
       )
     }
-
   } catch (error) {
     console.error('Erro no processamento do formulário:', error)
     return NextResponse.json(
       { error: 'Erro interno do servidor. Tente novamente.' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }
-

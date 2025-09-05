@@ -19,13 +19,15 @@ export const metadata: Metadata = {
     'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
   openGraph: {
     title: 'Soluções sob medida para operações estratégicas - SMN Tecnologia',
-    description: 'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
+    description:
+      'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
     images: ['/og/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Soluções sob medida para operações estratégicas - SMN Tecnologia',
-    description: 'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
+    description:
+      'Da concepção ao suporte contínuo: software, squads e ERP modular para empresas que não podem parar.',
   },
 }
 
@@ -139,8 +141,8 @@ function TeamSection() {
     <>
       <SectionIntro title="Nossa Equipe" className="mt-24 sm:mt-32 lg:mt-40">
         <p>
-          Profissionais experientes e apaixonados por tecnologia, formados internamente
-          e comprometidos com a excelência em cada projeto.
+          Profissionais experientes e apaixonados por tecnologia, formados
+          internamente e comprometidos com a excelência em cada projeto.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -152,18 +154,27 @@ function TeamSection() {
                   Especialistas em missão crítica
                 </h3>
                 <p className="mt-4 text-lg text-neutral-600">
-                  Nossa equipe combina anos de experiência em projetos de alta complexidade
-                  com formação contínua e metodologias ágeis comprovadas.
+                  Nossa equipe combina anos de experiência em projetos de alta
+                  complexidade com formação contínua e metodologias ágeis
+                  comprovadas.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <div className="font-display text-3xl font-semibold text-neutral-950">20+</div>
-                  <div className="mt-2 text-sm text-neutral-600">Anos de experiência</div>
+                  <div className="font-display text-3xl font-semibold text-neutral-950">
+                    20+
+                  </div>
+                  <div className="mt-2 text-sm text-neutral-600">
+                    Anos de experiência
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="font-display text-3xl font-semibold text-neutral-950">50+</div>
-                  <div className="mt-2 text-sm text-neutral-600">Projetos entregues</div>
+                  <div className="font-display text-3xl font-semibold text-neutral-950">
+                    50+
+                  </div>
+                  <div className="mt-2 text-sm text-neutral-600">
+                    Projetos entregues
+                  </div>
                 </div>
               </div>
             </div>

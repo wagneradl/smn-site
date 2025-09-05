@@ -178,8 +178,8 @@ function JobOpenings() {
               </h2>
               <div className="mt-6 space-y-6 text-lg text-neutral-600">
                 <p>
-                  Estamos sempre em busca de profissionais talentosos e apaixonados
-                  por tecnologia que queiram crescer junto conosco.
+                  Estamos sempre em busca de profissionais talentosos e
+                  apaixonados por tecnologia que queiram crescer junto conosco.
                 </p>
               </div>
             </div>
@@ -191,30 +191,40 @@ function JobOpenings() {
               </h3>
               <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
                 <div>
-                  <h4 className="font-semibold text-neutral-950">Sede — João Pessoa (PB)</h4>
+                  <h4 className="font-semibold text-neutral-950">
+                    Sede — João Pessoa (PB)
+                  </h4>
                   <p className="mt-2 text-sm text-neutral-600">
-                    Rua Dep. Geraldo Mariz, 291A<br />
+                    Rua Dep. Geraldo Mariz, 291A
+                    <br />
                     Tambauzinho, João Pessoa – PB
                   </p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-neutral-950">Ingá (PB)</h4>
                   <p className="mt-2 text-sm text-neutral-600">
-                    Sítio Hotel Cruzeiro, s/n<br />
+                    Sítio Hotel Cruzeiro, s/n
+                    <br />
                     Zona Rural, BR-230 – Ingá – PB
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-neutral-950">Franca (SP)</h4>
+                  <h4 className="font-semibold text-neutral-950">
+                    Franca (SP)
+                  </h4>
                   <p className="mt-2 text-sm text-neutral-600">
-                    R. dos Pracinhas, 1720<br />
+                    R. dos Pracinhas, 1720
+                    <br />
                     Núcleo Agrícola Alpha, Franca – SP
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-neutral-950">Passos (MG)</h4>
+                  <h4 className="font-semibold text-neutral-950">
+                    Passos (MG)
+                  </h4>
                   <p className="mt-2 text-sm text-neutral-600">
-                    R. Noruega, 274<br />
+                    R. Noruega, 274
+                    <br />
                     Novo Mundo, Passos – MG
                   </p>
                 </div>

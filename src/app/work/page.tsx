@@ -106,16 +106,19 @@ function Clients() {
 
 export const metadata: Metadata = {
   title: 'Cases de Sucesso',
-  description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+  description:
+    'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
   openGraph: {
     title: 'Cases de Sucesso - SMN Tecnologia',
-    description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+    description:
+      'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
     images: ['/og/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Cases de Sucesso - SMN Tecnologia',
-    description: 'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
+    description:
+      'Exemplos reais de como transformamos desafios complexos em impacto mensurável para grandes marcas.',
   },
 }
 

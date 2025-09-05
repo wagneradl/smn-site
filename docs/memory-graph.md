@@ -86,34 +86,41 @@ Atualize o Memory Graph sempre que modificar:
 ## Interpretando Falhas
 
 ### Design System
+
 - ❌ **Tailwind v4 não detectado**: Verificar `@tailwindcss/postcss` em package.json
 - ❌ **focus-visible ausente**: Verificar `src/styles/base.css`
 
 ### MDX/Shiki
+
 - ❌ **Tema não configurado**: Verificar `createCssVariablesTheme('css-variables')` em next.config.mjs
 - ❌ **Ordem incorreta**: Verificar ordem remark→rehype
 - ❌ **Plugin ausente**: Verificar plugins obrigatórios
 
 ### Navegação
+
 - ❌ **6 itens não detectados**: Verificar `reports/diag/nav-grid.json`
-- ❌ **GCPro não externo**: Verificar target="_blank" e rel="noopener noreferrer"
+- ❌ **GCPro não externo**: Verificar target="\_blank" e rel="noopener noreferrer"
 - ❌ **Prefetch ativo**: Verificar prefetch={false}
 
 ### Logos
+
 - ❌ **Buckets não gerados**: Executar `npm run diag:logos`
 - ❌ **data-brand ausente**: Verificar presença em page.tsx e work/page.tsx
 
 ### Imagens
+
 - ❌ **Missing sizes**: Verificar `reports/diag/next-image-audit.json`
 - ❌ **Hero sem priority**: Verificar `priority` em StylizedImage
 - ❌ **Hero sem blur**: Verificar `placeholder="blur"`
 
 ### SEO
+
 - ❌ **Meta scan incompleto**: Executar `npm run diag:seo`
 - ❌ **JSON-LD ausente**: Verificar home page
 - ❌ **HTTP endpoints falhando**: Verificar robots.txt e sitemap.xml
 
 ### Performance
+
 - ❌ **First Load JS > 170kB**: Otimizar bundle
 - ❌ **LCP report inválido**: Verificar `reports/perf/lcp.json`
 
@@ -141,6 +148,7 @@ O grafo se baseia nos seguintes relatórios:
 ## Troubleshooting
 
 ### Relatórios Ausentes
+
 ```bash
 # Gerar relatórios básicos
 npm run diag:all
@@ -153,12 +161,14 @@ npm run perf:budget
 ```
 
 ### Validação Falhando
+
 1. Verifique os logs de erro específicos
 2. Execute o diagnóstico correspondente
 3. Corrija a configuração
 4. Re-execute `npm run mem:all`
 
 ### Grafo Corrompido
+
 ```bash
 # Reconstruir do zero
 rm -rf reports/memory/

@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     // Validar dados
     const body = await request.json()
-    
+
     // Validar campos obrigatórios
     const { name, email, company, subject, message } = body
 
@@ -79,9 +79,9 @@ export async function POST(request: NextRequest) {
     // Headers para o e-mail
     const boundary = `boundary_${Date.now()}`
     const headers = {
-      'From': email,
-      'To': TO_EMAIL,
-      'Subject': subjectLine,
+      From: email,
+      To: TO_EMAIL,
+      Subject: subjectLine,
       'MIME-Version': '1.0',
       'Content-Type': `multipart/mixed; boundary="${boundary}"`,
     }
@@ -96,14 +96,14 @@ export async function POST(request: NextRequest) {
     // Enviar e-mail usando Resend ou outro serviço
     // Por enquanto, vamos simular o envio
     logMessage(`Tentando enviar e-mail para ${TO_EMAIL}`)
-    
+
     // TODO: Implementar envio real de e-mail
     // Por exemplo, usando Resend, SendGrid, ou outro serviço
     // const mailResult = await sendEmail(headers, bodyContent)
-    
+
     // Simulando sucesso
     const mailResult = true
-    
+
     logMessage(`Resultado do envio: ${mailResult ? 'sucesso' : 'falha'}`)
 
     if (mailResult) {
@@ -123,7 +123,6 @@ export async function POST(request: NextRequest) {
         { status: 500 },
       )
     }
-
   } catch (error) {
     console.error('Erro no processamento do formulário:', error)
 

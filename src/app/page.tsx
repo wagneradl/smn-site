@@ -115,13 +115,13 @@ function Services() {
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-135 flex-none lg:w-180">
-                              <StylizedImage
-                  src={imageLaptop}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  priority
-                  placeholder="blur"
-                  className="justify-center lg:justify-end"
-                />
+              <StylizedImage
+                src={imageLaptop}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority
+                placeholder="blur"
+                className="justify-center lg:justify-end"
+              />
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
@@ -150,16 +150,19 @@ function Services() {
 
 export const metadata: Metadata = {
   title: 'Fábrica de Software para Missão Crítica',
-  description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.',
+  description:
+    'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil — com prazos firmes, ética e transparência.',
   openGraph: {
     title: 'Fábrica de Software para Missão Crítica - SMN Tecnologia',
-    description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
+    description:
+      'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
     images: ['/og/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fábrica de Software para Missão Crítica - SMN Tecnologia',
-    description: 'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
+    description:
+      'Desde 2003, entregamos arquiteturas e sistemas que sustentam operações estratégicas no Brasil.',
   },
 }
 
@@ -170,7 +173,7 @@ export default async function Home() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
             Fábrica de software para missão crítica.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">

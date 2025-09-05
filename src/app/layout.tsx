@@ -4,9 +4,12 @@ import '@/styles/tailwind.css'
 import SkipLink from '@/components/SkipLink'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://smn.example'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://smn.example',
+  ),
   title: { default: 'SMN Tecnologia', template: '%s | SMN' },
-  description: 'Somos especialistas em missões críticas e engenharia de produto.',
+  description:
+    'Somos especialistas em missões críticas e engenharia de produto.',
   openGraph: {
     type: 'website',
     siteName: 'SMN Tecnologia',

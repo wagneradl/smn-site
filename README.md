@@ -47,6 +47,7 @@ src/
 ## 🚦 Scripts Disponíveis
 
 ### Desenvolvimento
+
 ```bash
 npm run dev              # Servidor de desenvolvimento (porta 3000)
 npm run build            # Build de produção
@@ -57,6 +58,7 @@ npm run format           # Formatação automática com Prettier
 ```
 
 ### Diagnósticos e Qualidade
+
 ```bash
 npm run diag:all         # Diagnósticos completos (build + MDX + logos + nav)
 npm run diag:extended    # Diagnósticos estendidos (env + audit + tw + quality + image + rsc)
@@ -65,6 +67,7 @@ npm run qa:smoke         # Testes de fumaça (navegação, acessibilidade)
 ```
 
 ### Performance e Monitoramento
+
 ```bash
 npm run perf:budget      # Verificação de orçamentos de performance
 npm run perf:all         # Testes de performance completos
@@ -74,6 +77,7 @@ npm run mem:assert       # Validação de invariantes
 ```
 
 ### Correções Automáticas
+
 ```bash
 npm run fix:all          # Correções automáticas (imagens, formatação)
 npm run analyze          # Análise de bundle com Next.js
@@ -92,6 +96,7 @@ npm run analyze          # Análise de bundle com Next.js
 ## 🔒 Qualidade e Segurança
 
 ### Clean Pack Implementado
+
 O repositório segue o plano **Clean Pack** para manutenção de qualidade:
 
 - ✅ **CP-01**: Higiene de repositório (.gitignore, .gitattributes, GitHub Actions)
@@ -101,6 +106,7 @@ O repositório segue o plano **Clean Pack** para manutenção de qualidade:
 - 🚧 **CP-05**: Conteúdo MDX e SEO (próximo)
 
 ### Proteções Automatizadas
+
 - **GitHub Actions** bloqueiam arquivos > 1MB em PRs
 - **Rede de segurança** com diagnósticos automáticos
 - **Invariantes** validados em cada build
@@ -145,12 +151,15 @@ open http://localhost:3000
 ## 🧪 Testes e Validação
 
 ### Rede de Segurança
+
 Antes de qualquer commit, execute:
+
 ```bash
 npm run diag:all && npm run qa:seo && npm run perf:budget && npm run mem:all
 ```
 
 ### Definição de Done
+
 - ✅ Build compila sem erros
 - ✅ Diagnósticos passam (MDX, logos, navegação)
 - ✅ SEO e endpoints funcionam
@@ -191,4 +200,4 @@ Desde 2003, entregamos soluções robustas e escaláveis para clientes em divers
 
 **Desenvolvido com ❤️ pela equipe SMN Tecnologia**
 
-*Para mais informações: [contato@smn.com.br](mailto:contato@smn.com.br)*
+_Para mais informações: [contato@smn.com.br](mailto:contato@smn.com.br)_

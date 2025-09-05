@@ -28,7 +28,6 @@
     "mem:graph": "node scripts/memory/build-graph.mjs",
     "mem:assert": "node scripts/memory/assert-invariants.mjs",
     "mem:all": "npm run diag:all && npm run qa:seo && npm run mem:graph && npm run mem:assert",
-
     "qa:smoke": "node scripts/qa/smoke-ux.mjs",
     "qa:seo": "npm run diag:seo && npm run diag:http && npm run perf:lcp",
     "qa:all": "npm run build && npm run qa:smoke",

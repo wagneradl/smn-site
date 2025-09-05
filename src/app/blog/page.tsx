@@ -18,13 +18,15 @@ export const metadata: Metadata = {
     'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
   openGraph: {
     title: 'Blog - SMN Tecnologia',
-    description: 'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+    description:
+      'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
     images: ['/og/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Blog - SMN Tecnologia',
-    description: 'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
+    description:
+      'Leia análises técnicas, bastidores de projetos e tendências que pautam o futuro do desenvolvimento.',
   },
 }
 

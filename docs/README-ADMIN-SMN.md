@@ -1,7 +1,7 @@
 # SMN Site — Manual do Administrador (Next.js 15 / React 19 / Tailwind v4)
 
 > Guia prático para **manter e evoluir** o site com segurança — com e sem IA (Cursor/Claude).  
-> Este manual resume *o que fazer* e *como não quebrar* o template, usando os diagnósticos e o **Memory Graph**.
+> Este manual resume _o que fazer_ e _como não quebrar_ o template, usando os diagnósticos e o **Memory Graph**.
 
 ---
 
@@ -15,8 +15,8 @@
 
 ## 1) Pré‑requisitos
 
-- **Node** `>= 24.1.0` (há `.nvmrc`)  
-- **npm** (scripts prontos)  
+- **Node** `>= 24.1.0` (há `.nvmrc`)
+- **npm** (scripts prontos)
 - **Variáveis de ambiente** (`.env` baseado em `.env.example`):
   - `NEXT_PUBLIC_SITE_URL=https://www.smn.example`
   - `NEXT_PUBLIC_GCPRO_URL=https://gcpro.smn.com.br`
@@ -34,11 +34,13 @@ cp .env.example .env
 ## 2) Comandos Essenciais (DX)
 
 ### Desenvolvimento
+
 ```bash
 npm run dev                # servidor local
 ```
 
 ### Qualidade & Diagnóstico
+
 ```bash
 npm run format:check       # Prettier (ignora reports/**, .next/)
 npm run lint               # ESLint (regras reforçadas)
@@ -52,6 +54,7 @@ npm run analyze            # ANALYZE=true next build → .next/analyze/
 ```
 
 ### Memory Graph (proteções)
+
 ```bash
 npm run mem:graph          # consolida relatórios → reports/memory/graph.json|md
 npm run mem:assert         # valida 26 invariantes (falha o CI se quebrar)
@@ -84,7 +87,7 @@ npm run mem:all            # diag:all + qa:seo + mem:graph + mem:assert
     - 1 coluna (mobile): `100vw`
     - **2 colunas (internas)**: `"(min-width:1024px) 50vw, 100vw"`
     - **3 colunas (listagens/blog/work)**: `"(min-width:1024px) 33vw, 100vw"`
-  - **Hero**: adicione `priority` e, se quiser, `placeholder="blur"` (usa `BLUR_DATA_URL`).  
+  - **Hero**: adicione `priority` e, se quiser, `placeholder="blur"` (usa `BLUR_DATA_URL`).
   - **Sempre** defina `alt` descritivo.
 - **Acessibilidade**: `SkipLink` já existe; mantenha `id="main"` e `aria-current="page"` na nav ativa.
 - **Navegação**: preserve **6 itens** e o GCPro como **externo** (`target="_blank" rel="noopener noreferrer"`).
@@ -94,20 +97,23 @@ npm run mem:all            # diag:all + qa:seo + mem:graph + mem:assert
 ## 5) Conteúdo em MDX (Blog & Cases)
 
 - Estrutura de post:
+
   ```md
   ---
-  title: "Título do post"
-  description: "Resumo curto para SEO"
-  date: "2025-09-10"
+  title: 'Título do post'
+  description: 'Resumo curto para SEO'
+  date: '2025-09-10'
   author:
-    name: "Nome"
-    role: "Cargo"
-  cover: "./capa.jpg"
+    name: 'Nome'
+    role: 'Cargo'
+  cover: './capa.jpg'
   ---
 
   # Título H1
+
   Conteúdo em MDX…
   ```
+
 - **Imagens no MDX**: use o componente de imagem do template ou `next/image` com `sizes` corretos.
 - **Code blocks**: já renderizam com Shiki (`@shikijs/rehype`) e tema `css-variables`.
 - **Checklist** após adicionar/editar:
@@ -132,8 +138,8 @@ npm run mem:all            # diag:all + qa:seo + mem:graph + mem:assert
 > **Sempre cole isso primeiro** no chat do agente para dar contexto mínimo:
 
 ```
-Contexto: Projeto Next.js 15 / React 19 / Tailwind v4 com Shiki e Memory Graph. 
-NUNCA altere a estrutura crítica sem atualizar os diagnósticos. 
+Contexto: Projeto Next.js 15 / React 19 / Tailwind v4 com Shiki e Memory Graph.
+NUNCA altere a estrutura crítica sem atualizar os diagnósticos.
 Após qualquer mudança rode: format:check, lint, typecheck, qa:seo, perf:budget, mem:all.
 Se quebrar, proponha um diff mínimo e a correção.
 ```
@@ -174,15 +180,18 @@ Se quebrar, proponha um diff mínimo e a correção.
 ## 9) Playbooks técnicos rápidos
 
 ### Imagens (`next/image`)
+
 - **Sempre** preencher `alt`.
 - Use **sizes** por contexto: 1col `100vw` · 2col `50vw` · 3col `33vw`.
 - Para **hero**: `priority` + `placeholder="blur"` (via `BLUR_DATA_URL`).
 
 ### MDX/Shiki
+
 - Pipeline **remark → rehype**; **não** altere a ordem.
 - Tema `css-variables` já aplicado.
 
 ### A11y
+
 - `SkipLink` ativo; mantenha `#main` no elemento principal.
 - `aria-current="page"` no link ativo.
 
@@ -191,6 +200,7 @@ Se quebrar, proponha um diff mínimo e a correção.
 ## 10) CI/CD (GitHub Actions)
 
 Pipeline (resumo do workflow):
+
 - `typecheck`, `lint`, `build`
 - `qa:seo` (servidor efêmero)
 - `mem:graph` + `mem:assert`
@@ -211,11 +221,11 @@ Falhas em qualquer etapa bloqueiam o merge.
 
 ## 12) Anexos & Referências
 
-- Relatórios automatizados em `reports/**`  
-- Harness efêmero: `scripts/utils/with-server.mjs`  
+- Relatórios automatizados em `reports/**`
+- Harness efêmero: `scripts/utils/with-server.mjs`
 - Memory Graph: `scripts/memory/*`, `reports/memory/*`
 
 ---
 
-**Mantra**: *faça a mudança mínima, valide tudo, e só então abra PR.*  
+**Mantra**: _faça a mudança mínima, valide tudo, e só então abra PR._  
 Qualquer dúvida, rode `npm run mem:all` e verifique os relatórios.
