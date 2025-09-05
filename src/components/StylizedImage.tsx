@@ -32,7 +32,7 @@ export function StylizedImage({
   sizes = '(min-width: 1024px) 50vw, 100vw',
   placeholder = 'empty',
   ...props
-}: ImagePropsWithOptionalAlt & { 
+}: ImagePropsWithOptionalAlt & {
   shape?: 0 | 1 | 2
   priority?: boolean
   sizes?: string
@@ -45,7 +45,7 @@ export function StylizedImage({
     <div
       className={clsx(
         className,
-        'relative flex aspect-719/680 w-full grayscale',
+        'relative flex aspect-719/680 w-full',
       )}
     >
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
