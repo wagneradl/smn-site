@@ -202,13 +202,15 @@ export const metadata: Metadata = {
     'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
   openGraph: {
     title: 'Sobre Nós - SMN Tecnologia',
-    description: 'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+    description:
+      'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
     images: ['/og/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sobre Nós - SMN Tecnologia',
-    description: 'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
+    description:
+      'Desde 2003, construímos software que sustenta operações críticas no Brasil. Nossa história é feita de tecnologia e pessoas.',
   },
 }
 
@@ -226,26 +228,27 @@ export default async function About() {
                   Nossa história é feita de tecnologia e pessoas
                 </h1>
                 <p className="mt-6 text-xl text-neutral-600">
-                  Desde 2003, construímos software que sustenta operações críticas no
-                  Brasil. O que começou com a visão de Ricardo Corrales hoje é uma
-                  empresa sólida, com equipes distribuídas e clientes em setores
-                  estratégicos.
+                  Desde 2003, construímos software que sustenta operações
+                  críticas no Brasil. O que começou com a visão de Ricardo
+                  Corrales hoje é uma empresa sólida, com equipes distribuídas e
+                  clientes em setores estratégicos.
                 </p>
               </div>
               <div className="space-y-6 text-base text-neutral-600">
                 <p>
-                  A SMN nasceu em 2003, fruto da experiência de mais de 40 anos de
-                  Ricardo Corrales em tecnologia e do encontro com parceiros que
-                  acreditaram no mesmo propósito: formar times de excelência e
-                  entregar software que faz diferença real nos negócios.
+                  A SMN nasceu em 2003, fruto da experiência de mais de 40 anos
+                  de Ricardo Corrales em tecnologia e do encontro com parceiros
+                  que acreditaram no mesmo propósito: formar times de excelência
+                  e entregar software que faz diferença real nos negócios.
                 </p>
                 <p>
-                  De um início marcado por projetos robustos de ERP para empresas como
-                  a Momentum, evoluímos para uma fábrica de software referência em
-                  soluções sob medida, Business Intelligence e o ERP modular GCPro.
-                  Hoje, mantemos presença em João Pessoa, Ingá, Franca e Passos, com
-                  squads especializados em missão crítica e um programa contínuo de
-                  formação de talentos.
+                  De um início marcado por projetos robustos de ERP para
+                  empresas como a Momentum, evoluímos para uma fábrica de
+                  software referência em soluções sob medida, Business
+                  Intelligence e o ERP modular GCPro. Hoje, mantemos presença em
+                  João Pessoa, Ingá, Franca e Passos, com squads especializados
+                  em missão crítica e um programa contínuo de formação de
+                  talentos.
                 </p>
               </div>
             </div>

@@ -17,7 +17,10 @@ function TextInput({
   label,
   required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string; required?: boolean }) {
+}: React.ComponentPropsWithoutRef<'input'> & {
+  label: string
+  required?: boolean
+}) {
   let id = useId()
 
   return (
@@ -35,7 +38,7 @@ function TextInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -46,10 +49,10 @@ function SelectInput({
   required = false,
   options,
   ...props
-}: React.ComponentPropsWithoutRef<'select'> & { 
-  label: string; 
-  required?: boolean;
-  options: string[];
+}: React.ComponentPropsWithoutRef<'select'> & {
+  label: string
+  required?: boolean
+  options: string[]
 }) {
   let id = useId()
 
@@ -73,7 +76,7 @@ function SelectInput({
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -83,7 +86,10 @@ function TextAreaInput({
   label,
   required = false,
   ...props
-}: React.ComponentPropsWithoutRef<'textarea'> & { label: string; required?: boolean }) {
+}: React.ComponentPropsWithoutRef<'textarea'> & {
+  label: string
+  required?: boolean
+}) {
   let id = useId()
 
   return (
@@ -94,14 +100,14 @@ function TextAreaInput({
         placeholder=" "
         required={required}
         rows={4}
-        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden resize-none"
+        className="peer block w-full resize-none border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
       />
       <label
         htmlFor={id}
         className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
     </div>
   )
@@ -131,10 +137,10 @@ function ContactForm() {
           Solicitações de projeto
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput 
-            label={contactContent.form.fields.name.label} 
-            name="name" 
-            autoComplete="name" 
+          <TextInput
+            label={contactContent.form.fields.name.label}
+            name="name"
+            autoComplete="name"
             required={contactContent.form.fields.name.required}
           />
           <TextInput
@@ -163,8 +169,8 @@ function ContactForm() {
             options={contactContent.form.fields.subject.options}
             required={contactContent.form.fields.subject.required}
           />
-          <TextAreaInput 
-            label={contactContent.form.fields.message.label} 
+          <TextAreaInput
+            label={contactContent.form.fields.message.label}
             name="message"
             required={contactContent.form.fields.message.required}
           />
@@ -175,11 +181,11 @@ function ContactForm() {
               </legend>
               <div className="mt-6 grid grid-cols-1 gap-4">
                 {contactContent.form.fields.deadline.options.map((option) => (
-                  <RadioInput 
-                    key={option} 
-                    label={option} 
-                    name="deadline" 
-                    value={option} 
+                  <RadioInput
+                    key={option}
+                    label={option}
+                    name="deadline"
+                    value={option}
                   />
                 ))}
               </div>
@@ -205,10 +211,13 @@ function ContactChannels() {
       </h2>
       <div className="mt-6 grid grid-cols-1 gap-4">
         {contactContent.channels.map((channel) => (
-          <div key={channel.email} className="rounded-lg border border-neutral-200 p-4">
+          <div
+            key={channel.title}
+            className="rounded-lg border border-neutral-200 p-4"
+          >
             <h3 className="font-semibold text-neutral-950">{channel.title}</h3>
             {channel.textHtml && (
-              <p 
+              <p
                 className="mt-2 text-sm text-neutral-600"
                 dangerouslySetInnerHTML={{ __html: channel.textHtml }}
               />
@@ -261,7 +270,7 @@ export default function Contact() {
     <RootLayout>
       <PageIntro title="Vamos Conversar">
         <p>{contactContent.hero.subtitle}</p>
-        <div 
+        <div
           className="mt-4 text-sm text-neutral-600"
           dangerouslySetInnerHTML={{ __html: contactContent.hero.noteHtml }}
         />
