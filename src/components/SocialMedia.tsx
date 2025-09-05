@@ -25,8 +25,6 @@ function InstagramIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-
-
 function WhatsAppIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
@@ -52,10 +50,26 @@ function LinkedInIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const socialMediaProfiles = [
-  { title: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61567130485493', icon: FacebookIcon },
-  { title: 'Instagram', href: 'https://www.instagram.com/smntecnologia/', icon: InstagramIcon },
-  { title: 'WhatsApp', href: 'https://wa.me/5511991617035', icon: WhatsAppIcon },
-  { title: 'LinkedIn', href: 'https://www.linkedin.com/company/smntecnologia/', icon: LinkedInIcon },
+  {
+    title: 'Facebook',
+    href: 'https://www.facebook.com/profile.php?id=61567130485493',
+    icon: FacebookIcon,
+  },
+  {
+    title: 'Instagram',
+    href: 'https://www.instagram.com/smntecnologia/',
+    icon: InstagramIcon,
+  },
+  {
+    title: 'WhatsApp',
+    href: 'https://wa.me/5511991617035',
+    icon: WhatsAppIcon,
+  },
+  {
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/smntecnologia/',
+    icon: LinkedInIcon,
+  },
 ]
 
 export function SocialMedia({
