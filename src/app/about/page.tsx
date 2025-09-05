@@ -24,6 +24,7 @@ import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
 import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
 import imageMeeting from '@/images/meeting.jpg'
+import imageFachada from '@/images/fachada.jpg'
 import { loadArticles } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 
@@ -255,7 +256,7 @@ export default async function About() {
           </FadeIn>
           <FadeIn className="flex justify-center lg:justify-end">
             <StylizedImage
-              src={imageMeeting}
+              src={imageFachada}
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="w-full max-w-xl"
             />
