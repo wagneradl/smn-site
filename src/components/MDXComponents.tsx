@@ -85,15 +85,13 @@ export const MDXComponents = {
     return <div className={clsx('typography', className)} {...props} />
   },
   wrapper({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-    // Filter out non-DOM props that might be passed from Next.js
-    const { searchParams, ...domProps } = props as any
     return (
       <div
         className={clsx(
           '*:mx-auto *:max-w-3xl [&>:first-child]:mt-0! [&>:last-child]:mb-0!',
           className,
         )}
-        {...domProps}
+        {...props}
       />
     )
   },

@@ -51,11 +51,25 @@ const highlighter = await createHighlighter({
   langs: ['javascript', 'typescript', 'tsx', 'jsx', 'bash', 'json', 'md'],
 })
 
-// Plugin MDX com ordem explícita (remark → rehype)
+// Plugin MDX com ordem explícita (remark → rehype) + MDX Layout automático
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, remarkRehypeWrap],
+    recmaPlugins: [recmaImportImages],
+    remarkPlugins: [
+      remarkGfm,
+      [
+        unifiedConditional,
+        [
+          new RegExp(`^${escapeStringRegexp(path.resolve('src/app/blog'))}`),
+          [[remarkMDXLayout, '@/app/blog/wrapper', 'article']],
+        ],
+        [
+          new RegExp(`^${escapeStringRegexp(path.resolve('src/app/work'))}`),
+          [[remarkMDXLayout, '@/app/work/wrapper', 'caseStudy']],
+        ],
+      ],
+    ],
     rehypePlugins: [[rehypeShiki, { highlighter }], rehypeUnwrapImages],
   },
 })

@@ -1,4 +1,4 @@
-# Memory Graph — 9/5/2025, 11:07:45 AM
+# Memory Graph — 9/5/2025, 12:25:40 PM
 
 **Invariantes:** ✅ 26 • ❌ 0
 
@@ -40,7 +40,7 @@
 - **seo-ld**: `{"id":"seo-ld","total":4}`
 - **http-endpoints**: `{"id":"http-endpoints","total":2}`
 - **perf**: `{"id":"perf","ok":true,"firstLoad":102}`
-- **lcp**: `{"id":"lcp","present":true,"startTime":120}`
+- **lcp**: `{"id":"lcp","present":true,"startTime":132}`
 
 
 ## Evidências
