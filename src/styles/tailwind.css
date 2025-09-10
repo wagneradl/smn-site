@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+@import './base.css';
+@import './typography.css' layer(components);
+
+@theme {
+  /* === SMN DESIGN SYSTEM CORE === */
+  /* Cores Primárias SMN */
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e2ec;
+  --color-primary-200: #bcccdc;
+  --color-primary-300: #9fb3c8;
+  --color-primary-400: #829ab1;
+  --color-primary-500: #627a85;
+  --color-primary-600: #4f6e7c;
+  --color-primary-700: #2e304f;
+  --color-primary-800: #26314c;
+  --color-primary-900: #1f2537;
+
+  /* Cores de Destaque SMN */
+  --color-accent-50: #f0fdf4;
+  --color-accent-100: #dcfce7;
+  --color-accent-200: #bbf7d0;
+  --color-accent-300: #86efac;
+  --color-accent-400: #4ade80;
+  --color-accent-500: #40df80;
+  --color-accent-600: #38c271;
+  --color-accent-700: #16a34a;
+  --color-accent-800: #15803d;
+  --color-accent-900: #14532d;
+
+  /* === SMN INTELLIGENT TOKENS === */
+  /* Tokens que se propagam automaticamente */
+  --smn-brand-primary: var(--color-primary-600);
+  --smn-brand-accent: var(--color-accent-500);
+  --smn-brand-gradient: linear-gradient(
+    135deg,
+    var(--color-primary-700) 0%,
+    var(--color-accent-500) 100%
+  );
+  --smn-nav-gradient: linear-gradient(
+    to-br,
+    var(--color-primary-800) 0%,
+    var(--color-primary-900) 100%
+  );
+  --smn-hover-gradient: linear-gradient(
+    to-r,
+    var(--color-primary-700) 0%,
+    var(--color-accent-500) 100%
+  );
+
+  /* === SMN TYPOGRAPHY === */
+
+  /* === SMN SPACING === */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+
+  /* === SMN BORDER RADIUS === */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-base: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* === TEMPLATE ORIGINAL === */
+
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2.25rem;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 2.5rem;
+  --text-5xl--line-height: 3rem;
+  --text-6xl: 3rem;
+  --text-6xl--line-height: 3.5rem;
+  --text-7xl: 4rem;
+  --text-7xl--line-height: 4.5rem;
+
+  --radius-4xl: 2.5rem;
+
+  --font-sans:
+    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-display:
+    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-display--font-variation-settings: 'wdth' 125;
+
+  --font-display-length: 2;
+}

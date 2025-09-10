@@ -1,0 +1,443 @@
+/* SMN: fonte base */
+@font-face {
+  font-family: 'Mona Sans';
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: normal;
+  font-stretch: 75% 125%;
+  src: url('../fonts/Mona-Sans.var.woff2') format('woff2');
+}
+
+/* =========================
+   GCPro Neon Effect - Cores
+   ========================= */
+:root {
+  /* Verde neon "puro" e uma versão mais clara p/ miolo */
+  --neon-green: #00ff41; /* halo principal */
+  --neon-green-200: #a0ffb8; /* miolo/realce interno */
+  --neon-green-400: #66ff8a; /* transição miolo → halo */
+
+  /* Se preferir a paleta SMN, troque aqui */
+  /* --neon-green: var(--smn-green-400); */
+  /* --neon-green-200: var(--smn-green-50); */
+  /* --neon-green-400: var(--smn-green-200); */
+}
+
+/* Camada base: links e focus rings */
+@layer base {
+  /* Links padrão do site (NÃO-CTA) */
+  a:not([data-button]):not([data-social]):not([data-nav-link]) {
+    color: var(--color-neutral-950);
+    text-decoration: none;
+    text-underline-offset: 2px;
+    text-decoration-thickness: from-font;
+  }
+  a:not([data-button]):not([data-social]):not([data-nav-link]):hover {
+    color: var(--color-accent-600);
+    text-decoration: none; /* sem underline no hover */
+  }
+  a:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+
+  button:focus-visible,
+  [role='button']:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+
+  /* Guard opcional: evita SVGs "gigantes" se utilities falharem */
+  svg[data-gridpattern] {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Botões (CTA via Link ou <button>) NUNCA sublinham */
+  a[data-button],
+  [role='button'][data-button] {
+    text-decoration: none !important;
+  }
+
+  /* SMN: links do menu principal não mudam cor no hover */
+  a[data-nav-link] {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a[data-nav-link]:hover {
+    text-decoration: none;
+    color: inherit; /* mantém a cor original do menu no hover */
+  }
+
+  /* Foco visível apenas para navegação por teclado no menu */
+  a[data-nav-link]:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 3px;
+    border-radius: 0.75rem; /* respeita cantos arredondados do tile se existirem */
+  }
+
+  /* Não interferir em CTAs (já protegidos por [data-button]) */
+
+  /* Utilitário para conteúdos que devem sublinhar */
+  .link-underline a {
+    text-decoration: underline;
+  }
+  .link-underline a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Hover do TILE da GCPro:
+     - Mesmo comportamento de espaço que outros itens, mas com hover branco.
+     - O texto GCPro permanece neon (sem variação de cor). */
+.navtile {
+  transition: background-color 160ms ease;
+}
+
+/* Hover específico para GCPro - mesmo comportamento de espaço que outros itens */
+a[data-nav-link='gcpro'].navtile {
+  background-color: #0b0b0b;
+}
+a[data-nav-link='gcpro'].navtile:hover {
+  background-color: #ffffff !important;
+}
+
+/* =========================
+     GCPro Neon Effect - Utilities
+     ========================= */
+.gcpro-premium {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  font-weight: 500; /* Igual aos outros itens do menu (font-medium) */
+  letter-spacing: 0.01em;
+}
+
+/* Neon contido (sem nuclear) */
+.gcpro-neon {
+  /* miolo verdinho com leve volume */
+  --neon-green: #00ff41; /* verde mais elétrico/intenso */
+  --neon-hi: #a0ffb8; /* miolo mais brilhante */
+
+  background-image: linear-gradient(
+    180deg,
+    var(--neon-hi) 0%,
+    #d4ffdd 22%,
+    #66ff8a 55%,
+    var(--neon-green) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* HALO contido: 3 sombras pequenas (sem filter: drop-shadow) */
+  text-shadow:
+    0 0 0.02em rgba(0, 0, 0, 0.12),
+    /* contorno sutil p/ legibilidade */ 0 0 0.1em rgba(0, 255, 65, 0.55),
+    /* halo curto - mais intenso */ 0 0 0.22em rgba(0, 255, 65, 0.45); /* halo médio - mais intenso */
+
+  /* suavização */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+
+  /* Transição suave para o efeito "apagar/acender" */
+  transition:
+    text-shadow 300ms ease,
+    background-image 300ms ease;
+}
+
+/* Se ainda "vaza", use a variante AINDA MAIS contida. */
+.gcpro-neon--tight {
+  text-shadow:
+    0 0 0.02em rgba(0, 0, 0, 0.1),
+    0 0 0.08em rgba(0, 255, 65, 0.45),
+    0 0 0.16em rgba(0, 255, 65, 0.35);
+}
+
+/* Efeito "apagar" durante hover no fundo branco */
+.group:hover .gcpro-neon {
+  /* Miolo mais escuro para contraste no branco */
+  background-image: linear-gradient(
+    180deg,
+    #8affa8 0%,
+    #b8ffc8 22%,
+    #4dff7a 55%,
+    #00e639 100%
+  );
+
+  /* Halo "apagado" - apenas contorno sutil */
+  text-shadow:
+    0 0 0.01em rgba(0, 0, 0, 0.15),
+    /* contorno mais fino */ 0 0 0.02em rgba(0, 230, 57, 0.25); /* halo mínimo */
+}
+
+/* High-contrast / fallback */
+@media (forced-colors: active) {
+  .gcpro-neon,
+  .gcpro-neon--tight {
+    -webkit-text-fill-color: CanvasText;
+    color: CanvasText;
+    text-shadow: none;
+    background: none;
+  }
+}
+@supports not (-webkit-background-clip: text) {
+  .gcpro-neon,
+  .gcpro-neon--tight {
+    color: #00ff41;
+    background: none;
+    text-shadow:
+      0 0 0.02em rgba(0, 0, 0, 0.1),
+      0 0 0.08em rgba(0, 255, 65, 0.45);
+    transition:
+      text-shadow 300ms ease,
+      color 300ms ease;
+  }
+
+  /* Fallback para hover "apagado" */
+  .group:hover .gcpro-neon,
+  .group:hover .gcpro-neon--tight {
+    color: #00e639;
+    text-shadow:
+      0 0 0.01em rgba(0, 0, 0, 0.15),
+      0 0 0.02em rgba(0, 230, 57, 0.25);
+  }
+}
+
+/* =========================
+   Brands Grid - Equilíbrio Visual
+   ========================= */
+@layer utilities {
+  /* 0) Header da seção: mais respiro (voltando ao "afinamento" que o Wagner preferiu) */
+  .brands-header {
+    margin-bottom: clamp(
+      24px,
+      3.2vw,
+      40px
+    ); /* ↑ aumente se ainda parecer curto */
+  }
+  .brands-divider {
+    height: 1px;
+    background-color: color-mix(in oklab, #ffffff 14%, transparent);
+  }
+
+  /* 1) Grid: mantenha o gap X; reduza levemente o gap Y só em telas grandes se quiser. */
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: clamp(20px, 2.2vw, 32px);
+    row-gap: clamp(24px, 2.6vw, 36px); /* ↑ mais ar que antes */
+    align-items: center;
+    max-width: 72rem; /* max-w-6xl */
+    margin: 0 auto; /* centraliza */
+  }
+  @media (max-width: 1024px) {
+    .brands-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .brands-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px clamp(16px, 2vw, 24px); /* gap-y menor no mobile */
+      padding-inline: 1.5rem; /* px-6 */
+    }
+  }
+
+  /* 2) Célula padrão (já usávamos) */
+  .brand {
+    display: grid;
+    place-items: center;
+    height: clamp(56px, 6vw, 76px);
+    padding-inline: clamp(8px, 1.4vw, 16px);
+    --s: 1;
+    --dx: 0px;
+    --dy: 0px;
+    transform: scale(var(--s));
+  }
+
+  /* Logo em si (SVG) — regra padrão */
+  .brand > svg,
+  .brand > img {
+    display: block; /* remove baseline gap */
+    max-width: 100%;
+    max-height: 100%;
+    height: var(--logo-h, 2.25rem); /* 36px base */
+    width: auto;
+    color: #fff; /* deixa todas monocromáticas brancas no dark bg */
+    transform: translate(var(--dx), var(--dy)) scale(var(--s));
+    transform-origin: 50% 60%;
+  }
+
+  /* 3) Variantes por aspecto (já existia) */
+  .brand--wide > svg,
+  .brand--wide > img {
+    height: 80%;
+    max-width: 100%;
+  }
+  .brand--tall > svg,
+  .brand--tall > img {
+    height: 100%;
+    max-width: 80%;
+  }
+  .brand--raise {
+    translate: 0 -2px;
+  }
+  .brand--lower {
+    translate: 0 2px;
+  }
+
+  /* 4) NOVO: "emblema" (círculo/brasão) — dá mais presença sem explodir a célula
+        - aumenta altura alvo
+        - relaxa max-width (círculos sofrem com "respiro" extra do próprio shape)
+        - aplica leve boost padrão via --s (ainda ajustável no HTML)           */
+  .brand--emblem > svg,
+  .brand--emblem > img {
+    height: 115%; /* cap-height maior para compensar área morta do círculo */
+    max-width: 92%;
+  }
+  .brand--emblem {
+    --s: 1.1;
+  } /* boost ótico base para emblemas */
+
+  /* MICROAJUSTE ÓTICO POR ITEM (sem editar o SVG)
+     Use style="--s:0.92" no .brand para encolher levemente aquela marca desproporcional */
+  .brand > svg,
+  .brand > img {
+    transform: scale(var(--s, 1));
+  }
+
+  /* Variante para "elevar" marca que parece menor */
+  .brand--raise > svg,
+  .brand--raise > img {
+    transform: scale(var(--s, 1.04));
+  }
+
+  /* Alinhamento de baseline visual em grids com variação (opcional)
+     Empurra ligeiramente marcas que parecem "boiar" (cap alto + pouco peso inferior) */
+  .brand--lower {
+    translate: 0 2px;
+  } /* desce 2px */
+  .brand--raise {
+    translate: 0 -2px;
+  } /* sobe 2px */
+
+  /* Limite para logos wide no mobile */
+  @media (max-width: 640px) {
+    .brand--wide > svg,
+    .brand--wide > img {
+      max-width: 90%;
+    }
+  }
+
+  /* Modo claro (se a seção alterna para fundo claro em outro tema):
+     basta herdar currentColor → defina .brands-light no container */
+  .brands-light .brand > svg,
+  .brands-light .brand > img {
+    color: #111;
+  }
+
+  /* Modo monocromático (todas as logos em branco) */
+  .brands-mono .brand > svg,
+  .brands-mono .brand > img {
+    color: #fff !important;
+    filter: brightness(0) invert(1);
+  }
+
+  /* Em telas maiores podemos subir sutilmente a altura alvo */
+  @media (min-width: 1024px) {
+    .brands-grid {
+      --logo-h: 2.5rem;
+    } /* 40px */
+  }
+
+  /* Correções ópticas por marca (responsivo) */
+  .brands-grid [data-brand='magalu'] {
+    --dx: -2px;
+  } /* mobile */
+  @media (min-width: 1024px) {
+    .brands-grid [data-brand='magalu'] {
+      --dx: -3px;
+    } /* desktop */
+  }
+  .brands-grid [data-brand='cea'] {
+    --dy: -2px;
+  } /* ligeiro lift */
+
+  /* Debug opcional: linhas de baseline/centro para inspeção */
+  .brands-grid[data-debug-logos='on'] {
+    --_dbg: 1px solid color-mix(in oklab, white 40%, transparent);
+    position: relative;
+  }
+  .brands-grid[data-debug-logos='on'] [data-logo-item] {
+    outline: 1px dashed color-mix(in oklab, white 20%, transparent);
+  }
+  .brands-grid[data-debug-logos='on']::before,
+  .brands-grid[data-debug-logos='on']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+  .brands-grid[data-debug-logos='on']::before {
+    top: 50%;
+    border-top: var(--_dbg); /* linha horizontal */
+  }
+  .brands-grid[data-debug-logos='on']::after {
+    bottom: 0;
+    border-top: var(--_dbg); /* linha da divisória inferior */
+  }
+
+  /* Tweaks por marca (valores conservadores; ajuste fino depois se quiser) */
+  .brand[data-brand='magalu'] {
+    --dx: -2px;
+  }
+  @media (min-width: 1024px) {
+    .brand[data-brand='magalu'] {
+      --dx: -3px;
+    }
+  }
+  .brand[data-brand='cea'] {
+    --dy: -2px;
+    --s: 1.22;
+  }
+  .brand[data-brand='teixeira-fortes'] {
+    --s: 1.06;
+  }
+  .brand[data-brand='leve-asset'] {
+    --s: 0.98;
+  }
+  .brand[data-brand='liceu-francano'] {
+    --s: 1.02;
+  }
+}
+
+@layer base {
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .skip-link:focus-visible {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 50;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: var(--color-neutral-950);
+    color: var(--color-on-primary);
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+}

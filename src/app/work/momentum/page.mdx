@@ -1,0 +1,65 @@
+import logo from '@/images/clients/momentum/logomark-dark.svg'
+import imageHero from './hero.jpg'
+import imageDebraFiscal from './debra-fiscal.jpg'
+
+export const caseStudy = {
+  client: 'Momentum',
+  title: 'Transformando a gestão de projetos com tecnologia',
+  description:
+    'Plataforma de gestão de projetos que revoluciona a forma como equipes colaboram e entregam resultados, integrando ferramentas de produtividade e analytics avançados.',
+  summary: [
+    'Plataforma de gestão de projetos que revoluciona a forma como equipes colaboram e entregam resultados, integrando ferramentas de produtividade e analytics avançados.',
+    'Desenvolvemos uma solução completa com dashboard interativo, sistema de notificações em tempo real e integração com ferramentas populares do mercado.',
+  ],
+  logo,
+  image: { src: imageHero },
+  date: '2024-01',
+  service: 'Desenvolvimento Web, Dashboard Analytics',
+  testimonial: {
+    author: { name: 'Carlos Silva', role: 'CEO da Momentum' },
+    content:
+      'A parceria com a SMN foi fundamental para transformar nossa visão em realidade. Eles entenderam perfeitamente nossas necessidades e entregaram uma solução que superou nossas expectativas.',
+  },
+}
+
+export const metadata = {
+  title: `Case de Sucesso - ${caseStudy.client}`,
+  description: caseStudy.description,
+}
+
+## Visão Geral
+
+A Momentum é uma startup inovadora que identificou uma lacuna no mercado de gestão de projetos. Com a crescente demanda por ferramentas que facilitem a colaboração entre equipes remotas e presenciais, eles precisavam de uma solução que fosse intuitiva, poderosa e escalável.
+
+O desafio era criar uma plataforma que unisse funcionalidades de gestão de tarefas, comunicação em tempo real e analytics avançados, tudo em uma interface moderna e responsiva. A solução precisava ser robusta o suficiente para suportar equipes de diferentes tamanhos e setores.
+
+Nossa abordagem foi desenvolver uma arquitetura modular que permitisse integrações futuras e escalabilidade horizontal. Implementamos tecnologias modernas como React, Node.js e PostgreSQL para garantir performance e confiabilidade.
+
+Para otimizar a experiência do usuário, desenvolvemos um sistema de notificações inteligente que se adapta às preferências de cada usuário, reduzindo a sobrecarga de informações e mantendo todos engajados com o que realmente importa.
+
+## O que desenvolvemos
+
+<TagList>
+  <TagListItem>Frontend (React/Next.js)</TagListItem>
+  <TagListItem>Backend (Node.js)</TagListItem>
+  <TagListItem>Dashboard Analytics</TagListItem>
+  <TagListItem>API REST</TagListItem>
+  <TagListItem>Notificações em Tempo Real</TagListItem>
+  <TagListItem>Integrações de Terceiros</TagListItem>
+</TagList>
+
+<Blockquote
+  author={{ name: 'Carlos Silva', role: 'CEO da Momentum' }}
+  image={{ src: imageDebraFiscal }}
+>
+  A parceria com a SMN foi fundamental para transformar nossa visão em
+  realidade. Eles entenderam perfeitamente nossas necessidades e entregaram uma
+  solução que superou nossas expectativas em todos os aspectos.
+</Blockquote>
+
+<StatList>
+  <StatListItem value="40%" label="Aumento na produtividade" />
+  <StatListItem value="60%" label="Redução no tempo de gestão" />
+  <StatListItem value="85%" label="Satisfação dos usuários" />
+  <StatListItem value="3x" label="Crescimento da base de usuários" />
+</StatList>

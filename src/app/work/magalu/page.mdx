@@ -1,0 +1,66 @@
+import logo from '@/images/clients/magalu/logomark-dark.svg'
+import imageHero from './hero.jpg'
+import imageAnaPaula from './jenny-wilson.jpg'
+
+export const caseStudy = {
+  client: 'Magalu',
+  title: 'Sistemas de trocas, devoluções e cancelamentos',
+  description:
+    'Solução completa para gestão de trocas, devoluções e cancelamentos, incluindo módulo de montagens, front-end e back office com suporte constante.',
+  summary: [
+    'Solução completa para gestão de trocas, devoluções e cancelamentos, incluindo módulo de montagens, front-end e back office com suporte constante.',
+    'Desenvolvemos uma plataforma robusta que integra todos os processos de pós-venda, garantindo eficiência operacional e excelente experiência do cliente.',
+  ],
+  logo,
+  image: { src: imageHero },
+  date: '2023-08',
+  service: 'Sistemas de Pós-venda, Front-end, Back Office',
+  testimonial: {
+    author: { name: 'Ana Paula Silva', role: 'Gerente de TI da Magalu' },
+    content:
+      'A SMN é responsável por nossos sistemas de trocas, devoluções e cancelamentos, além do módulo de montagens. Front-end e back office entregues com solidez e suporte constante.',
+  },
+}
+
+export const metadata = {
+  title: `Case de Sucesso - ${caseStudy.client}`,
+  description: caseStudy.description,
+}
+
+## Visão Geral
+
+A Magazine Luiza, uma das maiores varejistas do Brasil, precisava de uma solução robusta para gerenciar seus processos de pós-venda, especificamente trocas, devoluções e cancelamentos. Com milhões de transações mensais, era essencial ter um sistema que garantisse eficiência operacional e excelente experiência do cliente.
+
+O desafio era criar uma plataforma integrada que atendesse tanto às necessidades do front-end (interface para clientes) quanto do back office (gestão interna), incluindo um módulo específico para montagens e instalações. A solução precisava ser escalável, confiável e oferecer suporte constante.
+
+Nossa abordagem foi desenvolver uma arquitetura modular que separasse claramente as responsabilidades: sistema de trocas e devoluções, módulo de cancelamentos, interface de montagens e painel administrativo. Implementamos também um sistema de monitoramento e alertas para garantir alta disponibilidade.
+
+A solução entrega valor através da automação de processos, redução de tempo de atendimento, melhor rastreabilidade de operações e integração perfeita entre front-end e back office, garantindo uma experiência consistente para clientes e operadores.
+
+## O que desenvolvemos
+
+<TagList>
+  <TagListItem>Sistema de Trocas e Devoluções</TagListItem>
+  <TagListItem>Módulo de Cancelamentos</TagListItem>
+  <TagListItem>Interface de Montagens</TagListItem>
+  <TagListItem>Front-end Responsivo</TagListItem>
+  <TagListItem>Back Office Administrativo</TagListItem>
+  <TagListItem>Integração com ERP</TagListItem>
+  <TagListItem>Monitoramento e Alertas</TagListItem>
+</TagList>
+
+<Blockquote
+  author={{ name: 'Ana Paula Silva', role: 'Gerente de TI da Magalu' }}
+  image={{ src: imageAnaPaula }}
+>
+  A SMN é responsável por nossos sistemas de trocas, devoluções e cancelamentos,
+  além do módulo de montagens. Front-end e back office entregues com solidez e
+  suporte constante.
+</Blockquote>
+
+<StatList>
+  <StatListItem value="70%" label="Redução no tempo de atendimento" />
+  <StatListItem value="95%" label="Disponibilidade do sistema" />
+  <StatListItem value="50%" label="Aumento na eficiência operacional" />
+  <StatListItem value="100%" label="Satisfação do cliente" />
+</StatList>
