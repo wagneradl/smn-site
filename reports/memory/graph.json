@@ -1,0 +1,290 @@
+{
+  "timestamp": "2025-09-10T19:49:29.187Z",
+  "nodes": [
+    {
+      "id": "mdx-shiki",
+      "order": [
+        "remark",
+        "rehype"
+      ],
+      "hasTheme": true,
+      "hasRehype": true
+    },
+    {
+      "id": "nav",
+      "hasSixItems": true,
+      "items": [
+        "Sobre nós",
+        "About",
+        "Soluções",
+        "Solucoes",
+        "Cases",
+        "Work",
+        "Carreiras",
+        "Careers",
+        "Blog",
+        "GCPro"
+      ],
+      "gcproExternal": true,
+      "gcproPrefetch": true,
+      "hasDataNavLink": true,
+      "hasVisibleFocus": true,
+      "sourceFile": "src/components/RootLayout.tsx"
+    },
+    {
+      "id": "logos",
+      "buckets": {
+        "wide": 5,
+        "standard": 2,
+        "emblem": 1
+      },
+      "brandsOrder": [
+        "autovox",
+        "casa-do-construtor",
+        "cea",
+        "leve-asset",
+        "liceu-francano",
+        "magalu",
+        "momentum",
+        "teixeira-fortes"
+      ]
+    },
+    {
+      "id": "images",
+      "offenders": 0
+    },
+    {
+      "id": "seo-meta",
+      "total": 4
+    },
+    {
+      "id": "seo-ld",
+      "total": 4
+    },
+    {
+      "id": "http-endpoints",
+      "total": 2
+    },
+    {
+      "id": "perf",
+      "ok": true,
+      "firstLoad": 102
+    },
+    {
+      "id": "lcp",
+      "present": true,
+      "startTime": 140
+    }
+  ],
+  "edges": [],
+  "invariants": [
+    {
+      "id": "mdx:remark→rehype",
+      "domain": "MDX",
+      "desc": "remark→rehype",
+      "status": "pass",
+      "evidence": "reports/diag/next-mdx-shiki.json",
+      "hint": "Ajuste next.config.mjs"
+    },
+    {
+      "id": "mdx:tema-css-variables-ou-customizado",
+      "domain": "MDX",
+      "desc": "tema css-variables ou customizado",
+      "status": "pass",
+      "evidence": "reports/diag/next-mdx-shiki.json",
+      "hint": "createCssVariablesTheme({ name: 'css-variables' }) ou tema customizado"
+    },
+    {
+      "id": "mdx:@shikijs/rehype-presente",
+      "domain": "MDX",
+      "desc": "@shikijs/rehype presente",
+      "status": "pass",
+      "evidence": "reports/diag/next-mdx-shiki.json",
+      "hint": "adicione plugin de rehype do Shiki"
+    },
+    {
+      "id": "nav:6-itens-no-desktop",
+      "domain": "NAV",
+      "desc": "6 itens no desktop",
+      "status": "pass",
+      "evidence": "reports/diag/nav-grid.json",
+      "hint": ""
+    },
+    {
+      "id": "nav:gcpro-externo-seguro",
+      "domain": "NAV",
+      "desc": "GCPro externo seguro",
+      "status": "pass",
+      "evidence": "reports/diag/nav-grid.json",
+      "hint": "target=\"_blank\" rel=\"noopener noreferrer\""
+    },
+    {
+      "id": "nav:prefetch-desativado-(gcpro)",
+      "domain": "NAV",
+      "desc": "prefetch desativado (GCPro)",
+      "status": "pass",
+      "evidence": "reports/diag/nav-grid.json",
+      "hint": "prefetch={false}"
+    },
+    {
+      "id": "a11y:foco-visível",
+      "domain": "A11Y",
+      "desc": "foco visível",
+      "status": "pass",
+      "evidence": "reports/diag/nav-grid.json",
+      "hint": "outline/focus-visible no CSS"
+    },
+    {
+      "id": "logos:buckets-presentes",
+      "domain": "LOGOS",
+      "desc": "buckets presentes",
+      "status": "pass",
+      "evidence": "reports/diag/logos-layout.json",
+      "hint": "reexecute scanner de logos"
+    },
+    {
+      "id": "logos:mínimo-1-por-bucket",
+      "domain": "LOGOS",
+      "desc": "mínimo 1 por bucket",
+      "status": "pass",
+      "evidence": "reports/diag/logos-layout.json",
+      "hint": "garanta distribuição: wide/standard/emblem"
+    },
+    {
+      "id": "img:todos-next/image-com-sizes",
+      "domain": "IMG",
+      "desc": "todos next/image com sizes",
+      "status": "pass",
+      "evidence": "reports/diag/next-image-audit.json",
+      "hint": "corrija sizes por layout"
+    },
+    {
+      "id": "seo:meta-em-/",
+      "domain": "SEO",
+      "desc": "meta em /",
+      "status": "pass",
+      "evidence": "reports/seo/meta-scan.json",
+      "hint": "title/description/og/twitter"
+    },
+    {
+      "id": "seo:meta-em-/work",
+      "domain": "SEO",
+      "desc": "meta em /work",
+      "status": "pass",
+      "evidence": "reports/seo/meta-scan.json",
+      "hint": "title/description/og/twitter"
+    },
+    {
+      "id": "seo:meta-em-/blog",
+      "domain": "SEO",
+      "desc": "meta em /blog",
+      "status": "pass",
+      "evidence": "reports/seo/meta-scan.json",
+      "hint": "title/description/og/twitter"
+    },
+    {
+      "id": "seo:meta-em-/contact",
+      "domain": "SEO",
+      "desc": "meta em /contact",
+      "status": "pass",
+      "evidence": "reports/seo/meta-scan.json",
+      "hint": "title/description/og/twitter"
+    },
+    {
+      "id": "seo:json-ld-organization-na-home",
+      "domain": "SEO",
+      "desc": "JSON-LD Organization na home",
+      "status": "pass",
+      "evidence": "reports/seo/ld-json.json",
+      "hint": ""
+    },
+    {
+      "id": "seo:json-ld-website-na-home",
+      "domain": "SEO",
+      "desc": "JSON-LD WebSite na home",
+      "status": "pass",
+      "evidence": "reports/seo/ld-json.json",
+      "hint": ""
+    },
+    {
+      "id": "seo:/robots.txt-200",
+      "domain": "SEO",
+      "desc": "/robots.txt 200",
+      "status": "pass",
+      "evidence": "reports/diag/http-endpoints.json",
+      "hint": ""
+    },
+    {
+      "id": "seo:/sitemap.xml-200",
+      "domain": "SEO",
+      "desc": "/sitemap.xml 200",
+      "status": "pass",
+      "evidence": "reports/diag/http-endpoints.json",
+      "hint": ""
+    },
+    {
+      "id": "perf:budgets-ok",
+      "domain": "PERF",
+      "desc": "budgets ok",
+      "status": "pass",
+      "evidence": "reports/perf/budgets.json",
+      "hint": ""
+    },
+    {
+      "id": "perf:first-load-js-≤-170kb",
+      "domain": "PERF",
+      "desc": "First Load JS ≤ 170kB",
+      "status": "pass",
+      "evidence": "reports/perf/budgets.json",
+      "hint": ""
+    },
+    {
+      "id": "perf:lcp-registrado",
+      "domain": "PERF",
+      "desc": "LCP registrado",
+      "status": "pass",
+      "evidence": "reports/perf/lcp.json",
+      "hint": "rode qa:seo (harness efêmero)"
+    },
+    {
+      "id": "sec:header-strict-transport-security",
+      "domain": "SEC",
+      "desc": "header Strict-Transport-Security",
+      "status": "pass",
+      "evidence": "next.config.mjs",
+      "hint": "configure headers em next.config.mjs"
+    },
+    {
+      "id": "sec:header-x-content-type-options",
+      "domain": "SEC",
+      "desc": "header X-Content-Type-Options",
+      "status": "pass",
+      "evidence": "next.config.mjs",
+      "hint": "configure headers em next.config.mjs"
+    },
+    {
+      "id": "sec:header-referrer-policy",
+      "domain": "SEC",
+      "desc": "header Referrer-Policy",
+      "status": "pass",
+      "evidence": "next.config.mjs",
+      "hint": "configure headers em next.config.mjs"
+    },
+    {
+      "id": "sec:header-x-frame-options",
+      "domain": "SEC",
+      "desc": "header X-Frame-Options",
+      "status": "pass",
+      "evidence": "next.config.mjs",
+      "hint": "configure headers em next.config.mjs"
+    },
+    {
+      "id": "sec:header-permissions-policy",
+      "domain": "SEC",
+      "desc": "header Permissions-Policy",
+      "status": "pass",
+      "evidence": "next.config.mjs",
+      "hint": "configure headers em next.config.mjs"
+    }
+  ]
+}
