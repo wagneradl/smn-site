@@ -440,4 +440,98 @@ a[data-nav-link='gcpro'].navtile:hover {
     height: auto;
     overflow: visible;
   }
+
+  /* =========================
+     Shiki Code Highlighting - Tema Escuro
+     ========================= */
+  .shiki {
+    background-color: #1a1a1a !important;
+    color: #e6e6e6 !important;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Scrollbar customizada para blocos de código - apenas horizontal */
+  .shiki::-webkit-scrollbar {
+    height: 8px;
+    width: 0px; /* Oculta scrollbar vertical */
+  }
+  .shiki::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 4px;
+  }
+  .shiki::-webkit-scrollbar-thumb {
+    background: #4a4a4a;
+    border-radius: 4px;
+  }
+  .shiki::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a;
+  }
+  
+  /* Oculta scrollbar vertical completamente */
+  .shiki {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  .shiki::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Webkit */
+  }
+  
+  /* Mantém scrollbar horizontal apenas quando necessário */
+  .shiki {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Cores específicas do tema customizado */
+  .shiki .token.comment {
+    color: #6a9955 !important;
+    font-style: italic;
+  }
+  .shiki .token.keyword,
+  .shiki .token.storage.type,
+  .shiki .token.storage.modifier {
+    color: #569cd6 !important;
+    font-weight: bold;
+  }
+  .shiki .token.string,
+  .shiki .token.string.quoted {
+    color: #ce9178 !important;
+  }
+  .shiki .token.constant.numeric,
+  .shiki .token.constant.language {
+    color: #b5cea8 !important;
+  }
+  .shiki .token.variable,
+  .shiki .token.variable.other {
+    color: #9cdcfe !important;
+  }
+  .shiki .token.entity.name.function,
+  .shiki .token.support.function {
+    color: #dcdcaa !important;
+  }
+  .shiki .token.entity.name.type,
+  .shiki .token.support.type {
+    color: #4ec9b0 !important;
+  }
+  .shiki .token.entity.name.class,
+  .shiki .token.entity.name.interface {
+    color: #4ec9b0 !important;
+    font-weight: bold;
+  }
+  .shiki .token.punctuation,
+  .shiki .token.meta.brace {
+    color: #d4d4d4 !important;
+  }
+  .shiki .token.meta.tag,
+  .shiki .token.entity.name.tag {
+    color: #569cd6 !important;
+  }
 }

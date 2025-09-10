@@ -11,18 +11,9 @@ import { PageLinks } from '@/components/PageLinks'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { StylizedImage } from '@/components/StylizedImage'
-import imageAngelaFisher from '@/images/team/angela-fisher.jpg'
-import imageBenjaminRussel from '@/images/team/benjamin-russel.jpg'
-import imageBlakeReid from '@/images/team/blake-reid.jpg'
-import imageChelseaHagon from '@/images/team/chelsea-hagon.jpg'
-import imageDriesVincent from '@/images/team/dries-vincent.jpg'
-import imageEmmaDorsey from '@/images/team/emma-dorsey.jpg'
-import imageJeffreyWebb from '@/images/team/jeffrey-webb.jpg'
-import imageKathrynMurphy from '@/images/team/kathryn-murphy.jpg'
-import imageLeonardKrasner from '@/images/team/leonard-krasner.jpg'
-import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
-import imageMichaelFoster from '@/images/team/michael-foster.jpg'
-import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
+import imageRicardoCorrales from '@/images/team/ricardo-corrales.jpg'
+import imageMarcosMandara from '@/images/team/marcos-mandara.jpg'
+import imageRafaelPessoni from '@/images/team/rafael-pessoni.jpg'
 import imageMeeting from '@/images/meeting.jpg'
 import imageFachada from '@/images/fachada.jpg'
 import { loadArticles } from '@/lib/mdx'
@@ -76,17 +67,17 @@ const team = [
       {
         name: 'Ricardo Corrales',
         role: 'Fundador — 40+ anos em tecnologia',
-        image: { src: imageLeslieAlexander }, // Substitua pela imagem real se disponível
+        image: { src: imageRicardoCorrales },
       },
       {
         name: 'Marcus Mandara',
         role: 'Sócio — Análise de requisitos e entrega',
-        image: { src: imageMichaelFoster }, // Substitua pela imagem real se disponível
+        image: { src: imageMarcosMandara },
       },
       {
         name: 'Rafael Pessoni',
         role: 'CTO — Chief Technology Officer',
-        image: { src: imageBenjaminRussel }, // Placeholder - substitua pela imagem real quando disponível
+        image: { src: imageRafaelPessoni },
       },
     ],
   },

@@ -24,6 +24,160 @@ Como engenheiro de software há mais de uma década, sempre busquei formas de ot
 
 A disciplina necessária para manter uma rotina de treinos se reflete diretamente na organização do meu trabalho. Assim como planejo meus treinos semanais, organizo minhas sprints e prazos com a mesma metodologia.
 
+### Exemplo Prático: Monitoramento de Performance
+
+Assim como monitoro meu pace durante a corrida, implemento métricas de performance no código. Aqui está um exemplo de como criamos um sistema de monitoramento para nossos projetos:
+
+```typescript
+interface PerformanceMetrics {
+  responseTime: number;
+  memoryUsage: number;
+  errorRate: number;
+  throughput: number;
+}
+
+class PerformanceMonitor {
+  private metrics: PerformanceMetrics[] = [];
+  
+  async trackRequest<T>(
+    operation: () => Promise<T>,
+    operationName: string
+  ): Promise<T> {
+    const startTime = performance.now();
+    const startMemory = process.memoryUsage();
+    
+    try {
+      const result = await operation();
+      const endTime = performance.now();
+      const endMemory = process.memoryUsage();
+      
+      this.recordMetrics({
+        responseTime: endTime - startTime,
+        memoryUsage: endMemory.heapUsed - startMemory.heapUsed,
+        errorRate: 0,
+        throughput: 1
+      });
+      
+      return result;
+    } catch (error) {
+      this.recordMetrics({
+        responseTime: performance.now() - startTime,
+        memoryUsage: 0,
+        errorRate: 1,
+        throughput: 0
+      });
+      throw error;
+    }
+  }
+  
+  private recordMetrics(metrics: PerformanceMetrics): void {
+    this.metrics.push(metrics);
+    
+    // Alert se performance degradar
+    if (metrics.responseTime > 1000) {
+      console.warn(`Performance alert: ${metrics.responseTime}ms response time`);
+    }
+  }
+}
+```
+
+E aqui está como usamos Docker para garantir consistência entre ambientes, assim como um corredor mantém consistência entre treinos:
+
+```dockerfile
+# Dockerfile para aplicação Node.js
+FROM node:18-alpine AS base
+
+# Instalar dependências apenas quando necessário
+FROM base AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Build da aplicação
+FROM base AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Imagem de produção
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+ENV PORT=3000
+
+CMD ["node", "server.js"]
+```
+
+E para orquestrar tudo, usamos Kubernetes com configurações que garantem alta disponibilidade:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smn-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: smn-app
+  template:
+    metadata:
+      labels:
+        app: smn-app
+    spec:
+      containers:
+      - name: app
+        image: smn/app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: smn-app-service
+spec:
+  selector:
+    app: smn-app
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer
+```
+
 ### Por que a Corrida Funciona para Desenvolvedores
 
 - **Ritmo constante**: Assim como manter um pace na corrida, o desenvolvimento exige ritmo sustentável
