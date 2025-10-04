@@ -164,7 +164,7 @@ function Navigation() {
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/work">Cases</NavigationItem>
-        <NavigationItem href="/careers">Carreiras</NavigationItem>
+        <NavigationItem href="/careers">Oportunidades</NavigationItem>
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/blog">Blog</NavigationItem>

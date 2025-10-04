@@ -17,7 +17,7 @@ import imageRafaelValentim from '@/images/team/rafael-valentim.jpg'
 import { RootLayout } from '@/components/RootLayout'
 
 export const metadata: Metadata = {
-  title: 'Carreiras na SMN',
+  title: 'Oportunidades na SMN',
   description:
     'Faça parte de uma fábrica de software que atua em missões críticas para clientes estratégicos no Brasil.',
 }
@@ -193,7 +193,7 @@ function JobOpenings() {
               <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
                 <div>
                   <h4 className="font-semibold text-neutral-950">
-                    Sede — João Pessoa (PB)
+                    João Pessoa (PB)
                   </h4>
                   <p className="mt-2 text-sm text-neutral-600">
                     Rua Dep. Geraldo Mariz, 291A
@@ -224,9 +224,9 @@ function JobOpenings() {
                     Passos (MG)
                   </h4>
                   <p className="mt-2 text-sm text-neutral-600">
-                    R. Noruega, 274
+                    Av. Arouca, 660, Sala 911
                     <br />
-                    Novo Mundo, Passos – MG
+                    Centro, Passos – MG
                   </p>
                 </div>
               </div>
@@ -248,7 +248,7 @@ function JobOpenings() {
 export default function CareersPage() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Carreiras" title="Carreiras na SMN">
+      <PageIntro eyebrow="Oportunidades" title="Oportunidades na SMN">
         <p>
           Faça parte de uma fábrica de software que atua em missões críticas
           para clientes estratégicos no Brasil.
@@ -259,7 +259,7 @@ export default function CareersPage() {
         <StatList>
           <StatListItem value="500+" label="Profissionais formados" />
           <StatListItem value="3 ×" label="Prêmio GPTW" />
-          <StatListItem value="17 anos" label="Experiência TI (2008 → 2025)" />
+          <StatListItem value="20+" label="Anos de experiência" />
         </StatList>
       </Container>
 

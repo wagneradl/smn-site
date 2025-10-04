@@ -69,7 +69,7 @@ src/
 │   ├── blog/              # Blog com MDX + Shiki
 │   │   ├── [slug]/        # Artigos dinâmicos
 │   │   └── wrapper.tsx    # Layout do blog
-│   ├── careers/           # Carreiras
+│   ├── careers/           # Oportunidades
 │   ├── contact/           # Contato
 │   ├── process/           # Processo
 │   ├── solucoes/          # Soluções

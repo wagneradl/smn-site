@@ -3,7 +3,7 @@ export const contactContent = {
     title: 'Vamos Conversar',
     subtitle: 'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos.',
     noteHtml:
-      'Para vagas, acesse <a href="/careers" data-nav-link>Carreiras</a> ou escreva para <a href="mailto:carreiras@smn.com.br">carreiras@smn.com.br</a>.',
+      'Para vagas, acesse <a href="/careers" data-nav-link>Oportunidades</a> ou escreva para <a href="mailto:carreiras@smn.com.br">carreiras@smn.com.br</a>.',
   },
   channels: [
     {
@@ -11,10 +11,10 @@ export const contactContent = {
       textHtml: 'Use o formulário desta página.',
     },
     { title: 'Imprensa', email: 'imprensa@smn.com.br' },
-    { title: 'Carreiras', email: 'carreiras@smn.com.br' },
+    { title: 'Oportunidades', email: 'carreiras@smn.com.br' },
   ],
   channelsNote:
-    'Mantemos e-mails de imprensa e carreiras aqui para reduzir dúvidas, mas o foco desta página é contato comercial.',
+    'Mantemos e-mails de imprensa e oportunidades aqui para reduzir dúvidas, mas o foco desta página é contato comercial.',
   form: {
     fields: {
       name: { label: 'Nome', required: true },
@@ -47,7 +47,7 @@ export const contactContent = {
     title: 'Nossos escritórios',
     items: [
       {
-        name: 'Sede — João Pessoa (PB)',
+        name: 'João Pessoa (PB)',
         address: 'Rua Dep. Geraldo Mariz, 291A — Tambauzinho',
       },
       {
@@ -58,7 +58,7 @@ export const contactContent = {
         name: 'Franca (SP)',
         address: 'R. dos Pracinhas, 1720 — Núcleo Agrícola Alpha',
       },
-      { name: 'Passos (MG)', address: 'R. Noruega, 274 — Novo Mundo' },
+      { name: 'Passos (MG)', address: 'Av. Arouca, 660, Sala 911 — Centro' },
     ],
   },
 }

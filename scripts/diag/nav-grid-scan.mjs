@@ -55,7 +55,7 @@ try {
       'Cases',
       'Work',
       'Portfolio',
-      'Carreiras',
+      'Oportunidades',
       'Careers',
       'Blog',
       'GCPro',

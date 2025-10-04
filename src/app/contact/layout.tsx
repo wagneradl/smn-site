@@ -3,7 +3,7 @@ import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Fale Conosco',
   description:
-    'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos. Para vagas, acesse Carreiras.',
+    'Projetos e parcerias. Conte-nos sobre seu contexto e objetivos. Para vagas, acesse Oportunidades.',
   openGraph: {
     title: 'Fale Conosco - SMN Tecnologia',
     description:

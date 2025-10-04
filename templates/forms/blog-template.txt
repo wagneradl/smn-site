@@ -1,0 +1,216 @@
+# 📰 TEMPLATE: ARTIGO PARA BLOG SMN
+
+## ℹ️ INSTRUÇÕES DE PREENCHIMENTO
+
+**IMPORTANTE**: Este template usa Markdown. Use ## para títulos principais e ### para subtítulos.
+
+**COMO USAR**:
+1. Substitua TODOS os textos em [COLCHETES] pelo seu conteúdo
+2. Mantenha a estrutura de títulos (##, ###)
+3. Use **negrito**, *itálico* e `código` quando apropriado
+4. Salve como: artigo-[titulo-resumido]-[seu-nome].txt
+5. Envie via Microsoft Forms
+
+**DICAS DE MARKDOWN**:
+- `## Título Principal` - Para seções principais
+- `### Subtítulo` - Para subseções
+- `**texto**` - Para negrito
+- `*texto*` - Para itálico
+- `` `código` `` - Para código inline
+- `> Citação` - Para citações/destaques
+
+---
+
+## 📋 METADADOS DO ARTIGO
+
+**Título do Artigo**: [Ex: A Evolução do Desenvolvimento de Software Sob Medida]
+**Data Desejada**: [Ex: 2024-03-15 ou "Sem pressa"]
+**Categoria**: [Escolha: Tecnologia, Processos, Tendências, Cases, Carreira, Gestão, BI, DevOps]
+
+**Descrição/Resumo** (máximo 300 caracteres):
+[Resumo que aparecerá nas listagens e para SEO - seja claro e atrativo]
+
+**Tags/Palavras-chave** (separadas por vírgula):
+[Ex: desenvolvimento, software, tecnologia, inovação, SMN]
+
+**Precisa de revisão técnica?**: [Sim/Não]
+
+---
+
+## 📝 CONTEÚDO COMPLETO DO ARTIGO
+
+### ## Introdução
+
+[Inicie com um gancho que desperte interesse. Pode ser uma pergunta, estatística interessante, ou contexto relevante.]
+
+[Apresente o tema do artigo e por que é importante para o leitor.]
+
+[Dê uma prévia do que será abordado no artigo.]
+
+### ## [Título da Primeira Seção Principal]
+
+[Desenvolva o primeiro ponto principal do seu artigo.]
+
+[Use parágrafos curtos e objetivos. Cada parágrafo deve ter uma ideia central.]
+
+#### ### [Subtítulo se necessário]
+
+[Detalhe aspectos específicos da seção principal.]
+
+**Exemplo de lista com formatação**:
+- **Item importante 1**: Explicação detalhada
+- **Item importante 2**: Explicação detalhada
+- **Item importante 3**: Explicação detalhada
+
+### ## [Título da Segunda Seção Principal]
+
+[Continue desenvolvendo o tema com exemplos práticos quando possível.]
+
+#### ### Exemplo de Código (se aplicável)
+
+Se seu artigo incluir código, use esta formatação:
+
+```
+// Exemplo de código JavaScript
+function exemploFuncao() {
+  return "Mantenha o código simples e comentado";
+}
+```
+
+**Explicação do código**:
+[Explique o que o código faz e por que é relevante]
+
+### ## [Título da Terceira Seção Principal]
+
+[Continue expandindo o tema. Artigos técnicos devem ter 4-6 seções principais.]
+
+#### ### Tabela de Comparação (se aplicável)
+
+Se precisar de uma tabela, use esta formatação:
+
+| Aspecto | Opção A | Opção B |
+|---------|---------|---------|
+| **Performance** | Alta | Média |
+| **Facilidade** | Baixa | Alta |
+| **Custo** | Alto | Baixo |
+
+### ## Experiência Prática na SMN
+
+[Se possível, inclua uma seção sobre como a SMN aplica esses conceitos.]
+
+[Compartilhe cases reais (sem quebrar confidencialidade) ou lições aprendidas.]
+
+> "Citação relevante de algum colega da SMN ou cliente, se apropriado."
+
+### ## Tendências e Futuro
+
+[Se aplicável, discuta para onde o tema está evoluindo.]
+
+[Apresente sua visão sobre o futuro da área/tecnologia.]
+
+### ## Dicas Práticas
+
+[Ofereça conselhos acionáveis para o leitor:]
+
+1. **Dica prática 1**: [Explicação]
+2. **Dica prática 2**: [Explicação]
+3. **Dica prática 3**: [Explicação]
+
+### ## Conclusão
+
+[Resuma os pontos principais do artigo.]
+
+[Reforce o valor/aprendizado principal para o leitor.]
+
+[Termine com uma call-to-action ou reflexão que engaje o leitor.]
+
+---
+
+## 🎯 EXEMPLOS DE ESTRUTURAS POR CATEGORIA
+
+### 📱 Artigo Técnico
+- Introdução ao problema/tecnologia
+- Contexto histórico (se relevante)
+- Solução/abordagem atual
+- Implementação prática
+- Vantagens e desvantagens
+- Experiência na SMN
+- Conclusão e próximos passos
+
+### 💼 Artigo de Processos
+- Problema comum na área
+- Processos tradicionais vs. modernos
+- Metodologia/framework proposto
+- Caso prático de implementação
+- Resultados obtidos
+- Lições aprendidas
+- Recomendações
+
+### 🚀 Artigo de Tendências
+- Estado atual do mercado
+- Principais mudanças observadas
+- Tecnologias emergentes
+- Impacto no desenvolvimento
+- Preparação para o futuro
+- Visão da SMN
+- Conclusão
+
+---
+
+## 📸 RECURSOS VISUAIS
+
+**Imagens que posso fornecer**:
+- [ ] Diagramas explicativos
+- [ ] Screenshots de código/ferramentas
+- [ ] Gráficos de dados
+- [ ] Fotos ilustrativas
+- [ ] Outros: [especifique]
+
+**Observações sobre imagens**:
+[Descreva que tipo de imagens você pode fornecer ou se precisa de ajuda]
+
+---
+
+## ✅ CHECKLIST FINAL
+
+Antes de enviar, verifique:
+- [ ] Todos os campos [COLCHETES] foram preenchidos
+- [ ] Artigo tem entre 1500-2000 palavras
+- [ ] Conteúdo é original e relevante
+- [ ] Linguagem é técnica mas acessível
+- [ ] Inclui exemplos práticos
+- [ ] Menciona experiência da SMN quando possível
+- [ ] Formatação Markdown está correta
+- [ ] Nome do arquivo: artigo-[titulo-resumido]-[seu-nome].txt
+
+---
+
+## 💡 INSPIRAÇÃO: TEMAS SUGERIDOS
+
+**Tecnologia**:
+- Evolução de linguagens de programação
+- Arquiteturas modernas (microserviços, serverless)
+- Inteligência artificial no desenvolvimento
+- Segurança em aplicações web
+
+**Processos**:
+- Metodologias ágeis na prática
+- DevOps e cultura de entrega contínua
+- Code review eficaz
+- Gestão de technical debt
+
+**Oportunidades**:
+- Como evoluir como desenvolvedor
+- Soft skills para programadores
+- Transição para liderança técnica
+- Work-life balance em TI
+
+**Negócios**:
+- ROI de projetos de software
+- Como vender soluções técnicas
+- Entendendo o cliente de TI
+- Inovação em empresas tradicionais
+
+---
+
+**📞 Dúvidas?** Entre em contato: contato@smn.com.br

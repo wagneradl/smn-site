@@ -27,7 +27,7 @@ const navigation = [
     links: [
       { title: 'Sobre nós', href: '/about' },
       { title: 'Soluções', href: '/solucoes' },
-      { title: 'Carreiras', href: '/careers' },
+      { title: 'Oportunidades', href: '/careers' },
       { title: 'Fale Conosco', href: '/contact' },
     ],
   },

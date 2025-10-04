@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-10T19:49:29.187Z",
+  "timestamp": "2025-10-04T22:25:07.631Z",
   "nodes": [
     {
       "id": "mdx-shiki",
@@ -20,7 +20,7 @@
         "Solucoes",
         "Cases",
         "Work",
-        "Carreiras",
+        "Oportunidades",
         "Careers",
         "Blog",
         "GCPro"
@@ -73,7 +73,7 @@
     {
       "id": "lcp",
       "present": true,
-      "startTime": 140
+      "startTime": 128
     }
   ],
   "edges": [],

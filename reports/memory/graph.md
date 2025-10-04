@@ -1,4 +1,4 @@
-# Memory Graph — 9/10/2025, 4:49:29 PM
+# Memory Graph — 10/4/2025, 7:25:07 PM
 
 **Invariantes:** ✅ 26 • ❌ 0
 
@@ -33,14 +33,14 @@
 
 ## Nós
 - **mdx-shiki**: `{"id":"mdx-shiki","order":["remark","rehype"],"hasTheme":true,"hasRehype":true}`
-- **nav**: `{"id":"nav","hasSixItems":true,"items":["Sobre nós","About","Soluções","Solucoes","Cases","Work","Carreiras","Careers","Blog","GCPro"],"gcproExternal":true,"gcproPrefetch":true,"hasDataNavLink":true,"hasVisibleFocus":true,"sourceFile":"src/components/RootLayout.tsx"}`
+- **nav**: `{"id":"nav","hasSixItems":true,"items":["Sobre nós","About","Soluções","Solucoes","Cases","Work","Oportunidades","Careers","Blog","GCPro"],"gcproExternal":true,"gcproPrefetch":true,"hasDataNavLink":true,"hasVisibleFocus":true,"sourceFile":"src/components/RootLayout.tsx"}`
 - **logos**: `{"id":"logos","buckets":{"wide":5,"standard":2,"emblem":1},"brandsOrder":["autovox","casa-do-construtor","cea","leve-asset","liceu-francano","magalu","momentum","teixeira-fortes"]}`
 - **images**: `{"id":"images","offenders":0}`
 - **seo-meta**: `{"id":"seo-meta","total":4}`
 - **seo-ld**: `{"id":"seo-ld","total":4}`
 - **http-endpoints**: `{"id":"http-endpoints","total":2}`
 - **perf**: `{"id":"perf","ok":true,"firstLoad":102}`
-- **lcp**: `{"id":"lcp","present":true,"startTime":140}`
+- **lcp**: `{"id":"lcp","present":true,"startTime":128}`
 
 
 ## Evidências

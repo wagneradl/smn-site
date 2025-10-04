@@ -1,0 +1,122 @@
+📄 TEMPLATE: CASE DE SUCESSO SMN
+
+ℹ️ INSTRUÇÕES DE PREENCHIMENTO
+
+IMPORTANTE: Este template usa Markdown. Mantenha a formatação com ## para títulos e ### para subtítulos.
+
+COMO USAR:
+1. Substitua TODOS os textos em [COLCHETES] pelo seu conteúdo
+2. Mantenha a estrutura de títulos (##, ###)
+3. Use negrito e itálico quando apropriado
+4. Salve como: case-[nome-cliente]-[seu-nome].txt
+5. Envie via Microsoft Forms
+
+📋 METADADOS DO CASE
+
+Nome do Cliente: [Ex: Magazine Luiza]
+Título do Case: [Ex: Sistemas de trocas, devoluções e cancelamentos]
+Período do Projeto: [Ex: 2023-08 ou 2023]
+Serviços Prestados: [Ex: Sistemas de Pós-venda, Front-end, Back Office]
+
+Descrição Resumida (máximo 300 caracteres):
+[Uma frase que resume o projeto e aparecerá nas listagens do site]
+
+Resumo Executivo (2-3 parágrafos):
+[Parágrafo 1: Contexto do projeto e principais entregas]
+[Parágrafo 2: Desafios técnicos e soluções implementadas]
+
+📝 CONTEÚDO COMPLETO DO CASE
+
+## Visão Geral
+
+[Descreva o contexto do cliente, o mercado em que atua, e por que precisava desta solução. Explique qual era a situação inicial e o que motivou o projeto.]
+
+[Mencione os principais desafios técnicos e de negócio que precisavam ser resolvidos.]
+
+[Descreva brevemente a abordagem da SMN e como a solução entrega valor para o cliente.]
+
+## O Desafio
+
+[Detalhe os problemas específicos que o cliente enfrentava:]
+
+- Problema técnico 1: [Descreva]
+- Problema de negócio 1: [Descreva]
+- Limitação existente 1: [Descreva]
+
+[Explique por que esses problemas eram críticos e quais eram os impactos no negócio.]
+
+## Nossa Solução
+
+[Descreva a solução desenvolvida pela SMN:]
+
+Arquitetura Implementada:
+[Explique a arquitetura técnica escolhida e por quê]
+
+Principais Funcionalidades:
+- [Funcionalidade 1]: [Descrição]
+- [Funcionalidade 2]: [Descrição]
+- [Funcionalidade 3]: [Descrição]
+
+Integrações Realizadas:
+- [Sistema 1]: [Como foi integrado]
+- [Sistema 2]: [Como foi integrado]
+
+## Tecnologias Utilizadas
+
+Frontend:
+- [Ex: React, TypeScript, Tailwind CSS]
+
+Backend:
+- [Ex: Node.js, PostgreSQL, Redis]
+
+Infraestrutura:
+- [Ex: AWS, Docker, Kubernetes]
+
+Ferramentas de Desenvolvimento:
+- [Ex: Git, Jest, Cypress]
+
+## Resultados Alcançados
+
+Métricas de Performance:
+- [Ex: 70% de redução no tempo de atendimento]
+- [Ex: 95% de disponibilidade do sistema]
+- [Ex: 50% de aumento na eficiência operacional]
+
+Benefícios de Negócio:
+- [Benefício 1]: [Impacto quantificado]
+- [Benefício 2]: [Impacto quantificado]
+- [Benefício 3]: [Impacto quantificado]
+
+Feedback do Cliente:
+[Inclua métricas de satisfação, comentários positivos, renovações de contrato, etc.]
+
+💬 DEPOIMENTO DO CLIENTE
+
+Nome do Cliente: [Ex: Ana Paula Silva]
+Cargo: [Ex: Gerente de TI da Magalu]
+
+Depoimento (máximo 500 caracteres):
+"[Depoimento do cliente sobre o projeto, destacando os principais benefícios e a qualidade da parceria com a SMN]"
+
+📸 RECURSOS VISUAIS
+
+Imagens Necessárias:
+- [ ] Hero image do projeto (mínimo 1920x1080)
+- [ ] Screenshots da solução
+- [ ] Logo do cliente (SVG ou PNG transparente)
+- [ ] Foto do cliente para depoimento (se disponível)
+
+Observações sobre imagens:
+[Descreva que tipo de imagens você pode fornecer ou se precisa de ajuda para obtê-las]
+
+✅ CHECKLIST FINAL
+
+Antes de enviar, verifique:
+- [ ] Todos os campos [COLCHETES] foram preenchidos
+- [ ] Métricas são reais e verificáveis
+- [ ] Depoimento foi aprovado pelo cliente
+- [ ] Conteúdo tem entre 1000-1500 palavras
+- [ ] Tecnologias mencionadas estão corretas
+- [ ] Nome do arquivo: case-[cliente]-[seu-nome].txt
+
+📞 Dúvidas? Entre em contato: contato@smn.com.br

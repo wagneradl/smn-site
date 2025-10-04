@@ -151,7 +151,7 @@ function Locations() {
             >
               {[
                 {
-                  name: 'Sede — João Pessoa (PB)',
+                  name: 'João Pessoa (PB)',
                   address: 'Rua Dep. Geraldo Mariz, 291A — Tambauzinho',
                 },
                 {
@@ -164,7 +164,7 @@ function Locations() {
                 },
                 {
                   name: 'Passos (MG)',
-                  address: 'R. Noruega, 274 — Novo Mundo',
+                  address: 'Av. Arouca, 660, Sala 911 — Centro',
                 },
               ].map((location) => (
                 <li key={location.name}>
@@ -258,7 +258,7 @@ export default async function About() {
         <StatList>
           <StatListItem value="2003" label="Fundação da SMN" />
           <StatListItem value="20+" label="Anos de experiência em TI" />
-          <StatListItem value="200+" label="Profissionais formados" />
+          <StatListItem value="500+" label="Profissionais formados" />
           <StatListItem value="3×" label="Premiada como Great Place to Work" />
           <StatListItem value="GCPro" label="ERP em evolução contínua" />
         </StatList>

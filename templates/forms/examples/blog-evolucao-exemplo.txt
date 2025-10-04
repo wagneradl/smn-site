@@ -1,0 +1,180 @@
+📰 EXEMPLO PREENCHIDO: ARTIGO SOBRE EVOLUÇÃO DO SOFTWARE
+
+ℹ️ ESTE É UM EXEMPLO
+
+Este arquivo mostra como preencher o template de artigo. Use como referência para criar seu próprio artigo.
+
+📋 METADADOS DO ARTIGO
+
+Título do Artigo: A Evolução do Desenvolvimento de Software Sob Medida: Do COBOL aos Microserviços
+Data Desejada: 2024-02-28
+Categoria: Tecnologia e Desenvolvimento
+
+Descrição/Resumo (máximo 300 caracteres):
+Uma jornada através das décadas mostrando como o desenvolvimento de software personalizado evoluiu, desde os mainframes até a era da nuvem e inteligência artificial.
+
+Tags/Palavras-chave (separadas por vírgula):
+desenvolvimento, software, COBOL, microserviços, evolução, tecnologia, história
+
+Precisa de revisão técnica?: Não
+
+📝 CONTEÚDO COMPLETO DO ARTIGO
+
+## Introdução
+
+Você já parou para pensar em como chegamos até aqui? Dos mainframes gigantescos dos anos 90 aos microserviços executando na nuvem hoje, o desenvolvimento de software sob medida passou por uma transformação radical.
+
+Minha jornada no desenvolvimento começou quando o COBOL ainda reinava supremo e cada linha de código era preciosa. Hoje, desenvolvemos sistemas distribuídos que escalam automaticamente e se comunicam através de APIs elegantes.
+
+Neste artigo, vou compartilhar essa evolução através das lentes de quem viveu cada era, mostrando não apenas as tecnologias que mudaram, mas os princípios que permaneceram constantes.
+
+## O Início: Era dos Mainframes (Anos 90)
+
+Nos anos 90, desenvolver software sob medida significava trabalhar com linguagens que hoje parecem arcaicas, mas que eram a base de sistemas críticos.
+
+O desenvolvimento era linear e extremamente rigoroso. Cada erro era caro e difícil de corrigir. Não existiam ferramentas automatizadas - tudo era manual, desde os testes até o deploy.
+
+### Características da Era Mainframe
+
+- Desenvolvimento sequencial: Processo em cascata, sem volta
+- Recursos limitados: Cada byte de memória importava
+- Documentação extensa: Tudo precisava ser documentado minuciosamente
+- Testes manuais: Não existiam frameworks de teste
+
+"O desenvolvimento era como esculpir em mármore - cada erro era caro e difícil de corrigir."
+
+## A Revolução Client-Server (Anos 2000)
+
+Com a popularização dos PCs, vimos o surgimento da arquitetura client-server. Esta foi uma revolução que democratizou o acesso à tecnologia.
+
+Linguagens como Delphi, Visual Basic e Java trouxeram desenvolvimento visual e acessibilidade. O famoso "Write once, run anywhere" do Java prometia resolver os problemas de portabilidade.
+
+### Tabela: Linguagens que Marcaram a Era
+
+| Linguagem | Característica Principal | Impacto |
+|-----------|-------------------------|---------|
+| Delphi | Desenvolvimento visual rápido | RAD (Rapid Application Development) |
+| Visual Basic | Acessibilidade para iniciantes | Democratizou a programação |
+| Java | "Write once, run anywhere" | Portabilidade entre plataformas |
+
+## A Era da Web e Open Source (2000-2010)
+
+O boom da internet trouxe uma transformação radical. PHP, ASP e depois frameworks como Ruby on Rails revolucionaram como pensamos sobre desenvolvimento web.
+
+O movimento open source mudou completamente o jogo:
+- Bibliotecas gratuitas aceleraram o desenvolvimento
+- Frameworks robustos reduziram tempo de desenvolvimento 
+- Comunidade global compartilhou conhecimento em escala
+
+### Frameworks que Marcaram Época
+
+1. Ruby on Rails: Introduziu "Convention over Configuration"
+2. Django: Framework Python para desenvolvimento rápido
+3. Spring: Framework Java para aplicações enterprise
+4. jQuery: Simplificou manipulação do DOM
+
+## Cloud Computing e DevOps (2010-2020)
+
+A computação em nuvem eliminou muitas limitações físicas. Agora podíamos:
+- Escalar sistemas rapidamente
+- Experimentar com novas tecnologias sem grandes investimentos
+- Reduzir drasticamente custos de infraestrutura
+
+### A Revolução DevOps
+
+O DevOps transformou como entregamos software:
+
+Principais mudanças:
+- Integração contínua: Código integrado automaticamente
+- Deploy automatizado: Entrega sem interrupção
+- Monitoramento em tempo real: Visibilidade completa dos sistemas
+
+## Microserviços e Arquiteturas Modernas (2020+)
+
+Hoje, desenvolvemos sistemas como um conjunto de serviços independentes que se comunicam através de APIs.
+
+### Tecnologias que Definem a Era Atual
+
+- Docker: Containerização de aplicações
+- Kubernetes: Orquestração de containers
+- Serverless: Execução sem gerenciamento de servidor
+- APIs REST/GraphQL: Comunicação entre serviços
+
+### A Integração da IA
+
+A inteligência artificial está se integrando naturalmente aos sistemas:
+- Processamento de linguagem natural
+- Reconhecimento de padrões
+- Automação inteligente
+- Análise preditiva
+
+## Experiência Prática na SMN
+
+Na SMN, vivenciamos todas essas transformações. Começamos com sistemas monolíticos em linguagens tradicionais e hoje desenvolvemos arquiteturas distribuídas na nuvem.
+
+Lições aprendidas:
+- A tecnologia muda, mas entender o negócio do cliente permanece fundamental
+- Escolher a ferramenta certa para cada situação é mais importante que seguir modismos
+- Pessoas e processos são tão importantes quanto tecnologia
+
+"Desenvolvemos software há mais de 20 anos e a constante é a mudança. O que nos mantém relevantes é a capacidade de adaptação."
+
+## Tendências e Futuro
+
+Estamos entrando em uma era onde:
+- IA generativa está começando a escrever código
+- Realidade aumentada pode revolucionar interfaces
+- Computação quântica promete resolver problemas impossíveis hoje
+
+### Tendências Emergentes
+
+1. Low-Code/No-Code: Desenvolvimento sem programação tradicional
+2. Edge Computing: Processamento próximo ao usuário
+3. Blockchain: Sistemas descentralizados e confiáveis
+4. IoT: Internet das coisas em escala massiva
+
+## Dicas Práticas
+
+Para desenvolvedores que querem se manter relevantes:
+
+1. Mantenha-se curioso: Tecnologia muda rapidamente, mas princípios fundamentais permanecem
+2. Foque no problema: Entenda profundamente o negócio antes de escolher a tecnologia
+3. Pratique continuamente: Experimente com novas ferramentas em projetos pessoais
+4. Construa networks: A comunidade de desenvolvedores é seu maior recurso
+
+## Conclusão
+
+O desenvolvimento de software sob medida sempre será sobre pessoas resolvendo problemas de pessoas, independentemente da tecnologia utilizada.
+
+A evolução tecnológica nos deu ferramentas mais poderosas, mas o sucesso ainda depende de:
+- Compreensão profunda do negócio
+- Escolha adequada de tecnologias 
+- Execução disciplinada dos projetos
+- Foco no valor entregue ao cliente
+
+A jornada continua, e estou animado para ver o que as próximas décadas nos reservam! 🚀
+
+📸 RECURSOS VISUAIS
+
+Imagens que posso fornecer:
+- [x] Timeline visual da evolução das tecnologias
+- [x] Diagrama comparativo de arquiteturas (monolito vs microserviços)
+- [x] Screenshots de interfaces antigas vs modernas
+- [x] Gráfico de adoção de tecnologias ao longo do tempo
+
+Observações sobre imagens:
+Tenho acesso a arquivos históricos da SMN com screenshots de sistemas antigos que desenvolvemos, além de poder criar diagramas explicativos.
+
+✅ CHECKLIST FINAL
+
+Antes de enviar, verifique:
+- [x] Todos os campos [COLCHETES] foram preenchidos
+- [x] Artigo tem entre 1500-2000 palavras
+- [x] Conteúdo é original e relevante
+- [x] Linguagem é técnica mas acessível
+- [x] Inclui exemplos práticos
+- [x] Menciona experiência da SMN quando possível
+- [x] Formatação Markdown está correta
+- [x] Nome do arquivo: artigo-evolucao-software-ricardo.txt
+
+📞 Dúvidas? Entre em contato: contato@smn.com.br

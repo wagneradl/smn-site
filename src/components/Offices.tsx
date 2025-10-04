@@ -32,7 +32,7 @@ export function Offices({
   return (
     <ul role="list" {...props}>
       <li>
-        <Office name="Sede — João Pessoa (PB)" invert={invert}>
+        <Office name="João Pessoa (PB)" invert={invert}>
           Rua Dep. Geraldo Mariz, 291A
           <br />
           Tambauzinho, João Pessoa – PB
@@ -54,9 +54,9 @@ export function Offices({
       </li>
       <li>
         <Office name="Passos (MG)" invert={invert}>
-          R. Noruega, 274
+          Av. Arouca, 660, Sala 911
           <br />
-          Novo Mundo, Passos – MG
+          Centro, Passos – MG
         </Office>
       </li>
     </ul>
