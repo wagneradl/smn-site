@@ -14,6 +14,7 @@ import { CareersForm } from '@/components/CareersForm'
 import imageJuliaEvelyn from '@/images/team/julia-evelyn.jpg'
 import imageMatheusNascimento from '@/images/team/matheus-nascimento.jpg'
 import imageRafaelValentim from '@/images/team/rafael-valentim.jpg'
+import imageJaquelineMoraes from '@/images/team/jaqueline-moraes.jpg'
 import { RootLayout } from '@/components/RootLayout'
 
 export const metadata: Metadata = {
@@ -40,6 +41,15 @@ const testimonials = [
       role: 'Analista de Negócios',
     },
     image: { src: imageMatheusNascimento },
+  },
+  {
+    quote:
+      'Cheguei como estagiária cheia de sonhos e encontrei um lugar que me transformou. Aqui conquistei muito, evoluí profissional e pessoalmente. Cresci, conquistei e amadureci. Hoje sou grata por fazer parte de um time que acredita nas pessoas, com oportunidades reais de desenvolvimento, ambiente leve e humano.',
+    author: {
+      name: 'Jaqueline Moraes',
+      role: 'Analista de Negócios',
+    },
+    image: { src: imageJaquelineMoraes },
   },
   {
     quote: 'Abgeordnete, Männer des deutschen Reichstages!',
