@@ -53,83 +53,93 @@ const customTheme = {
       scope: ['comment', 'punctuation.definition.comment'],
       settings: {
         foreground: '#6a9955',
-        fontStyle: 'italic'
-      }
+        fontStyle: 'italic',
+      },
     },
     {
       scope: ['keyword', 'storage.type', 'storage.modifier'],
       settings: {
         foreground: '#569cd6',
-        fontStyle: 'bold'
-      }
+        fontStyle: 'bold',
+      },
     },
     {
       scope: ['string', 'string.quoted'],
       settings: {
-        foreground: '#ce9178'
-      }
+        foreground: '#ce9178',
+      },
     },
     {
       scope: ['constant.numeric', 'constant.language'],
       settings: {
-        foreground: '#b5cea8'
-      }
+        foreground: '#b5cea8',
+      },
     },
     {
       scope: ['variable', 'variable.other'],
       settings: {
-        foreground: '#9cdcfe'
-      }
+        foreground: '#9cdcfe',
+      },
     },
     {
       scope: ['entity.name.function', 'support.function'],
       settings: {
-        foreground: '#dcdcaa'
-      }
+        foreground: '#dcdcaa',
+      },
     },
     {
       scope: ['entity.name.type', 'support.type'],
       settings: {
-        foreground: '#4ec9b0'
-      }
+        foreground: '#4ec9b0',
+      },
     },
     {
       scope: ['entity.name.class', 'entity.name.interface'],
       settings: {
         foreground: '#4ec9b0',
-        fontStyle: 'bold'
-      }
+        fontStyle: 'bold',
+      },
     },
     {
       scope: ['punctuation', 'meta.brace'],
       settings: {
-        foreground: '#d4d4d4'
-      }
+        foreground: '#d4d4d4',
+      },
     },
     {
       scope: ['meta.tag', 'entity.name.tag'],
       settings: {
-        foreground: '#569cd6'
-      }
+        foreground: '#569cd6',
+      },
     },
     {
       scope: ['string.quoted.double.yaml', 'string.quoted.single.yaml'],
       settings: {
-        foreground: '#ce9178'
-      }
+        foreground: '#ce9178',
+      },
     },
     {
       scope: ['entity.name.tag.yaml'],
       settings: {
-        foreground: '#569cd6'
-      }
-    }
-  ]
+        foreground: '#569cd6',
+      },
+    },
+  ],
 }
 
 const highlighter = await createHighlighter({
   themes: [customTheme],
-  langs: ['javascript', 'typescript', 'tsx', 'jsx', 'bash', 'json', 'md', 'yaml', 'dockerfile'],
+  langs: [
+    'javascript',
+    'typescript',
+    'tsx',
+    'jsx',
+    'bash',
+    'json',
+    'md',
+    'yaml',
+    'dockerfile',
+  ],
 })
 
 // Plugin MDX com ordem explícita (remark → rehype) + MDX Layout automático
@@ -151,13 +161,19 @@ const withMDX = createMDX({
         ],
       ],
     ],
-    rehypePlugins: [[rehypeShiki, { 
-      highlighter,
-      themes: {
-        light: customTheme,
-        dark: customTheme
-      }
-    }], rehypeUnwrapImages],
+    rehypePlugins: [
+      [
+        rehypeShiki,
+        {
+          highlighter,
+          themes: {
+            light: customTheme,
+            dark: customTheme,
+          },
+        },
+      ],
+      rehypeUnwrapImages,
+    ],
   },
 })
 

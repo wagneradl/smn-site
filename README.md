@@ -18,16 +18,19 @@ Este repositório contém o site institucional da SMN Tecnologia, uma empresa de
 ## 🛠️ Stack Tecnológica
 
 ### Core Framework
+
 - **Next.js 15** - Framework React enterprise com App Router
 - **React 19** - Server Components e RSC para performance
 - **TypeScript 5.8** - Tipagem estática e desenvolvimento seguro
 
 ### Styling & Design
+
 - **Tailwind CSS v4** - Framework CSS com tokens SMN integrados
 - **Framer Motion** - Animações fluidas e transições
 - **SMN Design System** - 39 variáveis CSS customizadas
 
 ### Content & Code
+
 - **MDX** - Markdown com componentes React para conteúdo dinâmico
 - **Shiki** - Syntax highlighting profissional com tema css-variables
 - **Puppeteer** - Testes automatizados e validação de qualidade
@@ -42,11 +45,11 @@ Os tokens do SMN Design System estão integrados via `@theme` no arquivo `src/st
   --color-primary-600: #4f6e7c;
   --color-primary-700: #2e304f;
   --color-primary-800: #26314c;
-  
+
   /* Cores de Destaque SMN */
   --color-accent-500: #40df80;
   --color-accent-600: #38c271;
-  
+
   /* Tokens Inteligentes */
   --smn-brand-primary: var(--color-primary-600);
   --smn-brand-accent: var(--color-accent-500);
@@ -54,6 +57,7 @@ Os tokens do SMN Design System estão integrados via `@theme` no arquivo `src/st
 ```
 
 ### Características do Design System
+
 - **Cores primárias**: Azul SMN (#2e304f, #26314c, #1f2537)
 - **Cor de destaque**: Verde SMN (#40df80, #38c271)
 - **Tipografia**: Mona Sans com variáveis CSS customizadas
@@ -102,6 +106,7 @@ reports/                  # Relatórios de qualidade
 ## 🚦 Scripts de Governança
 
 ### Desenvolvimento
+
 ```bash
 npm run dev              # Servidor de desenvolvimento
 npm run build            # Build de produção
@@ -112,6 +117,7 @@ npm run format           # Formatação automática com Prettier
 ```
 
 ### Diagnósticos e Qualidade
+
 ```bash
 npm run diag:all         # Diagnósticos completos
 npm run diag:extended    # Diagnósticos estendidos
@@ -121,6 +127,7 @@ npm run qa:all           # QA completo
 ```
 
 ### Performance e Monitoramento
+
 ```bash
 npm run perf:budget      # Verificação de orçamentos
 npm run perf:lcp         # Detecção de LCP
@@ -131,6 +138,7 @@ npm run mem:all          # Memory-Graph completo
 ```
 
 ### Correções Automáticas
+
 ```bash
 npm run fix:all          # Correções automáticas
 npm run analyze          # Análise de bundle
@@ -147,7 +155,8 @@ Qualquer desenvolvedor da SMN pode contribuir com artigos, cases e conteúdo seg
 **Localização**: `src/app/blog/[slug]/page.mdx`
 
 **Template obrigatório**:
-```mdx
+
+````mdx
 import imageAuthor from '@/images/team/nome-do-autor.jpg'
 
 export const article = {
@@ -175,20 +184,22 @@ Conteúdo do artigo aqui...
 ```typescript
 // Exemplo de código TypeScript
 interface Example {
-  name: string;
-  value: number;
+  name: string
+  value: number
 }
 
 const example: Example = {
-  name: "SMN",
-  value: 100
-};
+  name: 'SMN',
+  value: 100,
+}
 ```
+````
 
 ## Conclusão
 
 Finalização do artigo...
-```
+
+````
 
 **Regras para artigos**:
 - ✅ Use **MDX** (Markdown + JSX)
@@ -249,9 +260,10 @@ Métricas e resultados alcançados...
 ## Depoimento
 
 <Testimonial {...caseStudy.testimonial} />
-```
+````
 
 **Regras para cases**:
+
 - ✅ Use **fotos reais** do projeto
 - ✅ Inclua **depoimento** do cliente
 - ✅ Liste **tecnologias** utilizadas
@@ -263,6 +275,7 @@ Métricas e resultados alcançados...
 **Localização**: `src/app/careers/page.tsx`
 
 **Template para adicionar citação**:
+
 ```tsx
 {
   name: 'Nome do Colaborador',
@@ -273,6 +286,7 @@ Métricas e resultados alcançados...
 ```
 
 **Regras para citações**:
+
 - ✅ **Foto profissional** em `src/images/team/`
 - ✅ **Citação autêntica** sobre a experiência na SMN
 - ✅ **Cargo atual** e área de atuação
@@ -285,17 +299,19 @@ Métricas e resultados alcançados...
 O projeto usa **Shiki** para syntax highlighting profissional. Suporta:
 
 **Linguagens disponíveis**:
+
 - `typescript`, `tsx`, `javascript`, `jsx`
 - `bash`, `shell`, `json`, `yaml`
 - `dockerfile`, `sql`, `markdown`
 
 **Exemplo de uso**:
+
 ````mdx
 ```typescript
 interface User {
-  id: string;
-  name: string;
-  email: string;
+  id: string
+  name: string
+  email: string
 }
 
 const createUser = async (userData: Omit<User, 'id'>): Promise<User> => {
@@ -303,10 +319,10 @@ const createUser = async (userData: Omit<User, 'id'>): Promise<User> => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData),
-  });
-  
-  return response.json();
-};
+  })
+
+  return response.json()
+}
 ```
 ````
 
@@ -315,17 +331,18 @@ const createUser = async (userData: Omit<User, 'id'>): Promise<User> => {
 #### Imagens e Mídia
 
 **Regras para imagens**:
+
 - ✅ **Formato**: JPG para fotos, SVG para logos
 - ✅ **Otimização**: Use `next/image` sempre
 - ✅ **Alt text**: Descritivo e acessível
 - ✅ **Sizes**: Especifique `sizes` para responsividade
 
 **Exemplo correto**:
+
 ```tsx
 import Image from 'next/image'
 import imageHero from '@/images/hero.jpg'
-
-<Image
+;<Image
   src={imageHero}
   alt="Equipe SMN trabalhando em projeto de software"
   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -334,6 +351,7 @@ import imageHero from '@/images/hero.jpg'
 ```
 
 **Localização de imagens**:
+
 - `src/images/team/` - Fotos da equipe
 - `src/images/clients/` - Logos dos clientes
 - `src/images/` - Imagens gerais
@@ -341,15 +359,17 @@ import imageHero from '@/images/hero.jpg'
 #### Vídeos e Links Externos
 
 **Vídeos**: Não há suporte nativo para vídeos. Use:
+
 - **YouTube**: Embed via iframe (responsivo)
 - **Vimeo**: Embed via iframe (responsivo)
 - **Arquivos**: Host externo + link
 
 **Links externos**:
+
 ```tsx
-<a 
-  href="https://exemplo.com" 
-  target="_blank" 
+<a
+  href="https://exemplo.com"
+  target="_blank"
   rel="noopener noreferrer"
   className="text-accent-500 hover:text-accent-600"
 >
@@ -360,6 +380,7 @@ import imageHero from '@/images/hero.jpg'
 ### 🔧 Processo de Contribuição
 
 #### 1. Preparação
+
 ```bash
 # Clone o repositório
 git clone <url-do-repositorio>
@@ -373,6 +394,7 @@ git checkout -b feature/novo-artigo
 ```
 
 #### 2. Desenvolvimento
+
 ```bash
 # Inicie o servidor de desenvolvimento
 npm run dev
@@ -382,6 +404,7 @@ npm run dev
 ```
 
 #### 3. Validação
+
 ```bash
 # Execute a rede de segurança
 npm run diag:all && npm run qa:seo && npm run perf:budget
@@ -391,6 +414,7 @@ npm run mem:assert
 ```
 
 #### 4. Commit e PR
+
 ```bash
 # Commit com mensagem descritiva
 git add .
@@ -403,7 +427,9 @@ git push origin feature/novo-artigo
 ### 🛡️ Guardrails e Qualidade
 
 #### Invariantes Automáticos
+
 O sistema valida automaticamente:
+
 - ✅ **Navegação**: Exatamente 6 itens
 - ✅ **SEO**: Metadata em todas as páginas
 - ✅ **Performance**: JS < 170kB
@@ -412,7 +438,9 @@ O sistema valida automaticamente:
 - ✅ **Shiki**: Tema css-variables
 
 #### Definição de Done
+
 Antes de qualquer merge:
+
 - ✅ Build compila sem erros
 - ✅ Todos os diagnósticos passam
 - ✅ SEO e endpoints funcionam
@@ -423,12 +451,14 @@ Antes de qualquer merge:
 ## 🚀 Deploy e Produção
 
 ### Ambientes Suportados
+
 - **Vercel** (recomendado para Next.js)
 - **Netlify** (com suporte a SSR)
 - **AWS Amplify** (para infraestrutura AWS)
 - **Qualquer provedor** que suporte Next.js
 
 ### Variáveis de Ambiente
+
 ```bash
 # .env.local
 NEXT_PUBLIC_SITE_URL=https://smn.com.br
@@ -436,6 +466,7 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
 ### Performance em Produção
+
 - **LCP**: 184ms (excelente)
 - **First Load JS**: 102kB (40% de margem)
 - **Rotas Estáticas**: 22 páginas
@@ -472,12 +503,14 @@ open http://localhost:3000
 ## 🧪 Testes e Validação
 
 ### Rede de Segurança Completa
+
 ```bash
 # Execute antes de qualquer commit
 npm run diag:all && npm run qa:seo && npm run perf:budget && npm run mem:all
 ```
 
 ### Relatórios de Qualidade
+
 - **Performance**: `reports/perf/lcp.json`
 - **SEO**: `reports/seo/meta-scan.json`
 - **Memory-Graph**: `reports/memory/graph.json`

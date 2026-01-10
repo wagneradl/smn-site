@@ -65,9 +65,15 @@ function inv(domain, desc, ok, evidence, hint = '') {
   const s = j?.shikiConfig
   const order = s?.pipelineOrder?.order || []
   const hasTheme = s?.hasCssVariablesTheme && s?.themeName === 'css-variables'
-  const hasCustomTheme = s?.hasCreateHighlighter && /customTheme|smn-dark/.test(readText(R.nextConfig) || '')
+  const hasCustomTheme =
+    s?.hasCreateHighlighter &&
+    /customTheme|smn-dark/.test(readText(R.nextConfig) || '')
   const hasRehype = s?.hasShikijsRehype === true
-  addNode('mdx-shiki', { order, hasTheme: hasTheme || hasCustomTheme, hasRehype })
+  addNode('mdx-shiki', {
+    order,
+    hasTheme: hasTheme || hasCustomTheme,
+    hasRehype,
+  })
   inv(
     'MDX',
     'remark→rehype',

@@ -7,14 +7,16 @@ Markdown é uma linguagem de formatação simples que permite criar textos estru
 ## 📝 Sintaxe Básica
 
 ### Títulos
+
 ```
 # Título Principal (H1)
-## Título de Seção (H2)  
+## Título de Seção (H2)
 ### Subtítulo (H3)
 #### Título Menor (H4)
 ```
 
 ### Formatação de Texto
+
 ```
 **texto em negrito**
 *texto em itálico*
@@ -23,6 +25,7 @@ Markdown é uma linguagem de formatação simples que permite criar textos estru
 ```
 
 ### Listas
+
 ```
 - Item 1
 - Item 2
@@ -35,18 +38,21 @@ Markdown é uma linguagem de formatação simples que permite criar textos estru
 ```
 
 ### Links e Imagens
+
 ```
 [texto do link](https://exemplo.com)
 ![descrição da imagem](caminho/para/imagem.jpg)
 ```
 
 ### Citações
+
 ```
 > Esta é uma citação
 > Pode ter múltiplas linhas
 ```
 
 ### Código
+
 ````
 ```javascript
 function exemplo() {
@@ -56,6 +62,7 @@ function exemplo() {
 ````
 
 ### Tabelas
+
 ```
 | Coluna 1 | Coluna 2 | Coluna 3 |
 |----------|----------|----------|

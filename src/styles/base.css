@@ -451,11 +451,15 @@ a[data-nav-link='gcpro'].navtile:hover {
     padding: 1.5rem;
     margin: 1.5rem 0;
     overflow-x: auto;
-    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-family:
+      'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro',
+      monospace;
     font-size: 0.875rem;
     line-height: 1.6;
     border: 1px solid #2a2a2a;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   /* Scrollbar customizada para blocos de código - apenas horizontal */
@@ -474,7 +478,7 @@ a[data-nav-link='gcpro'].navtile:hover {
   .shiki::-webkit-scrollbar-thumb:hover {
     background: #5a5a5a;
   }
-  
+
   /* Oculta scrollbar vertical completamente */
   .shiki {
     scrollbar-width: none; /* Firefox */
@@ -483,7 +487,7 @@ a[data-nav-link='gcpro'].navtile:hover {
   .shiki::-webkit-scrollbar {
     display: none; /* Chrome/Safari/Webkit */
   }
-  
+
   /* Mantém scrollbar horizontal apenas quando necessário */
   .shiki {
     overflow-x: auto;

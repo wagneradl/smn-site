@@ -30,52 +30,52 @@ Assim como monitoro meu pace durante a corrida, implemento métricas de performa
 
 ```typescript
 interface PerformanceMetrics {
-  responseTime: number;
-  memoryUsage: number;
-  errorRate: number;
-  throughput: number;
+  responseTime: number
+  memoryUsage: number
+  errorRate: number
+  throughput: number
 }
 
 class PerformanceMonitor {
-  private metrics: PerformanceMetrics[] = [];
-  
+  private metrics: PerformanceMetrics[] = []
+
   async trackRequest<T>(
     operation: () => Promise<T>,
-    operationName: string
+    operationName: string,
   ): Promise<T> {
-    const startTime = performance.now();
-    const startMemory = process.memoryUsage();
-    
+    const startTime = performance.now()
+    const startMemory = process.memoryUsage()
+
     try {
-      const result = await operation();
-      const endTime = performance.now();
-      const endMemory = process.memoryUsage();
-      
+      const result = await operation()
+      const endTime = performance.now()
+      const endMemory = process.memoryUsage()
+
       this.recordMetrics({
         responseTime: endTime - startTime,
         memoryUsage: endMemory.heapUsed - startMemory.heapUsed,
         errorRate: 0,
-        throughput: 1
-      });
-      
-      return result;
+        throughput: 1,
+      })
+
+      return result
     } catch (error) {
       this.recordMetrics({
         responseTime: performance.now() - startTime,
         memoryUsage: 0,
         errorRate: 1,
-        throughput: 0
-      });
-      throw error;
+        throughput: 0,
+      })
+      throw error
     }
   }
-  
+
   private recordMetrics(metrics: PerformanceMetrics): void {
-    this.metrics.push(metrics);
-    
+    this.metrics.push(metrics)
+
     // Alert se performance degradar
     if (metrics.responseTime > 1000) {
-      console.warn(`Performance alert: ${metrics.responseTime}ms response time`);
+      console.warn(`Performance alert: ${metrics.responseTime}ms response time`)
     }
   }
 }
@@ -138,32 +138,32 @@ spec:
         app: smn-app
     spec:
       containers:
-      - name: app
-        image: smn/app:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: NODE_ENV
-          value: "production"
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /ready
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
+        - name: app
+          image: smn/app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: 'production'
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '250m'
+            limits:
+              memory: '512Mi'
+              cpu: '500m'
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
 ---
 apiVersion: v1
 kind: Service
@@ -173,8 +173,8 @@ spec:
   selector:
     app: smn-app
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 3000
   type: LoadBalancer
 ```
 

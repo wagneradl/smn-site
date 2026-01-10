@@ -20,12 +20,14 @@ templates/
 ## 🎯 Como Usar
 
 ### Para Cases de Sucesso
+
 1. Baixe `case-template.docx` ou `case-template.txt`
 2. Preencha seguindo as instruções
 3. Salve com nome: `case-[nome-cliente]-[seu-nome].docx`
 4. Envie via Microsoft Forms
 
 ### Para Artigos do Blog
+
 1. Baixe `blog-template.docx` ou `blog-template.txt`
 2. Preencha seguindo as instruções
 3. Salve com nome: `artigo-[titulo-resumido]-[seu-nome].docx`
