@@ -8,9 +8,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
-import { Testimonial } from '@/components/Testimonial'
 import { ClientsGrid } from '@/components/ClientsGrid'
-import { CLIENTS_CONFIG } from '@/lib/clients'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -187,15 +185,6 @@ export default async function Home() {
       <Clients />
 
       <CaseStudies caseStudies={caseStudies} />
-
-      <Testimonial
-        className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Magalu', logo: CLIENTS_CONFIG.Magalu.logoDark }}
-      >
-        A SMN é responsável por nossos sistemas de trocas, devoluções e
-        cancelamentos, além do módulo de montagens. Front-end e back office
-        entregues com solidez e suporte constante.
-      </Testimonial>
 
       <Services />
 
