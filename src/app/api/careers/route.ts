@@ -1,8 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 // Configurações de e-mail
 const TO_EMAIL = 'oportunidades@smn.com.br'
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB em bytes
+
+function arrayBufferToBase64(buffer: ArrayBuffer) {
+  // Edge runtime (Cloudflare) doesn't provide Node's Buffer, so we use btoa.
+  const bytes = new Uint8Array(buffer)
+  let binary = ''
+  const chunkSize = 0x8000
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize))
+  }
+  return btoa(binary)
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -68,7 +81,7 @@ export async function POST(request: NextRequest) {
 
     // Converter arquivo para base64
     const fileBuffer = await curriculo.arrayBuffer()
-    const fileBase64 = Buffer.from(fileBuffer).toString('base64')
+    const fileBase64 = arrayBufferToBase64(fileBuffer)
 
     // Headers para o e-mail
     const boundary = `boundary_${Date.now()}`

@@ -8,12 +8,14 @@
 ## 📋 Resumo Executivo
 
 O site possui **2 formulários principais**:
+
 1. **Formulário de Contato** (`/contact`) - Para solicitações de projeto
 2. **Formulário de Carreiras** (`/careers`) - Para candidaturas
 
 **Status Geral:** ⚠️ **Frontend completo, Backend parcialmente implementado**
 
 Ambos os formulários têm:
+
 - ✅ Interface visual completa e funcional
 - ✅ Validação de campos no frontend
 - ✅ Estrutura de API routes criada
@@ -25,6 +27,7 @@ Ambos os formulários têm:
 ## 1. Formulário de Contato (`/contact`)
 
 ### 📍 Localização
+
 - **Frontend:** `src/app/contact/page.tsx`
 - **Backend:** `src/app/api/contact/route.ts`
 - **Hook:** `src/hooks/useContactForm.ts` (existe mas não está sendo usado)
@@ -34,6 +37,7 @@ Ambos os formulários têm:
 ### ✅ O que está implementado
 
 #### Frontend
+
 - ✅ Componentes de input (TextInput, SelectInput, TextAreaInput, RadioInput)
 - ✅ Formulário completo com todos os campos:
   - Nome (obrigatório)
@@ -48,6 +52,7 @@ Ambos os formulários têm:
 - ✅ Mensagem LGPD
 
 #### Backend
+
 - ✅ API route criada (`/api/contact`)
 - ✅ Validação de campos obrigatórios
 - ✅ Rate limiting básico (3 tentativas por minuto por IP)
@@ -55,6 +60,7 @@ Ambos os formulários têm:
 - ✅ Headers MIME configurados
 
 #### Validação
+
 - ✅ Schema Zod completo (`contactFormSchema`)
 - ✅ Validação de formato de e-mail
 - ✅ Validação de tamanho de campos
@@ -64,15 +70,19 @@ Ambos os formulários têm:
 ### ❌ O que falta configurar
 
 #### 1. Integração do Hook no Frontend
+
 **Problema:** O formulário não está usando o hook `useContactForm` que já existe.
 
 **Arquivo:** `src/app/contact/page.tsx` (linha 132-204)
 
 **Status atual:**
+
 ```tsx
 function ContactForm() {
   return (
-    <form> {/* ❌ Sem onSubmit, sem estado, sem validação */}
+    <form>
+      {' '}
+      {/* ❌ Sem onSubmit, sem estado, sem validação */}
       {/* Campos do formulário */}
       <Button type="submit">Enviar</Button>
     </form>
@@ -81,6 +91,7 @@ function ContactForm() {
 ```
 
 **O que fazer:**
+
 - Integrar o hook `useContactForm` no componente
 - Adicionar `onSubmit={handleSubmit}` ao form
 - Conectar campos ao estado do hook via `updateField`
@@ -89,6 +100,7 @@ function ContactForm() {
 - Adicionar estado de loading
 
 **Exemplo de implementação:**
+
 ```tsx
 function ContactForm() {
   const {
@@ -117,11 +129,13 @@ function ContactForm() {
 ```
 
 #### 2. Implementação do Envio de E-mail
+
 **Problema:** O backend simula o envio de e-mail, mas não envia de verdade.
 
 **Arquivo:** `src/app/api/contact/route.ts` (linhas 97-106)
 
 **Status atual:**
+
 ```typescript
 // TODO: Implementar envio real de e-mail
 // Por exemplo, usando Resend, SendGrid, ou outro serviço
@@ -134,6 +148,7 @@ const mailResult = true
 **O que fazer:**
 
 **Opção 1: Resend (Recomendado)**
+
 ```bash
 npm install resend
 ```
@@ -153,16 +168,19 @@ const { data, error } = await resend.emails.send({
 ```
 
 **Opção 2: SendGrid**
+
 ```bash
 npm install @sendgrid/mail
 ```
 
 **Opção 3: Nodemailer (SMTP direto)**
+
 ```bash
 npm install nodemailer
 ```
 
 **Variáveis de ambiente necessárias:**
+
 ```env
 # Para Resend
 RESEND_API_KEY=re_xxxxxxxxxxxxx
@@ -178,9 +196,11 @@ SMTP_PASS=sua-senha
 ```
 
 #### 3. Configuração de Variáveis de Ambiente
+
 **Arquivo:** `.env.local` (criar se não existir)
 
 **Variáveis necessárias:**
+
 ```env
 # E-mails de destino
 NEXT_PUBLIC_PROJECTS_EMAIL=projetos@smn.com.br
@@ -203,12 +223,14 @@ SMTP_PASS=sua-senha
 ## 2. Formulário de Carreiras (`/careers`)
 
 ### 📍 Localização
+
 - **Frontend:** `src/components/CareersForm.tsx`
 - **Backend:** `src/app/api/careers/route.ts`
 
 ### ✅ O que está implementado
 
 #### Frontend
+
 - ✅ Componentes de input completos
 - ✅ Formulário completo com todos os campos:
   - Nome Completo (obrigatório)
@@ -224,6 +246,7 @@ SMTP_PASS=sua-senha
 - ✅ Reset do formulário após sucesso
 
 #### Backend
+
 - ✅ API route criada (`/api/careers`)
 - ✅ Validação de campos obrigatórios
 - ✅ Validação de arquivo (tipo e tamanho)
@@ -234,11 +257,13 @@ SMTP_PASS=sua-senha
 ### ❌ O que falta configurar
 
 #### 1. Implementação do Envio de E-mail com Anexo
+
 **Problema:** O backend simula o envio de e-mail, mas não envia de verdade.
 
 **Arquivo:** `src/app/api/careers/route.ts` (linhas 97-106)
 
 **Status atual:**
+
 ```typescript
 // TODO: Implementar envio real de e-mail
 // Por exemplo, usando Resend, SendGrid, ou outro serviço
@@ -251,6 +276,7 @@ const mailResult = true
 **O que fazer:**
 
 **Opção 1: Resend (Recomendado)**
+
 ```typescript
 import { Resend } from 'resend'
 
@@ -276,6 +302,7 @@ const { data, error } = await resend.emails.send({
 ```
 
 **Opção 2: SendGrid**
+
 ```typescript
 import sgMail from '@sendgrid/mail'
 
@@ -302,15 +329,18 @@ await sgMail.send({
 ```
 
 #### 2. Validação no Backend
+
 **Problema:** Validação básica existe, mas poderia ser mais robusta.
 
 **Melhorias sugeridas:**
+
 - Validar formato de e-mail com regex ou biblioteca
 - Validar formato de telefone brasileiro
 - Validar extensão do arquivo (não apenas MIME type)
 - Sanitizar nomes de arquivo para evitar path traversal
 
 #### 3. Rate Limiting
+
 **Problema:** Não há rate limiting no formulário de carreiras.
 
 **Sugestão:** Implementar rate limiting similar ao formulário de contato.
@@ -383,7 +413,9 @@ await sgMail.send({
 ## 4. Recomendações de Serviços de E-mail
 
 ### Resend (Recomendado) ⭐
+
 **Vantagens:**
+
 - ✅ Fácil integração com Next.js
 - ✅ API simples e moderna
 - ✅ Suporte a anexos
@@ -391,30 +423,37 @@ await sgMail.send({
 - ✅ Boa documentação
 
 **Desvantagens:**
+
 - ⚠️ Serviço relativamente novo
 
 **Custo:** Gratuito até 3.000 e-mails/mês, depois $20/mês
 
 ### SendGrid
+
 **Vantagens:**
+
 - ✅ Serviço consolidado e confiável
 - ✅ Boa documentação
 - ✅ Suporte a anexos
 - ✅ Analytics integrado
 
 **Desvantagens:**
+
 - ⚠️ API mais verbosa
 - ⚠️ Plano gratuito limitado (100 e-mails/dia)
 
 **Custo:** Gratuito até 100 e-mails/dia, depois $19.95/mês
 
 ### Nodemailer (SMTP)
+
 **Vantagens:**
+
 - ✅ Controle total
 - ✅ Gratuito (usa seu próprio servidor SMTP)
 - ✅ Flexível
 
 **Desvantagens:**
+
 - ⚠️ Requer servidor SMTP próprio
 - ⚠️ Mais complexo de configurar
 - ⚠️ Pode ter problemas de deliverability
@@ -467,16 +506,19 @@ src/
 ## 7. Notas Técnicas
 
 ### Rate Limiting
+
 - O formulário de contato tem rate limiting básico (3 tentativas/minuto)
 - Implementado em memória (não persiste entre reinicializações)
 - Para produção, considerar Redis ou serviço externo
 
 ### Validação
+
 - Frontend: Validação HTML5 + Zod (via hook, quando integrado)
 - Backend: Validação básica de campos obrigatórios
 - Recomendação: Usar o schema Zod também no backend
 
 ### Segurança
+
 - ✅ Rate limiting (contato)
 - ✅ Validação de tipo de arquivo (carreiras)
 - ✅ Validação de tamanho de arquivo (carreiras)
@@ -485,6 +527,7 @@ src/
 - ⚠️ Falta: Captcha para prevenir spam
 
 ### LGPD
+
 - ✅ Mensagem LGPD presente no formulário de contato
 - ✅ Mensagem de privacidade no formulário de carreiras
 - ⚠️ Falta: Política de privacidade linkada

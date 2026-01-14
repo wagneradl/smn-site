@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 // Configurações de e-mail
 const TO_EMAIL = 'projetos@smn.com.br'
 
