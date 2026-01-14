@@ -11,9 +11,14 @@ import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { CareersForm } from '@/components/CareersForm'
-import imageJuliaEvelyn from '@/images/team/julia-evelyn.jpg'
-import imageMatheusNascimento from '@/images/team/matheus-nascimento.jpg'
-import imageRafaelValentim from '@/images/team/rafael-valentim.jpg'
+import imageJaquelineMara from '@/images/team/jaqueline-mara.jpg'
+import imageRafaelMorais from '@/images/team/rafael-morais.jpg'
+import imageMoisesWarlen from '@/images/team/moises-warlen.jpg'
+import imageMariaAndressa from '@/images/team/maria-andressa.jpg'
+import imageGustavoSousa from '@/images/team/gustavo-sousa.jpg'
+import imageDouglasMata from '@/images/team/douglas-mata.jpg'
+import imageMariaLuiza from '@/images/team/maria-luiza.jpg'
+import imageYagoSilva from '@/images/team/yago-silva.jpg'
 import { RootLayout } from '@/components/RootLayout'
 
 export const metadata: Metadata = {
@@ -25,29 +30,75 @@ export const metadata: Metadata = {
 const testimonials = [
   {
     quote:
-      'Na SMN entrei no mundo do desenvolvimento do zero e sigo evoluindo constantemente.',
+      'Entrei como estagiária e encontrei um lugar que me transformou. Evoluí, amadureci e sou grata por crescer em um time leve e humano.',
     author: {
-      name: 'Julia Evelyn',
+      name: 'Jaqueline Mara',
       role: 'Analista de Negócios',
     },
-    image: { src: imageJuliaEvelyn },
+    image: { src: imageJaquelineMara },
   },
   {
     quote:
-      'Há mais de 3 anos, o ambiente incrível da SMN me desafia e ajuda a crescer.',
+      'A SMN acreditou em mim e investiu na minha formação. Evoluímos juntos, com foco em parceria e no sucesso dos nossos clientes.',
     author: {
-      name: 'Matheus Nascimento',
-      role: 'Analista de Negócios',
+      name: 'Rafael Morais',
+      role: 'Desenvolvedor',
     },
-    image: { src: imageMatheusNascimento },
+    image: { src: imageRafaelMorais },
   },
   {
-    quote: 'Abgeordnete, Männer des deutschen Reichstages!',
+    quote:
+      'Na SMN, desafio é combustível. Aprendizados viram conquistas e constroem, comigo, uma trajetória de vitórias.',
     author: {
-      name: 'Rafael Valentim',
+      name: 'Moises Warlen',
+      role: 'DevOps',
+    },
+    image: { src: imageMoisesWarlen },
+  },
+  {
+    quote:
+      'Entrei há 7 anos pelo programa de formação e me encontrei na análise de negócios, onde sigo me aperfeiçoando até hoje.',
+    author: {
+      name: 'Maria Andressa',
       role: 'Analista de Negócios',
     },
-    image: { src: imageRafaelValentim },
+    image: { src: imageMariaAndressa },
+  },
+  {
+    quote:
+      'Na SMN, cresço como desenvolvedor em um time que acolhe, ensina e evolui junto. Aqui, cada desafio é uma oportunidade real de aprendizado.',
+    author: {
+      name: 'Gustavo Sousa',
+      role: 'Desenvolvedor',
+    },
+    image: { src: imageGustavoSousa },
+  },
+  {
+    quote:
+      'Entrei como estagiário em 2017 e hoje sou gerente de projetos. Orgulho de crescer em uma empresa que valoriza e desenvolve pessoas.',
+    author: {
+      name: 'Douglas da Mata',
+      role: 'Gerente de Projetos',
+    },
+    image: { src: imageDouglasMata },
+  },
+  {
+    quote:
+      'Na SMN, tenho diariamente oportunidades reais de aprendizado e crescimento profissional e pessoal.',
+    author: {
+      name: 'Maria Luiza',
+      role: 'Analista de Negócios',
+    },
+    image: { src: imageMariaLuiza },
+  },
+  {
+    quote:
+      'Um ótimo lugar para crescer, com incentivos ao aprendizado e profissionais dispostos a ensinar e compartilhar conhecimento.',
+    author: {
+      name: 'Yago Silva',
+      role: 'Desenvolvedor',
+    },
+    image: { src: imageYagoSilva },
   },
 ]
 
@@ -124,37 +175,47 @@ function Testimonials() {
             <article>
               <Border className="pt-12">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-12 sm:gap-12 lg:gap-16">
-                  <div className="sm:col-span-8 lg:col-span-9">
+                  <div className="order-2 sm:order-1 sm:col-span-4 lg:col-span-3">
+                    <div className="flex flex-col gap-6 text-left">
+                      <div className="max-w-[200px] overflow-hidden rounded-2xl bg-neutral-100 sm:max-w-none">
+                        <Image
+                          alt={`${testimonial.author.name}, ${testimonial.author.role}`}
+                          {...testimonial.image}
+                          className="aspect-square w-full object-cover grayscale transition duration-300 hover:grayscale-0"
+                          priority={index === 0}
+                          quality={90}
+                          sizes="(min-width: 1024px) 17.625rem, (min-width: 768px) 16rem, 200px"
+                        />
+                      </div>
+                      <figcaption className="text-base text-neutral-950">
+                        <span className="font-semibold">
+                          {testimonial.author.name}
+                        </span>
+                        <span className="text-neutral-600">
+                          , {testimonial.author.role}
+                        </span>
+                      </figcaption>
+                    </div>
+                  </div>
+                  <div className="order-1 sm:order-2 sm:col-span-8 lg:col-span-9">
                     <blockquote className="text-xl/7 text-neutral-600 sm:text-2xl/8">
                       <p className="relative">
-                        <span className="absolute -top-2 -left-4 text-4xl text-neutral-300">
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute -top-2 -left-4 text-4xl text-neutral-300"
+                        >
                           &ldquo;
                         </span>
                         {testimonial.quote}
-                        <span className="text-4xl text-neutral-300">
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none relative ml-1 inline text-4xl text-neutral-300"
+                          style={{ lineHeight: 0 }}
+                        >
                           &rdquo;
                         </span>
                       </p>
                     </blockquote>
-                    <figcaption className="mt-6 text-base text-neutral-950">
-                      <span className="font-semibold">
-                        {testimonial.author.name}
-                      </span>
-                      <span className="text-neutral-600">
-                        , {testimonial.author.role}
-                      </span>
-                    </figcaption>
-                  </div>
-                  <div className="sm:col-span-4 lg:col-span-3">
-                    <div className="overflow-hidden rounded-2xl bg-neutral-100">
-                      <Image
-                        alt=""
-                        {...testimonial.image}
-                        className="aspect-square w-full object-cover grayscale transition duration-300 hover:grayscale-0"
-                        priority={index === 0}
-                        sizes="(min-width: 1024px) 17.625rem, (min-width: 768px) 16rem, (min-width: 640px) 40vw, 3rem"
-                      />
-                    </div>
                   </div>
                 </div>
               </Border>

@@ -12,7 +12,7 @@ import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { StylizedImage } from '@/components/StylizedImage'
 import imageRicardoCorrales from '@/images/team/ricardo-corrales.jpg'
-import imageMarcosMandara from '@/images/team/marcos-mandara.jpg'
+import imageMarcusMandara from '@/images/team/marcus-mandara.jpg'
 import imageRafaelPessoni from '@/images/team/rafael-pessoni.jpg'
 import imageMeeting from '@/images/meeting.jpg'
 import imageFachada from '@/images/fachada.jpg'
@@ -67,17 +67,17 @@ const team = [
       {
         name: 'Ricardo Corrales',
         role: 'Fundador — 40+ anos em tecnologia',
-        image: { src: imageRicardoCorrales },
+        image: { src: imageRicardoCorrales, alt: 'Ricardo Corrales' },
       },
       {
         name: 'Marcus Mandara',
         role: 'Sócio — Análise de requisitos e entrega',
-        image: { src: imageMarcosMandara },
+        image: { src: imageMarcusMandara, alt: 'Marcus Mandara' },
       },
       {
         name: 'Rafael Pessoni',
         role: 'CTO — Chief Technology Officer',
-        image: { src: imageRafaelPessoni },
+        image: { src: imageRafaelPessoni, alt: 'Rafael Pessoni' },
       },
     ],
   },
@@ -107,8 +107,11 @@ function Team() {
                         <div className="group relative overflow-hidden rounded-3xl bg-neutral-100">
                           <Image
                             sizes="100vw"
-                            alt=""
                             {...person.image}
+                            alt={
+                              person.image.alt ||
+                              `${person.name}, ${person.role}`
+                            }
                             className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
                           />
                           <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black to-black/0 to-40% p-6">
